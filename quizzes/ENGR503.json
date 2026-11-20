@@ -1,0 +1,371 @@
+{
+  "title": "ENGR 503 B - Physics One",
+  "quizzes": [
+    {
+      "n": 1,
+      "title": "Kinematics",
+      "questions": [
+        {
+          "q": "What is kinematics, as this lecture uses the word? [1.1]",
+          "options": [
+            "The description of motion, without yet asking what causes the motion to change",
+            "The study of forces that cause motion",
+            "The study of energy and work only",
+            "The study of rotating rigid bodies only"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 1.1: The opening paragraph defines kinematics in exactly those terms. B is wrong: That is dynamics, which begins in lecture two. C is wrong: Work and energy are lecture five. D is wrong: Rotation is lecture six; kinematics begins with particles and points."
+        },
+        {
+          "q": "What is average velocity on a time interval? [1.3]",
+          "options": [
+            "Speed added to acceleration",
+            "Displacement divided by the time elapsed",
+            "The slope of an acceleration-time graph",
+            "The second derivative of position"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 1.3: The lecture defines average velocity as that quotient, and illustrates it with a car covering 100 metres. A is wrong: Velocity is not a sum of speed and acceleration. C is wrong: The slope of a v–t graph is acceleration; average velocity is Δx/Δt. D is wrong: That is acceleration, once the derivatives exist."
+        },
+        {
+          "q": "When acceleration is constant, which of these is a kinematic relation given in the lecture? [1.5]",
+          "options": [
+            "v = v₀ t, and x = ½ a only",
+            "x = v t² for every motion",
+            "a = x t, always",
+            "v = v₀ + at, and x = x₀ + v₀ t + ½ at²"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 1.5: The lecture says these constant-acceleration equations are worth knowing by heart. A is wrong: Those formulas are incomplete or wrong. B is wrong: That is not a general law, even for constant a. C is wrong: Acceleration is the derivative of velocity, not the product x t."
+        },
+        {
+          "q": "In projectile motion near the Earth, neglecting air resistance, what is the acceleration? [1.9]",
+          "options": [
+            "Zero horizontally, and minus g vertically, if upward is chosen as positive",
+            "g horizontally and zero vertically",
+            "A centripetal acceleration toward the thrower",
+            "Zero in both directions after the ball leaves the hand"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 1.9: The lecture states that standard two-dimensional application in those terms. B is wrong: Those components are reversed. C is wrong: A projectile is not in uniform circular motion about the thrower. D is wrong: Vertical acceleration remains g throughout the flight, in this model."
+        },
+        {
+          "q": "How are relative velocities combined in the lecture's boat example? [1.11]",
+          "options": [
+            "By multiplying the two speeds",
+            "By vector addition: the velocity of the boat relative to the ground is the velocity relative to the water plus the velocity of the water relative to the ground",
+            "By subtracting the masses of boat and river",
+            "By dividing displacement by g"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 1.11: The lecture introduces relative velocity as v_AC = v_AB + v_BC, with a boat in a current as the example. A is wrong: Velocities add as vectors, they are not multiplied. C is wrong: Mass does not enter kinematics. D is wrong: That is not relative velocity."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Newton's Laws and Forces",
+      "questions": [
+        {
+          "q": "What does Newton's first law say? [2.2]",
+          "options": [
+            "The net force equals mass times acceleration",
+            "Forces come in pairs",
+            "A body remains at rest, or in motion at constant velocity in a straight line, unless a net force acts on it",
+            "Every body eventually stops, even if no force acts"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 2.2: The lecture states the first law in those terms, and ties it to inertial frames. A is wrong: That is the second law. B is wrong: That is the third law. D is wrong: The first law denies that everyday intuition."
+        },
+        {
+          "q": "What is Newton's second law, in the form the lecture calls its quantitative core? [2.3]",
+          "options": [
+            "Force is equal to mass times velocity",
+            "Every force has an equal and opposite partner on the same body",
+            "Acceleration is independent of force",
+            "The net force on a body equals the rate of change of its momentum, which is ma when the mass is constant"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 2.3: The lecture gives F_net = dp/dt, and ma for constant mass. A is wrong: That would be a confusion with momentum. B is wrong: Third-law partners act on different bodies. C is wrong: The second law ties them together."
+        },
+        {
+          "q": "What does Newton's third law say about two bodies A and B? [2.4]",
+          "options": [
+            "If A exerts a force on B, then B exerts an equal and opposite force on A",
+            "The two forces in a pair both act on body A",
+            "The net force on a system is always twice the larger force",
+            "A force can exist on A with no partner"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 2.4: The lecture states the third law as that pairing. B is wrong: The partners act on different bodies; that is a later caution of the lecture. C is wrong: Internal third-law pairs cancel in the net force on the system. D is wrong: The third law says forces come in pairs."
+        },
+        {
+          "q": "What is the working method called a force diagram in this lecture? [2.5]",
+          "options": [
+            "Draw every force in the universe on one figure",
+            "Draw only the motion arrows, never the forces",
+            "Replace every force by a potential energy at the outset",
+            "Isolate one body or system, draw every force that acts on it, and do not draw forces that the body exerts on something else"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 2.5: The lecture gives that method, and then writes ΣF_x = ma_x and ΣF_y = ma_y. A is wrong: The method isolates one chosen system. B is wrong: The diagram is a diagram of forces. C is wrong: Potential energy belongs to lecture five."
+        },
+        {
+          "q": "How does the lecture distinguish static friction from kinetic friction? [2.9]",
+          "options": [
+            "Both are always equal to μ N, whether or not the surfaces slip",
+            "Static friction acts to prevent slipping and can vary up to a maximum μ_s N; kinetic friction is μ_k N, directed against the slipping",
+            "Static friction exists only in liquids",
+            "Kinetic friction speeds a sliding body up"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 2.9: The lecture states those two laws of friction. A is wrong: Static friction is only at most μ_s N, and is not a fixed value. C is wrong: The lecture treats contact between solid surfaces. D is wrong: It is directed against the slipping, so it opposes the sliding."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Circular Motion, Drag, and Constraints",
+      "questions": [
+        {
+          "q": "For motion at speed v on a circle of radius r, what acceleration is always present? [3.2]",
+          "options": [
+            "An acceleration toward the centre of magnitude v²/r",
+            "An outward acceleration of magnitude mv",
+            "A tangential acceleration of v²/r, even when speed is constant",
+            "Zero acceleration, because speed is constant"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 3.2: The lecture states that inward, or centripetal, acceleration as a kinematic fact. B is wrong: There is no outward acceleration of that form; the acceleration of circular motion is inward. C is wrong: v²/r is radial; a tangential component appears only when the speed is changing. D is wrong: Constant speed on a curve still means a changing velocity, hence an acceleration."
+        },
+        {
+          "q": "On a frictionless banked curve of angle θ, what provides the inward force? [3.5]",
+          "options": [
+            "A separate new force called the centripetal force, added by hand",
+            "Friction alone, because the surface is frictionless",
+            "The horizontal component of the normal force, N sin θ, equals m v²/R when the banking is matched to the speed",
+            "The car's weight, directed horizontally"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.5: The lecture describes banking in those terms. A is wrong: The lecture later warns that centripetal acceleration is not a third force to add. B is wrong: The surface is described as frictionless; banking, not friction, supplies the inward component. D is wrong: Weight is vertical."
+        },
+        {
+          "q": "What supplies the inward force for a satellite in a circular orbit, in this lecture? [3.6]",
+          "options": [
+            "A normal force from the vacuum",
+            "Air resistance",
+            "Gravity, with GMm/r² = m v²/r",
+            "The satellite's engines, which must fire continuously"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.6: The lecture says orbital motion is the same law, with gravity as the inward force. A is wrong: There is no surface to supply a normal force in orbit. B is wrong: Drag is treated later, and is not what holds a satellite in a circular orbit. D is wrong: A circular orbit is modelled here as gravity providing the required inward acceleration."
+        },
+        {
+          "q": "A body falling under gravity with quadratic air drag does not keep accelerating at g. What happens instead? [3.10]",
+          "options": [
+            "Drag eventually reverses gravity, and the body rises",
+            "The mass decreases until the acceleration is zero",
+            "As speed grows, drag grows, and the body approaches a terminal speed at which mg = c v_t²",
+            "The acceleration remains g, but the distance formula changes"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.10: The lecture gives that account and that expression for v_t. A is wrong: Terminal speed is a downward balance, not a reversal. B is wrong: Mass is not the mechanism in this paragraph. D is wrong: The point of the paragraph is that acceleration does not remain g."
+        },
+        {
+          "q": "On a rainy day, the coefficient of friction on a level curve is reduced. What is the danger the lecture's question is pointing to? [3.15]",
+          "options": [
+            "The car's mass suddenly changes",
+            "Gravity is weaker in the rain",
+            "The radius of the curve increases when it rains",
+            "The maximum available inward friction μ N may fall below the m v²/R required for the curve, so the car can leave the path"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 3.15: The lecture's question is about a level road whose friction is reduced by rain. A is wrong: Mass is not what the rain changes. B is wrong: Gravity is unchanged. C is wrong: The radius is a property of the road, not of the weather."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Momentum, Impulse, and Collisions",
+      "questions": [
+        {
+          "q": "How is Newton's second law written at the opening of this lecture, and why is that form more general? [4.1]",
+          "options": [
+            "F_net equals m v, which is already general",
+            "F_net equals the rate of change of momentum, which remains valid when mass is not constant",
+            "F_net equals zero in every collision",
+            "F_net equals the integral of position"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 4.1: The lecture opens by writing the second law as F_net = dp/dt, more general than ma. A is wrong: m v is momentum, not the second law. C is wrong: That is true only when the net external force on the system is zero, and even then it is a statement about total momentum, not about each force. D is wrong: That is not the second law."
+        },
+        {
+          "q": "What is impulse, for a force acting over a time interval? [4.2]",
+          "options": [
+            "The force divided by the time",
+            "The change in kinetic energy only",
+            "The mass times the displacement",
+            "The accumulated effect of the force, equal to the integral of F dt, and equal to the change in momentum"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 4.2: The lecture defines impulse as that accumulated effect, J = Δp. A is wrong: Impulse is force accumulated over time, not divided by it. B is wrong: That is related to work, not to the definition of impulse. C is wrong: That is not impulse."
+        },
+        {
+          "q": "When is the total momentum of a system conserved? [4.3]",
+          "options": [
+            "Only when the collision is elastic",
+            "Only when the bodies have equal mass",
+            "Whenever two bodies touch, even if a large external force acts on the system",
+            "When the net external force on the system as a whole is zero (or the external impulse is negligible)"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 4.3: The lecture states conservation of momentum under that condition. A is wrong: Conservation of momentum does not require elasticity; that is a condition on kinetic energy. B is wrong: Unequal masses can still conserve total momentum. C is wrong: A large external impulse changes the system's total momentum."
+        },
+        {
+          "q": "How does the lecture classify collisions? [4.7]",
+          "options": [
+            "By what happens to the kinetic energy: elastic if K is conserved, inelastic if it is not, and perfectly inelastic if the bodies stick",
+            "By whether momentum is conserved",
+            "By whether the bodies have the same mass",
+            "By whether a force diagram can be drawn"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 4.7: The lecture says collisions are classified by kinetic energy, not by whether they 'look bouncey'. B is wrong: Momentum is conserved in all of these, when external impulse is negligible. C is wrong: Mass ratio is not the classification. D is wrong: A force diagram is always available; it is not the classification."
+        },
+        {
+          "q": "A 1000 kg car moving at 20 m/s to the right collides and sticks with a car at rest. What principle gives the speed just after the collision? [4.9]",
+          "options": [
+            "Conservation of kinetic energy alone, which would leave the first car at 20 m/s",
+            "Conservation of momentum, with a common final speed v' = (m₁ v₁ + m₂ v₂) / (m₁ + m₂)",
+            "Setting both final velocities equal to zero",
+            "Newton's first law, applied to each car as if no force acted during the collision"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 4.9: The lecture works a perfectly inelastic example in that way. A is wrong: Kinetic energy is not conserved in a sticking collision. C is wrong: The combined wreck continues to the right. D is wrong: The cars exert large forces on each other during the collision; the first law does not apply to each separately in that interval."
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Work and Energy",
+      "questions": [
+        {
+          "q": "If a constant force F acts on a body that undergoes a displacement Δr, what is the work? [5.2]",
+          "options": [
+            "W = F / Δr",
+            "W = m v, in every case",
+            "W = F · Δr = F Δr cos θ, where θ is the angle between the force and the displacement",
+            "W = F t, even if the body does not move"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.2: The lecture defines work in that way, and warns that work is not a synonym for effort. A is wrong: Work is a product, not a quotient, of force and displacement. B is wrong: That is a confusion with momentum. D is wrong: If there is no displacement, this definition gives zero work."
+        },
+        {
+          "q": "What does the work-energy theorem say? [5.4]",
+          "options": [
+            "The net work is always zero",
+            "The net work done on a body equals the change in its kinetic energy, ½ m v_f² − ½ m v_i²",
+            "Work equals the change in potential energy in every case, even for friction",
+            "Kinetic energy is conserved in every process"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 5.4: The lecture states the theorem in those terms. A is wrong: That is true only in special cases. C is wrong: That holds for conservative forces, treated later; the work-energy theorem is about kinetic energy. D is wrong: The theorem says kinetic energy changes by the net work."
+        },
+        {
+          "q": "What is special about a conservative force, in this lecture? [5.6]",
+          "options": [
+            "It always does positive work",
+            "It depends on velocity, like drag",
+            "It cannot be included in a mechanical energy",
+            "The work it does between two points does not depend on the path, so a potential energy can be defined"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 5.6: The lecture introduces conservative forces by path-independence and the existence of a potential. A is wrong: Gravity can do negative work on a rising body. B is wrong: Drag is later named as non-conservative. C is wrong: The point of a conservative force is that it can."
+        },
+        {
+          "q": "When is the mechanical energy of a system conserved? [5.8]",
+          "options": [
+            "Always, even when kinetic friction does work",
+            "Only when the body is at rest",
+            "When it is the sum of kinetic and potential energy, and the work of non-conservative forces is zero",
+            "Never, because energy cannot be defined in mechanics"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.8: The lecture defines mechanical energy as K + U and conserves it when W_nc = 0. A is wrong: Friction is non-conservative, and mechanical energy then changes. B is wrong: A moving pendulum can still conserve mechanical energy. D is wrong: The lecture is devoted to defining and using it."
+        },
+        {
+          "q": "A roller-coaster car starts from rest at height h and rolls without friction. What is its speed at the bottom, if height is measured from there? [5.9]",
+          "options": [
+            "v = gh, with no square root",
+            "v = 0, because energy is conserved",
+            "v = sqrt(2gh), from mgh = ½ m v²",
+            "The speed depends on the car's mass in this frictionless case"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.9: The lecture gives that standard example and that conversion of potential energy into kinetic energy. A is wrong: The algebra of ½ m v² = mgh gives v = sqrt(2gh). B is wrong: Conservation moves the energy from U to K; it does not stop the car. D is wrong: Mass cancels; the lecture later asks why the speed is independent of mass and of path when W_nc = 0."
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Rotation, Torque, and Angular Momentum",
+      "questions": [
+        {
+          "q": "What are the kinematic relations between linear and angular quantities, for a point at perpendicular distance r from a fixed axis? [6.2]",
+          "options": [
+            "s = rθ, v = rω, and a_t = rα, with θ in radians",
+            "s = θ/r, and v = ω/r",
+            "s = r + θ, as a sum of unlike quantities",
+            "Angular and linear quantities cannot be related"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 6.2: The lecture gives those analogues, with the radian as the natural unit. B is wrong: The radius multiplies the angular quantity, it does not divide it, in these relations. C is wrong: The relation is a product, and θ must be in radians. D is wrong: The lecture's point is that they can."
+        },
+        {
+          "q": "What is the moment of inertia I of a rigid body about a given axis? [6.4]",
+          "options": [
+            "The sum (or integral) of m_i r_i², which depends on the axis as well as on the body",
+            "The body's mass alone, independent of how the mass is distributed",
+            "The angular velocity ω",
+            "The torque divided by the mass"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 6.4: The lecture defines I that way, and stresses the dependence on the axis. B is wrong: Two bodies of equal mass can have very different I. C is wrong: I is the inertial coefficient, not the motion. D is wrong: Torque equals Iα, so I is τ/α, not τ/m."
+        },
+        {
+          "q": "What is Newton's second law for rotation about a fixed axis, or about the centre of mass? [6.6]",
+          "options": [
+            "The net torque equals I ω",
+            "The net torque equals I α",
+            "The net torque equals m v²/r",
+            "The net torque is always zero for a rolling body"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 6.6: The lecture states τ_net = Iα as the rotational analogue of F_net = ma. A is wrong: ω is angular velocity, not angular acceleration. C is wrong: That is a force or mass-times-acceleration relation for circular translation, not the rotation law itself. D is wrong: A body can roll with a nonzero α when a net torque acts."
+        },
+        {
+          "q": "A skater with arms extended has I = 4 kg m² and a given angular speed, then pulls her arms in so that I falls to 2 kg m². If external torques are negligible, what happens? [6.8]",
+          "options": [
+            "Her angular speed is halved, to keep Iω² constant",
+            "Her angular speed is unchanged, because mass is unchanged",
+            "She stops spinning, because pulling the arms in is a dissipative process",
+            "Iω is conserved, so her angular speed doubles"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 6.8: The lecture works that conservation example in those numbers. A is wrong: The conserved quantity is Iω, not Iω². B is wrong: Mass is unchanged, but I is not, and ω changes. C is wrong: The lecture's point is that she spins faster."
+        },
+        {
+          "q": "For a wheel of radius R that rolls without slipping, what relates v_cm and ω? [6.9]",
+          "options": [
+            "v_cm = ω / R",
+            "v_cm = ω R",
+            "v_cm = 0 whenever the wheel rotates",
+            "ω is always zero when the wheel translates"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 6.9: The lecture states rolling without slipping as the meeting of translation and rotation, with that constraint. A is wrong: The radius multiplies ω, it does not divide it. C is wrong: The centre of mass moves; it is the contact point that is instantaneously at rest. D is wrong: That would be sliding without rotation, not rolling without slipping."
+        }
+      ]
+    }
+  ]
+}
