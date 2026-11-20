@@ -58,5 +58,35 @@
       2988.504,
       "Lecture 6 – Exploring the Infinite"
     ]
+  ],
+  "1248739221": [
+    [
+      0.0,
+      "Lecture 0 – Course Overview"
+    ],
+    [
+      331.968,
+      "Lecture 1 – Vectors and Matrices"
+    ],
+    [
+      834.936,
+      "Lecture 2 – Lines, Planes, and Curves in Space"
+    ],
+    [
+      1355.496,
+      "Lecture 3 – Partial Derivatives"
+    ],
+    [
+      1859.976,
+      "Lecture 4 – Gradient and Lagrange Multipliers"
+    ],
+    [
+      2376.888,
+      "Lecture 5 – Line Integrals and Green's Theorem"
+    ],
+    [
+      2887.368,
+      "Lecture 6 – Flux, Divergence, and Stokes"
+    ]
   ]
 }
