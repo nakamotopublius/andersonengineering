@@ -1,0 +1,371 @@
+{
+  "title": "ENGR 509 B - Probability and Statistics",
+  "quizzes": [
+    {
+      "n": 1,
+      "title": "Probability and Counting",
+      "questions": [
+        {
+          "q": "What is P(A or B) for any two events? [1.4]",
+          "options": [
+            "P(A) + P(B) − P(A and B)",
+            "P(A) + P(B)",
+            "P(A) × P(B)",
+            "1 − P(A)"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 1.4: The overlap would otherwise be counted twice.\nB is wrong: That holds only for disjoint events.\nC is wrong: That is P(A and B) for independent events.\nD is wrong: That is the complement of A."
+        },
+        {
+          "q": "With two fair dice, what is the probability of a total of seven? [1.5]",
+          "options": [
+            "1/12",
+            "1/6",
+            "7/36",
+            "1/36"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 1.5: Six of the thirty-six equally likely outcomes total seven.\nA is wrong: There are six ways, not three.\nC is wrong: Only six outcomes total seven.\nD is wrong: That is one specific ordered outcome."
+        },
+        {
+          "q": "How many five-card hands can be dealt from a 52-card deck? [1.8]",
+          "options": [
+            "52⁵",
+            "52 × 51 × 50 × 49 × 48",
+            "260",
+            "2,598,960, which is 52 choose 5"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 1.8: Order does not matter in a hand.\nA is wrong: That counts ordered draws with replacement.\nB is wrong: That counts ordered hands.\nC is wrong: That is 52 × 5."
+        },
+        {
+          "q": "In a room of twenty-three people, about what is the chance that at least two share a birthday? [1.9]",
+          "options": [
+            "Just over one half, about 50.7 per cent",
+            "About 6 per cent",
+            "About 1 per cent",
+            "Certain"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 1.9: The chance all differ is about 0.493.\nB is wrong: That is roughly 23/365.\nC is wrong: Pairs grow much faster than people.\nD is wrong: Certainty needs 366 people."
+        },
+        {
+          "q": "A product has one hundred components, each with a 1 per cent chance of a defect. About what is the chance of at least one defect? [1.11]",
+          "options": [
+            "1 per cent",
+            "About 63 per cent",
+            "100 per cent",
+            "About 37 per cent"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 1.11: 1 − 0.99¹⁰⁰ ≈ 0.634.\nA is wrong: Small risks add up.\nC is wrong: It is not certain.\nD is wrong: That is the chance of no defect."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Conditional Probability, Independence, and Bayes' Theorem",
+      "questions": [
+        {
+          "q": "About what is the probability of drawing two aces without replacement? [2.2]",
+          "options": [
+            "(4/52)²",
+            "8/52",
+            "About 0.0045, (4/52)(3/51)",
+            "1/13"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 2.2: After the first ace, three aces remain among fifty-one cards.\nA is wrong: That assumes replacement.\nB is wrong: Probabilities of a sequence multiply.\nD is wrong: That is one ace."
+        },
+        {
+          "q": "Two machines make 60 and 40 per cent of parts with defect rates 1 and 3 per cent. What is the overall defect rate? [2.4]",
+          "options": [
+            "2 per cent",
+            "4 per cent",
+            "1.2 per cent",
+            "1.8 per cent"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 2.4: 0.6 × 1% + 0.4 × 3% = 0.6% + 1.2% = 1.8%.\nA is wrong: That is the unweighted average.\nB is wrong: That adds the rates.\nC is wrong: That is only the second machine's contribution."
+        },
+        {
+          "q": "Ten independent components, each 99 per cent reliable, are in series. About how reliable is the system? [2.7]",
+          "options": [
+            "About 90.4 per cent",
+            "99 per cent",
+            "About 99.9 per cent",
+            "About 10 per cent"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 2.7: 0.99¹⁰ ≈ 0.904; every component must work.\nB is wrong: Series reliability is the product.\nC is wrong: That would be a redundant system.\nD is wrong: The product is far larger."
+        },
+        {
+          "q": "A disease affects 1 per cent; a test detects 99 per cent of cases and gives 2 per cent false positives. What is P(disease | positive)? [2.10]",
+          "options": [
+            "99 per cent",
+            "2 per cent",
+            "50 per cent",
+            "Exactly one third"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 2.10: Of 297 positives per 10,000, 99 are true.\nA is wrong: That ignores the base rate.\nB is wrong: That is the false-positive rate.\nC is wrong: False positives outnumber true ones two to one."
+        },
+        {
+          "q": "In the Monty Hall problem, what is the probability of winning if you switch? [2.13]",
+          "options": [
+            "One half",
+            "Two thirds",
+            "One third",
+            "One"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 2.13: Your first choice was right only one third of the time.\nA is wrong: The host's knowledge makes the doors unequal.\nC is wrong: That is the chance if you stay.\nD is wrong: Switching can still lose."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Discrete Random Variables",
+      "questions": [
+        {
+          "q": "What is the expected value of a fair die? [3.2]",
+          "options": [
+            "3.5",
+            "3",
+            "6",
+            "21"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 3.2: (1 + 2 + 3 + 4 + 5 + 6)/6 = 3.5; it need not be a possible value.\nB is wrong: The average of 1 to 6 is 3.5.\nC is wrong: That is the maximum.\nD is wrong: That is the sum, not divided by six."
+        },
+        {
+          "q": "Which formula gives the variance of X? [3.4]",
+          "options": [
+            "E[X]²",
+            "E[X] − E[X²]",
+            "E[X²] − (E[X])²",
+            "E[X²] + (E[X])²"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.4: For a fair die it is 35/12, about 2.92.\nA is wrong: The square of the mean alone is not the variance.\nB is wrong: The order is reversed.\nD is wrong: The square of the mean is subtracted."
+        },
+        {
+          "q": "Parts have a 2 per cent defect rate; an inspector samples twenty. About what is the chance of no defectives? [3.7]",
+          "options": [
+            "About 98 per cent",
+            "About 40 per cent",
+            "About 67 per cent",
+            "About 2 per cent"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.7: 0.98²⁰ ≈ 0.668; the expected number is 0.4.\nA is wrong: That is one part.\nB is wrong: 0.4 is the expected number of defectives.\nD is wrong: That is the defect rate."
+        },
+        {
+          "q": "If each attempt succeeds with probability 1/10, how many attempts are needed on average? [3.8]",
+          "options": [
+            "Five",
+            "One hundred",
+            "Ten",
+            "One"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.8: The geometric distribution has mean 1/p.\nA is wrong: 1/p = 10.\nB is wrong: That is 1/p².\nD is wrong: Most attempts fail."
+        },
+        {
+          "q": "A server averages three requests per second. About what is the probability of none in a given second? [3.11]",
+          "options": [
+            "About 22 per cent",
+            "Zero",
+            "About 33 per cent",
+            "About 5 per cent, e⁻³"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 3.11: The Poisson probability of zero is e^(−λ).\nA is wrong: That is the probability of exactly three.\nB is wrong: No requests is possible.\nC is wrong: That is 1/3, not e⁻³."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Continuous Distributions and the Central Limit Theorem",
+      "questions": [
+        {
+          "q": "If requests arrive at three per second, what is the mean time between them? [4.4]",
+          "options": [
+            "Three seconds",
+            "One third of a second",
+            "One second",
+            "e⁻³ seconds"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 4.4: Exponential waiting times have mean 1/λ.\nA is wrong: That inverts the rate.\nC is wrong: The rate is three per second.\nD is wrong: That is a probability, not a mean."
+        },
+        {
+          "q": "What does it mean that the exponential distribution is memoryless? [4.5]",
+          "options": [
+            "Lifetimes are always the same",
+            "Older items always fail sooner",
+            "It has no mean",
+            "The chance of surviving another t hours does not depend on how long the item has lasted"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 4.5: It suits components in useful life, not parts that wear out.\nA is wrong: They vary randomly.\nB is wrong: That is wear-out, not memorylessness.\nC is wrong: Its mean is 1/λ."
+        },
+        {
+          "q": "About what fraction of a normal distribution lies within two standard deviations of the mean? [4.7]",
+          "options": [
+            "About 68 per cent",
+            "About 99.7 per cent",
+            "About 50 per cent",
+            "About 95 per cent"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 4.7: The 68–95–99.7 rule.\nA is wrong: That is within one.\nB is wrong: That is within three.\nC is wrong: Half lies on each side of the mean."
+        },
+        {
+          "q": "What is the standard error of the mean of n independent measurements with standard deviation σ? [4.10]",
+          "options": [
+            "σ/√n",
+            "σ/n",
+            "σ",
+            "σ√n"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 4.10: Variances add, so the variance of the mean is σ²/n.\nB is wrong: Precision improves only with the square root.\nC is wrong: Averaging reduces spread.\nD is wrong: That is the spread of the sum."
+        },
+        {
+          "q": "What does the central limit theorem state? [4.12]",
+          "options": [
+            "Every random variable is normal",
+            "The distribution of a sample mean of many independent variables with finite variance approaches a normal distribution",
+            "Sample means always equal the true mean",
+            "Variances always decrease to zero"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 4.12: This holds whatever the shape of each variable's distribution.\nA is wrong: Only sums and averages approach normality.\nC is wrong: That is approached by the law of large numbers.\nD is wrong: That is not the theorem."
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Statistical Estimation and Bayesian Inference",
+      "questions": [
+        {
+          "q": "Why does the sample variance divide by n − 1? [5.2]",
+          "options": [
+            "Because one measurement is always discarded",
+            "To make the variance larger than any data value",
+            "To estimate the population variance without bias, since deviations are measured from the sample mean",
+            "Because n is unknown"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.2: The sample mean estimates the population mean.\nA is wrong: No data are discarded.\nB is wrong: That is not the purpose.\nD is wrong: n is known."
+        },
+        {
+          "q": "A coin lands heads k times in n tosses. What is the maximum likelihood estimate of p? [5.4]",
+          "options": [
+            "1/2 always",
+            "k/n",
+            "n/k",
+            "k/(n − k)"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 5.4: Maximising p^k (1 − p)^(n − k) gives p̂ = k/n.\nA is wrong: The estimate depends on the data.\nC is wrong: That inverts the ratio.\nD is wrong: That is the odds."
+        },
+        {
+          "q": "With known σ, what is a 95 per cent confidence interval for the mean of normal data? [5.5]",
+          "options": [
+            "x̄ ± 1.96 σ",
+            "x̄ ± σ/n",
+            "x̄ ± 3σ",
+            "x̄ ± 1.96 σ/√n"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 5.5: 1.96 standard errors either side of the sample mean.\nA is wrong: The standard error σ/√n is needed.\nB is wrong: The multiplier and the square root are missing.\nC is wrong: That is a different rule."
+        },
+        {
+          "q": "A poll of one thousand finds 50 per cent support. About what is the 95 per cent margin of error? [5.8]",
+          "options": [
+            "About ±1.6 points",
+            "About ±10 points",
+            "About ±3 percentage points",
+            "About ±0.5 points"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.8: Standard error √(0.25/1000) ≈ 1.6 points; doubled gives about 3.\nA is wrong: That is one standard error.\nB is wrong: Far too wide for n = 1000.\nD is wrong: Far too narrow."
+        },
+        {
+          "q": "What can be said directly of a Bayesian 95 per cent credible interval? [5.11]",
+          "options": [
+            "It is identical to a confidence interval in meaning",
+            "It contains 95 per cent of the data",
+            "Given the data and the prior, there is a 95 per cent probability the parameter lies in it",
+            "It ignores the prior"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.11: A confidence interval does not allow that statement for a single interval.\nA is wrong: Their interpretations differ.\nB is wrong: It concerns the parameter.\nD is wrong: It depends on the prior."
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Hypothesis Testing, Regression, and Engineering Statistics",
+      "questions": [
+        {
+          "q": "What is a p-value? [6.2]",
+          "options": [
+            "The probability, assuming the null hypothesis, of a statistic at least as extreme as observed",
+            "The probability that the null hypothesis is true",
+            "The probability the result is important",
+            "The significance level"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 6.2: A small p-value counts as evidence against the null.\nB is wrong: That is a common misreading.\nC is wrong: Significance is not importance.\nD is wrong: That is chosen in advance."
+        },
+        {
+          "q": "A coin tossed 400 times gives 225 heads. What is the standardised value under fairness? [6.3]",
+          "options": [
+            "2.5",
+            "25",
+            "0.25",
+            "1.25"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 6.3: Mean 200 and standard deviation 10, so (225 − 200)/10 = 2.5.\nB is wrong: One must divide by the standard deviation.\nC is wrong: The standard deviation is 10, not 100.\nD is wrong: The standard deviation is √(400 × 0.25) = 10."
+        },
+        {
+          "q": "What is a type I error? [6.4]",
+          "options": [
+            "Failing to reject a false null",
+            "Rejecting a true null hypothesis: a false alarm",
+            "Correctly rejecting a false null",
+            "Using too small a sample"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 6.4: Its probability is the significance level.\nA is wrong: That is type II.\nC is wrong: That is power.\nD is wrong: That affects power, not the definition."
+        },
+        {
+          "q": "If twenty independent tests are run at the 5 per cent level with no real effects, about what is the chance of at least one false alarm? [6.7]",
+          "options": [
+            "5 per cent",
+            "100 per cent",
+            "About 20 per cent",
+            "About 64 per cent"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 6.7: 1 − 0.95²⁰ ≈ 0.64.\nA is wrong: That is per test.\nB is wrong: It is not certain.\nC is wrong: Probabilities do not simply multiply by twenty here."
+        },
+        {
+          "q": "What is the slope of the least-squares regression line? [6.9]",
+          "options": [
+            "The correlation alone",
+            "The covariance of x and y divided by the variance of x",
+            "The variance of y divided by the variance of x",
+            "The mean of y divided by the mean of x"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 6.9: The line passes through the point of means.\nA is wrong: Correlation is unitless.\nC is wrong: The covariance is needed.\nD is wrong: That ignores co-variation."
+        }
+      ]
+    }
+  ]
+}
