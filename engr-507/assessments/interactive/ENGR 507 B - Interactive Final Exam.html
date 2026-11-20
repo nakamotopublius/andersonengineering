@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ENGR 507 B · Interactive Final Exam · Anderson Academy</title>
+<meta name="theme-color" content="#1f3a5f">
+<style>
+  :root{--ink:#1b2230;--muted:#586075;--line:#ddd8cb;--bg:#f7f5f0;--card:#fff;--ok:#1d7a46;--okbg:#e6f4ec;--bad:#b3261e;--badbg:#fbeaea;--accent:#1f3a5f;--sel:#e8eefb;color-scheme:light}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e9ecf2;--muted:#a3abbd;--line:#2c3547;--bg:#141922;--card:#1c2330;--ok:#8fcdb0;--okbg:#1a3b2a;--bad:#f0a8a4;--badbg:#3b1c1c;--accent:#8fb4e8;--sel:#24344c;color-scheme:dark}}
+  :root[data-theme="dark"]{--ink:#e9ecf2;--muted:#a3abbd;--line:#2c3547;--bg:#141922;--card:#1c2330;--ok:#8fcdb0;--okbg:#1a3b2a;--bad:#f0a8a4;--badbg:#3b1c1c;--accent:#8fb4e8;--sel:#24344c;color-scheme:dark}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+  .top{position:sticky;top:0;background:var(--card);border-bottom:1px solid var(--line);padding:8px 14px;z-index:2;padding-top:max(8px,env(safe-area-inset-top,0px))}
+  .row{display:flex;align-items:center;gap:10px}
+  .back,.theme{color:var(--accent);font-size:15px;background:none;border:0;padding:0;cursor:pointer}
+  .theme{min-width:44px;text-align:right}
+  .timer{flex:1;text-align:center;font-weight:700;font-size:22px;font-variant-numeric:tabular-nums}
+  .timer.over{color:var(--bad)}
+  .cnt{color:var(--muted);font-size:13px;min-width:56px;text-align:right}
+  .tnote{color:var(--muted);font-size:12px;text-align:center;margin-top:2px}
+  main{max-width:680px;margin:0 auto;padding:16px 14px 60px}
+  h1{font-size:20px;margin:6px 0 4px}
+  .brand{color:var(--muted);font-size:13px;letter-spacing:.02em;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+  .qn{color:var(--muted);font-size:13px;margin-bottom:6px}
+  .q{font-size:17px;font-weight:600;margin:0 0 12px}
+  .opt{display:flex;gap:10px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:8px;font-size:16px;color:var(--ink);cursor:pointer}
+  .opt b{min-width:20px}
+  .opt.on{border-color:var(--accent);background:var(--sel);box-shadow:inset 0 0 0 1px var(--accent)}
+  .opt:disabled{cursor:default}
+  .opt.ok{border-color:var(--ok);background:var(--okbg)}
+  .opt.bad{border-color:var(--bad);background:var(--badbg)}
+  .fb{margin-top:10px;padding:12px;border-radius:10px;font-size:15px;white-space:pre-line}
+  .fb.ok{background:var(--okbg)} .fb.bad{background:var(--badbg)}
+  .fb strong{display:block;margin-bottom:4px}
+  .btn{display:block;width:100%;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:14px;font-size:17px;cursor:pointer;margin-top:8px}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#101722}}
+  :root[data-theme="dark"] .btn{color:#101722}
+  .btn.alt{background:var(--card);color:var(--accent);border:1px solid var(--accent)}
+  .warn{background:#fff7e0;border:1px solid #e8d38a;border-radius:10px;padding:12px;margin-top:10px;font-size:15px}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .warn{background:#3b3318;border-color:#8a7a3a;color:var(--ink)}}
+  :root[data-theme="dark"] .warn{background:#3b3318;border-color:#8a7a3a;color:var(--ink)}
+  .score{font-size:44px;font-weight:700;text-align:center;margin:6px 0}
+  .tabs{display:flex;gap:8px;margin:10px 0 14px}
+  .tabs button{flex:1;padding:10px;border-radius:10px;border:1px solid var(--accent);background:var(--card);color:var(--accent);font-size:15px;cursor:pointer}
+  .tabs button.on{background:var(--accent);color:#fff}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#101722}}
+  :root[data-theme="dark"] .tabs button.on{color:#101722}
+  .note{color:var(--muted);font-size:13px;text-align:center;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="row"><button class="back" id="back" type="button">‹ Exam</button><div class="timer" id="timer">0:00</div><div class="cnt" id="cnt"></div><button class="theme" id="themeBtn" type="button" aria-label="Switch color theme">Dark</button></div>
+  <div class="tnote" id="tnote">This timer is for reference only. This test is designed for 60 minutes.</div>
+</div>
+<main id="app"><p class="sub">Loading…</p></main>
+<script>
+window.EXAM_DATA = {
+  "title": "ENGR 507 B - Differential Equations",
+  "questions": [
+    {
+      "q": "What kind of course is Engineering 507 B?",
+      "options": [
+        "A full semester of MIT 18.03",
+        "A Brief Foundations mathematics course in Anderson Engineering: an overview and six lectures, about an hour",
+        "An optional elective outside the Foundations",
+        "A laboratory course"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 0.1: Paragraph 0.1 gives the format.\nA is wrong: A Brief course is a first hour.\nC is wrong: It is a Foundations course.\nD is wrong: It is a lecture course."
+    },
+    {
+      "q": "What is the backbone of this course?",
+      "options": [
+        "18.06SC Linear Algebra",
+        "MIT OpenCourseWare 18.03SC Differential Equations, Fall 2011",
+        "18.05 Probability and Statistics",
+        "8.02 Electricity and Magnetism"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 0.9: The overview credits Professors Mattuck and Miller and colleagues.\nA is wrong: That backs Linear Algebra.\nC is wrong: That backs Probability and Statistics.\nD is wrong: That backs Physics Two."
+    },
+    {
+      "q": "Why does y = C e^(kt) solve y′ = k y for any constant C?",
+      "options": [
+        "Because C must equal k",
+        "Because its derivative is zero",
+        "Because e^(kt) is constant",
+        "Its derivative is k C e^(kt), which equals k y"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.2: One equation has a whole family of solutions.\nA is wrong: C is arbitrary.\nB is wrong: Its derivative is kCe^(kt).\nC is wrong: It varies with t."
+    },
+    {
+      "q": "What is the solution of y′ = k y with y(0) = y₀?",
+      "options": [
+        "y = y₀ e^(kt)",
+        "y = y₀ + k t",
+        "y = k e^(y₀ t)",
+        "y = y₀ e^(−kt)"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.3: The initial condition fixes the constant C = y₀.\nB is wrong: That solves y′ = k, not y′ = ky.\nC is wrong: The constant multiplies the exponential.\nD is wrong: The sign of the exponent is that of k."
+    },
+    {
+      "q": "Why can two solution curves of a well-behaved first-order equation never cross?",
+      "options": [
+        "Because all solutions are straight lines",
+        "A crossing point would be an initial condition with two different solutions, contradicting uniqueness",
+        "Because the equation has no solutions",
+        "Because direction fields are always horizontal"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.4: Solution curves fill the plane like grain in wood.\nA is wrong: Solutions need not be straight.\nC is wrong: Solutions exist by the existence theorem.\nD is wrong: Slopes vary from point to point."
+    },
+    {
+      "q": "What is an isocline?",
+      "options": [
+        "A curve along which the slope of the direction field is constant",
+        "A solution curve",
+        "An equilibrium point",
+        "A line of zero error"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.6: For y′ = t − y, the isocline for slope m is the line t − y = m.\nB is wrong: Solution curves are tangent to the field.\nC is wrong: Equilibria have zero slope for autonomous equations.\nD is wrong: It is about slopes."
+    },
+    {
+      "q": "What is an autonomous first-order equation?",
+      "options": [
+        "One with no solutions",
+        "One that depends only on t",
+        "One of the form y′ = f(y), whose rule does not change with time",
+        "Any linear equation"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 1.7: Equilibria are the zeros of f.\nA is wrong: Autonomous equations have solutions.\nB is wrong: That is y′ = f(t).\nD is wrong: Linearity is a different property."
+    },
+    {
+      "q": "For the logistic equation y′ = r y (1 − y/K), which equilibrium is stable?",
+      "options": [
+        "y = 0",
+        "Both are unstable",
+        "y = K/2",
+        "y = K, the carrying capacity"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.8: Nearby solutions move toward K; y = 0 is unstable.\nA is wrong: Small populations grow away from zero.\nB is wrong: K attracts nearby solutions.\nC is wrong: K/2 is where growth is fastest, not an equilibrium."
+    },
+    {
+      "q": "What is the general solution of y′ = t y?",
+      "options": [
+        "y = C e^(t²/2)",
+        "y = C e^t",
+        "y = t²/2 + C",
+        "y = C t e^t"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.10: Separating gives dy/y = t dt, so ln|y| = t²/2 + c.\nB is wrong: That solves y′ = y.\nC is wrong: That solves y′ = t.\nD is wrong: Substitution does not check."
+    },
+    {
+      "q": "How does a tank drain by Torricelli's law, h′ = −c√h?",
+      "options": [
+        "Exponentially, never quite emptying",
+        "At a constant rate",
+        "It never drains",
+        "√h decreases linearly, so the tank empties in a finite time"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.11: Unlike exponential decay, it reaches zero.\nA is wrong: That would be h′ = −ch.\nB is wrong: The rate depends on √h.\nC is wrong: It empties completely."
+    },
+    {
+      "q": "If Euler's method's step size is halved, roughly what happens to the total error over a fixed interval?",
+      "options": [
+        "It quarters",
+        "It roughly halves",
+        "It doubles",
+        "It is unchanged"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.13: Euler's method is first order: error is proportional to h.\nA is wrong: That would be a second-order method.\nC is wrong: Smaller steps reduce error.\nD is wrong: Error depends on step size."
+    },
+    {
+      "q": "What is the integrating factor for y′ + p(t) y = q(t)?",
+      "options": [
+        "e^(∫q dt)",
+        "1/p(t)",
+        "u(t) = e^(∫p dt)",
+        "p(t) itself"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 2.2: Multiplying by u makes the left side the derivative of u y.\nA is wrong: The factor uses p, not q.\nB is wrong: That does not produce an exact derivative.\nD is wrong: The factor is an exponential of the integral of p."
+    },
+    {
+      "q": "What is the half-life of decay with rate constant k?",
+      "options": [
+        "2/k",
+        "k/2",
+        "1/k",
+        "ln 2 / k, about 0.693/k"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.4: Solving e^(−kt) = 1/2 gives t = ln 2/k.\nA is wrong: Half-life involves ln 2.\nB is wrong: Half-life has units of time.\nC is wrong: That is the time constant, after which about 37 per cent remains."
+    },
+    {
+      "q": "What is the solution of Newton's law of cooling, T′ = −k(T − Tₐ)?",
+      "options": [
+        "T = Tₐ + (T₀ − Tₐ) e^(−kt)",
+        "T = T₀ e^(−kt)",
+        "T = Tₐ − k t",
+        "T = T₀ + Tₐ e^(kt)"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.5: The temperature approaches its surroundings exponentially.\nB is wrong: The body approaches Tₐ, not zero.\nC is wrong: The approach is exponential.\nD is wrong: That grows rather than settles."
+    },
+    {
+      "q": "In the mixing problem, what does x′ = r c − r x/V express?",
+      "options": [
+        "Water in minus water out",
+        "Exponential growth of salt",
+        "That salt is conserved with no inflow",
+        "Salt in minus salt out"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.6: Brine enters at concentration c and the mixture leaves at concentration x/V.\nA is wrong: The unknown is salt mass.\nB is wrong: The equation is linear with a decaying transient.\nC is wrong: There is an inflow term rc."
+    },
+    {
+      "q": "For an RC circuit switched onto a battery, what fraction of the final voltage does the capacitor reach after one time constant RC?",
+      "options": [
+        "About 63 per cent",
+        "About 37 per cent",
+        "100 per cent",
+        "50 per cent"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.7: V = V_s(1 − e^(−t/RC)) and 1 − e^(−1) ≈ 0.63.\nB is wrong: That is what remains to go.\nC is wrong: It approaches the final value exponentially.\nD is wrong: That is reached at about 0.69 RC."
+    },
+    {
+      "q": "What are the two parts of the solution of a stable constant-coefficient linear equation?",
+      "options": [
+        "A transient that dies away and a steady-state response set by the input",
+        "Two equal exponentials",
+        "A growing part and a constant",
+        "Only the initial condition"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.8: Engineers often care most about the steady state.\nB is wrong: They have different roles.\nC is wrong: The transient decays.\nD is wrong: The input also matters."
+    },
+    {
+      "q": "What does superposition say about a linear equation?",
+      "options": [
+        "Responses multiply",
+        "The response to a sum of inputs is the sum of the responses",
+        "Only one input is allowed",
+        "Nonlinear equations obey it too"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.9: Constant multiples scale the same way.\nA is wrong: They add.\nC is wrong: Any combination works.\nD is wrong: It is special to linear equations."
+    },
+    {
+      "q": "What is Euler's formula?",
+      "options": [
+        "e^(iθ) = cos θ − sin θ",
+        "e^θ = cos θ + sin θ",
+        "e^(iθ) = i cos θ + sin θ",
+        "e^(iθ) = cos θ + i sin θ"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.11: It follows from comparing Taylor series.\nA is wrong: The sine term is multiplied by i.\nB is wrong: The exponent is iθ.\nC is wrong: The i belongs with sine."
+    },
+    {
+      "q": "For y′ + k y = cos ωt, what is the steady-state amplitude?",
+      "options": [
+        "1/(k + ω)",
+        "1/√(k² + ω²)",
+        "1/k",
+        "√(k² + ω²)"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.13: The complex amplitude is 1/(k + iω), whose modulus is 1/√(k² + ω²).\nA is wrong: The modulus combines k and ω in quadrature.\nC is wrong: That holds only when ω = 0.\nD is wrong: That is the reciprocal of the answer."
+    },
+    {
+      "q": "What is the characteristic equation of m x″ + b x′ + k x = 0?",
+      "options": [
+        "m r² + b r + k = 0",
+        "m r + b + k = 0",
+        "r² + b r + k m = 0",
+        "m r² − b r − k = 0"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 3.3: Substituting e^(rt) gives (m r² + b r + k) e^(rt) = 0.\nB is wrong: Each derivative contributes a power of r.\nC is wrong: The coefficients stay as m, b, k.\nD is wrong: Signs are preserved."
+    },
+    {
+      "q": "What happens when b² − 4mk > 0?",
+      "options": [
+        "It oscillates with decaying amplitude",
+        "It oscillates forever",
+        "The system is overdamped: it returns without oscillating",
+        "It grows without bound"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.5: Two negative real roots give a sum of decaying exponentials.\nA is wrong: That is underdamped.\nB is wrong: That is undamped.\nD is wrong: Both roots are negative."
+    },
+    {
+      "q": "What is the general solution in the critically damped case with repeated root r?",
+      "options": [
+        "c₁ e^(rt) + c₂ e^(rt)",
+        "(c₁ + c₂ t) e^(rt)",
+        "c₁ cos rt + c₂ sin rt",
+        "c₁ e^(rt) + c₂ e^(−rt)"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 3.6: A second solution is t e^(rt).\nA is wrong: That is only one independent solution.\nC is wrong: That is for imaginary roots.\nD is wrong: That needs distinct roots."
+    },
+    {
+      "q": "What is the natural frequency of an undamped spring-mass system?",
+      "options": [
+        "√(m/k)",
+        "k/m",
+        "ω₀ = √(k/m) radians per second",
+        "2π√(k/m)"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.8: The roots of m r² + k = 0 are ±iω₀.\nA is wrong: The ratio is inverted.\nB is wrong: A square root is needed.\nD is wrong: That mixes frequency units."
+    },
+    {
+      "q": "How is a cos ωt + b sin ωt written in amplitude-phase form?",
+      "options": [
+        "(a + b) cos ωt",
+        "A sin(ωt) with A = a b",
+        "A cos(ωt) with A = a − b",
+        "A cos(ωt − φ), with A = √(a² + b²) and tan φ = b/a"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 3.9: The form shows the size and timing of the oscillation directly.\nA is wrong: The amplitude combines a and b in quadrature.\nB is wrong: The amplitude is not a product.\nC is wrong: The phase shift is needed."
+    },
+    {
+      "q": "What damping ratio ζ gives critical damping?",
+      "options": [
+        "ζ = 0",
+        "ζ = 0.3",
+        "ζ = 1",
+        "ζ = 2"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.10: ζ = b/(2√(mk)); ζ < 1 is underdamped and ζ > 1 overdamped.\nA is wrong: That is undamped.\nB is wrong: That is underdamped, typical of car suspensions.\nD is wrong: That is overdamped."
+    },
+    {
+      "q": "In the RLC analogy with a spring-mass system, what plays the role of mass?",
+      "options": [
+        "The resistance R",
+        "The capacitance C",
+        "The charge q",
+        "The inductance L"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 3.11: Resistance plays damping and 1/C plays the spring constant.\nA is wrong: R plays damping.\nB is wrong: 1/C plays stiffness.\nC is wrong: q plays displacement."
+    },
+    {
+      "q": "For small swings, what is the period of a pendulum of length L?",
+      "options": [
+        "2π√(g/L)",
+        "It grows with amplitude for small swings",
+        "2π√(L/g), independent of amplitude",
+        "L/g"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.12: This made pendulum clocks accurate.\nA is wrong: The ratio is inverted.\nB is wrong: For small swings it does not depend on amplitude.\nD is wrong: A square root and 2π are needed."
+    },
+    {
+      "q": "By the exponential response formula, what particular solution does p(D)x = e^(at) have when p(a) ≠ 0?",
+      "options": [
+        "x_p = p(a) e^(at)",
+        "x_p = e^(at)/p(a)",
+        "x_p = e^(at)",
+        "x_p = t e^(at)"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.2: Since p(D)e^(at) = p(a)e^(at), dividing by p(a) gives the response.\nA is wrong: One divides by p(a).\nC is wrong: That works only if p(a) = 1.\nD is wrong: That is for the resonant case p(a) = 0."
+    },
+    {
+      "q": "For a lightly damped system, about what is the peak gain at resonance?",
+      "options": [
+        "About 2ζ",
+        "Exactly one",
+        "Infinite whenever ζ > 0",
+        "About 1/(2ζ)"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.5: So a damping ratio of 0.05 gives a gain of about ten.\nA is wrong: Lighter damping gives a higher peak.\nB is wrong: Gain near one is the low-frequency limit.\nC is wrong: Only zero damping gives unbounded resonance."
+    },
+    {
+      "q": "What happens to an undamped oscillator driven exactly at its natural frequency?",
+      "options": [
+        "It settles to a constant amplitude",
+        "It stops moving",
+        "The response grows without bound, like t sin ω₀t",
+        "Its frequency doubles"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.6: The exponential response formula fails, and a resonant solution growing linearly in t appears.\nA is wrong: That needs damping.\nB is wrong: Driving adds energy.\nD is wrong: It responds at the driving frequency."
+    },
+    {
+      "q": "What mainly caused the 1940 Tacoma Narrows Bridge collapse, according to the lecture?",
+      "options": [
+        "Soldiers marching in step",
+        "An earthquake",
+        "Simple resonance at a fixed driving frequency",
+        "Aeroelastic flutter, a self-excited instability fed by the wind"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.8: It is often wrongly described as simple resonance from a periodic push.\nA is wrong: That is a different story.\nB is wrong: Wind, not an earthquake.\nC is wrong: The lecture distinguishes flutter from that."
+    },
+    {
+      "q": "At resonance, by how much does the response lag the driving force?",
+      "options": [
+        "A quarter cycle, 90°",
+        "Zero",
+        "180°",
+        "45°"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 4.9: That is the phase at which the force does the most work.\nB is wrong: That is at low frequencies.\nC is wrong: That is approached at high frequencies.\nD is wrong: The lag at resonance is 90°."
+    },
+    {
+      "q": "How are the Fourier coefficients a_n of a 2π-periodic f found?",
+      "options": [
+        "a_n = f(n)",
+        "a_n = n f(t)",
+        "a_n = (1/π) ∫ f(t) cos nt dt over one period",
+        "a_n = ∫ f(t) dt for every n"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.11: Orthogonality of sines and cosines isolates each coefficient.\nA is wrong: Coefficients are integrals.\nB is wrong: That is not a coefficient.\nD is wrong: Each n needs its own cosine."
+    },
+    {
+      "q": "Which terms appear in the Fourier series of the standard ±1 square wave?",
+      "options": [
+        "Only cosine terms",
+        "Only odd sine terms: (4/π)(sin t + sin 3t/3 + sin 5t/5 + …)",
+        "All integer harmonics equally",
+        "A single sine term"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.12: The square wave is odd, with odd harmonics only.\nA is wrong: The odd square wave has sine terms.\nC is wrong: Even harmonics vanish and amplitudes fall as 1/n.\nD is wrong: Infinitely many terms are needed."
+    },
+    {
+      "q": "What is the Laplace transform of e^(at)?",
+      "options": [
+        "1/(s + a)",
+        "a/s",
+        "1/(s − a)",
+        "1/s"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.2: The integral of e^(−st)e^(at) from 0 to ∞ is 1/(s − a) for s > a.\nA is wrong: That is the transform of e^(−at).\nB is wrong: That is the transform of the constant a.\nD is wrong: That is the transform of 1."
+    },
+    {
+      "q": "What is the Laplace transform of f′?",
+      "options": [
+        "F(s)/s",
+        "s F(s) − f(0)",
+        "s F(s)",
+        "F′(s)"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 5.3: Integration by parts turns differentiation into multiplication by s.\nA is wrong: That corresponds to integration.\nC is wrong: The initial value term is missing.\nD is wrong: That corresponds to multiplying by −t."
+    },
+    {
+      "q": "Using the Laplace transform, what solves y′ + 2y = 0 with y(0) = 3?",
+      "options": [
+        "y = 3 e^(2t)",
+        "y = 2 e^(−3t)",
+        "y = 3 − 2t",
+        "y = 3 e^(−2t)"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 5.4: Y = 3/(s + 2), whose inverse is 3e^(−2t).\nA is wrong: The pole is at s = −2.\nB is wrong: The roles of 2 and 3 are swapped.\nC is wrong: The solution is exponential."
+    },
+    {
+      "q": "What is the inverse Laplace transform of 1/(s(s + 1))?",
+      "options": [
+        "1 − e^(−t)",
+        "e^(−t)",
+        "1 + e^(−t)",
+        "t e^(−t)"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 5.5: Partial fractions give 1/s − 1/(s + 1).\nB is wrong: The 1/s term is missing.\nC is wrong: The sign is wrong.\nD is wrong: That is the inverse of 1/(s + 1)²."
+    },
+    {
+      "q": "What is the transfer function of p(D)x = f with zero initial conditions?",
+      "options": [
+        "W(s) = p(s)",
+        "W(s) = 1/p(s)",
+        "W(s) = F(s)",
+        "W(s) = s"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 5.6: X = F/p(s), so W depends only on the system.\nA is wrong: It is the reciprocal.\nC is wrong: F depends on the input.\nD is wrong: W depends on p."
+    },
+    {
+      "q": "What do transfer-function poles in the left half-plane indicate?",
+      "options": [
+        "Instability",
+        "Undamped oscillation",
+        "Stability",
+        "Nothing about the system"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.7: Poles are the characteristic roots; negative real parts mean decaying responses.\nA is wrong: That is the right half-plane.\nB is wrong: That is on the imaginary axis.\nD is wrong: Poles reveal its character."
+    },
+    {
+      "q": "What is the Laplace transform of a system's impulse response?",
+      "options": [
+        "Always 1/s",
+        "Zero",
+        "The transfer function W(s) itself",
+        "The characteristic polynomial p(s)"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.10: The transform of δ is one, so X = W × 1.\nA is wrong: That is the unit step's transform.\nB is wrong: The impulse response is not zero.\nD is wrong: W = 1/p(s)."
+    },
+    {
+      "q": "For a stable system with transfer function W(s), what is the final output for a unit step input?",
+      "options": [
+        "W(0), the steady-state gain",
+        "Zero always",
+        "W(∞)",
+        "One always"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 5.13: By the final value theorem, lim sX(s) = lim s·W(s)/s = W(0).\nB is wrong: Not unless W(0) = 0.\nC is wrong: The limit is s → 0.\nD is wrong: Only if W(0) = 1."
+    },
+    {
+      "q": "Substituting x = e^(λt) v into x′ = A x requires what?",
+      "options": [
+        "A v = λ v: v is an eigenvector with eigenvalue λ",
+        "A = λ",
+        "v = 0",
+        "A v = 0 always"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.3: The eigenvalues are the roots of the characteristic equation of A.\nB is wrong: A is a matrix, λ a number.\nC is wrong: Eigenvectors are non-zero.\nD is wrong: That is only for λ = 0."
+    },
+    {
+      "q": "What equilibrium do real eigenvalues of opposite signs produce?",
+      "options": [
+        "A saddle",
+        "A stable node",
+        "A centre",
+        "A stable spiral"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.6: Trajectories approach along one eigenvector and leave along the other.\nB is wrong: That needs two negative eigenvalues.\nC is wrong: That needs purely imaginary eigenvalues.\nD is wrong: That needs complex eigenvalues with negative real part."
+    },
+    {
+      "q": "What do complex eigenvalues with negative real part produce?",
+      "options": [
+        "An unstable spiral",
+        "A stable spiral",
+        "A centre",
+        "A saddle"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.7: Like an underdamped spring-mass system.\nA is wrong: That needs a positive real part.\nC is wrong: That needs zero real part.\nD is wrong: A saddle needs real eigenvalues of opposite sign."
+    },
+    {
+      "q": "In the Lotka-Volterra model, what does the term −b x y represent in the prey equation?",
+      "options": [
+        "Prey births",
+        "Predator deaths",
+        "Prey eaten by predators",
+        "Prey immigration"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 6.10: Encounters are proportional to the product x y.\nA is wrong: That is +a x.\nB is wrong: That is −c y in the predator equation.\nD is wrong: There is no such term."
+    },
+    {
+      "q": "Linearising the pendulum at the upright equilibrium gives what?",
+      "options": [
+        "A centre",
+        "A stable node",
+        "A limit cycle",
+        "A saddle: an inverted pendulum falls"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 6.11: At the bottom, linearisation gives a centre.\nA is wrong: That is at the bottom.\nB is wrong: The upright position is unstable.\nC is wrong: Linearisation gives a saddle."
+    },
+    {
+      "q": "What is a limit cycle?",
+      "options": [
+        "An isolated closed trajectory that attracts nearby trajectories, giving self-sustained oscillations",
+        "A family of closed orbits like a centre",
+        "An unstable equilibrium point",
+        "Any trajectory of a linear system"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.12: Heartbeats and the van der Pol oscillator are examples.\nB is wrong: Centres are not isolated.\nC is wrong: It is a closed orbit.\nD is wrong: Linear systems cannot have isolated limit cycles."
+    },
+    {
+      "q": "What did Edward Lorenz find in 1963?",
+      "options": [
+        "That all nonlinear systems are linear",
+        "Sensitive dependence on initial conditions on a strange attractor: chaos",
+        "That weather is perfectly predictable",
+        "The Laplace transform"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.13: Nearby solutions diverge exponentially while staying bounded.\nA is wrong: He found the opposite.\nC is wrong: Sensitivity limits long-range prediction.\nD is wrong: That dates from Laplace."
+    }
+  ]
+};
+
+  function applyTheme(t){
+    const root=document.documentElement;
+    if(t==='dark'||t==='light'){root.setAttribute('data-theme',t);} else {root.removeAttribute('data-theme'); t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}
+    const b=document.getElementById('themeBtn');
+    if(b) b.textContent=(t==='dark'?'Light':'Dark');
+  }
+  (function(){
+    let t=null; try{t=localStorage.getItem('aa_theme');}catch(e){}
+    applyTheme(t==='dark'||t==='light'?t:null);
+    const b=document.getElementById('themeBtn');
+    if(b) b.onclick=()=>{
+      const cur=document.documentElement.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+      const next=cur==='dark'?'light':'dark';
+      try{localStorage.setItem('aa_theme',next);}catch(e){}
+      applyTheme(next);
+    };
+  })();
+
+(function(){
+  const app=document.getElementById('app'), tEl=document.getElementById('timer'), cnt=document.getElementById('cnt'), back=document.getElementById('back');
+  const L='ABCD', LIMIT=60*60;
+  const D=window.EXAM_DATA;
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  let picks=[], t0=null, tick=null, finished=false, used=0;
+
+  function fmt(s){s=Math.max(0,Math.floor(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+  function runTimer(){
+    t0=Date.now();
+    tick=setInterval(()=>{
+      const s=(Date.now()-t0)/1000;
+      tEl.textContent=fmt(s);
+      tEl.classList.toggle('over', s>=LIMIT);
+    },250);
+  }
+  function count(){const n=picks.filter(p=>p!=null).length;cnt.textContent=n+' / '+D.questions.length;return n;}
+
+  function start(){
+    document.getElementById('tnote').textContent='This timer is for reference only. This test is designed for 60 minutes.';
+    picks=D.questions.map(()=>null); finished=false;
+    back.style.visibility='hidden';
+    let h='<p class="brand">Anderson Academy · Anderson Engineering</p><h1>'+esc(D.title||'Final Exam')+'</h1><p class="sub">Final Exam · '+D.questions.length+' questions. Choose one answer for each question; you can change an answer at any time. Your score and the explanations appear after you submit. No score is stored.</p>';
+    D.questions.forEach((x,i)=>{
+      h+='<div class="card" id="q'+i+'"><div class="qn">Question '+(i+1)+' of '+D.questions.length+'</div><p class="q">'+esc(x.q)+'</p>';
+      x.options.forEach((o,j)=>h+='<button class="opt" data-i="'+i+'" data-j="'+j+'"><b>'+L[j]+'.</b><span>'+esc(o)+'</span></button>');
+      h+='</div>';
+    });
+    h+='<button class="btn" id="submit">Submit exam</button><div id="confirm"></div>';
+    app.innerHTML=h;
+    app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      const i=+b.dataset.i, j=+b.dataset.j; picks[i]=j;
+      document.querySelectorAll('#q'+i+' .opt').forEach(o=>o.classList.toggle('on',+o.dataset.j===j));
+      count(); document.getElementById('confirm').innerHTML='';
+    });
+    document.getElementById('submit').onclick=trySubmit;
+    count(); clearInterval(tick); tEl.classList.remove('over'); tEl.textContent='0:00'; runTimer(); window.scrollTo(0,0);
+  }
+  function trySubmit(){
+    const left=D.questions.length-count();
+    if(left===0) return submit();
+    const first=picks.findIndex(p=>p==null)+1;
+    document.getElementById('confirm').innerHTML='<div class="warn">You have '+left+' unanswered question'+(left>1?'s':'')+' (the first is question '+first+'). Unanswered questions count as wrong.<button class="btn" id="anyway">Submit anyway</button><button class="btn alt" id="goq">Go to question '+first+'</button></div>';
+    document.getElementById('anyway').onclick=submit;
+    document.getElementById('goq').onclick=()=>document.getElementById('q'+(first-1)).scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  function submit(){
+    finished=true; clearInterval(tick); used=(Date.now()-t0)/1000;
+    tEl.textContent=fmt(used)+' used';
+    tEl.classList.toggle('over', used>=LIMIT);
+    back.style.visibility='visible';
+    back.textContent='‹ Exam';
+    back.onclick=()=>start();
+    results('all');
+  }
+  function results(mode){
+    const n=D.questions.length, right=D.questions.filter((x,i)=>picks[i]===x.answer).length;
+    let h='<div class="card"><div class="qn">'+esc(D.title||'Final Exam')+'</div><div class="score">'+right+' / '+n+'</div><p class="sub" style="text-align:center;margin:0">'+Math.round(100*right/n)+'% · time used '+fmt(used)+'</p><p class="note">This score is only on this screen. Nothing is stored.</p></div>';
+    h+='<div class="tabs"><button id="tAll" class="'+(mode==='all'?'on':'')+'">All questions</button><button id="tMiss" class="'+(mode==='miss'?'on':'')+'">Missed only ('+(n-right)+')</button></div>';
+    D.questions.forEach((x,i)=>{
+      const p=picks[i], ok=p===x.answer;
+      if(mode==='miss'&&ok) return;
+      h+='<div class="card"><div class="qn">Question '+(i+1)+'</div><p class="q">'+esc(x.q)+'</p>';
+      x.options.forEach((o,j)=>h+='<button class="opt '+(j===x.answer?'ok':(j===p?'bad':''))+'" disabled><b>'+L[j]+'.</b><span>'+esc(o)+'</span></button>');
+      h+='<div class="fb '+(ok?'ok':'bad')+'"><strong>'+(ok?'Correct.':(p==null?'Not answered. The answer is '+L[x.answer]+'.':'You chose '+L[p]+'. The answer is '+L[x.answer]+'.'))+'</strong>'+esc(x.explain)+'</div></div>';
+    });
+    h+='<button class="btn" id="again">Take the exam again</button>';
+    app.innerHTML=h;
+    document.getElementById('tAll').onclick=()=>results('all');
+    document.getElementById('tMiss').onclick=()=>results('miss');
+    document.getElementById('again').onclick=start;
+    window.scrollTo(0,0);
+  }
+  start();
+})();
+</script>
+</body>
+</html>

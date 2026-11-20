@@ -1,0 +1,686 @@
+[
+  {
+    "file": "ad19c9de482ef45b547958a1d07955e1.mp3",
+    "lecture": 0,
+    "id": "L0-title",
+    "text": "Anderson Academy. Engineering 507 B: Differential Equations. A Foundations course in Anderson Engineering."
+  },
+  {
+    "file": "3d8d0896d50e4ec3e1e88e3d0f8d0b26.mp3",
+    "lecture": 0,
+    "id": "0.1",
+    "text": "Welcome to Anderson Academy. This is Engineering 507 B, Differential Equations, a mathematics Foundations course in Anderson Engineering. It is a Brief course: this overview of about five minutes, then six lectures of about ten minutes each, so about an hour in all. The letter B at the end of the course code stands for Brief. The department code is E N G R, which is spoken as Engineering, so this course is Engineering 507 B."
+  },
+  {
+    "file": "a3a39571614409d09340b5efb3885455.mp3",
+    "lecture": 0,
+    "id": "0.2",
+    "text": "Questions or feedback are always welcome, by email to garyanderson at mail dot grokbot dot com or on X at garyanderson."
+  },
+  {
+    "file": "a3d8d18ea01243dcf968c03230a46afd.mp3",
+    "lecture": 0,
+    "id": "0.3",
+    "text": "A differential equation is an equation that relates an unknown function to its own derivatives. It says how a quantity changes, and asks what the quantity must therefore be. Newton's second law is one: force equals mass times acceleration, and acceleration is the second derivative of position. The cooling of a cup of coffee, the charging of a capacitor, the vibration of a car's suspension, and the spread of an epidemic are all described by differential equations."
+  },
+  {
+    "file": "d704546ad379a1689456c5519052316c.mp3",
+    "lecture": 0,
+    "id": "0.4",
+    "text": "Engineers model almost everything this way. A structural engineer writes the equation of a vibrating beam, an electrical engineer the equation of a circuit, a chemical engineer the equations of a reactor, and a control engineer the equations of the system to be controlled. Calculus One and Calculus Two gave you derivatives and integrals. This course teaches you to use them in reverse: from a law about rates of change, to the behaviour over time."
+  },
+  {
+    "file": "34809f0c53a80deb0010311849a70dd6.mp3",
+    "lecture": 0,
+    "id": "0.5",
+    "text": "Here is the map of this course, which follows MIT's eighteen oh three, Differential Equations. Lecture one introduces first-order equations: what they mean, direction fields, separable equations, and numerical solution by Euler's method. Lecture two treats linear first-order equations, with growth and decay, cooling, mixing, and circuits, and introduces complex exponentials. Lecture three studies second-order linear equations with constant coefficients, using the spring, mass, and damper as the guiding example."
+  },
+  {
+    "file": "9bc6a12826bc7f0220f01640509003b0.mp3",
+    "lecture": 0,
+    "id": "0.6",
+    "text": "Lecture four adds a driving force, and explains sinusoidal response, resonance, and the first ideas of Fourier series. Lecture five introduces the Laplace transform, transfer functions, and the responses to steps and impulses. Lecture six treats systems of equations, using eigenvalues and phase portraits, and gives a first look at nonlinear behaviour and stability."
+  },
+  {
+    "file": "b16732f2e35dbe8f3efc3662489b2018.mp3",
+    "lecture": 0,
+    "id": "0.7",
+    "text": "The prerequisites are Engineering 501 B, Calculus One, and, helpfully, Engineering 502 B, Calculus Two. You should be fluent with derivatives of exponentials, sines, and cosines, and with basic integration. Engineering 508 B, Linear Algebra, is the natural companion course; this course uses a little of its language, such as matrices and eigenvalues, and explains it as needed."
+  },
+  {
+    "file": "f58a29429ba07a386bf1861e771ac90b.mp3",
+    "lecture": 0,
+    "id": "0.8",
+    "text": "Because this is a Brief course, every lecture chooses its examples carefully and leaves out many methods and all of the proofs. When you meet an equation, check it two ways: substitute the proposed solution back into the equation, and ask whether the behaviour makes physical sense. Checking by substitution is the single most useful habit in this subject."
+  },
+  {
+    "file": "2c78a3cf665d2b89c00c8c7566795b7b.mp3",
+    "lecture": 0,
+    "id": "0.9",
+    "text": "The backbone of this course is MIT OpenCourseWare eighteen oh three S C, Differential Equations, as taught in Fall 2011 by Professor Arthur Mattuck, Professor Haynes Miller, and colleagues, published under a Creative Commons Attribution-NonCommercial-ShareAlike licence. Gilbert Strang's open textbook Differential Equations and Linear Algebra and the OpenStax book Calculus Volume 2 are open companions. The wording of this course is original to the Academy."
+  },
+  {
+    "file": "24417b9544a598912445ddcf2ef32725.mp3",
+    "lecture": 0,
+    "id": "0.10",
+    "text": "After this course come Engineering 508 B, Linear Algebra, and Engineering 509 B, Probability and Statistics, which complete the mathematics Foundations. Differential equations return throughout the engineering departments: in dynamics and vibrations, circuits and signals, heat transfer, fluid mechanics, chemical reaction engineering, and control."
+  },
+  {
+    "file": "7a0f756e70f9c619efbd2a3c31aa93f8.mp3",
+    "lecture": 0,
+    "id": "0.11",
+    "text": "Let us begin with the simplest kind: an equation involving only the first derivative."
+  },
+  {
+    "file": "5c657348143c2fde9be78652ab188da3.mp3",
+    "lecture": 1,
+    "id": "L1-title",
+    "text": "Lecture 1. First-Order Equations and Direction Fields."
+  },
+  {
+    "file": "71f652878677c56bac5531d8e69163e3.mp3",
+    "lecture": 1,
+    "id": "1.1",
+    "text": "An ordinary differential equation, or O D E, involves an unknown function of one variable, usually time t, and its derivatives. Its order is the highest derivative that appears. A first-order equation can usually be written as y prime equals f of t and y, which says: at time t, if the current value is y, then y is changing at rate f of t and y. A solution is a function that makes the equation true for every t in some interval."
+  },
+  {
+    "file": "b731767be731ed375a32564f2bfd6c83.mp3",
+    "lecture": 1,
+    "id": "1.2",
+    "text": "Take the simplest example, y prime equals k y, where k is a constant. It says that the rate of change is proportional to the current amount. Any function y equals C times e to the k t is a solution, for any constant C, because its derivative is k times C e to the k t, which is k y. One equation has a whole family of solutions, one for each C. That is typical: a first-order equation has a one-parameter family of solutions."
+  },
+  {
+    "file": "f1f5f711e74f96fb53ebd1c120cc237d.mp3",
+    "lecture": 1,
+    "id": "1.3",
+    "text": "To pick out one solution, we specify a starting value, an initial condition, such as y equals y nought at t equals zero. An equation together with an initial condition is an initial value problem. For y prime equals k y, the condition fixes C equals y nought, so the solution is y nought e to the k t. A theorem on existence and uniqueness guarantees that, if f and its partial derivative with respect to y are continuous, the initial value problem has exactly one solution near the starting time."
+  },
+  {
+    "file": "125c23b37426c31edbdc1d559516a39a.mp3",
+    "lecture": 1,
+    "id": "1.4",
+    "text": "Uniqueness has a striking geometric meaning: two solution curves of such an equation can never cross. If they did, the crossing point would be an initial condition with two different solutions. Solution curves therefore fill the plane like the grain in a piece of wood, each running alongside its neighbours. This fact lets us reason about solutions we cannot write down."
+  },
+  {
+    "file": "34acba49c72ecf808427297d893bf929.mp3",
+    "lecture": 1,
+    "id": "1.5",
+    "text": "Even without solving an equation, we can see its solutions. At every point t, y of the plane, the equation tells us the slope f of t and y that a solution through that point must have. Draw a short line segment with that slope at many points, and you have a direction field, also called a slope field. Solution curves are curves that are tangent to the segments everywhere they go, like a leaf carried along by a current."
+  },
+  {
+    "file": "93063fafa82011e0fe9180f974b74ce3.mp3",
+    "lecture": 1,
+    "id": "1.6",
+    "text": "A helpful way to draw a direction field by hand is with isoclines, curves along which the slope is constant. For y prime equals t minus y, the isocline for slope m is the line t minus y equals m. On each such line, draw segments of slope m. The isocline for slope one, the line y equals t minus one, has slope one itself, so it is a solution, and the field shows that every other solution approaches it as t grows."
+  },
+  {
+    "file": "655b47a9997adca633bb5ee311550190.mp3",
+    "lecture": 1,
+    "id": "1.7",
+    "text": "When f depends only on y, as in y prime equals f of y, the equation is called autonomous: the rule does not change with time. Values where f of y is zero are equilibrium solutions, constant functions that stay put. If nearby solutions move toward an equilibrium, it is stable; if they move away, it is unstable. A phase line, a vertical line marked with the equilibria and arrows showing whether y increases or decreases between them, summarises the long-term behaviour."
+  },
+  {
+    "file": "5629dad3ec270fc1257b508dac781f20.mp3",
+    "lecture": 1,
+    "id": "1.8",
+    "text": "The logistic equation, y prime equals r y times one minus y over K, is the standard autonomous model of limited growth. When y is small, it grows almost exponentially at rate r; as y approaches the carrying capacity K, the growth slows. There are two equilibria: y equals zero, which is unstable, and y equals K, which is stable. Every positive starting population approaches K, following an S-shaped curve. The model was proposed by Pierre-François Verhulst in 1838 and is still used for populations, epidemics, and the adoption of technologies."
+  },
+  {
+    "file": "156feb465887768fb29912e6261f9d69.mp3",
+    "lecture": 1,
+    "id": "1.9",
+    "text": "Many first-order equations can be solved exactly by separation of variables. An equation is separable if it can be written as y prime equals g of t times h of y. Write y prime as d y by d t, move all the y terms to one side and the t terms to the other, giving d y over h of y equals g of t d t, and integrate both sides. Remember the constant of integration, and remember that any value where h of y is zero is also a constant solution that division may have lost."
+  },
+  {
+    "file": "676fa31e72b6820e23324c39eed4a829.mp3",
+    "lecture": 1,
+    "id": "1.10",
+    "text": "As an example, solve y prime equals t times y. Separating gives d y over y equals t d t. Integrating gives the natural log of the absolute value of y equals t squared over two plus a constant. Exponentiating, y equals C e to the t squared over two. Check by substitution: the derivative of C e to the t squared over two is t times C e to the t squared over two, which is t y. The check takes ten seconds and catches most algebra mistakes."
+  },
+  {
+    "file": "a81951c7cd83fbbdf44f76a7c5918bb2.mp3",
+    "lecture": 1,
+    "id": "1.11",
+    "text": "Torricelli's law gives an engineering example. Water draining from a hole in the bottom of a tank flows out at a speed proportional to the square root of the depth, so for a tank of constant cross-section the depth h satisfies h prime equals minus c times the square root of h, for a constant c. Separating and integrating gives the square root of h decreasing linearly with time. Unlike exponential decay, the tank empties completely in a finite time."
+  },
+  {
+    "file": "9ef1444ab2b46ff6d4cfefa3344052ae.mp3",
+    "lecture": 1,
+    "id": "1.12",
+    "text": "Most differential equations cannot be solved by formulas, so engineers solve them numerically. The simplest method is Euler's method, published by Leonhard Euler in the eighteenth century. Start at the initial point, take a small step h in time, and move along the direction field: the new value equals the old value plus h times the slope f of t and y at the old point. Repeat, step after step, to build an approximate solution as a chain of short straight segments."
+  },
+  {
+    "file": "099abfb89c3432d56779ed8e2e041a01.mp3",
+    "lecture": 1,
+    "id": "1.13",
+    "text": "Euler's method makes an error at each step because the true solution curves while the method moves in a straight line. Over a fixed time interval the total error is roughly proportional to the step size h, so halving the step roughly halves the error. Euler's method is therefore called first order. Better methods, such as the improved Euler method and the fourth-order Runge-Kutta method, sample the slope at several points per step and have errors proportional to h squared and h to the fourth."
+  },
+  {
+    "file": "c053c5c520d3b7d3e10264f4417488c9.mp3",
+    "lecture": 1,
+    "id": "1.14",
+    "text": "Numerical methods can fail in instructive ways. If the step is too large, Euler's method can overshoot an equilibrium and oscillate wildly, or even diverge, for an equation whose true solutions are smooth and decaying. Engineering software uses adaptive methods that adjust the step size automatically, but an engineer should always check a numerical answer by changing the step size and seeing whether the result changes."
+  },
+  {
+    "file": "cf356c62e0f5ff93097d67b5cd98ddfa.mp3",
+    "lecture": 1,
+    "id": "1.15",
+    "text": "Direction fields, phase lines, exact solutions, and numerical solutions are four views of the same object. In practice you use them together. The field shows the qualitative picture; equilibria and stability show the long-term fate; an exact formula, when one exists, shows how the answer depends on the parameters; and a numerical solution handles the equations that have no formula."
+  },
+  {
+    "file": "eabe8d29a81c3e9078f75ba3b6056d60.mp3",
+    "lecture": 1,
+    "id": "1.16",
+    "text": "To summarise: a first-order O D E gives the slope of the solution at every point. An initial condition picks one solution, and uniqueness keeps solution curves from crossing. Direction fields and isoclines show the solutions geometrically, phase lines describe autonomous equations, separable equations can be integrated directly, and Euler's method approximates any solution step by step. Next we study the most important class of first-order equations: linear ones."
+  },
+  {
+    "file": "3728b518453d5f30c5b4cfc42aa55dde.mp3",
+    "lecture": 2,
+    "id": "L2-title",
+    "text": "Lecture 2. Linear First-Order Equations and Complex Exponentials."
+  },
+  {
+    "file": "dc94709ef69a4dfdef12f96c5d3e0127.mp3",
+    "lecture": 2,
+    "id": "2.1",
+    "text": "A first-order equation is linear if it can be written as y prime plus p of t times y equals q of t. The unknown y and its derivative appear only to the first power and are not multiplied together. The function q of t is often called the input, or forcing, and the solution y the response or output. Linear equations matter because they can always be solved by a formula, and because many physical systems are linear, or nearly so, for small changes."
+  },
+  {
+    "file": "851025740528322b88db64828cfa9505.mp3",
+    "lecture": 2,
+    "id": "2.2",
+    "text": "The method of solution is the integrating factor. Multiply both sides by u of t equals e to the integral of p of t. The left side then becomes exactly the derivative of u times y, by the product rule. So the derivative of u y equals u times q, and integrating gives u y equals the integral of u q plus a constant. Dividing by u gives the general solution. The constant is fixed by the initial condition."
+  },
+  {
+    "file": "3b98499593b11a3e0a5d6c726a4f4ef8.mp3",
+    "lecture": 2,
+    "id": "2.3",
+    "text": "The most important case is constant coefficients: y prime plus k y equals q of t, with k a positive constant. The integrating factor is e to the k t. With no input, the solution is y nought e to the minus k t, exponential decay. The quantity one over k is the time constant: after one time constant, the response has fallen to e to the minus one, about thirty-seven per cent, of its starting value. After about five time constants, it is under one per cent."
+  },
+  {
+    "file": "5faeb31d891cf5ccde0416a66021986f.mp3",
+    "lecture": 2,
+    "id": "2.4",
+    "text": "Radioactive decay is the purest example. The rate of decay is proportional to the number of nuclei remaining, so the amount decays as e to the minus k t. The half-life, the time to fall to half, is the natural log of two divided by k, about zero point six nine three over k. Growth works the same way with the sign reversed: money compounding continuously at an interest rate r grows as e to the r t, with doubling time the natural log of two over r."
+  },
+  {
+    "file": "eb74082301c677e7465882a2a384e7a3.mp3",
+    "lecture": 2,
+    "id": "2.5",
+    "text": "Newton's law of cooling says that a body's temperature T changes at a rate proportional to the difference between it and the surrounding temperature T a: T prime equals minus k times T minus T a. The solution is T equals T a plus T nought minus T a, times e to the minus k t. The temperature approaches its surroundings exponentially, quickly at first and then more slowly. Engineers use the same model for the warming of a building, the cooling of an electronic component, and, in forensic work, the estimated time of death."
+  },
+  {
+    "file": "ab2ef8fe331ad9618f0034f2988287a0.mp3",
+    "lecture": 2,
+    "id": "2.6",
+    "text": "Mixing problems lead to the same equation. Suppose a tank holds V litres of water with x kilograms of dissolved salt, and brine with concentration c flows in at r litres per minute while the well-mixed solution flows out at the same rate. Then x prime equals r c minus r x over V: salt in minus salt out. This is linear with time constant V over r. The salt content approaches c V, the amount it would hold if the tank were filled entirely with the incoming brine."
+  },
+  {
+    "file": "a01ac4174fb0bfb7299e7db0de662b83.mp3",
+    "lecture": 2,
+    "id": "2.7",
+    "text": "An electrical circuit with a resistor R and a capacitor C, driven by a source voltage V s, obeys R C times V prime plus V equals V s, where V is the capacitor voltage. The time constant is R times C. When a switch connects a battery, the capacitor voltage rises as V s times one minus e to the minus t over R C, reaching about sixty-three per cent of the final value after one time constant. The same mathematics describes a camera flash charging, a sensor's response time, and the smoothing of a power supply."
+  },
+  {
+    "file": "77c0c7a470cbb93c0e2c14aba6d297d5.mp3",
+    "lecture": 2,
+    "id": "2.8",
+    "text": "The solution of a linear equation with constant coefficients always has two parts. The transient, a term like C e to the minus k t, depends on the initial condition and dies away. The steady-state, or particular, response is what remains, and it is determined by the input. Engineers often care most about the steady state: after the start-up transients, how does the system respond to a sustained input?"
+  },
+  {
+    "file": "a56a0776560170a1c9be6eff0a5ff68e.mp3",
+    "lecture": 2,
+    "id": "2.9",
+    "text": "Linear equations obey the principle of superposition. If input q one produces response y one and input q two produces response y two, then input q one plus q two produces y one plus y two, and a constant multiple of an input produces the same multiple of the response. Superposition lets us break a complicated input into simple pieces, solve for each, and add. It fails for nonlinear equations, which is one reason nonlinear problems are so much harder."
+  },
+  {
+    "file": "4df4a72169871f72f2de1c7cfd5e9d2b.mp3",
+    "lecture": 2,
+    "id": "2.10",
+    "text": "Many inputs in engineering are sinusoidal: alternating current, vibrations, daily temperature cycles. To handle them gracefully we need complex numbers. A complex number a plus i b has a real part a and an imaginary part b, where i squared equals minus one. It can be drawn as a point in the plane, and written in polar form as r times cos theta plus i sin theta, where r is its distance from the origin and theta its angle."
+  },
+  {
+    "file": "59fbdfbb85e6d6352665e8dc829f5a76.mp3",
+    "lecture": 2,
+    "id": "2.11",
+    "text": "Euler's formula connects the exponential function to trigonometry: e to the i theta equals cos theta plus i sin theta. It follows from comparing the Taylor series of the three functions. With it, the polar form becomes r e to the i theta, and multiplying complex numbers becomes simple: multiply the lengths and add the angles. Setting theta equal to pi gives e to the i pi plus one equals zero, which links five of the most important numbers in mathematics."
+  },
+  {
+    "file": "a703eb0a60d4a76692712f535a397d30.mp3",
+    "lecture": 2,
+    "id": "2.12",
+    "text": "Complex exponentials turn trigonometry into algebra. The derivative of e to the i omega t is i omega times e to the i omega t, so differentiating a complex exponential just multiplies it by a constant. Cos omega t is the real part of e to the i omega t. To find the response to an input cos omega t, we can solve with the complex input e to the i omega t, which is easier, and then take the real part of the answer. This trick is called complexification."
+  },
+  {
+    "file": "28c86047c2266114cad5c1b78cd4dca6.mp3",
+    "lecture": 2,
+    "id": "2.13",
+    "text": "Apply it to y prime plus k y equals cos omega t. Try a complex solution of the form A e to the i omega t. Substituting gives i omega A plus k A equals one, so A equals one over k plus i omega. Writing A in polar form, the steady-state response is a cosine at the same frequency omega, with amplitude one over the square root of k squared plus omega squared, and lagging behind the input by an angle whose tangent is omega over k."
+  },
+  {
+    "file": "c6537990dfb5de908598edcd1c28dd77.mp3",
+    "lecture": 2,
+    "id": "2.14",
+    "text": "That result has a general lesson. A linear system with constant coefficients, driven by a sinusoid, responds in the steady state with a sinusoid of the same frequency, changed only in amplitude and phase. The ratio of output amplitude to input amplitude, as a function of frequency, is called the gain; here it falls as the frequency rises, so this system passes slow oscillations and suppresses fast ones. That is exactly what an RC low-pass filter does in an audio circuit."
+  },
+  {
+    "file": "1b12a1f311b550a7ded66de9da2491e8.mp3",
+    "lecture": 2,
+    "id": "2.15",
+    "text": "The words input, response, transient, steady state, time constant, gain, and phase lag will recur in every later lecture and in every engineering course on signals, circuits, and control. They are the vocabulary engineers use to describe how a system responds to the world. Learn them now with the simplest linear equation, and the more complicated systems will feel familiar."
+  },
+  {
+    "file": "47d94d93df37ba74774ca2d6c18588e0.mp3",
+    "lecture": 2,
+    "id": "2.16",
+    "text": "To summarise: linear first-order equations are solved by an integrating factor. With constant coefficients they give exponential decay or growth, characterised by a time constant, and they model decay, cooling, mixing, and R C circuits. Solutions split into transient and steady state, superposition lets us add solutions, and complex exponentials, through Euler's formula, make sinusoidal inputs easy. Next we move to second-order equations, which can oscillate."
+  },
+  {
+    "file": "6fc499ec7db904e09ddc977b4f4824a3.mp3",
+    "lecture": 3,
+    "id": "L3-title",
+    "text": "Lecture 3. Second-Order Linear Equations and Oscillations."
+  },
+  {
+    "file": "62c2f9fa88f43554353453d476010988.mp3",
+    "lecture": 3,
+    "id": "3.1",
+    "text": "Many engineering systems are governed by second-order equations, involving the second derivative. The standard example is a mass m attached to a spring with stiffness k and a damper, such as a shock absorber, with damping constant b. Newton's second law, with a spring force minus k x and a damping force minus b times x prime, gives m x double prime plus b x prime plus k x equals zero, where x is the displacement from equilibrium. The same equation describes a car's suspension, a building swaying, and an electrical circuit with an inductor, resistor, and capacitor."
+  },
+  {
+    "file": "3f93cefc6bd96eade5208649e6218d35.mp3",
+    "lecture": 3,
+    "id": "3.2",
+    "text": "A second-order equation needs two initial conditions, usually the starting position and the starting velocity. Its general solution has two arbitrary constants. For a linear homogeneous equation, meaning one with zero on the right-hand side, the general solution is a combination c one y one plus c two y two of two basic solutions, provided they are independent, meaning that neither is a constant multiple of the other."
+  },
+  {
+    "file": "26c18e1902851fcb5c1150a57a364768.mp3",
+    "lecture": 3,
+    "id": "3.3",
+    "text": "For equations with constant coefficients, try a solution of the form e to the r t. Each derivative multiplies it by r, so substituting into m x double prime plus b x prime plus k x equals zero gives m r squared plus b r plus k, times e to the r t, equals zero. Since an exponential is never zero, r must satisfy the characteristic equation m r squared plus b r plus k equals zero. Solving a differential equation has become solving a quadratic."
+  },
+  {
+    "file": "37e1c1b7bb9c28988132d83f0ed9bfee.mp3",
+    "lecture": 3,
+    "id": "3.4",
+    "text": "The quadratic formula gives r equals minus b plus or minus the square root of b squared minus four m k, all over two m. Everything depends on the sign of the discriminant, b squared minus four m k. If it is positive there are two real roots; if zero, one repeated root; if negative, two complex conjugate roots. These three cases correspond to three physically different kinds of motion."
+  },
+  {
+    "file": "f26c2dfab007ecea203ef4ea5b2d040c.mp3",
+    "lecture": 3,
+    "id": "3.5",
+    "text": "If the discriminant is positive, the system is overdamped. Both roots are negative real numbers, and the solution is c one e to the r one t plus c two e to the r two t. The mass returns to equilibrium without oscillating, slowly, because the damping is so heavy. A door closer that is adjusted too stiffly behaves like this: the door creeps shut."
+  },
+  {
+    "file": "eb58a3f921adb62b33793c5b7281a9c1.mp3",
+    "lecture": 3,
+    "id": "3.6",
+    "text": "If the discriminant is zero, the system is critically damped. The single root is r equals minus b over two m, and a second solution is t times e to the r t, so the general solution is c one plus c two t, times e to the r t. Critical damping is the borderline case, and it returns to equilibrium as fast as possible without overshooting. Designers aim near it for instruments such as measuring gauges, where overshoot would be confusing and slowness would be annoying."
+  },
+  {
+    "file": "a11f137face430924a07aa03884d5591.mp3",
+    "lecture": 3,
+    "id": "3.7",
+    "text": "If the discriminant is negative, the system is underdamped, and the roots are complex: r equals minus b over two m, plus or minus i omega d, where omega d is the damped frequency. Using Euler's formula, the real solutions are e to the minus b t over two m times cos omega d t and times sin omega d t. The motion is an oscillation whose amplitude decays exponentially, like a plucked guitar string or a car bouncing on worn shock absorbers."
+  },
+  {
+    "file": "9d169747f760776984f80bdefbf4590d.mp3",
+    "lecture": 3,
+    "id": "3.8",
+    "text": "With no damping at all, b equals zero, the equation is m x double prime plus k x equals zero, simple harmonic motion. The roots are plus and minus i omega nought, where omega nought equals the square root of k over m is the natural frequency, in radians per second. The solutions are cos omega nought t and sin omega nought t, and the motion oscillates forever. A stiffer spring or a lighter mass gives a higher natural frequency, which is why a small tuning fork sings at a higher pitch than a large one."
+  },
+  {
+    "file": "60bd4cc084ff0aed8d394d1367cd5872.mp3",
+    "lecture": 3,
+    "id": "3.9",
+    "text": "Any combination a cos omega t plus b sin omega t can be written as a single shifted cosine, A cos of omega t minus phi, where the amplitude A is the square root of a squared plus b squared and the phase phi satisfies tan phi equals b over a. Engineers prefer this amplitude-phase form because it shows directly how big the oscillation is and when it peaks. It is the same polar form of a complex number from lecture two."
+  },
+  {
+    "file": "6309d0fba4caab5d032bd03501f3acc0.mp3",
+    "lecture": 3,
+    "id": "3.10",
+    "text": "Engineers describe damping with a single dimensionless number, the damping ratio zeta, equal to b divided by two times the square root of m k. Zeta less than one is underdamped, equal to one is critically damped, and greater than one is overdamped. Car suspensions typically have damping ratios of about zero point two to zero point four, giving a comfortable ride with a little bounce. Earthquake engineers add dampers to tall buildings to raise their damping ratio."
+  },
+  {
+    "file": "c07cd82ac62b93996af1d5f62bf4f48a.mp3",
+    "lecture": 3,
+    "id": "3.11",
+    "text": "The same equation governs an electrical circuit. An inductor L, a resistor R, and a capacitor C in series satisfy L q double prime plus R q prime plus q over C equals the source voltage, where q is the charge on the capacitor. Inductance plays the role of mass, resistance the role of damping, and one over capacitance the role of stiffness. The natural frequency is one over the square root of L C. This analogy lets mechanical and electrical engineers share their results."
+  },
+  {
+    "file": "f8053e3d9155abcb685b8b8bd5883351.mp3",
+    "lecture": 3,
+    "id": "3.12",
+    "text": "A small-angle pendulum is another oscillator. A pendulum of length L obeys theta double prime plus g over L times sine theta equals zero, which is nonlinear. For small angles, sine theta is approximately theta, giving simple harmonic motion with natural frequency the square root of g over L. The period, two pi times the square root of L over g, does not depend on the amplitude for small swings, which is what made pendulum clocks accurate. For large swings, the linear approximation fails."
+  },
+  {
+    "file": "73c9d2b53e0eeae93391a462cf8b5201.mp3",
+    "lecture": 3,
+    "id": "3.13",
+    "text": "The theory extends to all linear homogeneous equations of order n with constant coefficients. The characteristic polynomial has n roots, counted with multiplicity. Each real root r gives a solution e to the r t; each pair of complex roots a plus or minus i b gives e to the a t cos b t and e to the a t sin b t; and a root repeated several times gives extra solutions multiplied by t, t squared, and so on. The general solution is a combination of all n."
+  },
+  {
+    "file": "7eec3608e8a48cf251207968379a3088.mp3",
+    "lecture": 3,
+    "id": "3.14",
+    "text": "Stability can be read straight from the roots. If every root has a negative real part, every solution decays to zero, and the system is stable. If any root has a positive real part, some solutions grow without bound, and the system is unstable. Roots on the imaginary axis give oscillations that neither grow nor decay. In control engineering, placing these roots in the left half of the complex plane is the central design goal."
+  },
+  {
+    "file": "d5088f90d683fb0bf5f57492c74c7e73.mp3",
+    "lecture": 3,
+    "id": "3.15",
+    "text": "Whether a solution is truly a combination of two independent pieces can be tested with the Wronskian, the determinant formed from the two solutions and their derivatives: y one y two prime minus y two y one prime. If it is not zero, the solutions are independent, and every solution of the equation is a combination of them. That is the reason we can stop looking once we have found two independent solutions of a second-order equation."
+  },
+  {
+    "file": "d75173d9f5f9ca9f9d54fab2a2810059.mp3",
+    "lecture": 3,
+    "id": "3.16",
+    "text": "To summarise: m x double prime plus b x prime plus k x equals zero models springs, circuits, and pendulums. Trying e to the r t turns it into the characteristic equation. Real distinct roots mean overdamping, a repeated root critical damping, and complex roots underdamped oscillation at a decaying amplitude. The natural frequency is the square root of k over m, the damping ratio summarises the damping, and the real parts of the roots decide stability. Next we drive the oscillator with an outside force."
+  },
+  {
+    "file": "0db8e593db2c09a79780b6fa0c5219e8.mp3",
+    "lecture": 4,
+    "id": "L4-title",
+    "text": "Lecture 4. Forced Oscillations, Resonance, and Fourier Series."
+  },
+  {
+    "file": "c581d36048ca75ff1cb095b44cc95a14.mp3",
+    "lecture": 4,
+    "id": "4.1",
+    "text": "When an outside force drives a system, the equation becomes inhomogeneous: m x double prime plus b x prime plus k x equals F of t. The general solution is a particular solution, any one solution of the full equation, plus the general solution of the homogeneous equation from lecture three. If the system is damped, the homogeneous part decays, so it is the transient, and the particular solution describes the long-run, steady-state behaviour."
+  },
+  {
+    "file": "081ad13a872e608dabb43a4bb7c2399f.mp3",
+    "lecture": 4,
+    "id": "4.2",
+    "text": "For exponential inputs there is a neat shortcut. Write the left side as p of D applied to x, where D stands for differentiation and p is the characteristic polynomial. Since D applied to e to the a t gives a times e to the a t, p of D applied to e to the a t equals p of a times e to the a t. So, if p of a is not zero, a particular solution of p of D x equals e to the a t is e to the a t divided by p of a. This is the exponential response formula, emphasised in MIT's eighteen oh three."
+  },
+  {
+    "file": "89605870ecba850c591063681e777e59.mp3",
+    "lecture": 4,
+    "id": "4.3",
+    "text": "Combined with complexification from lecture two, the formula handles sinusoidal inputs. To solve m x double prime plus b x prime plus k x equals F nought cos omega t, solve with the complex input F nought e to the i omega t. The formula gives F nought e to the i omega t over p of i omega, where p of i omega equals k minus m omega squared plus i b omega. The real part is the steady-state response: a cosine at the driving frequency, with amplitude and phase set by this complex number."
+  },
+  {
+    "file": "31aecebc80a774cfd7fd41a27c7e8447.mp3",
+    "lecture": 4,
+    "id": "4.4",
+    "text": "The amplitude of the response, divided by the amplitude F nought over k that a slow, steady force would produce, is called the amplification factor, or gain. It depends on the driving frequency omega. For a lightly damped system, the gain is near one at low frequencies, rises to a sharp peak when omega is near the natural frequency omega nought, and falls toward zero at high frequencies. A plot of gain against frequency is the system's frequency response."
+  },
+  {
+    "file": "923f09d39948dbb14f7bd3c9f48b92be.mp3",
+    "lecture": 4,
+    "id": "4.5",
+    "text": "The peak is resonance: a system driven near its natural frequency responds with large oscillations, because each push arrives in step with the motion and adds to it. A child on a swing, pushed once per swing, goes higher and higher. For a lightly damped system the peak gain is about one over two zeta, so a damping ratio of zero point zero one, typical of some steel structures, can amplify a small periodic force fifty times."
+  },
+  {
+    "file": "7195eda87b40959ef11cbb099765ef20.mp3",
+    "lecture": 4,
+    "id": "4.6",
+    "text": "With no damping, resonance is unbounded. The equation x double prime plus omega nought squared x equals cos omega t has the particular solution cos omega t divided by omega nought squared minus omega squared, which blows up as omega approaches omega nought. Exactly at resonance, the exponential response formula fails because p of i omega nought is zero, and the solution instead is t sin omega nought t over two omega nought, an oscillation whose amplitude grows linearly in time forever."
+  },
+  {
+    "file": "221ba26d9ae1813d67faeb6f6e1481d2.mp3",
+    "lecture": 4,
+    "id": "4.7",
+    "text": "Resonance can be useful or dangerous. Radios and mobile phones tune to one station by building a circuit that resonates at its frequency. Musical instruments, microwave ovens, and magnetic resonance imaging all exploit resonance. But machinery can shake itself apart if a rotating part runs near a natural frequency of its mounting, and soldiers traditionally break step when crossing bridges. Engineers design so that natural frequencies stay away from the frequencies of expected forces."
+  },
+  {
+    "file": "53478e4431463e697e1c2fa64ffb4927.mp3",
+    "lecture": 4,
+    "id": "4.8",
+    "text": "The famous failures need careful description. The Tacoma Narrows Bridge, which collapsed in 1940, is often cited as resonance, but its violent twisting was mainly aeroelastic flutter, a self-excited instability in which the wind fed energy into the motion, rather than a periodic push at a fixed frequency. London's Millennium Bridge, opened in 2000, swayed sideways because pedestrians unconsciously fell into step with its motion, reinforcing it; it was closed and fitted with dampers. Both show why dynamic behaviour must be analysed, not assumed."
+  },
+  {
+    "file": "97a7bc9f931ca7ee936764d2c2887d14.mp3",
+    "lecture": 4,
+    "id": "4.9",
+    "text": "Away from resonance, the phase of the response tells a story too. At low driving frequencies the mass moves in step with the force. At resonance it lags by a quarter cycle, ninety degrees, which is exactly the phase at which the force does the most work. At high frequencies the mass moves opposite to the force, lagging by nearly half a cycle. Vibration isolation, as in the mounts of a washing machine or a sensitive microscope, works in this high-frequency regime."
+  },
+  {
+    "file": "516f6a5360a1eb56ca912a1ae9181cd2.mp3",
+    "lecture": 4,
+    "id": "4.10",
+    "text": "Real inputs are often periodic without being simple sinusoids: a square wave from a switching circuit, the pulses of a piston engine, a sawtooth signal. In 1807 Joseph Fourier, studying the flow of heat, claimed that any reasonable periodic function can be written as a sum of sines and cosines whose frequencies are whole-number multiples of a fundamental frequency. Such a sum is called a Fourier series."
+  },
+  {
+    "file": "39f36783cdcec6fe574146e463cca23c.mp3",
+    "lecture": 4,
+    "id": "4.11",
+    "text": "For a function f of period two pi, the Fourier series is a nought over two plus the sum, for n from one to infinity, of a n cos n t plus b n sin n t. The coefficients are found by integrating f against each sine and cosine: a n equals one over pi times the integral of f of t cos n t over one period, and similarly for b n with sine. This works because sines and cosines of different whole-number frequencies are orthogonal: the integral of their product over a period is zero."
+  },
+  {
+    "file": "994e4cef992485bb4d4deb085f3d2ae2.mp3",
+    "lecture": 4,
+    "id": "4.12",
+    "text": "The square wave that equals plus one for half of each period and minus one for the other half is a standard example. Its Fourier series contains only odd sine terms: four over pi times sin t plus sin three t over three plus sin five t over five, and so on. Adding more terms makes the sum look more and more like the square wave, except for a small overshoot near each jump, about nine per cent of the jump, that never disappears, called the Gibbs phenomenon."
+  },
+  {
+    "file": "68bcb2a25fc9b2dfd138387473b91bd3.mp3",
+    "lecture": 4,
+    "id": "4.13",
+    "text": "Fourier series combine beautifully with superposition. To find the steady-state response of a linear system to any periodic input, expand the input as a Fourier series, find the response to each sinusoidal term using the frequency response, and add the results. A system with a sharp resonance picks out and amplifies whichever term in the input lies near its natural frequency, even if that term is small. This is why a periodic force with a fundamental below resonance can still excite resonance through one of its higher harmonics."
+  },
+  {
+    "file": "d4eb701606bce04548bde49eaeba7e40.mp3",
+    "lecture": 4,
+    "id": "4.14",
+    "text": "Fourier's idea is one of the most widely used in engineering. Spectrum analysers display the Fourier content of signals. Audio and image compression, such as the MP3 and JPEG formats, store the most important frequency components and discard the rest. Vibration monitoring detects a failing bearing by a new peak in the spectrum of a machine's vibration. Lecture six will mention how Fourier series also solve the heat equation that Fourier was studying."
+  },
+  {
+    "file": "1613bfbc637eb43a7e7142164c848da9.mp3",
+    "lecture": 4,
+    "id": "4.15",
+    "text": "In practice, engineers often plot frequency response on logarithmic axes, as a Bode plot, named after Hendrik Bode of Bell Laboratories. Gain is shown in decibels against the logarithm of frequency, with the phase on a second plot. On these axes, the responses of complicated systems are built from straight-line pieces, and the effects of components in series simply add. Bode plots are standard in circuit design and control engineering."
+  },
+  {
+    "file": "6bc6eb73abab629bdbe84bb7e3872a08.mp3",
+    "lecture": 4,
+    "id": "4.16",
+    "text": "To summarise: a forced linear system's solution is a particular solution plus the homogeneous solution. The exponential response formula, with complexification, gives the steady-state response to sinusoids. The frequency response shows gain and phase against frequency, with resonance near the natural frequency, limited only by damping. Fourier series write periodic inputs as sums of sinusoids, so superposition handles them term by term. Next we introduce a transform that handles starts, stops, and sudden blows."
+  },
+  {
+    "file": "5637ad5d3cba7db307fab434181f9055.mp3",
+    "lecture": 5,
+    "id": "L5-title",
+    "text": "Lecture 5. The Laplace Transform."
+  },
+  {
+    "file": "bf989d15d64299a5c79d46469e363f3c.mp3",
+    "lecture": 5,
+    "id": "5.1",
+    "text": "Many engineering inputs switch on, switch off, or strike suddenly: a voltage applied at a definite instant, a hammer blow, a valve slammed shut. The Laplace transform, named after Pierre-Simon Laplace and developed for engineering by Oliver Heaviside and others, handles such inputs systematically. It converts a linear differential equation with constant coefficients into an algebraic equation, which is solved and then converted back."
+  },
+  {
+    "file": "6bfe5d2f9320e4046ea2c1684155077d.mp3",
+    "lecture": 5,
+    "id": "5.2",
+    "text": "The Laplace transform of a function f of t, defined for t at least zero, is F of s equals the integral from zero to infinity of e to the minus s t times f of t, d t. The variable s may be complex. A few transforms do most of the work. The transform of the constant one is one over s. The transform of e to the a t is one over s minus a. The transform of cos omega t is s over s squared plus omega squared, and that of sin omega t is omega over s squared plus omega squared. The transform of t to the n is n factorial over s to the n plus one."
+  },
+  {
+    "file": "bf7dfe471255201f396314b00622ca0b.mp3",
+    "lecture": 5,
+    "id": "5.3",
+    "text": "The key property concerns derivatives. Integrating by parts shows that the transform of f prime is s F of s minus f of zero. Similarly, the transform of f double prime is s squared F of s minus s f of zero minus f prime of zero. Differentiation in time becomes multiplication by s, and the initial conditions appear automatically. That is why the Laplace transform is so well suited to initial value problems."
+  },
+  {
+    "file": "0f23faede957b1168403360531c1a726.mp3",
+    "lecture": 5,
+    "id": "5.4",
+    "text": "Here is the method on an example: solve y prime plus two y equals zero with y of zero equal to three. Transforming gives s Y minus three plus two Y equals zero, so Y equals three over s plus two. From the table, this is the transform of three e to the minus two t, so y equals three e to the minus two t. The steps are always the same: transform, solve the algebra for Y, and invert using a table, usually after splitting Y into partial fractions."
+  },
+  {
+    "file": "fac0f29ab1c8cff5540d4f2d0368af37.mp3",
+    "lecture": 5,
+    "id": "5.5",
+    "text": "Partial fractions, from calculus, are the main tool for inversion. For example, one over s times s plus one equals one over s minus one over s plus one, so its inverse transform is one minus e to the minus t. Each simple factor s minus a in the denominator contributes a term e to the a t, and each pair of complex factors contributes a decaying or growing sinusoid. Repeated factors contribute terms multiplied by powers of t, exactly as repeated characteristic roots did in lecture three."
+  },
+  {
+    "file": "b792f6d3098100bfb7ec79798a3a62fd.mp3",
+    "lecture": 5,
+    "id": "5.6",
+    "text": "Now consider a system p of D x equals f of t, starting from rest, meaning all initial conditions zero. Transforming gives p of s times X of s equals F of s, so X equals F divided by p of s. The function W of s equals one over p of s is called the transfer function. It depends only on the system, not on the input: in the s-domain, the output is simply the transfer function times the input. Engineers draw block diagrams of systems by connecting transfer functions."
+  },
+  {
+    "file": "8a410eb858e7e590beb9bc644c35f26c.mp3",
+    "lecture": 5,
+    "id": "5.7",
+    "text": "The values of s where the transfer function becomes infinite, the roots of p of s, are called its poles. They are exactly the roots of the characteristic equation from lecture three. Plotting the poles in the complex plane shows the system's character at a glance: poles in the left half-plane mean stability, poles farther left mean faster decay, and poles with larger imaginary parts mean faster oscillation. A pole in the right half-plane signals instability."
+  },
+  {
+    "file": "5792be33841d577772b9e57934fa08ff.mp3",
+    "lecture": 5,
+    "id": "5.8",
+    "text": "The unit step function, often written u of t, is zero for negative t and one from t equals zero onward. It models switching something on. Its transform is one over s. The step response of a system, its output from rest when the input is a unit step, is a standard test: engineers read off the rise time, the overshoot, and the settling time from it. A step that switches on at a later time a is u of t minus a, and its transform is e to the minus a s over s: a delay multiplies a transform by e to the minus a s."
+  },
+  {
+    "file": "8d9c3a53eadb41db47689a9878afae57.mp3",
+    "lecture": 5,
+    "id": "5.9",
+    "text": "A sudden blow, such as a hammer strike, delivers a finite impulse in a very short time. The idealisation is the delta function, introduced by Paul Dirac: delta of t is zero everywhere except at t equals zero, and its integral is one. Strictly it is not an ordinary function but a limit of ever taller, narrower pulses of unit area. Its Laplace transform is simply one. The delta function is the derivative of the unit step, in this generalised sense."
+  },
+  {
+    "file": "e29377c7a5fc289edd47213f565eab69.mp3",
+    "lecture": 5,
+    "id": "5.10",
+    "text": "The response of a system at rest to a unit impulse is the impulse response, usually written w of t. Since the transform of delta is one, the transform of the impulse response is the transfer function itself: w of t is the inverse transform of W of s. For a spring-mass system, an impulse sets the mass moving with a sudden velocity, and the impulse response is the free oscillation that follows. The impulse response completely characterises a linear time-invariant system."
+  },
+  {
+    "file": "c00fdfa8c43f98ee630364c0f30c8afa.mp3",
+    "lecture": 5,
+    "id": "5.11",
+    "text": "Why does one response characterise the system? Any input can be thought of as a rapid succession of tiny impulses, each of strength f of tau d tau at time tau. Each produces a delayed, scaled copy of the impulse response, and by superposition the total output is their sum. This sum is the convolution integral: x of t equals the integral from zero to t of f of tau times w of t minus tau, d tau."
+  },
+  {
+    "file": "d5fcc9bdb729040120b8ea49fd2f3cdd.mp3",
+    "lecture": 5,
+    "id": "5.12",
+    "text": "The convolution theorem says that the Laplace transform of a convolution is the product of the transforms. That is the time-domain meaning of the s-domain statement X equals W times F. Convolution is the language of signal processing: filters, echoes, blurring and sharpening of images, and the response of a structure to an earthquake record are all computed as convolutions of an input with an impulse response."
+  },
+  {
+    "file": "4e93ae98468f5b758b81093a7b879c7a.mp3",
+    "lecture": 5,
+    "id": "5.13",
+    "text": "The final value theorem gives the long-term output without inverting. If the system is stable, the limit of x of t as t goes to infinity equals the limit of s times X of s as s goes to zero. For a unit step input to a system with transfer function W of s, the final output is W of zero, the steady-state gain. The theorem applies only when the limit truly exists; it gives nonsense for unstable or purely oscillating systems, so check stability first."
+  },
+  {
+    "file": "b6ae1e726a22a5c135503def94ed59a3.mp3",
+    "lecture": 5,
+    "id": "5.14",
+    "text": "The Laplace transform turns engineering block diagrams into algebra. Two systems in series multiply their transfer functions. A feedback loop, in which the output is measured and subtracted from the desired value, gives an overall transfer function G over one plus G H, where G is the forward path and H the feedback path. Feedback can stabilise an unstable system, speed up a slow one, and reduce the effect of disturbances: the central ideas of control engineering."
+  },
+  {
+    "file": "c673bf22d4359611f34b5ea1bf55475e.mp3",
+    "lecture": 5,
+    "id": "5.15",
+    "text": "The Laplace transform has close relatives. The Fourier transform, which extends Fourier series to non-periodic functions, is essentially the Laplace transform evaluated on the imaginary axis, s equals i omega, and gives the frequency response of lecture four. The z-transform plays the same role for digital, sampled-data systems. Together they form the mathematical toolkit of signals and systems courses in electrical engineering."
+  },
+  {
+    "file": "4810ef6de79835adf3e4e282ee1f8e2f.mp3",
+    "lecture": 5,
+    "id": "5.16",
+    "text": "To summarise: the Laplace transform turns derivatives into multiplication by s and initial conditions into algebra. A table and partial fractions invert it. The transfer function, one over p of s, relates input to output; its poles are the characteristic roots and decide stability. Step and impulse responses characterise systems, the delta function idealises sudden blows, and convolution builds the response to any input. Next we turn to systems of several interacting equations."
+  },
+  {
+    "file": "595e6fad8eec040765cdb69d8b4566a7.mp3",
+    "lecture": 6,
+    "id": "L6-title",
+    "text": "Lecture 6. Systems, Phase Portraits, and Nonlinear Behaviour."
+  },
+  {
+    "file": "1aa163c94643116fb903890880b7e476.mp3",
+    "lecture": 6,
+    "id": "6.1",
+    "text": "Many problems involve several quantities changing together: the populations of predators and prey, the currents in the loops of a circuit, the positions of several masses connected by springs. Each quantity's rate of change depends on the others, giving a system of differential equations. Any higher-order equation can also be rewritten as a system: for the spring-mass equation, take the position x and the velocity v equals x prime as two unknowns, so x prime equals v and v prime equals minus k over m x minus b over m v."
+  },
+  {
+    "file": "92ad60facc52431a256f0f415180212f.mp3",
+    "lecture": 6,
+    "id": "6.2",
+    "text": "A linear system with constant coefficients can be written compactly as x prime equals A x, where x is a vector of unknowns and A is a square matrix of constants. For two unknowns, A is a two-by-two matrix. Engineering 508 B, Linear Algebra, studies matrices in depth; here we need only the idea that A acts on a vector to produce another vector, and one key concept: eigenvalues and eigenvectors."
+  },
+  {
+    "file": "aaf7f7356ced38cf214337f2c2fdd4f8.mp3",
+    "lecture": 6,
+    "id": "6.3",
+    "text": "Look for solutions of the form x equals e to the lambda t times v, where v is a fixed vector. Substituting gives lambda e to the lambda t v equals A e to the lambda t v, so A v must equal lambda v. A non-zero vector v with this property is an eigenvector of A, and lambda is its eigenvalue. The eigenvalues are the roots of the characteristic equation, the determinant of A minus lambda I equal to zero, where I is the identity matrix. For a two-by-two matrix this is a quadratic, lambda squared minus the trace times lambda plus the determinant equals zero."
+  },
+  {
+    "file": "792186cfcf73d2d6cf9c0677e7619697.mp3",
+    "lecture": 6,
+    "id": "6.4",
+    "text": "If a two-by-two matrix has two distinct real eigenvalues lambda one and lambda two with eigenvectors v one and v two, the general solution is c one e to the lambda one t v one plus c two e to the lambda two t v two. Along each eigenvector direction, solutions move in straight lines, growing or shrinking exponentially at the rate of the corresponding eigenvalue. Every other solution is a combination of these two straight-line motions."
+  },
+  {
+    "file": "e5d10563e205bccdea11d544f155ba06.mp3",
+    "lecture": 6,
+    "id": "6.5",
+    "text": "A solution of a two-dimensional system traces a curve in the plane of the two unknowns, called the phase plane. A picture of many solution curves, called trajectories, is a phase portrait. Time does not appear on the axes; it is the parameter along each trajectory, shown by arrows. As in lecture one, trajectories of an autonomous system never cross, so a phase portrait shows the fate of every possible initial condition at once."
+  },
+  {
+    "file": "762ba7f931e175fd8e6ec71297bf7a7f.mp3",
+    "lecture": 6,
+    "id": "6.6",
+    "text": "The equilibrium at the origin of x prime equals A x is classified by its eigenvalues. Two negative real eigenvalues make a stable node: all trajectories flow into the origin. Two positive ones make an unstable node: all flow out. Real eigenvalues of opposite signs make a saddle: trajectories approach along one eigenvector and leave along the other, so the origin is unstable. A saddle occurs exactly when the determinant of A is negative."
+  },
+  {
+    "file": "4d74f01cefa980999156205f591eae67.mp3",
+    "lecture": 6,
+    "id": "6.7",
+    "text": "Complex eigenvalues a plus or minus i b produce rotation. If the real part a is negative, trajectories spiral into the origin, a stable spiral, like an underdamped spring-mass system. If a is positive, they spiral outward, an unstable spiral. If a is zero, the trajectories are closed ellipses around the origin, called a centre, like an undamped oscillator. In every case, the system is stable when both eigenvalues have negative real parts, which for a two-by-two matrix means the trace is negative and the determinant positive."
+  },
+  {
+    "file": "fa69a277aa5bb9037412022192bcc8c0.mp3",
+    "lecture": 6,
+    "id": "6.8",
+    "text": "Coupled oscillators show the power of eigenvectors. Two equal masses joined by springs between two walls have two natural patterns of motion, called normal modes: one in which the masses swing together, and a faster one in which they swing in opposite directions. Each mode corresponds to an eigenvector, and its frequency comes from the eigenvalue. Any motion is a combination of the modes. Engineers analyse buildings, bridges, aircraft wings, and molecules by finding their normal modes."
+  },
+  {
+    "file": "7d53184141f62cfe1581b9371d2e60d3.mp3",
+    "lecture": 6,
+    "id": "6.9",
+    "text": "Most real systems are nonlinear, and most nonlinear systems cannot be solved by formula. Yet their behaviour near an equilibrium can usually be understood by linearisation. Find the equilibria, where all rates of change are zero. Near each, replace the system by its best linear approximation, using the matrix of partial derivatives, called the Jacobian matrix, from Engineering 502 B. The eigenvalues of the Jacobian classify the equilibrium, just as for a linear system, in all but borderline cases."
+  },
+  {
+    "file": "ffc42e1a135eb68560853562fab5f3d8.mp3",
+    "lecture": 6,
+    "id": "6.10",
+    "text": "The Lotka-Volterra predator-prey model, proposed by Alfred Lotka and Vito Volterra in the 1920s, is a classic example. Let x be the prey and y the predators. Prey grow on their own and are eaten: x prime equals a x minus b x y. Predators starve without prey and grow by eating: y prime equals minus c y plus d x y. Besides extinction at the origin, there is an equilibrium where both coexist. Linearisation there gives a centre, and indeed the populations cycle, with predator peaks lagging behind prey peaks."
+  },
+  {
+    "file": "86062c791ea23bc70e843cf5e548d59c.mp3",
+    "lecture": 6,
+    "id": "6.11",
+    "text": "The full pendulum, theta double prime plus g over L sine theta equals zero, written as a system in angle and angular velocity, has equilibria hanging straight down and standing straight up. Linearising at the bottom gives a centre: small oscillations. Linearising at the top gives a saddle: an inverted pendulum falls. The phase portrait shows both, plus trajectories in which the pendulum swings right over the top and keeps rotating. Balancing an inverted pendulum by feedback is a classic control-engineering exercise, and the principle behind self-balancing scooters."
+  },
+  {
+    "file": "de06205f453cd5f51fdd61a581756c08.mp3",
+    "lecture": 6,
+    "id": "6.12",
+    "text": "Nonlinear systems can do things linear systems cannot. They can have several equilibria, so the long-run state depends on where you start. They can have limit cycles, isolated closed trajectories that attract nearby trajectories, giving self-sustained oscillations of a fixed amplitude, as in a heartbeat or the van der Pol oscillator from early radio circuits. And in three or more dimensions they can be chaotic."
+  },
+  {
+    "file": "7d283faca04380a8a67ea793c0c30a39.mp3",
+    "lecture": 6,
+    "id": "6.13",
+    "text": "In 1963 the meteorologist Edward Lorenz, at MIT, studied a simplified three-variable model of convection and found that solutions starting from almost identical initial conditions diverge exponentially, while staying on a bounded, intricately folded set called a strange attractor. This sensitive dependence on initial conditions, popularly called the butterfly effect, limits long-range weather prediction, even though the equations are completely deterministic."
+  },
+  {
+    "file": "2c1bea516228e7d6179b26a203996ab7.mp3",
+    "lecture": 6,
+    "id": "6.14",
+    "text": "Differential equations with more than one independent variable, such as time and position, are partial differential equations. The heat equation, u sub t equals alpha times u sub x x, describes how temperature u spreads along a rod, where alpha is the thermal diffusivity. Fourier solved it by writing the initial temperature as a Fourier series: each sine term decays exponentially at its own rate, with the rate proportional to the square of its frequency, so sharp features smooth out first. The wave equation and Laplace's equation complete the classic trio studied in later courses."
+  },
+  {
+    "file": "4f1cf87a0fd93d45fcf2087f3f7ff102.mp3",
+    "lecture": 6,
+    "id": "6.15",
+    "text": "In engineering practice, large systems of differential equations are solved numerically by software, from circuit simulators to finite-element programs for structures and fluids. The ideas of this course remain essential, because they tell the engineer what to expect: which time constants and natural frequencies matter, whether an equilibrium is stable, where resonance lurks, and whether a numerical result is believable."
+  },
+  {
+    "file": "437d9017e146619a67ea68d992cdcdeb.mp3",
+    "lecture": 6,
+    "id": "6.16",
+    "text": "That is the end of Engineering 507 B, Differential Equations. We moved from single first-order equations to oscillators, forcing, transforms, and systems, and saw that the same few ideas, exponentials, characteristic roots, superposition, and stability, run through all of them. If you want to go further, MIT's eighteen oh three S C on OpenCourseWare and Gilbert Strang's Differential Equations and Linear Algebra are excellent next steps. The next Foundations course, Engineering 508 B, Linear Algebra, develops the matrices and eigenvalues of this lecture properly. Questions or feedback are always welcome, by email to garyanderson at mail dot grokbot dot com or on X at garyanderson. Thank you for studying with Anderson Academy."
+  }
+]
