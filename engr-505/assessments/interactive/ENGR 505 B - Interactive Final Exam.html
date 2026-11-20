@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ENGR 505 B · Interactive Final Exam · Anderson Academy</title>
+<meta name="theme-color" content="#1f3a5f">
+<style>
+  :root{--ink:#1b2230;--muted:#586075;--line:#ddd8cb;--bg:#f7f5f0;--card:#fff;--ok:#1d7a46;--okbg:#e6f4ec;--bad:#b3261e;--badbg:#fbeaea;--accent:#1f3a5f;--sel:#e8eefb;color-scheme:light}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e9ecf2;--muted:#a3abbd;--line:#2c3547;--bg:#141922;--card:#1c2330;--ok:#8fcdb0;--okbg:#1a3b2a;--bad:#f0a8a4;--badbg:#3b1c1c;--accent:#8fb4e8;--sel:#24344c;color-scheme:dark}}
+  :root[data-theme="dark"]{--ink:#e9ecf2;--muted:#a3abbd;--line:#2c3547;--bg:#141922;--card:#1c2330;--ok:#8fcdb0;--okbg:#1a3b2a;--bad:#f0a8a4;--badbg:#3b1c1c;--accent:#8fb4e8;--sel:#24344c;color-scheme:dark}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+  .top{position:sticky;top:0;background:var(--card);border-bottom:1px solid var(--line);padding:8px 14px;z-index:2;padding-top:max(8px,env(safe-area-inset-top,0px))}
+  .row{display:flex;align-items:center;gap:10px}
+  .back,.theme{color:var(--accent);font-size:15px;background:none;border:0;padding:0;cursor:pointer}
+  .theme{min-width:44px;text-align:right}
+  .timer{flex:1;text-align:center;font-weight:700;font-size:22px;font-variant-numeric:tabular-nums}
+  .timer.over{color:var(--bad)}
+  .cnt{color:var(--muted);font-size:13px;min-width:56px;text-align:right}
+  .tnote{color:var(--muted);font-size:12px;text-align:center;margin-top:2px}
+  main{max-width:680px;margin:0 auto;padding:16px 14px 60px}
+  h1{font-size:20px;margin:6px 0 4px}
+  .brand{color:var(--muted);font-size:13px;letter-spacing:.02em;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+  .qn{color:var(--muted);font-size:13px;margin-bottom:6px}
+  .q{font-size:17px;font-weight:600;margin:0 0 12px}
+  .opt{display:flex;gap:10px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:8px;font-size:16px;color:var(--ink);cursor:pointer}
+  .opt b{min-width:20px}
+  .opt.on{border-color:var(--accent);background:var(--sel);box-shadow:inset 0 0 0 1px var(--accent)}
+  .opt:disabled{cursor:default}
+  .opt.ok{border-color:var(--ok);background:var(--okbg)}
+  .opt.bad{border-color:var(--bad);background:var(--badbg)}
+  .fb{margin-top:10px;padding:12px;border-radius:10px;font-size:15px;white-space:pre-line}
+  .fb.ok{background:var(--okbg)} .fb.bad{background:var(--badbg)}
+  .fb strong{display:block;margin-bottom:4px}
+  .btn{display:block;width:100%;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:14px;font-size:17px;cursor:pointer;margin-top:8px}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#101722}}
+  :root[data-theme="dark"] .btn{color:#101722}
+  .btn.alt{background:var(--card);color:var(--accent);border:1px solid var(--accent)}
+  .warn{background:#fff7e0;border:1px solid #e8d38a;border-radius:10px;padding:12px;margin-top:10px;font-size:15px}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .warn{background:#3b3318;border-color:#8a7a3a;color:var(--ink)}}
+  :root[data-theme="dark"] .warn{background:#3b3318;border-color:#8a7a3a;color:var(--ink)}
+  .score{font-size:44px;font-weight:700;text-align:center;margin:6px 0}
+  .tabs{display:flex;gap:8px;margin:10px 0 14px}
+  .tabs button{flex:1;padding:10px;border-radius:10px;border:1px solid var(--accent);background:var(--card);color:var(--accent);font-size:15px;cursor:pointer}
+  .tabs button.on{background:var(--accent);color:#fff}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#101722}}
+  :root[data-theme="dark"] .tabs button.on{color:#101722}
+  .note{color:var(--muted);font-size:13px;text-align:center;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="row"><button class="back" id="back" type="button">‹ Exam</button><div class="timer" id="timer">0:00</div><div class="cnt" id="cnt"></div><button class="theme" id="themeBtn" type="button" aria-label="Switch color theme">Dark</button></div>
+  <div class="tnote" id="tnote">This timer is for reference only. This test is designed for 60 minutes.</div>
+</div>
+<main id="app"><p class="sub">Loading…</p></main>
+<script>
+window.EXAM_DATA = {
+  "title": "ENGR 505 B - Chemistry",
+  "questions": [
+    {
+      "q": "What kind of course is Engineering 505 B, Chemistry?",
+      "options": [
+        "A full semester of MIT chemistry",
+        "A Brief Foundations course in chemistry for Anderson Engineering: an overview and six lectures, about an hour",
+        "An optional elective outside the Foundations",
+        "A laboratory course"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 0.1: Paragraph 0.1 gives the format.\nA is wrong: A Brief course is a first hour, not a substitute.\nC is wrong: It is a Foundations course.\nD is wrong: It is a lecture course."
+    },
+    {
+      "q": "What background does the overview assume?",
+      "options": [
+        "A previous university chemistry course",
+        "Linear algebra",
+        "Organic chemistry",
+        "Logarithms, exponentials, and rates of change from Calculus One; no earlier chemistry course"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 0.7: Some acquaintance with energy and force from Physics One also helps.\nA is wrong: No earlier chemistry course is assumed.\nB is wrong: It is not listed.\nC is wrong: It is not required."
+    },
+    {
+      "q": "Which MIT subjects form the backbone of this course?",
+      "options": [
+        "18.03 Differential Equations",
+        "3.091 Introduction to Solid-State Chemistry and 5.111 Principles of Chemical Science",
+        "8.02 Electricity and Magnetism",
+        "7.016 Introductory Biology"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 0.9: The overview credits Professor Grossman (3.091) and Professor Drennan and Dr Vogel Taylor (5.111).\nA is wrong: That is a mathematics subject.\nC is wrong: That is a physics subject.\nD is wrong: That is a biology subject."
+    },
+    {
+      "q": "About how many particles are in one mole?",
+      "options": [
+        "6.02 × 10²³, Avogadro's number",
+        "6.02 × 10⁻²³",
+        "1,000",
+        "9 × 10⁹"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.2: One mole is about 6.02 × 10²³ particles.\nB is wrong: The exponent is positive; a mole is an enormous number.\nC is wrong: A mole is far larger than a thousand.\nD is wrong: That is the Coulomb constant, not Avogadro's number."
+    },
+    {
+      "q": "What did Rutherford's experiments around 1911 show?",
+      "options": [
+        "Nearly all an atom's mass and positive charge sit in a tiny nucleus",
+        "Electrons orbit in fixed energy levels",
+        "Atoms are indivisible",
+        "Electrons are waves"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.3: The nucleus is about a hundred thousand times smaller than the atom.\nB is wrong: That was Bohr's 1913 proposal.\nC is wrong: The experiments revealed internal structure.\nD is wrong: That came later with quantum mechanics."
+    },
+    {
+      "q": "In hydrogen, the drop from level three to level two emits light of about what wavelength?",
+      "options": [
+        "About 121 nm, ultraviolet",
+        "About 656 nm, red light, from an energy gap of about 1.9 eV",
+        "About 1 mm, microwaves",
+        "Any wavelength, a continuous rainbow"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.5: A fixed energy gap gives a fixed photon wavelength, λ = hc/ΔE.\nA is wrong: That is the drop from level two to level one.\nC is wrong: The energy gap is far too large for microwaves.\nD is wrong: Hydrogen emits only sharp lines."
+    },
+    {
+      "q": "What does the angular momentum quantum number l set?",
+      "options": [
+        "The spin of the electron",
+        "The shell and its energy",
+        "The shape of the orbital, running from 0 to n − 1",
+        "The number of electrons in the atom"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 1.7: l = 0, 1, 2, 3 correspond to s, p, d, f.\nA is wrong: That is m_s.\nB is wrong: That is n.\nD is wrong: That is the atomic number."
+    },
+    {
+      "q": "What does the Pauli exclusion principle imply for an orbital?",
+      "options": [
+        "It holds at most eight electrons",
+        "It holds any number of electrons with the same spin",
+        "It must contain exactly one electron",
+        "It holds at most two electrons, with opposite spins"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.8: No two electrons in an atom may share all four quantum numbers.\nA is wrong: Eight is the capacity of an s plus p shell, not one orbital.\nB is wrong: Same-spin electrons cannot share an orbital.\nC is wrong: Orbitals may hold zero, one, or two."
+    },
+    {
+      "q": "What is the electron configuration of sodium, with eleven electrons?",
+      "options": [
+        "1s² 2s² 2p⁶ 3s¹",
+        "1s² 2s² 2p⁷",
+        "1s² 2s² 2p⁶ 3p¹",
+        "1s² 2s² 2p⁴ 3s³"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.9: Orbitals fill from the lowest energy upward by the aufbau principle.\nB is wrong: A p subshell holds at most six electrons.\nC is wrong: 3s fills before 3p.\nD is wrong: An s subshell holds at most two electrons."
+    },
+    {
+      "q": "Why do elements in the same group behave alike?",
+      "options": [
+        "They have the same atomic mass",
+        "They have the same number of shells",
+        "They have the same number of neutrons",
+        "They have the same arrangement of valence electrons"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.11: Valence electrons do nearly all of chemistry.\nA is wrong: Masses differ widely down a group.\nB is wrong: That is true of a period, not a group.\nC is wrong: Neutrons do not set chemistry."
+    },
+    {
+      "q": "How do atomic radius and ionisation energy vary across a period?",
+      "options": [
+        "Radius increases and ionisation energy falls",
+        "Radius decreases and ionisation energy rises",
+        "Both increase",
+        "Neither changes"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.13: Effective nuclear charge rises across a period, pulling valence electrons in more tightly.\nA is wrong: That is the trend down a group.\nC is wrong: They move in opposite directions.\nD is wrong: Both change smoothly across a period."
+    },
+    {
+      "q": "How does an ionic bond form?",
+      "options": [
+        "One atom transfers electrons to another and the ions attract electrostatically",
+        "Two atoms share an electron pair equally",
+        "Electrons spread over the whole solid",
+        "Neutral molecules attract by dispersion"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.2: Sodium gives its 3s electron to chlorine, and Na⁺ and Cl⁻ attract.\nB is wrong: That is a covalent bond.\nC is wrong: That is metallic bonding.\nD is wrong: That is an intermolecular force."
+    },
+    {
+      "q": "Why does magnesium oxide have a much larger lattice energy than sodium chloride?",
+      "options": [
+        "It is a covalent molecule",
+        "Its ions are larger",
+        "Its ions carry charges of 2+ and 2− and are smaller, so the Coulomb attraction is much stronger",
+        "It has no ionic charges"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 2.3: Attraction grows with the product of ionic charges and falls with distance; MgO's lattice energy is nearly five times that of NaCl.\nA is wrong: MgO is an ionic solid.\nB is wrong: Smaller ions make the attraction stronger.\nD is wrong: Its ions are Mg²⁺ and O²⁻."
+    },
+    {
+      "q": "By VSEPR, what shape and angle do four electron domains with no lone pairs give, as in methane?",
+      "options": [
+        "Flat square, 90°",
+        "Trigonal planar, 120°",
+        "Linear, 180°",
+        "A tetrahedron, about 109.5°"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.7: Electron domains spread as far apart as possible.\nA is wrong: Four domains spread further apart in three dimensions.\nB is wrong: That is for three domains.\nC is wrong: That is for two domains."
+    },
+    {
+      "q": "Why is the H–O–H angle in water smaller than the tetrahedral angle?",
+      "options": [
+        "Its two lone pairs take up more room than bonding pairs, squeezing the bonds together",
+        "Water has only two electron domains",
+        "Hydrogen atoms attract each other",
+        "Water is linear"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.8: Water has four domains, two of them lone pairs, giving a bent shape near 104.5°.\nB is wrong: It has two bonds and two lone pairs, four domains.\nC is wrong: The cause is lone-pair repulsion.\nD is wrong: Water is bent."
+    },
+    {
+      "q": "Why is carbon dioxide non-polar although its C=O bonds are polar?",
+      "options": [
+        "Carbon and oxygen have equal electronegativity",
+        "It has lone pairs on carbon",
+        "It is an ionic compound",
+        "The molecule is linear, so the two bond dipoles cancel"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.9: Overall polarity depends on both bond polarity and shape.\nA is wrong: Oxygen is more electronegative, so the bonds are polar.\nB is wrong: Carbon in CO₂ has no lone pairs.\nC is wrong: CO₂ is covalent."
+    },
+    {
+      "q": "What hybrid orbitals explain the tetrahedral geometry of methane?",
+      "options": [
+        "Two sp hybrids",
+        "Three sp² hybrids",
+        "Unmixed 2p orbitals only",
+        "Four sp³ hybrids from one 2s and three 2p orbitals"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.10: They point to the corners of a tetrahedron.\nA is wrong: sp gives a linear geometry.\nB is wrong: sp² gives a trigonal planar geometry.\nC is wrong: These would give 90° angles."
+    },
+    {
+      "q": "What does molecular orbital theory explain about O₂ that simple Lewis structures miss?",
+      "options": [
+        "O₂ has a triple bond",
+        "O₂ has two unpaired electrons, so liquid oxygen is attracted to a magnet",
+        "O₂ is ionic",
+        "O₂ has no bonding electrons"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.11: Filling bonding and antibonding molecular orbitals leaves two unpaired electrons.\nA is wrong: Its bond order is two.\nC is wrong: O₂ is a covalent molecule.\nD is wrong: It has a bond order of two."
+    },
+    {
+      "q": "What explains the electrical conductivity of metals?",
+      "options": [
+        "Delocalised valence electrons shared by the whole solid",
+        "Fixed lone pairs",
+        "Ionic bonds between metal atoms",
+        "A wide band gap"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.12: The 'sea of electrons' moves freely around the ion lattice.\nB is wrong: Lone pairs are localised.\nC is wrong: Metal atoms are not ionically bonded to each other.\nD is wrong: A wide gap makes an insulator."
+    },
+    {
+      "q": "Which intermolecular force acts between all molecules and grows with molecular size?",
+      "options": [
+        "Hydrogen bonding",
+        "London dispersion forces",
+        "Ionic bonding",
+        "Dipole–dipole forces"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.13: They arise from momentary fluctuations in electron clouds.\nA is wrong: That needs H bonded to N, O, or F.\nC is wrong: That is a bond within an ionic solid.\nD is wrong: These act only between polar molecules."
+    },
+    {
+      "q": "How many atoms does a face-centred cubic unit cell contain?",
+      "options": [
+        "Four",
+        "Two",
+        "One",
+        "Fourteen"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 3.4: Eight corners × 1/8 + six faces × 1/2 = 1 + 3 = 4.\nB is wrong: That is body-centred cubic.\nC is wrong: That is simple cubic.\nD is wrong: Shared atoms count only in part."
+    },
+    {
+      "q": "Which cubic arrangement has the highest packing efficiency?",
+      "options": [
+        "Simple cubic, about 52 per cent",
+        "Body-centred cubic, about 68 per cent",
+        "Face-centred cubic, about 74 per cent",
+        "All are equal"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.5: FCC, like hexagonal close packing, reaches the largest value possible for equal spheres.\nA is wrong: Simple cubic is the least efficient.\nB is wrong: BCC is between the two.\nD is wrong: They differ markedly."
+    },
+    {
+      "q": "What is the coordination number in an FCC metal?",
+      "options": [
+        "Six",
+        "Eight",
+        "Twelve",
+        "Four"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.6: Each atom has twelve nearest neighbours in FCC and in hexagonal close packing.\nA is wrong: That is simple cubic.\nB is wrong: That is BCC.\nD is wrong: That is far too few for a close-packed metal."
+    },
+    {
+      "q": "How are the Miller indices of a plane found?",
+      "options": [
+        "Add the intercepts",
+        "Take the intercepts in units of the cell edge, take reciprocals, and clear fractions",
+        "Measure the angle of the plane",
+        "Count the atoms on the plane"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 3.7: A plane parallel to an axis has an infinite intercept and index zero.\nA is wrong: The recipe uses reciprocals.\nC is wrong: Indices come from intercepts.\nD is wrong: That gives planar density, not indices."
+    },
+    {
+      "q": "What does Bragg's law state?",
+      "options": [
+        "λ = d sin θ",
+        "nλ = d / sin θ",
+        "nλ = 2d sin θ",
+        "λ = 2d cos θ"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.9: Waves reflected from successive planes add when the extra path, 2d sin θ, is a whole number of wavelengths.\nA is wrong: The extra path is twice d sin θ, and n may be any whole number.\nB is wrong: The path difference is proportional to sin θ.\nD is wrong: θ is measured from the planes, giving sine."
+    },
+    {
+      "q": "What is a vacancy in a crystal?",
+      "options": [
+        "An extra atom between regular sites",
+        "An extra half-plane of atoms",
+        "A boundary between grains",
+        "A missing atom at a lattice site"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 3.11: It is a point defect, and vacancies let atoms diffuse.\nA is wrong: That is an interstitial.\nB is wrong: That is a dislocation.\nC is wrong: That is a planar defect."
+    },
+    {
+      "q": "How do metals deform permanently?",
+      "options": [
+        "By breaking all the bonds on a plane at once",
+        "By atoms evaporating",
+        "By grain boundaries melting",
+        "By the movement of dislocations through the crystal"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 3.12: Dislocations glide by breaking and remaking only a row of bonds at a time.\nA is wrong: That would need far more force than is observed.\nB is wrong: Plastic deformation is a slip process.\nC is wrong: Boundaries obstruct dislocations; they do not melt."
+    },
+    {
+      "q": "Why do smaller grains usually make a metal stronger?",
+      "options": [
+        "Smaller grains have no dislocations",
+        "Smaller grains are always amorphous",
+        "More grain boundaries obstruct dislocation motion",
+        "Grain size has no effect"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.13: Boundaries are obstacles to the slip that causes permanent deformation.\nA is wrong: Dislocations still exist.\nB is wrong: They remain crystalline.\nD is wrong: It has a strong effect."
+    },
+    {
+      "q": "What does Hess's law say?",
+      "options": [
+        "Enthalpy changes depend on the path",
+        "All reactions are exothermic",
+        "The enthalpy change of an overall reaction is the sum of the changes for steps that add up to it",
+        "Entropy always increases in a reaction"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.3: Enthalpy is a state function.\nA is wrong: As a state function, enthalpy does not.\nB is wrong: Some, like dissolving ammonium nitrate, are endothermic.\nD is wrong: That is not Hess's law."
+    },
+    {
+      "q": "What is the standard enthalpy of formation of an element in its standard state?",
+      "options": [
+        "One kilojoule per mole",
+        "Zero",
+        "Equal to its lattice energy",
+        "Always negative"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.4: Formation enthalpies are measured relative to the elements in their standard states.\nA is wrong: It is defined as zero.\nC is wrong: Lattice energy is a different quantity.\nD is wrong: It is zero by definition."
+    },
+    {
+      "q": "What does the second law of thermodynamics say about a spontaneous process?",
+      "options": [
+        "The system's entropy always increases",
+        "Energy is created",
+        "The total entropy of system plus surroundings increases",
+        "Enthalpy always decreases"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.6: Heat released raises the surroundings' entropy by q/T.\nA is wrong: The total, not the system's alone, must increase.\nB is wrong: Energy is conserved.\nD is wrong: Endothermic processes can be spontaneous."
+    },
+    {
+      "q": "When is a process at constant temperature and pressure spontaneous?",
+      "options": [
+        "Whenever ΔH is negative",
+        "Whenever ΔS is negative",
+        "When ΔG is positive",
+        "When ΔG = ΔH − TΔS is negative"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.7: Negative ΔG means thermodynamically favoured, though not necessarily fast.\nA is wrong: Ice melting is spontaneous though endothermic.\nB is wrong: Negative entropy change works against spontaneity.\nC is wrong: Positive ΔG means not spontaneous."
+    },
+    {
+      "q": "Why does diamond not turn into graphite at room temperature although ΔG is negative?",
+      "options": [
+        "Spontaneous means thermodynamically favoured, not fast; the change is immeasurably slow",
+        "Diamond is more stable than graphite",
+        "ΔG is actually positive",
+        "Pressure makes it instantaneous"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 4.7: Kinetics, not thermodynamics, sets the speed.\nB is wrong: Graphite is the more stable form at room conditions.\nC is wrong: The text states it is negative.\nD is wrong: No; it is extremely slow."
+    },
+    {
+      "q": "If ΔH is positive and ΔS positive, when is the process spontaneous?",
+      "options": [
+        "At every temperature",
+        "Never",
+        "Only at low temperature",
+        "Only at high enough temperature"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.8: The −TΔS term must outweigh ΔH, which happens above a threshold temperature.\nA is wrong: That is for negative ΔH and positive ΔS.\nB is wrong: That is for positive ΔH and negative ΔS.\nC is wrong: Low temperature favours negative ΔH with negative ΔS."
+    },
+    {
+      "q": "What does ΔG° = −RT ln K imply for a reaction with negative ΔG°?",
+      "options": [
+        "K is greater than one, so products are favoured",
+        "K is less than one",
+        "K equals zero",
+        "The reaction is fast"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 4.11: At room temperature, each 5.7 kJ/mol change in ΔG° changes K tenfold.\nB is wrong: That is for positive ΔG°.\nC is wrong: K is always positive.\nD is wrong: Thermodynamics says nothing about speed."
+    },
+    {
+      "q": "By Le Chatelier's principle, what happens when a product is removed from an equilibrium mixture?",
+      "options": [
+        "The reaction shifts backward",
+        "The reaction shifts forward to replace it",
+        "K changes",
+        "Nothing happens"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.13: The system shifts to partly counteract the disturbance.\nA is wrong: Removing product favours the forward reaction.\nC is wrong: Concentration changes do not change K.\nD is wrong: The equilibrium shifts."
+    },
+    {
+      "q": "What is K_w at 25 °C?",
+      "options": [
+        "1 × 10⁻⁷",
+        "1 × 10⁻¹⁴",
+        "14",
+        "7"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 5.2: It is the product of hydronium and hydroxide concentrations in water.\nA is wrong: That is each ion's concentration in pure water.\nC is wrong: That is pH + pOH.\nD is wrong: That is the pH of pure water."
+    },
+    {
+      "q": "How much more hydronium does a solution of pH 3 contain than one of pH 5?",
+      "options": [
+        "Two times more",
+        "Twenty times more",
+        "A hundred times more",
+        "A hundred times less"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.3: Each pH unit is a factor of ten, and two units is a factor of a hundred.\nA is wrong: The scale is logarithmic.\nB is wrong: Each unit is a factor of ten, not ten units.\nD is wrong: Lower pH means more hydronium."
+    },
+    {
+      "q": "What does a buffer contain?",
+      "options": [
+        "A strong acid alone",
+        "A weak acid and its conjugate base in comparable amounts",
+        "Pure water",
+        "A strong acid and a strong base in equal amounts"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 5.5: Added acid is consumed by the base and added base by the acid, so pH changes little.\nA is wrong: A strong acid cannot absorb added acid.\nC is wrong: Water alone has no buffering capacity.\nD is wrong: That just gives a neutral salt solution."
+    },
+    {
+      "q": "What is oxidation?",
+      "options": [
+        "The gain of electrons",
+        "The gain of protons",
+        "Combination with nitrogen",
+        "The loss of electrons"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 5.7: OIL RIG: oxidation is loss, reduction is gain.\nA is wrong: That is reduction.\nB is wrong: That is acid–base chemistry.\nC is wrong: Oxidation is defined by electron transfer."
+    },
+    {
+      "q": "What is the standard voltage of the Daniell cell, with E°(Cu²⁺/Cu) = +0.34 V and E°(Zn²⁺/Zn) = −0.76 V?",
+      "options": [
+        "0.42 V",
+        "−1.10 V",
+        "1.10 V",
+        "0.26 V"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.10: E°cell = cathode − anode = 0.34 − (−0.76) = 1.10 V.\nA is wrong: That subtracts the magnitudes instead of the signed potentials.\nB is wrong: A spontaneous cell has a positive voltage.\nD is wrong: That is not cathode minus anode."
+    },
+    {
+      "q": "What is ΔG° for the Daniell cell, with n = 2 and E° = 1.10 V?",
+      "options": [
+        "About −212 kJ/mol",
+        "About +212 kJ/mol",
+        "About −106 kJ/mol",
+        "About −2.2 kJ/mol"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 5.11: ΔG° = −nFE° = −2 × 96,485 × 1.10 J/mol.\nB is wrong: A positive voltage gives negative ΔG°.\nC is wrong: Two electrons are transferred.\nD is wrong: The Faraday constant is about 96,485 C/mol."
+    },
+    {
+      "q": "What happens to a battery's voltage as Q approaches K, by the Nernst equation?",
+      "options": [
+        "It rises to its maximum",
+        "It stays at E°",
+        "It falls to zero, and the battery is flat",
+        "It becomes infinite"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.12: E = E° − (RT/nF) ln Q, and E = 0 when Q = K.\nA is wrong: Products accumulate and the voltage falls.\nB is wrong: E° holds only under standard conditions.\nD is wrong: The voltage falls to zero at equilibrium."
+    },
+    {
+      "q": "About what voltage does a lithium-ion cell provide?",
+      "options": [
+        "About 1.1 V",
+        "About 2 V",
+        "About 3.6 to 3.7 V",
+        "About 12 V"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.13: This high voltage is why it dominates phones and electric vehicles.\nA is wrong: That is the Daniell cell.\nB is wrong: That is a lead-acid cell.\nD is wrong: That is a six-cell lead-acid battery."
+    },
+    {
+      "q": "What is the half-life of a first-order reaction with rate constant k?",
+      "options": [
+        "ln 2 / k, independent of the starting amount",
+        "1/(k C₀)",
+        "k / 2",
+        "It grows as the reaction proceeds"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.2: Exponential decay halves in a fixed time, about 0.693/k.\nB is wrong: That is the second-order half-life.\nC is wrong: Half-life has units of time, inverse to k.\nD is wrong: That describes second order."
+    },
+    {
+      "q": "Near room temperature, roughly what does a 10 °C rise do to many reaction rates?",
+      "options": [
+        "Roughly doubles them",
+        "Leaves them unchanged",
+        "Halves them",
+        "Multiplies them by a thousand"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.5: The Arrhenius factor e^(−Ea/RT) is very sensitive to temperature.\nB is wrong: Rates depend strongly on temperature.\nC is wrong: Higher temperature raises rates.\nD is wrong: The usual rule of thumb is about a factor of two."
+    },
+    {
+      "q": "What does a catalyst change?",
+      "options": [
+        "The equilibrium constant",
+        "The activation energy, by providing a different pathway",
+        "ΔG of the reaction",
+        "The products formed at equilibrium"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.6: It speeds forward and reverse reactions alike and is not consumed.\nA is wrong: A catalyst does not change K.\nC is wrong: ΔG is unchanged.\nD is wrong: Equilibrium composition is unchanged; it is reached faster."
+    },
+    {
+      "q": "If atoms diffuse a certain depth in one hour, how long to diffuse twice as deep?",
+      "options": [
+        "Two hours",
+        "One hour",
+        "Eight hours",
+        "About four hours"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 6.9: Diffusion distance grows with √(Dt), so doubling depth takes four times as long.\nA is wrong: Depth grows with the square root of time.\nB is wrong: Deeper diffusion takes longer.\nC is wrong: The relation is square, not cube."
+    },
+    {
+      "q": "What holds polyethylene chains to one another?",
+      "options": [
+        "Weak intermolecular forces between chains",
+        "Metallic bonds",
+        "Strong ionic bonds",
+        "Covalent bonds between every pair of chains"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.12: Within a chain, covalent carbon–carbon bonds are strong.\nB is wrong: Polyethylene is not a metal.\nC is wrong: Polyethylene is not ionic.\nD is wrong: Then it would not soften on heating."
+    },
+    {
+      "q": "Why does a semiconductor's conductivity rise with temperature?",
+      "options": [
+        "Its band gap is very wide",
+        "More electrons are thermally excited across its modest band gap",
+        "It has a partly filled band like a metal",
+        "Its atoms move faster"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.13: Silicon's gap is about 1.1 eV, small enough for some thermal excitation.\nA is wrong: A wide gap is the mark of an insulator.\nC is wrong: Metals' conductivity falls with temperature.\nD is wrong: The key is carriers crossing the gap."
+    }
+  ]
+};
+
+  function applyTheme(t){
+    const root=document.documentElement;
+    if(t==='dark'||t==='light'){root.setAttribute('data-theme',t);} else {root.removeAttribute('data-theme'); t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}
+    const b=document.getElementById('themeBtn');
+    if(b) b.textContent=(t==='dark'?'Light':'Dark');
+  }
+  (function(){
+    let t=null; try{t=localStorage.getItem('aa_theme');}catch(e){}
+    applyTheme(t==='dark'||t==='light'?t:null);
+    const b=document.getElementById('themeBtn');
+    if(b) b.onclick=()=>{
+      const cur=document.documentElement.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+      const next=cur==='dark'?'light':'dark';
+      try{localStorage.setItem('aa_theme',next);}catch(e){}
+      applyTheme(next);
+    };
+  })();
+
+(function(){
+  const app=document.getElementById('app'), tEl=document.getElementById('timer'), cnt=document.getElementById('cnt'), back=document.getElementById('back');
+  const L='ABCD', LIMIT=60*60;
+  const D=window.EXAM_DATA;
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  let picks=[], t0=null, tick=null, finished=false, used=0;
+
+  function fmt(s){s=Math.max(0,Math.floor(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+  function runTimer(){
+    t0=Date.now();
+    tick=setInterval(()=>{
+      const s=(Date.now()-t0)/1000;
+      tEl.textContent=fmt(s);
+      tEl.classList.toggle('over', s>=LIMIT);
+    },250);
+  }
+  function count(){const n=picks.filter(p=>p!=null).length;cnt.textContent=n+' / '+D.questions.length;return n;}
+
+  function start(){
+    document.getElementById('tnote').textContent='This timer is for reference only. This test is designed for 60 minutes.';
+    picks=D.questions.map(()=>null); finished=false;
+    back.style.visibility='hidden';
+    let h='<p class="brand">Anderson Academy · Anderson Engineering</p><h1>'+esc(D.title||'Final Exam')+'</h1><p class="sub">Final Exam · '+D.questions.length+' questions. Choose one answer for each question; you can change an answer at any time. Your score and the explanations appear after you submit. No score is stored.</p>';
+    D.questions.forEach((x,i)=>{
+      h+='<div class="card" id="q'+i+'"><div class="qn">Question '+(i+1)+' of '+D.questions.length+'</div><p class="q">'+esc(x.q)+'</p>';
+      x.options.forEach((o,j)=>h+='<button class="opt" data-i="'+i+'" data-j="'+j+'"><b>'+L[j]+'.</b><span>'+esc(o)+'</span></button>');
+      h+='</div>';
+    });
+    h+='<button class="btn" id="submit">Submit exam</button><div id="confirm"></div>';
+    app.innerHTML=h;
+    app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      const i=+b.dataset.i, j=+b.dataset.j; picks[i]=j;
+      document.querySelectorAll('#q'+i+' .opt').forEach(o=>o.classList.toggle('on',+o.dataset.j===j));
+      count(); document.getElementById('confirm').innerHTML='';
+    });
+    document.getElementById('submit').onclick=trySubmit;
+    count(); clearInterval(tick); tEl.classList.remove('over'); tEl.textContent='0:00'; runTimer(); window.scrollTo(0,0);
+  }
+  function trySubmit(){
+    const left=D.questions.length-count();
+    if(left===0) return submit();
+    const first=picks.findIndex(p=>p==null)+1;
+    document.getElementById('confirm').innerHTML='<div class="warn">You have '+left+' unanswered question'+(left>1?'s':'')+' (the first is question '+first+'). Unanswered questions count as wrong.<button class="btn" id="anyway">Submit anyway</button><button class="btn alt" id="goq">Go to question '+first+'</button></div>';
+    document.getElementById('anyway').onclick=submit;
+    document.getElementById('goq').onclick=()=>document.getElementById('q'+(first-1)).scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  function submit(){
+    finished=true; clearInterval(tick); used=(Date.now()-t0)/1000;
+    tEl.textContent=fmt(used)+' used';
+    tEl.classList.toggle('over', used>=LIMIT);
+    back.style.visibility='visible';
+    back.textContent='‹ Exam';
+    back.onclick=()=>start();
+    results('all');
+  }
+  function results(mode){
+    const n=D.questions.length, right=D.questions.filter((x,i)=>picks[i]===x.answer).length;
+    let h='<div class="card"><div class="qn">'+esc(D.title||'Final Exam')+'</div><div class="score">'+right+' / '+n+'</div><p class="sub" style="text-align:center;margin:0">'+Math.round(100*right/n)+'% · time used '+fmt(used)+'</p><p class="note">This score is only on this screen. Nothing is stored.</p></div>';
+    h+='<div class="tabs"><button id="tAll" class="'+(mode==='all'?'on':'')+'">All questions</button><button id="tMiss" class="'+(mode==='miss'?'on':'')+'">Missed only ('+(n-right)+')</button></div>';
+    D.questions.forEach((x,i)=>{
+      const p=picks[i], ok=p===x.answer;
+      if(mode==='miss'&&ok) return;
+      h+='<div class="card"><div class="qn">Question '+(i+1)+'</div><p class="q">'+esc(x.q)+'</p>';
+      x.options.forEach((o,j)=>h+='<button class="opt '+(j===x.answer?'ok':(j===p?'bad':''))+'" disabled><b>'+L[j]+'.</b><span>'+esc(o)+'</span></button>');
+      h+='<div class="fb '+(ok?'ok':'bad')+'"><strong>'+(ok?'Correct.':(p==null?'Not answered. The answer is '+L[x.answer]+'.':'You chose '+L[p]+'. The answer is '+L[x.answer]+'.'))+'</strong>'+esc(x.explain)+'</div></div>';
+    });
+    h+='<button class="btn" id="again">Take the exam again</button>';
+    app.innerHTML=h;
+    document.getElementById('tAll').onclick=()=>results('all');
+    document.getElementById('tMiss').onclick=()=>results('miss');
+    document.getElementById('again').onclick=start;
+    window.scrollTo(0,0);
+  }
+  start();
+})();
+</script>
+</body>
+</html>

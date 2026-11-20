@@ -1,0 +1,371 @@
+{
+  "title": "ENGR 505 B - Chemistry",
+  "quizzes": [
+    {
+      "n": 1,
+      "title": "Atoms, Electrons, and the Periodic Table",
+      "questions": [
+        {
+          "q": "About how many particles are in one mole? [1.2]",
+          "options": [
+            "6.02 × 10²³, Avogadro's number",
+            "6.02 × 10⁻²³",
+            "1,000",
+            "9 × 10⁹"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 1.2: One mole is about 6.02 × 10²³ particles.\nB is wrong: The exponent is positive; a mole is an enormous number.\nC is wrong: A mole is far larger than a thousand.\nD is wrong: That is the Coulomb constant, not Avogadro's number."
+        },
+        {
+          "q": "In hydrogen, the drop from level three to level two emits light of about what wavelength? [1.5]",
+          "options": [
+            "About 121 nm, ultraviolet",
+            "About 656 nm, red light, from an energy gap of about 1.9 eV",
+            "About 1 mm, microwaves",
+            "Any wavelength, a continuous rainbow"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 1.5: A fixed energy gap gives a fixed photon wavelength, λ = hc/ΔE.\nA is wrong: That is the drop from level two to level one.\nC is wrong: The energy gap is far too large for microwaves.\nD is wrong: Hydrogen emits only sharp lines."
+        },
+        {
+          "q": "What does the Pauli exclusion principle imply for an orbital? [1.8]",
+          "options": [
+            "It holds at most eight electrons",
+            "It holds any number of electrons with the same spin",
+            "It must contain exactly one electron",
+            "It holds at most two electrons, with opposite spins"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 1.8: No two electrons in an atom may share all four quantum numbers.\nA is wrong: Eight is the capacity of an s plus p shell, not one orbital.\nB is wrong: Same-spin electrons cannot share an orbital.\nC is wrong: Orbitals may hold zero, one, or two."
+        },
+        {
+          "q": "What is the electron configuration of sodium, with eleven electrons? [1.9]",
+          "options": [
+            "1s² 2s² 2p⁶ 3s¹",
+            "1s² 2s² 2p⁷",
+            "1s² 2s² 2p⁶ 3p¹",
+            "1s² 2s² 2p⁴ 3s³"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 1.9: Orbitals fill from the lowest energy upward by the aufbau principle.\nB is wrong: A p subshell holds at most six electrons.\nC is wrong: 3s fills before 3p.\nD is wrong: An s subshell holds at most two electrons."
+        },
+        {
+          "q": "How do atomic radius and ionisation energy vary across a period? [1.13]",
+          "options": [
+            "Radius increases and ionisation energy falls",
+            "Radius decreases and ionisation energy rises",
+            "Both increase",
+            "Neither changes"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 1.13: Effective nuclear charge rises across a period, pulling valence electrons in more tightly.\nA is wrong: That is the trend down a group.\nC is wrong: They move in opposite directions.\nD is wrong: Both change smoothly across a period."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Chemical Bonding and Molecular Shape",
+      "questions": [
+        {
+          "q": "Why does magnesium oxide have a much larger lattice energy than sodium chloride? [2.3]",
+          "options": [
+            "It is a covalent molecule",
+            "Its ions are larger",
+            "Its ions carry charges of 2+ and 2− and are smaller, so the Coulomb attraction is much stronger",
+            "It has no ionic charges"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 2.3: Attraction grows with the product of ionic charges and falls with distance; MgO's lattice energy is nearly five times that of NaCl.\nA is wrong: MgO is an ionic solid.\nB is wrong: Smaller ions make the attraction stronger.\nD is wrong: Its ions are Mg²⁺ and O²⁻."
+        },
+        {
+          "q": "By VSEPR, what shape and angle do four electron domains with no lone pairs give, as in methane? [2.7]",
+          "options": [
+            "Flat square, 90°",
+            "Trigonal planar, 120°",
+            "Linear, 180°",
+            "A tetrahedron, about 109.5°"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 2.7: Electron domains spread as far apart as possible.\nA is wrong: Four domains spread further apart in three dimensions.\nB is wrong: That is for three domains.\nC is wrong: That is for two domains."
+        },
+        {
+          "q": "Why is the H–O–H angle in water smaller than the tetrahedral angle? [2.8]",
+          "options": [
+            "Its two lone pairs take up more room than bonding pairs, squeezing the bonds together",
+            "Water has only two electron domains",
+            "Hydrogen atoms attract each other",
+            "Water is linear"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 2.8: Water has four domains, two of them lone pairs, giving a bent shape near 104.5°.\nB is wrong: It has two bonds and two lone pairs, four domains.\nC is wrong: The cause is lone-pair repulsion.\nD is wrong: Water is bent."
+        },
+        {
+          "q": "Why is carbon dioxide non-polar although its C=O bonds are polar? [2.9]",
+          "options": [
+            "Carbon and oxygen have equal electronegativity",
+            "It has lone pairs on carbon",
+            "It is an ionic compound",
+            "The molecule is linear, so the two bond dipoles cancel"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 2.9: Overall polarity depends on both bond polarity and shape.\nA is wrong: Oxygen is more electronegative, so the bonds are polar.\nB is wrong: Carbon in CO₂ has no lone pairs.\nC is wrong: CO₂ is covalent."
+        },
+        {
+          "q": "What does molecular orbital theory explain about O₂ that simple Lewis structures miss? [2.11]",
+          "options": [
+            "O₂ has a triple bond",
+            "O₂ has two unpaired electrons, so liquid oxygen is attracted to a magnet",
+            "O₂ is ionic",
+            "O₂ has no bonding electrons"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 2.11: Filling bonding and antibonding molecular orbitals leaves two unpaired electrons.\nA is wrong: Its bond order is two.\nC is wrong: O₂ is a covalent molecule.\nD is wrong: It has a bond order of two."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Crystals and the Solid State",
+      "questions": [
+        {
+          "q": "How many atoms does a face-centred cubic unit cell contain? [3.4]",
+          "options": [
+            "Four",
+            "Two",
+            "One",
+            "Fourteen"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 3.4: Eight corners × 1/8 + six faces × 1/2 = 1 + 3 = 4.\nB is wrong: That is body-centred cubic.\nC is wrong: That is simple cubic.\nD is wrong: Shared atoms count only in part."
+        },
+        {
+          "q": "Which cubic arrangement has the highest packing efficiency? [3.5]",
+          "options": [
+            "Simple cubic, about 52 per cent",
+            "Body-centred cubic, about 68 per cent",
+            "Face-centred cubic, about 74 per cent",
+            "All are equal"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.5: FCC, like hexagonal close packing, reaches the largest value possible for equal spheres.\nA is wrong: Simple cubic is the least efficient.\nB is wrong: BCC is between the two.\nD is wrong: They differ markedly."
+        },
+        {
+          "q": "What is the coordination number in an FCC metal? [3.6]",
+          "options": [
+            "Six",
+            "Eight",
+            "Twelve",
+            "Four"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.6: Each atom has twelve nearest neighbours in FCC and in hexagonal close packing.\nA is wrong: That is simple cubic.\nB is wrong: That is BCC.\nD is wrong: That is far too few for a close-packed metal."
+        },
+        {
+          "q": "What does Bragg's law state? [3.9]",
+          "options": [
+            "λ = d sin θ",
+            "nλ = d / sin θ",
+            "nλ = 2d sin θ",
+            "λ = 2d cos θ"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.9: Waves reflected from successive planes add when the extra path, 2d sin θ, is a whole number of wavelengths.\nA is wrong: The extra path is twice d sin θ, and n may be any whole number.\nB is wrong: The path difference is proportional to sin θ.\nD is wrong: θ is measured from the planes, giving sine."
+        },
+        {
+          "q": "How do metals deform permanently? [3.12]",
+          "options": [
+            "By breaking all the bonds on a plane at once",
+            "By atoms evaporating",
+            "By grain boundaries melting",
+            "By the movement of dislocations through the crystal"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 3.12: Dislocations glide by breaking and remaking only a row of bonds at a time.\nA is wrong: That would need far more force than is observed.\nB is wrong: Plastic deformation is a slip process.\nC is wrong: Boundaries obstruct dislocations; they do not melt."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Thermodynamics and Chemical Equilibrium",
+      "questions": [
+        {
+          "q": "What is the standard enthalpy of formation of an element in its standard state? [4.4]",
+          "options": [
+            "One kilojoule per mole",
+            "Zero",
+            "Equal to its lattice energy",
+            "Always negative"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 4.4: Formation enthalpies are measured relative to the elements in their standard states.\nA is wrong: It is defined as zero.\nC is wrong: Lattice energy is a different quantity.\nD is wrong: It is zero by definition."
+        },
+        {
+          "q": "When is a process at constant temperature and pressure spontaneous? [4.7]",
+          "options": [
+            "Whenever ΔH is negative",
+            "Whenever ΔS is negative",
+            "When ΔG is positive",
+            "When ΔG = ΔH − TΔS is negative"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 4.7: Negative ΔG means thermodynamically favoured, though not necessarily fast.\nA is wrong: Ice melting is spontaneous though endothermic.\nB is wrong: Negative entropy change works against spontaneity.\nC is wrong: Positive ΔG means not spontaneous."
+        },
+        {
+          "q": "If ΔH is positive and ΔS positive, when is the process spontaneous? [4.8]",
+          "options": [
+            "At every temperature",
+            "Never",
+            "Only at low temperature",
+            "Only at high enough temperature"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 4.8: The −TΔS term must outweigh ΔH, which happens above a threshold temperature.\nA is wrong: That is for negative ΔH and positive ΔS.\nB is wrong: That is for positive ΔH and negative ΔS.\nC is wrong: Low temperature favours negative ΔH with negative ΔS."
+        },
+        {
+          "q": "What does ΔG° = −RT ln K imply for a reaction with negative ΔG°? [4.11]",
+          "options": [
+            "K is greater than one, so products are favoured",
+            "K is less than one",
+            "K equals zero",
+            "The reaction is fast"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 4.11: At room temperature, each 5.7 kJ/mol change in ΔG° changes K tenfold.\nB is wrong: That is for positive ΔG°.\nC is wrong: K is always positive.\nD is wrong: Thermodynamics says nothing about speed."
+        },
+        {
+          "q": "By Le Chatelier's principle, what happens when a product is removed from an equilibrium mixture? [4.13]",
+          "options": [
+            "The reaction shifts backward",
+            "The reaction shifts forward to replace it",
+            "K changes",
+            "Nothing happens"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 4.13: The system shifts to partly counteract the disturbance.\nA is wrong: Removing product favours the forward reaction.\nC is wrong: Concentration changes do not change K.\nD is wrong: The equilibrium shifts."
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Acids, Bases, and Electrochemistry",
+      "questions": [
+        {
+          "q": "How much more hydronium does a solution of pH 3 contain than one of pH 5? [5.3]",
+          "options": [
+            "Two times more",
+            "Twenty times more",
+            "A hundred times more",
+            "A hundred times less"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.3: Each pH unit is a factor of ten, and two units is a factor of a hundred.\nA is wrong: The scale is logarithmic.\nB is wrong: Each unit is a factor of ten, not ten units.\nD is wrong: Lower pH means more hydronium."
+        },
+        {
+          "q": "What does a buffer contain? [5.5]",
+          "options": [
+            "A strong acid alone",
+            "A weak acid and its conjugate base in comparable amounts",
+            "Pure water",
+            "A strong acid and a strong base in equal amounts"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 5.5: Added acid is consumed by the base and added base by the acid, so pH changes little.\nA is wrong: A strong acid cannot absorb added acid.\nC is wrong: Water alone has no buffering capacity.\nD is wrong: That just gives a neutral salt solution."
+        },
+        {
+          "q": "What is oxidation? [5.7]",
+          "options": [
+            "The gain of electrons",
+            "The gain of protons",
+            "Combination with nitrogen",
+            "The loss of electrons"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 5.7: OIL RIG: oxidation is loss, reduction is gain.\nA is wrong: That is reduction.\nB is wrong: That is acid–base chemistry.\nC is wrong: Oxidation is defined by electron transfer."
+        },
+        {
+          "q": "What is the standard voltage of the Daniell cell, with E°(Cu²⁺/Cu) = +0.34 V and E°(Zn²⁺/Zn) = −0.76 V? [5.10]",
+          "options": [
+            "0.42 V",
+            "−1.10 V",
+            "1.10 V",
+            "0.26 V"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.10: E°cell = cathode − anode = 0.34 − (−0.76) = 1.10 V.\nA is wrong: That subtracts the magnitudes instead of the signed potentials.\nB is wrong: A spontaneous cell has a positive voltage.\nD is wrong: That is not cathode minus anode."
+        },
+        {
+          "q": "What happens to a battery's voltage as Q approaches K, by the Nernst equation? [5.12]",
+          "options": [
+            "It rises to its maximum",
+            "It stays at E°",
+            "It falls to zero, and the battery is flat",
+            "It becomes infinite"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.12: E = E° − (RT/nF) ln Q, and E = 0 when Q = K.\nA is wrong: Products accumulate and the voltage falls.\nB is wrong: E° holds only under standard conditions.\nD is wrong: The voltage falls to zero at equilibrium."
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Reaction Rates, Diffusion, and Engineering Materials",
+      "questions": [
+        {
+          "q": "What is the half-life of a first-order reaction with rate constant k? [6.2]",
+          "options": [
+            "ln 2 / k, independent of the starting amount",
+            "1/(k C₀)",
+            "k / 2",
+            "It grows as the reaction proceeds"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 6.2: Exponential decay halves in a fixed time, about 0.693/k.\nB is wrong: That is the second-order half-life.\nC is wrong: Half-life has units of time, inverse to k.\nD is wrong: That describes second order."
+        },
+        {
+          "q": "Near room temperature, roughly what does a 10 °C rise do to many reaction rates? [6.5]",
+          "options": [
+            "Roughly doubles them",
+            "Leaves them unchanged",
+            "Halves them",
+            "Multiplies them by a thousand"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 6.5: The Arrhenius factor e^(−Ea/RT) is very sensitive to temperature.\nB is wrong: Rates depend strongly on temperature.\nC is wrong: Higher temperature raises rates.\nD is wrong: The usual rule of thumb is about a factor of two."
+        },
+        {
+          "q": "What does a catalyst change? [6.6]",
+          "options": [
+            "The equilibrium constant",
+            "The activation energy, by providing a different pathway",
+            "ΔG of the reaction",
+            "The products formed at equilibrium"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 6.6: It speeds forward and reverse reactions alike and is not consumed.\nA is wrong: A catalyst does not change K.\nC is wrong: ΔG is unchanged.\nD is wrong: Equilibrium composition is unchanged; it is reached faster."
+        },
+        {
+          "q": "If atoms diffuse a certain depth in one hour, how long to diffuse twice as deep? [6.9]",
+          "options": [
+            "Two hours",
+            "One hour",
+            "Eight hours",
+            "About four hours"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 6.9: Diffusion distance grows with √(Dt), so doubling depth takes four times as long.\nA is wrong: Depth grows with the square root of time.\nB is wrong: Deeper diffusion takes longer.\nC is wrong: The relation is square, not cube."
+        },
+        {
+          "q": "Why does a semiconductor's conductivity rise with temperature? [6.13]",
+          "options": [
+            "Its band gap is very wide",
+            "More electrons are thermally excited across its modest band gap",
+            "It has a partly filled band like a metal",
+            "Its atoms move faster"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 6.13: Silicon's gap is about 1.1 eV, small enough for some thermal excitation.\nA is wrong: A wide gap is the mark of an insulator.\nC is wrong: Metals' conductivity falls with temperature.\nD is wrong: The key is carriers crossing the gap."
+        }
+      ]
+    }
+  ]
+}
