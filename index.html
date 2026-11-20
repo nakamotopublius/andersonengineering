@@ -3,6 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Anderson Engineering</title>
+<link rel="canonical" id="canon" href="https://andersonengineering.app/">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Anderson Engineering">
@@ -126,14 +127,16 @@ var ICO = ICO || {};
 var VS={vimeo:['vimeo','Watch lectures']};
 var CURH='';
 function basePrefix(){
-  var p=location.pathname;
-  if(location.hostname.endsWith('github.io')){
-    var m=p.match(/^\/[^/]+/);
-    return m?m[0]:'';
+  var host=location.hostname.toLowerCase();
+  if(host==='andersonengineering.app'||host==='www.andersonengineering.app'||host.endsWith('.andersonengineering.app')) return '';
+  if(host.endsWith('github.io')){
+    var m=location.pathname.match(/^\/andersonengineering(?=\/|$)/);
+    return m?'/andersonengineering':'';
   }
   return '';
 }
 var BASE=basePrefix();
+var SITE='https://andersonengineering.app';
 (function(){var crest=document.querySelector('img.crest'); if(crest) crest.src=(BASE||'')+'/crest.png?v=2';})();
 function el(tag, cls, text){var e=document.createElement(tag); if(cls)e.className=cls; if(text)e.textContent=text; return e;}
 function SLUG(c){
@@ -145,8 +148,8 @@ function ASK(c){
   return /\dB$/.test(t)?t.slice(0,-1):/\d[A-Z]$/.test(t)?t:'';
 }
 function tripPrompt(c){
-  var page=location.origin+(BASE||'')+'/'+SLUG(c);
-  var pdf=location.origin+(BASE||'')+'/'+c[4];
+  var page=SITE+'/'+SLUG(c)+'/';
+  var pdf=SITE+'/'+c[4];
   return 'You are a Tripos-style examiner for '+c[1]+', '+c[2]+'. The course page is '+page+' and the course transcript is the PDF you were given (also at '+pdf+'). Ask me questions one at a time about the material, drawing on the transcript content and covering the main topics across the lectures in a fair spread. Wait for my answer before asking the next question. Probe and follow up on my answers where useful. After roughly 10 to 15 questions, end the exam and give me feedback: my strengths, the gaps in my knowledge, and what I should review. Do not give away answers before I respond.';
 }
 function aaScoreLine(k){
@@ -238,7 +241,7 @@ function draw(){
 function sendSetup(c){
   var b=document.getElementById('dsend'), m=document.getElementById('dsendm');
   m.hidden=true; b.hidden=false;
-  var url=location.origin+BASE+'/'+SLUG(c);
+  var url=SITE+'/'+SLUG(c)+'/';
   var t=c[1]+': '+c[2];
   var body=t+'\n'+url+'\nAnderson Academy, Anderson Engineering.';
   b.onclick=function(e){e.stopPropagation(); m.hidden=!m.hidden;};
@@ -276,9 +279,10 @@ function route(){
   }
   document.getElementById('list').hidden=!!c;
   document.getElementById('detail').hidden=!c;
-  if(!c){ document.title='Anderson Engineering'; window.scrollTo(0,0); return; }
+  if(!c){ document.title='Anderson Engineering'; var canon=document.getElementById('canon'); if(canon) canon.href=SITE+'/'; window.scrollTo(0,0); return; }
   LC=c;
   document.title=c[1]+' — '+c[2]+' · Anderson Engineering';
+  var canon=document.getElementById('canon'); if(canon) canon.href=SITE+'/'+SLUG(c)+'/';
   document.getElementById('dcode').textContent=c[1];
   document.getElementById('dtitle').textContent=c[2];
   wb(document.getElementById('dwatch'), c[3]);

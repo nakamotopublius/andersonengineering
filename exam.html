@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Interactive Final Exam · Anderson Engineering</title>
+<link rel="canonical" id="canon" href="https://andersonengineering.app/">
 <meta name="theme-color" content="#1f3a5f">
 <style>
   :root{--ink:#1b2230;--muted:#586075;--line:#ddd8cb;--bg:#f7f5f0;--card:#fff;--ok:#1d7a46;--okbg:#e6f4ec;--bad:#b3261e;--badbg:#fbeaea;--accent:#1f3a5f;--sel:#e8eefb;color-scheme:light}
@@ -63,14 +64,17 @@
   const code=(new URLSearchParams(location.search).get('c')||'').replace(/[^A-Za-z0-9]/g,'');
   let D=window.EXAM_DATA||null, picks=[], t0=null, tick=null, finished=false, used=0;
   function basePrefix(){
-    var p=location.pathname;
-    if(location.hostname.endsWith('github.io')){
-      var m=p.match(/^\/[^/]+/);
-      return m?m[0]:'';
+    var host=location.hostname.toLowerCase();
+    if(host==='andersonengineering.app'||host==='www.andersonengineering.app'||host.endsWith('.andersonengineering.app')) return '';
+    if(host.endsWith('github.io')){
+      var m=location.pathname.match(/^\/andersonengineering(?=\/|$)/);
+      return m?'/andersonengineering':'';
     }
     return '';
   }
   const BASE=basePrefix();
+  const SITE='https://andersonengineering.app';
+  (function(){var c=document.getElementById('canon'); if(c) c.href=SITE+location.pathname+(location.search||'');})();
   function pathFromCode(c){
     var m=String(c||'').match(/^([A-Za-z]+)(\d+)$/);
     return m?(m[1]+'-'+m[2]).toLowerCase():String(c||'').toLowerCase();
