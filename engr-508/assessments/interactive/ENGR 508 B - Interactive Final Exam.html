@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ENGR 508 B · Interactive Final Exam · Anderson Academy</title>
+<meta name="theme-color" content="#1f3a5f">
+<style>
+  :root{--ink:#1b2230;--muted:#586075;--line:#ddd8cb;--bg:#f7f5f0;--card:#fff;--ok:#1d7a46;--okbg:#e6f4ec;--bad:#b3261e;--badbg:#fbeaea;--accent:#1f3a5f;--sel:#e8eefb;color-scheme:light}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e9ecf2;--muted:#a3abbd;--line:#2c3547;--bg:#141922;--card:#1c2330;--ok:#8fcdb0;--okbg:#1a3b2a;--bad:#f0a8a4;--badbg:#3b1c1c;--accent:#8fb4e8;--sel:#24344c;color-scheme:dark}}
+  :root[data-theme="dark"]{--ink:#e9ecf2;--muted:#a3abbd;--line:#2c3547;--bg:#141922;--card:#1c2330;--ok:#8fcdb0;--okbg:#1a3b2a;--bad:#f0a8a4;--badbg:#3b1c1c;--accent:#8fb4e8;--sel:#24344c;color-scheme:dark}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+  .top{position:sticky;top:0;background:var(--card);border-bottom:1px solid var(--line);padding:8px 14px;z-index:2;padding-top:max(8px,env(safe-area-inset-top,0px))}
+  .row{display:flex;align-items:center;gap:10px}
+  .back,.theme{color:var(--accent);font-size:15px;background:none;border:0;padding:0;cursor:pointer}
+  .theme{min-width:44px;text-align:right}
+  .timer{flex:1;text-align:center;font-weight:700;font-size:22px;font-variant-numeric:tabular-nums}
+  .timer.over{color:var(--bad)}
+  .cnt{color:var(--muted);font-size:13px;min-width:56px;text-align:right}
+  .tnote{color:var(--muted);font-size:12px;text-align:center;margin-top:2px}
+  main{max-width:680px;margin:0 auto;padding:16px 14px 60px}
+  h1{font-size:20px;margin:6px 0 4px}
+  .brand{color:var(--muted);font-size:13px;letter-spacing:.02em;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+  .qn{color:var(--muted);font-size:13px;margin-bottom:6px}
+  .q{font-size:17px;font-weight:600;margin:0 0 12px}
+  .opt{display:flex;gap:10px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:8px;font-size:16px;color:var(--ink);cursor:pointer}
+  .opt b{min-width:20px}
+  .opt.on{border-color:var(--accent);background:var(--sel);box-shadow:inset 0 0 0 1px var(--accent)}
+  .opt:disabled{cursor:default}
+  .opt.ok{border-color:var(--ok);background:var(--okbg)}
+  .opt.bad{border-color:var(--bad);background:var(--badbg)}
+  .fb{margin-top:10px;padding:12px;border-radius:10px;font-size:15px;white-space:pre-line}
+  .fb.ok{background:var(--okbg)} .fb.bad{background:var(--badbg)}
+  .fb strong{display:block;margin-bottom:4px}
+  .btn{display:block;width:100%;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:14px;font-size:17px;cursor:pointer;margin-top:8px}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#101722}}
+  :root[data-theme="dark"] .btn{color:#101722}
+  .btn.alt{background:var(--card);color:var(--accent);border:1px solid var(--accent)}
+  .warn{background:#fff7e0;border:1px solid #e8d38a;border-radius:10px;padding:12px;margin-top:10px;font-size:15px}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .warn{background:#3b3318;border-color:#8a7a3a;color:var(--ink)}}
+  :root[data-theme="dark"] .warn{background:#3b3318;border-color:#8a7a3a;color:var(--ink)}
+  .score{font-size:44px;font-weight:700;text-align:center;margin:6px 0}
+  .tabs{display:flex;gap:8px;margin:10px 0 14px}
+  .tabs button{flex:1;padding:10px;border-radius:10px;border:1px solid var(--accent);background:var(--card);color:var(--accent);font-size:15px;cursor:pointer}
+  .tabs button.on{background:var(--accent);color:#fff}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#101722}}
+  :root[data-theme="dark"] .tabs button.on{color:#101722}
+  .note{color:var(--muted);font-size:13px;text-align:center;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="row"><button class="back" id="back" type="button">‹ Exam</button><div class="timer" id="timer">0:00</div><div class="cnt" id="cnt"></div><button class="theme" id="themeBtn" type="button" aria-label="Switch color theme">Dark</button></div>
+  <div class="tnote" id="tnote">This timer is for reference only. This test is designed for 60 minutes.</div>
+</div>
+<main id="app"><p class="sub">Loading…</p></main>
+<script>
+window.EXAM_DATA = {
+  "title": "ENGR 508 B - Linear Algebra",
+  "questions": [
+    {
+      "q": "What kind of course is Engineering 508 B?",
+      "options": [
+        "A full semester of MIT 18.06",
+        "A Brief Foundations mathematics course in Anderson Engineering: an overview and six lectures, about an hour",
+        "An optional elective outside the Foundations",
+        "A laboratory course"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 0.1: Paragraph 0.1 gives the format.\nA is wrong: A Brief course is a first hour.\nC is wrong: It is a Foundations course.\nD is wrong: It is a lecture course."
+    },
+    {
+      "q": "What is the backbone of this course?",
+      "options": [
+        "18.03SC Differential Equations",
+        "MIT OpenCourseWare 18.06SC Linear Algebra, taught by Professor Gilbert Strang",
+        "18.02SC Multivariable Calculus",
+        "18.05 Probability and Statistics"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 0.9: The overview credits Professor Strang.\nA is wrong: That backs Differential Equations.\nC is wrong: That backs Calculus Two.\nD is wrong: That backs Probability and Statistics."
+    },
+    {
+      "q": "What is (1, 2) + (3, 4)?",
+      "options": [
+        "(3, 8)",
+        "10",
+        "(2, 2)",
+        "(4, 6)"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.2: Vectors add component by component.\nA is wrong: That multiplies components.\nB is wrong: That adds all entries.\nC is wrong: That subtracts."
+    },
+    {
+      "q": "What do all linear combinations of two non-parallel vectors in three dimensions fill?",
+      "options": [
+        "A plane through the origin",
+        "A line",
+        "All of space",
+        "A single point"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.3: One vector fills a line; three independent vectors fill space.\nB is wrong: That is one vector.\nC is wrong: That needs three independent vectors.\nD is wrong: Combinations sweep out a plane."
+    },
+    {
+      "q": "What is the dot product of (1, 2) and (3, 4)?",
+      "options": [
+        "11",
+        "(3, 8)",
+        "10",
+        "5"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.4: 1·3 + 2·4 = 11.\nB is wrong: The dot product is a number, not a vector.\nC is wrong: That is the sum of all entries.\nD is wrong: That is the length of (3, 4)."
+    },
+    {
+      "q": "What is the length of (3, 4)?",
+      "options": [
+        "7",
+        "25",
+        "5",
+        "12"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 1.4: √(3² + 4²) = 5.\nA is wrong: That adds the components.\nB is wrong: That is the squared length.\nD is wrong: That multiplies the components."
+    },
+    {
+      "q": "In the column way of computing A x, what is A x?",
+      "options": [
+        "The dot product of x with itself",
+        "A linear combination of the columns of A, weighted by the components of x",
+        "The rows of A added together",
+        "A matrix the same size as A"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.5: The row way takes dot products of rows with x.\nA is wrong: That is the squared length of x.\nC is wrong: The weights come from x.\nD is wrong: A x is a vector."
+    },
+    {
+      "q": "What solves 2x − y = 0 and −x + 2y = 3?",
+      "options": [
+        "x = 2, y = 1",
+        "x = 0, y = 0",
+        "x = 1, y = 1",
+        "x = 1, y = 2"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.7: The two lines meet at (1, 2): 2 − 2 = 0 and −1 + 4 = 3.\nA is wrong: 2·2 − 1 ≠ 0.\nB is wrong: The second equation fails.\nC is wrong: The second equation gives 1, not 3."
+    },
+    {
+      "q": "In the column picture of 2x − y = 0, −x + 2y = 3, which combination of the columns (2, −1) and (−1, 2) gives (0, 3)?",
+      "options": [
+        "2 × (2, −1) + 1 × (−1, 2)",
+        "1 × (2, −1) + 1 × (−1, 2)",
+        "No combination works",
+        "1 × (2, −1) + 2 × (−1, 2)"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.8: (2 − 2, −1 + 4) = (0, 3).\nA is wrong: That gives (3, 0).\nB is wrong: That gives (1, 1).\nC is wrong: The matrix is invertible."
+    },
+    {
+      "q": "If a 2 × 2 matrix has columns (1, 2) and (2, 4), when does A x = b have a solution?",
+      "options": [
+        "Only when b lies on the line through (1, 2), and then infinitely many",
+        "For every b, uniquely",
+        "Never",
+        "Exactly two solutions for every b"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.10: The second column is twice the first, so the matrix is singular.\nB is wrong: That needs independent columns.\nC is wrong: b on the line gives solutions.\nD is wrong: Linear systems never have exactly two."
+    },
+    {
+      "q": "What makes a matrix transformation linear?",
+      "options": [
+        "It maps every vector to zero",
+        "A(x + y) = Ax + Ay and A(cx) = c Ax",
+        "It preserves all lengths",
+        "A(x + y) = Ax · Ay"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.11: Matrices can rotate, stretch, reflect, or shear the plane.\nA is wrong: That is one linear map, not the definition.\nC is wrong: Only orthogonal matrices do.\nD is wrong: Linearity adds outputs."
+    },
+    {
+      "q": "What does the identity matrix do to a vector?",
+      "options": [
+        "Leaves it unchanged",
+        "Doubles it",
+        "Reverses it",
+        "Sends it to zero"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.13: It has ones on the diagonal and zeros elsewhere.\nB is wrong: That is 2I.\nC is wrong: That is −I.\nD is wrong: That is the zero matrix."
+    },
+    {
+      "q": "Solve x + 2y = 3, 3x + 8y = 5 by elimination.",
+      "options": [
+        "x = 3, y = 0",
+        "x = −1, y = 2",
+        "x = 7, y = −2",
+        "x = 1, y = 1"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 2.2: Subtracting 3 × row 1 gives 2y = −4; then x = 3 − 2(−2) = 7.\nA is wrong: That fails the second equation.\nB is wrong: Back substitution gives y = −2.\nD is wrong: That fails both equations."
+    },
+    {
+      "q": "What happens if elimination finds a zero pivot that no row exchange can fix?",
+      "options": [
+        "The solution is zero",
+        "The system has exactly one solution",
+        "The determinant is one",
+        "The matrix is singular: no solution or infinitely many"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.4: On a computer, partial pivoting also chooses large pivots for accuracy.\nA is wrong: Singularity does not imply x = 0.\nB is wrong: Unique solutions need n pivots.\nC is wrong: A singular matrix has determinant zero."
+    },
+    {
+      "q": "When is the product A B defined?",
+      "options": [
+        "When A and B are the same size",
+        "When both are square",
+        "Always",
+        "When the number of columns of A equals the number of rows of B"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.5: Entry (i, j) is row i of A dotted with column j of B.\nA is wrong: Square matrices of equal size are one case only.\nB is wrong: Rectangular products are allowed.\nC is wrong: Shapes must match."
+    },
+    {
+      "q": "In A = L U, what does L contain?",
+      "options": [
+        "Ones on its diagonal and the elimination multipliers below it",
+        "The pivots",
+        "The inverse of A",
+        "The eigenvalues of A"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.7: U is the upper triangular result of elimination.\nB is wrong: The pivots are on U's diagonal.\nC is wrong: L is not A⁻¹.\nD is wrong: Eigenvalues are unrelated to L U."
+    },
+    {
+      "q": "Why does software factor a matrix once and reuse the factors?",
+      "options": [
+        "The factors are always sparse",
+        "Factoring is cheaper than any solve",
+        "The inverse must be stored",
+        "Factoring costs about n³, but each new right-hand side then costs only about n²"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.8: Structures are often analysed for hundreds of load cases.\nA is wrong: Sparsity is a separate matter.\nB is wrong: Factoring is the expensive step.\nC is wrong: Factors avoid computing the inverse."
+    },
+    {
+      "q": "What is (A B)⁻¹?",
+      "options": [
+        "A⁻¹ B⁻¹",
+        "B⁻¹ A⁻¹",
+        "(B A)⁻¹ always equals A B",
+        "A B"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.10: Like socks and shoes, undo in reverse order.\nA is wrong: The order reverses.\nC is wrong: That is not true.\nD is wrong: That is the product, not its inverse."
+    },
+    {
+      "q": "What is (A B)ᵀ?",
+      "options": [
+        "Bᵀ Aᵀ",
+        "Aᵀ Bᵀ",
+        "A B",
+        "(B A)"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.11: The transpose of a product reverses the order.\nB is wrong: The order reverses.\nC is wrong: Transposing changes the matrix.\nD is wrong: Transposes are needed."
+    },
+    {
+      "q": "What kind of matrix is RᵀR for any R?",
+      "options": [
+        "Always diagonal",
+        "Square and symmetric",
+        "Always singular",
+        "Always the identity"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.12: Its transpose is RᵀR again.\nA is wrong: Not in general.\nC is wrong: Not in general.\nD is wrong: Only if R has orthonormal columns."
+    },
+    {
+      "q": "Why are most large engineering matrices sparse?",
+      "options": [
+        "Because they are random",
+        "Each unknown interacts with only a few neighbours",
+        "Because they are small",
+        "Because determinants are zero"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.13: A finite-element model may have only a few dozen non-zeros per row.\nA is wrong: Structure, not randomness, causes sparsity.\nC is wrong: They are large.\nD is wrong: Sparsity is about zeros in entries."
+    },
+    {
+      "q": "When does A x = b have a solution?",
+      "options": [
+        "Exactly when b is in the column space of A",
+        "Exactly when b is in the nullspace",
+        "Always",
+        "Only when b = 0"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 3.2: The column space contains all combinations of the columns.\nB is wrong: The nullspace concerns A x = 0.\nC is wrong: Not when b lies outside C(A).\nD is wrong: Many non-zero b work."
+    },
+    {
+      "q": "What is the complete solution of A x = b, when one exists?",
+      "options": [
+        "Only the zero vector",
+        "Any vector in the column space",
+        "A particular solution plus any vector in the nullspace",
+        "The particular solution only"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.5: The nullspace part solves A x = 0 and adds nothing to b.\nA is wrong: That solves A x = 0.\nB is wrong: The column space is in the output space.\nD is wrong: Nullspace vectors may be added."
+    },
+    {
+      "q": "When are vectors linearly independent?",
+      "options": [
+        "When they all have length one",
+        "When they are all perpendicular to (1, 1, …, 1)",
+        "When at least one is zero",
+        "When the only combination giving zero has all weights zero"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 3.6: No vector is a combination of the others.\nA is wrong: Length is irrelevant.\nB is wrong: That is unrelated.\nC is wrong: Then they are dependent."
+    },
+    {
+      "q": "What is a basis?",
+      "options": [
+        "Any spanning set",
+        "Any independent set",
+        "An independent set of vectors that spans the space",
+        "A set of perpendicular vectors only"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.7: Every basis of a space has the same number of vectors, its dimension.\nA is wrong: It must also be independent.\nB is wrong: It must also span.\nD is wrong: Orthogonality is not required."
+    },
+    {
+      "q": "Which of these equals the rank of a matrix?",
+      "options": [
+        "The number of rows",
+        "The number of non-zero entries",
+        "The number of pivots, which equals the number of independent columns and of independent rows",
+        "The determinant"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.8: Rank is the true size of a matrix.\nA is wrong: Only if the rows are independent.\nB is wrong: Entries do not determine rank this way.\nD is wrong: The determinant is a number, possibly zero."
+    },
+    {
+      "q": "For an m × n matrix of rank r, what is the dimension of the nullspace?",
+      "options": [
+        "m − r",
+        "r",
+        "n − r",
+        "n + r"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.9: There are n − r free variables.\nA is wrong: That is the left nullspace.\nB is wrong: That is the row and column space dimension.\nD is wrong: Dimensions cannot exceed n."
+    },
+    {
+      "q": "Which two fundamental subspaces lie in Rⁿ for an m × n matrix?",
+      "options": [
+        "The column space and the left nullspace",
+        "The column space and the nullspace",
+        "Only the row space",
+        "The row space and the nullspace"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 3.10: The column space and left nullspace lie in Rᵐ.\nA is wrong: Those lie in Rᵐ.\nB is wrong: They live in different spaces.\nC is wrong: The nullspace is also in Rⁿ."
+    },
+    {
+      "q": "What is the dimension of the space of polynomials of degree at most three?",
+      "options": [
+        "Three",
+        "Infinite",
+        "Four",
+        "One"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.13: A basis is 1, x, x², x³.\nA is wrong: The constant term adds one.\nB is wrong: The degree is bounded.\nD is wrong: Many independent polynomials exist."
+    },
+    {
+      "q": "What is the projection of b onto the line through a?",
+      "options": [
+        "p = b (aᵀb)",
+        "p = a",
+        "p = a (aᵀb)/(aᵀa)",
+        "p = aᵀb"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.2: The error b − p is perpendicular to a.\nA is wrong: The direction is a.\nB is wrong: The length must be scaled.\nD is wrong: That is a number, not a vector."
+    },
+    {
+      "q": "What are the normal equations for projecting b onto the column space of A?",
+      "options": [
+        "A x̂ = b",
+        "Aᵀ A x̂ = Aᵀ b",
+        "A Aᵀ x̂ = b",
+        "x̂ = Aᵀ b always"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.3: The error b − A x̂ must be perpendicular to every column of A.\nA is wrong: That usually has no exact solution.\nC is wrong: The product is AᵀA.\nD is wrong: That holds only with orthonormal columns."
+    },
+    {
+      "q": "Which two properties characterise a projection matrix P?",
+      "options": [
+        "P is invertible and P² = I",
+        "P is zero",
+        "P is orthogonal",
+        "P is symmetric and P² = P"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.4: Projecting a second time changes nothing.\nA is wrong: That describes a reflection.\nB is wrong: The zero matrix is a trivial projection only.\nC is wrong: Orthogonal matrices preserve length; projections usually shorten."
+    },
+    {
+      "q": "For data b = (6, 0, 0) at t = 0, 1, 2, what is the least-squares line?",
+      "options": [
+        "b = 6 − 3t",
+        "b = 2",
+        "b = 6 − 6t",
+        "b = 5 − 3t"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.6: The normal equations give C = 5 and D = −3, with errors (1, −2, 1).\nA is wrong: That does not satisfy the normal equations.\nB is wrong: That is only the mean.\nC is wrong: That fits only the first two points."
+    },
+    {
+      "q": "What is the inverse of a square orthogonal matrix Q?",
+      "options": [
+        "Its transpose, Qᵀ",
+        "Q itself always",
+        "It has no inverse",
+        "−Q"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 4.8: QᵀQ = I, and multiplying by Q preserves lengths and angles.\nB is wrong: Only for reflections.\nC is wrong: Orthogonal matrices are invertible.\nD is wrong: That is not true in general."
+    },
+    {
+      "q": "With orthonormal columns Q, what is the least-squares solution?",
+      "options": [
+        "x̂ = Qᵀ b",
+        "x̂ = Q b",
+        "x̂ = (Q Qᵀ)⁻¹ b",
+        "x̂ = b"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 4.9: QᵀQ = I collapses the normal equations.\nB is wrong: The transpose is needed.\nC is wrong: QQᵀ is generally singular.\nD is wrong: Not in general."
+    },
+    {
+      "q": "What does Gram-Schmidt produce when recorded as a factorisation?",
+      "options": [
+        "A = L U",
+        "A = Q R, with orthonormal Q and upper triangular R",
+        "A = X Λ X⁻¹",
+        "A = U Σ Vᵀ"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.11: Least squares becomes R x̂ = Qᵀb.\nA is wrong: That records elimination.\nC is wrong: That is diagonalisation.\nD is wrong: That is the SVD."
+    },
+    {
+      "q": "What does exchanging two rows do to a determinant?",
+      "options": [
+        "Doubles it",
+        "Leaves it unchanged",
+        "Reverses its sign",
+        "Makes it zero"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.2: This is one of the three defining properties.\nA is wrong: The magnitude is unchanged.\nB is wrong: Subtracting a multiple of a row leaves it unchanged; exchange flips sign.\nD is wrong: Only if the rows are equal."
+    },
+    {
+      "q": "What is det(A B)?",
+      "options": [
+        "det A + det B",
+        "det A × det B",
+        "det A − det B",
+        "Always one"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 5.3: Also det Aᵀ = det A and det A⁻¹ = 1/det A.\nA is wrong: Determinants multiply.\nC is wrong: They multiply.\nD is wrong: Not in general."
+    },
+    {
+      "q": "How are eigenvalues found?",
+      "options": [
+        "As the diagonal entries of any matrix",
+        "As roots of det(A − λI) = 0, the characteristic polynomial",
+        "As the pivots of A",
+        "As the columns of A"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 5.5: A − λI must be singular for a non-zero eigenvector.\nA is wrong: Only for triangular matrices.\nC is wrong: Pivots are generally different.\nD is wrong: Columns are vectors, not eigenvalues."
+    },
+    {
+      "q": "What are the eigenvalues of the matrix with rows (2, 1) and (1, 2)?",
+      "options": [
+        "2 and 2",
+        "4 and 0",
+        "3 and −1",
+        "3 and 1"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 5.6: λ² − 4λ + 3 = 0, with eigenvectors (1, 1) and (1, −1).\nA is wrong: Those are the diagonal entries.\nB is wrong: The product must be det = 3.\nC is wrong: The sum must be the trace, 4."
+    },
+    {
+      "q": "What is the sum of the eigenvalues of a matrix?",
+      "options": [
+        "Its determinant",
+        "Its rank",
+        "Its trace, the sum of the diagonal entries",
+        "Always zero"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.7: The product equals the determinant.\nA is wrong: That is the product.\nB is wrong: Rank counts pivots.\nD is wrong: Not in general."
+    },
+    {
+      "q": "If every eigenvalue of A has size less than one, what happens to Aᵏ as k grows?",
+      "options": [
+        "It goes to zero",
+        "It grows without bound",
+        "It equals A for all k",
+        "It becomes the identity"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 5.9: Aᵏ = X Λᵏ X⁻¹, and each λᵏ → 0.\nB is wrong: That needs some |λ| > 1.\nC is wrong: Not in general.\nD is wrong: That needs all λ = 1."
+    },
+    {
+      "q": "Which eigenvalue does every Markov matrix have?",
+      "options": [
+        "λ = 0",
+        "λ = −1",
+        "λ = 1",
+        "λ = 2"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.11: Its eigenvector gives the steady state.\nA is wrong: Not necessarily.\nB is wrong: Not necessarily.\nD is wrong: Columns sum to one, so λ = 1."
+    },
+    {
+      "q": "What does the spectral theorem say about a real symmetric matrix?",
+      "options": [
+        "It has real eigenvalues and orthonormal eigenvectors: S = Q Λ Qᵀ",
+        "Its eigenvalues are all complex",
+        "It cannot be diagonalised",
+        "It has eigenvalue one only"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.1: It acts by rotating, stretching along axes, and rotating back.\nB is wrong: They are all real.\nC is wrong: It always can.\nD is wrong: Its eigenvalues vary."
+    },
+    {
+      "q": "Which test shows a symmetric matrix S is positive definite?",
+      "options": [
+        "xᵀ S x > 0 for every non-zero x",
+        "All entries are positive",
+        "Its determinant is positive",
+        "It is diagonal"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.3: Equivalently all eigenvalues, pivots, or upper-left determinants are positive.\nB is wrong: Positive entries are not sufficient.\nC is wrong: Positive determinant alone is not enough.\nD is wrong: Diagonal matrices can have negative entries."
+    },
+    {
+      "q": "What is the Cholesky factorisation?",
+      "options": [
+        "S = Q R",
+        "S = U Σ Vᵀ",
+        "S = L Lᵀ for a positive definite S, about twice as fast as general L U",
+        "S = L U with any L"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 6.5: Positive definite matrices need no row exchanges.\nA is wrong: That is Gram-Schmidt.\nB is wrong: That is the SVD.\nD is wrong: Cholesky uses L and its transpose."
+    },
+    {
+      "q": "What is the singular value decomposition?",
+      "options": [
+        "A = L U",
+        "A = U Σ Vᵀ, with orthogonal U, V and non-negative singular values on Σ",
+        "A = Q R",
+        "A = X Λ X⁻¹ for every matrix"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.6: It exists for every m × n matrix.\nA is wrong: That is elimination.\nC is wrong: That is Gram-Schmidt.\nD is wrong: Not every matrix is diagonalisable."
+    },
+    {
+      "q": "How are singular values related to AᵀA?",
+      "options": [
+        "They equal the eigenvalues of A",
+        "They equal the diagonal of A",
+        "They are the pivots of A",
+        "Their squares are the eigenvalues of AᵀA"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 6.8: The right singular vectors are the eigenvectors of AᵀA.\nA is wrong: Not in general.\nB is wrong: Not in general.\nC is wrong: Pivots are different."
+    },
+    {
+      "q": "What does the Eckart-Young theorem say?",
+      "options": [
+        "Every matrix has rank one",
+        "Keeping the first k rank-one pieces of the SVD gives the best rank-k approximation",
+        "Determinants multiply",
+        "Eigenvalues sum to the trace"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.9: If singular values fall off quickly, few pieces suffice.\nA is wrong: Rank varies.\nC is wrong: That is the product rule.\nD is wrong: That is a different fact."
+    },
+    {
+      "q": "In PCA, what does the first left singular vector of the centred data matrix give?",
+      "options": [
+        "The direction of greatest variation in the data",
+        "The mean of the data",
+        "The direction of least variation",
+        "The number of samples"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.11: PCA reduces data to its dominant patterns.\nB is wrong: The mean is subtracted first.\nC is wrong: That is the last singular vector.\nD is wrong: That is a count."
+    }
+  ]
+};
+
+  function applyTheme(t){
+    const root=document.documentElement;
+    if(t==='dark'||t==='light'){root.setAttribute('data-theme',t);} else {root.removeAttribute('data-theme'); t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}
+    const b=document.getElementById('themeBtn');
+    if(b) b.textContent=(t==='dark'?'Light':'Dark');
+  }
+  (function(){
+    let t=null; try{t=localStorage.getItem('aa_theme');}catch(e){}
+    applyTheme(t==='dark'||t==='light'?t:null);
+    const b=document.getElementById('themeBtn');
+    if(b) b.onclick=()=>{
+      const cur=document.documentElement.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+      const next=cur==='dark'?'light':'dark';
+      try{localStorage.setItem('aa_theme',next);}catch(e){}
+      applyTheme(next);
+    };
+  })();
+
+(function(){
+  const app=document.getElementById('app'), tEl=document.getElementById('timer'), cnt=document.getElementById('cnt'), back=document.getElementById('back');
+  const L='ABCD', LIMIT=60*60;
+  const D=window.EXAM_DATA;
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  let picks=[], t0=null, tick=null, finished=false, used=0;
+
+  function fmt(s){s=Math.max(0,Math.floor(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+  function runTimer(){
+    t0=Date.now();
+    tick=setInterval(()=>{
+      const s=(Date.now()-t0)/1000;
+      tEl.textContent=fmt(s);
+      tEl.classList.toggle('over', s>=LIMIT);
+    },250);
+  }
+  function count(){const n=picks.filter(p=>p!=null).length;cnt.textContent=n+' / '+D.questions.length;return n;}
+
+  function start(){
+    document.getElementById('tnote').textContent='This timer is for reference only. This test is designed for 60 minutes.';
+    picks=D.questions.map(()=>null); finished=false;
+    back.style.visibility='hidden';
+    let h='<p class="brand">Anderson Academy · Anderson Engineering</p><h1>'+esc(D.title||'Final Exam')+'</h1><p class="sub">Final Exam · '+D.questions.length+' questions. Choose one answer for each question; you can change an answer at any time. Your score and the explanations appear after you submit. No score is stored.</p>';
+    D.questions.forEach((x,i)=>{
+      h+='<div class="card" id="q'+i+'"><div class="qn">Question '+(i+1)+' of '+D.questions.length+'</div><p class="q">'+esc(x.q)+'</p>';
+      x.options.forEach((o,j)=>h+='<button class="opt" data-i="'+i+'" data-j="'+j+'"><b>'+L[j]+'.</b><span>'+esc(o)+'</span></button>');
+      h+='</div>';
+    });
+    h+='<button class="btn" id="submit">Submit exam</button><div id="confirm"></div>';
+    app.innerHTML=h;
+    app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      const i=+b.dataset.i, j=+b.dataset.j; picks[i]=j;
+      document.querySelectorAll('#q'+i+' .opt').forEach(o=>o.classList.toggle('on',+o.dataset.j===j));
+      count(); document.getElementById('confirm').innerHTML='';
+    });
+    document.getElementById('submit').onclick=trySubmit;
+    count(); clearInterval(tick); tEl.classList.remove('over'); tEl.textContent='0:00'; runTimer(); window.scrollTo(0,0);
+  }
+  function trySubmit(){
+    const left=D.questions.length-count();
+    if(left===0) return submit();
+    const first=picks.findIndex(p=>p==null)+1;
+    document.getElementById('confirm').innerHTML='<div class="warn">You have '+left+' unanswered question'+(left>1?'s':'')+' (the first is question '+first+'). Unanswered questions count as wrong.<button class="btn" id="anyway">Submit anyway</button><button class="btn alt" id="goq">Go to question '+first+'</button></div>';
+    document.getElementById('anyway').onclick=submit;
+    document.getElementById('goq').onclick=()=>document.getElementById('q'+(first-1)).scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  function submit(){
+    finished=true; clearInterval(tick); used=(Date.now()-t0)/1000;
+    tEl.textContent=fmt(used)+' used';
+    tEl.classList.toggle('over', used>=LIMIT);
+    back.style.visibility='visible';
+    back.textContent='‹ Exam';
+    back.onclick=()=>start();
+    results('all');
+  }
+  function results(mode){
+    const n=D.questions.length, right=D.questions.filter((x,i)=>picks[i]===x.answer).length;
+    let h='<div class="card"><div class="qn">'+esc(D.title||'Final Exam')+'</div><div class="score">'+right+' / '+n+'</div><p class="sub" style="text-align:center;margin:0">'+Math.round(100*right/n)+'% · time used '+fmt(used)+'</p><p class="note">This score is only on this screen. Nothing is stored.</p></div>';
+    h+='<div class="tabs"><button id="tAll" class="'+(mode==='all'?'on':'')+'">All questions</button><button id="tMiss" class="'+(mode==='miss'?'on':'')+'">Missed only ('+(n-right)+')</button></div>';
+    D.questions.forEach((x,i)=>{
+      const p=picks[i], ok=p===x.answer;
+      if(mode==='miss'&&ok) return;
+      h+='<div class="card"><div class="qn">Question '+(i+1)+'</div><p class="q">'+esc(x.q)+'</p>';
+      x.options.forEach((o,j)=>h+='<button class="opt '+(j===x.answer?'ok':(j===p?'bad':''))+'" disabled><b>'+L[j]+'.</b><span>'+esc(o)+'</span></button>');
+      h+='<div class="fb '+(ok?'ok':'bad')+'"><strong>'+(ok?'Correct.':(p==null?'Not answered. The answer is '+L[x.answer]+'.':'You chose '+L[p]+'. The answer is '+L[x.answer]+'.'))+'</strong>'+esc(x.explain)+'</div></div>';
+    });
+    h+='<button class="btn" id="again">Take the exam again</button>';
+    app.innerHTML=h;
+    document.getElementById('tAll').onclick=()=>results('all');
+    document.getElementById('tMiss').onclick=()=>results('miss');
+    document.getElementById('again').onclick=start;
+    window.scrollTo(0,0);
+  }
+  start();
+})();
+</script>
+</body>
+</html>
