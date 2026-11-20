@@ -49,7 +49,7 @@ button.btn{font:inherit;font-weight:600;background:none;cursor:pointer;width:100
 #tprompt{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:15px;margin-bottom:10px;user-select:all;-webkit-user-select:all}
 #tcopy{min-height:48px;padding:12px}
 .wrow{display:flex;flex-direction:column;gap:12px}
-.btn.off{opacity:.35;filter:grayscale(1);pointer-events:none;cursor:default}
+.btn.off,.xb.off{opacity:.35;filter:grayscale(1);pointer-events:none;cursor:default}.pending{display:block;font-size:11px;font-weight:600;letter-spacing:.02em;margin-top:1px}
 .btn{display:flex;align-items:center;justify-content:center;gap:10px}
 .btn .ico{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round}
 .arow .btn{flex-direction:column;gap:6px}
@@ -76,7 +76,7 @@ button.btn{font:inherit;font-weight:600;background:none;cursor:pointer;width:100
 <body>
 <div class="wrap">
 <div id="list">
-<img class="crest" src="crest-engineering.png?v=1" alt="Anderson Engineering crest: Scientia et Ingenium" width="160" height="160">
+<img class="crest" src="/crest-engineering.png?v=1" alt="Anderson Engineering crest: Scientia et Ingenium" width="160" height="160">
 <h1>Anderson Engineering</h1>
 <p class="sub">University-level engineering courses based on the MIT curriculum, with <a href="https://ocw.mit.edu" target="_blank" rel="noopener">MIT OpenCourseWare</a> as the backbone, each short enough to finish in about an hour.</p>
 <div class="cols" id="cols" role="group" aria-label="Collections"><button data-c="foundations" aria-pressed="true">Foundations</button></div>
@@ -166,13 +166,33 @@ function aaScoreLine(k){
   el.hidden=!t.length;
   el.textContent=t.length?'Your scores on this device — '+t.join(' · '):'';
 }
+function setPending(e, on, label){
+  if(!e)return;
+  e.hidden=false; e.style.visibility='';
+  if(on){
+    e.classList.add('off'); e.removeAttribute('href'); e.removeAttribute('target');
+    e.onclick=null; e.setAttribute('aria-disabled','true'); e.setAttribute('title','Pending');
+    e.innerHTML=label+'<small class="pending">pending</small>';
+  }else{
+    e.classList.remove('off'); e.removeAttribute('aria-disabled'); e.removeAttribute('title');
+  }
+}
 function iq(c){
   var k=ASK(c),a=document.getElementById('diquiz'),b=document.getElementById('diexam');
   var qa=!!(QI&&k&&QI.indexOf(k)>=0),qb=!!(EI&&k&&EI.indexOf(k)>=0);
-  if(a){a.style.visibility=qa?'':'hidden'; if(qa) a.href=(BASE||'')+'/quiz.html?c='+k;}
-  if(b){b.style.visibility=qb?'':'hidden'; if(qb) b.href=(BASE||'')+'/exam.html?c='+k;}
+  if(a){
+    if(qa){setPending(a,false); a.textContent='Interactive Quizzes'; a.href=(BASE||'')+'/quiz.html?c='+k; a.target='_top';}
+    else setPending(a,true,'Interactive Quizzes');
+  }
+  if(b){
+    if(qb){setPending(b,false); b.textContent='Interactive Final Exam'; b.href=(BASE||'')+'/exam.html?c='+k; b.target='_top';}
+    else setPending(b,true,'Interactive Final Exam');
+  }
   var tx=document.getElementById('dtripx'),hb=!!c[4]&&/\.pdf$/.test(c[4]);
-  if(tx) tx.style.visibility=hb?'':'hidden';
+  if(tx){
+    if(hb){setPending(tx,false); tx.textContent='Tripos Exam';}
+    else setPending(tx,true,'Tripos Exam');
+  }
   if(hb){
     var dl=document.getElementById('tdl');
     if(dl){dl.href=(BASE||'')+'/'+c[4]; dl.setAttribute('download',c[1]+' - Course Transcript.pdf');}
@@ -180,7 +200,7 @@ function iq(c){
     if(tp) tp.textContent=tripPrompt(c);
   }
   var pan=document.getElementById('tpanel'); if(pan) pan.hidden=true;
-  var row=document.getElementById('iarow'); if(row) row.hidden=!(qa||qb||hb);
+  var row=document.getElementById('iarow'); if(row) row.hidden=false;
   aaScoreLine(k);
 }
 function norm(s){return String(s||'').toUpperCase().replace(/[^A-Z0-9]/g,'');}
@@ -195,24 +215,25 @@ function wb(box,v){
     a.lastChild.textContent='Watch lectures';
     box.appendChild(a);
   } else {
-    var g=el('a','btn watch off'); g.setAttribute('aria-disabled','true');
-    g.innerHTML='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+ICO.video+'</svg><span></span>';
-    g.lastChild.textContent='Watch the course (pending)';
+    var g=el('span','btn watch off'); g.setAttribute('aria-disabled','true'); g.setAttribute('title','Pending');
+    g.innerHTML='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+ICO.video+'</svg><span></span><small class="pending">pending</small>';
+    g.querySelector('span').textContent='Watch lectures';
     box.appendChild(g);
   }
 }
 function sb(e,v,label){
   e.hidden=false;
-  if(!v){e.removeAttribute('href'); e.classList.add('off'); e.setAttribute('aria-disabled','true');
-    e.innerHTML='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+(ICO.doc)+'</svg><span></span>';
-    e.lastChild.textContent=label; return;}
-  e.classList.remove('off'); e.removeAttribute('aria-disabled');
+  if(!v){e.removeAttribute('href'); e.removeAttribute('target'); e.onclick=null;
+    e.classList.add('off'); e.setAttribute('aria-disabled','true'); e.setAttribute('title','Pending');
+    e.innerHTML='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+(ICO.doc)+'</svg><span></span><small class="pending">pending</small>';
+    e.querySelector('span').textContent=label; return;}
+  e.classList.remove('off'); e.removeAttribute('aria-disabled'); e.removeAttribute('title');
   var id=v;
   e.href=BASE+'/view.html?f='+encodeURIComponent(id);
   e.onclick=function(){this.href=BASE+'/view.html?f='+encodeURIComponent(id)+'&b='+encodeURIComponent((location.pathname.replace(BASE,'')||'/').replace(/^\//,''));};
   e.target='_top';
   e.innerHTML='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+ICO.pdf+'</svg><span></span>';
-  e.lastChild.textContent=label;
+  e.querySelector('span').textContent=label;
 }
 function groupOf(c){return c[8]||'Foundations';}
 function draw(){
@@ -276,8 +297,11 @@ document.addEventListener('click',function(e){
 function ex(c){var e=EX[c[1]]||{},x=document.getElementById('dextra'),p=document.getElementById('dpod'),a=p.querySelector('audio'),f=document.getElementById('dinfo');
 x.replaceChildren();var db=document.getElementById('dbook');db.hidden=!e.book;if(e.book){db.textContent='Referral link: ';var dl=document.createElement('a');dl.href=e.book;dl.target='_blank';dl.rel='noopener';dl.textContent=e.book;db.appendChild(dl)}p.hidden=true;a.pause();a.removeAttribute('src');
 if(e.preview){var b=document.createElement('a');b.className='xb';b.target='_top';b.href=(BASE||'')+'/watch.html?vm='+e.preview;b.onclick=function(){this.href=(BASE||'')+'/watch.html?vm='+e.preview+'&b='+encodeURIComponent((location.pathname.replace(BASE,'')||'/').replace(/^\//,'')||CURH||SLUG(c))};b.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.preview+'</svg></span>Preview';x.appendChild(b)}
+else{var b=document.createElement('span');b.className='xb off';b.setAttribute('aria-disabled','true');b.setAttribute('title','Pending');b.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.preview+'</svg></span>Preview<small class="pending">pending</small>';x.appendChild(b)}
 if(e.podcast){var q=document.createElement('button');q.className='xb';q.type='button';q.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.podcast+'</svg></span>Podcast';q.onclick=function(){if(p.hidden){if(!a.getAttribute('src'))a.src=(BASE||'')+'/'+e.podcast;p.hidden=false;q.classList.add('on');a.play().catch(function(){})}else{a.pause();p.hidden=true;q.classList.remove('on')}};x.appendChild(q)}
+else{var q=document.createElement('span');q.className='xb off';q.setAttribute('aria-disabled','true');q.setAttribute('title','Pending');q.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.podcast+'</svg></span>Podcast<small class="pending">pending</small>';x.appendChild(q)}
 if(e.slides){var sb=document.createElement('a');sb.className='xb';sb.target='_top';var su=[];for(var li=0;li<e.slides;li++)su.push('docs/'+c[1].replace(/ /g,'-')+'-L'+li+'-slides.pdf');su=su.join('|');sb.href=(BASE||'')+'/view.html?f='+encodeURIComponent(su);sb.onclick=function(){this.href=(BASE||'')+'/view.html?f='+encodeURIComponent(su)+'&b='+encodeURIComponent((location.pathname.replace(BASE,'')||'/').replace(/^\//,'')||CURH||SLUG(c))};sb.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.slides+'</svg></span>Slides';x.appendChild(sb)}
+else{var sb=document.createElement('span');sb.className='xb off';sb.setAttribute('aria-disabled','true');sb.setAttribute('title','Pending');sb.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.slides+'</svg></span>Slides<small class="pending">pending</small>';x.appendChild(sb)}
 if(e.lv){var dv=document.createElement('details');var sm=document.createElement('summary');var ks=Object.keys(e.lv).map(Number).sort(function(a,b){return a-b});sm.textContent='Lecture videos ('+ks.length+(e.nl?' of '+e.nl:'')+')';dv.appendChild(sm);ks.forEach(function(n){var la=document.createElement('a');la.target='_top';la.href=vurl(e.lv[n]);la.textContent='Lecture '+n;la.style.cssText='display:inline-block;margin:4px 10px 4px 0';dv.appendChild(la)});dv.style.cssText='width:100%;margin:6px 0';x.appendChild(dv)}
 if(e.book){var k=document.createElement('a');k.className='xb';k.target='_blank';k.rel='noopener';k.href=e.book;k.title='Referral link: buying through it supports Anderson Engineering';k.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.book+'</svg></span>Get the Book<small style="font-weight:400;color:var(--muted);font-size:11px;margin-top:-4px">referral link</small>';x.appendChild(k)}
 var rb=document.getElementById('drefs');if(!rb){rb=document.createElement('a');rb.id='drefs';rb.className='xb';rb.target='_top';rb.href='#';rb.hidden=true;rb.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.refs+'</svg></span>References'}x.appendChild(rb);
@@ -308,7 +332,7 @@ function route(){
   sb(document.getElementById('dexam'), c[6], 'Final Exam');
   sb(document.getElementById('dtrip'), c[7], 'Tripos Paper');
   var note=document.getElementById('dnote');
-  if(note) note.hidden=!!(c[5]&&c[6]&&c[7]);
+  if(note) note.hidden=true;
   sendSetup(c);
   iq(c);
   ex(c);
