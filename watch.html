@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><title>Anderson Engineering</title>
+<style>
+:root{--bg:#f7f5f0;--panel:#fff;--fg:#1b2230;--muted:#586075;--line:#ddd8cb;--accent:#1f3a5f;--on-accent:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#141922;--panel:#1c2330;--fg:#e9ecf2;--muted:#a3abbd;--line:#2c3545;--accent:#8fb3e0;--on-accent:#141922}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,"Times New Roman",serif}
+.bar{display:flex;align-items:center;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top));background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:2}
+.back{background:var(--accent);color:var(--on-accent);border:0;border-radius:10px;padding:10px 16px;font:inherit;font-size:16px;cursor:pointer}
+.vid{position:relative;width:100%;max-width:1100px;margin:16px auto 0;aspect-ratio:16/9;background:#000}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#msg{text-align:center;color:var(--muted);padding:40px 16px}
+.ch{max-width:1100px;margin:12px auto 24px;padding:0 12px}.ch h2{font-size:18px;margin:8px 4px}.ch button{display:flex;gap:10px;width:100%;text-align:left;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin:6px 0;font:inherit;font-size:16px;cursor:pointer}.ch button span{color:var(--muted);min-width:3.2em;font-variant-numeric:tabular-nums}
+</style></head><body>
+<div class="bar"><button class="back" onclick="ret()">&larr; Return to course</button></div>
+<div class="vid" id="box"></div><div id="msg" hidden></div><div class="ch" id="ch" hidden><h2>Lectures</h2></div>
+<script>
+var P=new URLSearchParams(location.search),v=P.get('v')||'',vm=P.get('vm')||'',h=P.get('h')||'',b=P.get('b')||'';
+function load(f,u){try{f.contentWindow.location.replace(u)}catch(e){f.src=u}}
+function ret(){if(history.length>1&&document.referrer.indexOf(location.host)>=0)history.back();else{var base=location.pathname.replace(/\/watch\.html.*/,'' ); location.replace((base||'')+'/'+(b||''));}}
+if(/^\d+$/.test(vm)){var f=document.createElement('iframe');f.allow='autoplay; fullscreen; picture-in-picture';f.setAttribute('allowfullscreen','');document.getElementById('box').appendChild(f);load(f,'https://player.vimeo.com/video/'+vm+'?dnt=1'+(/^\w+$/.test(h)?'&h='+h:''))}
+else if(/^[\w-]{10,}$/.test(v)){var f=document.createElement('iframe');f.allow='autoplay; fullscreen';f.setAttribute('allowfullscreen','');document.getElementById('box').appendChild(f);load(f,'https://drive.google.com/file/d/'+v+'/preview')}
+else{document.getElementById('box').hidden=true;var m=document.getElementById('msg');m.hidden=false;m.textContent='Video not found.'}
+function fmt(s){s=Math.floor(s);var h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return (h?h+':'+String(m).padStart(2,'0'):m)+':'+String(x).padStart(2,'0')}
+if(/^\d+$/.test(vm)){try{fetch('chapters/index.json?'+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(j){var c=j&&j[vm];if(!c||!c.length)return;var box=document.getElementById('ch');c.forEach(function(e){var b=document.createElement('button');var s=document.createElement('span');s.textContent=fmt(e[0]);b.appendChild(s);b.appendChild(document.createTextNode(e[1]));b.onclick=function(){var f=document.querySelector('#box iframe');if(!f)return;var w=f.contentWindow;w.postMessage(JSON.stringify({method:'setCurrentTime',value:e[0]}),'https://player.vimeo.com');w.postMessage(JSON.stringify({method:'play'}),'https://player.vimeo.com');window.scrollTo({top:0,behavior:'smooth'})};box.appendChild(b)});box.hidden=false}).catch(function(){})}catch(e){}}
+</script></body></html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><title>Anderson Engineering</title>
+<style>
+:root{--bg:#f7f5f0;--panel:#fff;--fg:#1b2230;--muted:#586075;--line:#ddd8cb;--accent:#1f3a5f;--on-accent:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#141922;--panel:#1c2330;--fg:#e9ecf2;--muted:#a3abbd;--line:#2c3545;--accent:#8fb3e0;--on-accent:#141922}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,"Times New Roman",serif}
+.bar{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top));background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:2}
+.bar.bot{position:static;border-top:1px solid var(--line);border-bottom:0;padding-bottom:max(12px,env(safe-area-inset-bottom));justify-content:center}
+.back{background:var(--accent);color:var(--on-accent);border:0;border-radius:10px;padding:10px 16px;font:inherit;font-size:16px;cursor:pointer;text-decoration:none}
+.dl{color:var(--accent);font-size:15px}
+#pages{max-width:900px;margin:0 auto;padding:12px 8px}
+canvas{display:block;width:100%;height:auto;margin:0 auto 12px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+#msg{text-align:center;color:var(--muted);padding:40px 16px}
+</style></head><body>
+<div class="bar"><button class="back" onclick="ret()">&larr; Return to course</button><a class="dl" id="dl" href="#" target="_blank" rel="noopener">Download PDF</a></div>
+<div id="pages"><div id="msg">Loading…</div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+var P=new URLSearchParams(location.search),f=P.get('f')||'',b=P.get('b')||'';
+function ret(){if(history.length>1&&document.referrer.indexOf(location.host)>=0)history.back();else{var base=location.pathname.replace(/\/view\.html.*/,'' ); location.replace((base||'')+'/'+(b||''));}}
+var FL=f.split('|'),AU=/^https:\/\/(slides\.andersonacademy\.app|garyvictoranderson\.github\.io\/andersonacademy-audio)\/media\/[\w.-]+\.pdf$/;
+if(!FL.every(function(u){return /^docs\/[\w.-]+\.pdf$/.test(u)||AU.test(u)})){document.getElementById('msg').textContent='Document not found.'}else{f=FL[0];
+document.getElementById('dl').href=f;if(FL.length>1)document.getElementById('dl').hidden=true;
+pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+var box=document.getElementById('pages'),first=true;(function nextFile(fi){if(fi>=FL.length)return;pdfjsLib.getDocument(FL[fi]).promise.then(function(pdf){if(first){box.innerHTML='';first=false}
+var w=Math.min(box.clientWidth||800,900),dpr=Math.min(window.devicePixelRatio||1,2),i=1;
+(function next(){if(i>pdf.numPages){nextFile(fi+1);return}pdf.getPage(i++).then(function(pg){var v=pg.getViewport({scale:1}),s=w/v.width*dpr,vp=pg.getViewport({scale:s});
+var c=document.createElement('canvas');c.width=vp.width;c.height=vp.height;box.appendChild(c);
+pg.render({canvasContext:c.getContext('2d'),viewport:vp}).promise.then(next)})})()
+}).catch(function(){document.getElementById('msg').textContent='Could not load the document.'})})(0)}
+</script></body></html>
