@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Interactive Final Exam · Anderson Engineering</title>
+<meta name="theme-color" content="#1f3a5f">
+<style>
+  :root{--ink:#1b2230;--muted:#586075;--line:#ddd8cb;--bg:#f7f5f0;--card:#fff;--ok:#1d7a46;--okbg:#e6f4ec;--bad:#b3261e;--badbg:#fbeaea;--accent:#1f3a5f;--sel:#e8eefb;color-scheme:light}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e9ecf2;--muted:#a3abbd;--line:#2c3547;--bg:#141922;--card:#1c2330;--ok:#8fcdb0;--okbg:#1a3b2a;--bad:#f0a8a4;--badbg:#3b1c1c;--accent:#8fb4e8;--sel:#24344c;color-scheme:dark}}
+  :root[data-theme="dark"]{--ink:#e9ecf2;--muted:#a3abbd;--line:#2c3547;--bg:#141922;--card:#1c2330;--ok:#8fcdb0;--okbg:#1a3b2a;--bad:#f0a8a4;--badbg:#3b1c1c;--accent:#8fb4e8;--sel:#24344c;color-scheme:dark}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+  .top{position:sticky;top:0;background:var(--card);border-bottom:1px solid var(--line);padding:8px 14px;z-index:2;padding-top:max(8px,env(safe-area-inset-top,0px))}
+  .row{display:flex;align-items:center;gap:10px}
+  .back{color:var(--accent);font-size:15px;background:none;border:0;padding:0;cursor:pointer}
+  .timer{flex:1;text-align:center;font-weight:700;font-size:22px;font-variant-numeric:tabular-nums}
+  .timer.over{color:var(--bad)}
+  .cnt{color:var(--muted);font-size:13px;min-width:56px;text-align:right}
+  .tnote{color:var(--muted);font-size:12px;text-align:center;margin-top:2px}
+  main{max-width:680px;margin:0 auto;padding:16px 14px 60px}
+  h1{font-size:20px;margin:6px 0 4px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+  .qn{color:var(--muted);font-size:13px;margin-bottom:6px}
+  .q{font-size:17px;font-weight:600;margin:0 0 12px}
+  .opt{display:flex;gap:10px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:8px;font-size:16px;color:var(--ink);cursor:pointer}
+  .opt b{min-width:20px}
+  .opt.on{border-color:var(--accent);background:var(--sel);box-shadow:inset 0 0 0 1px var(--accent)}
+  .opt:disabled{cursor:default}
+  .opt.ok{border-color:var(--ok);background:var(--okbg)}
+  .opt.bad{border-color:var(--bad);background:var(--badbg)}
+  .fb{margin-top:10px;padding:12px;border-radius:10px;font-size:15px;white-space:pre-line}
+  .fb.ok{background:var(--okbg)} .fb.bad{background:var(--badbg)}
+  .fb strong{display:block;margin-bottom:4px}
+  .btn{display:block;width:100%;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:14px;font-size:17px;cursor:pointer;margin-top:8px}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#101722}}
+  :root[data-theme="dark"] .btn{color:#101722}
+  .btn.alt{background:var(--card);color:var(--accent);border:1px solid var(--accent)}
+  .warn{background:#fff7e0;border:1px solid #e8d38a;border-radius:10px;padding:12px;margin-top:10px;font-size:15px}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .warn{background:#3b3318;border-color:#8a7a3a;color:var(--ink)}}
+  :root[data-theme="dark"] .warn{background:#3b3318;border-color:#8a7a3a;color:var(--ink)}
+  .score{font-size:44px;font-weight:700;text-align:center;margin:6px 0}
+  .tabs{display:flex;gap:8px;margin:10px 0 14px}
+  .tabs button{flex:1;padding:10px;border-radius:10px;border:1px solid var(--accent);background:var(--card);color:var(--accent);font-size:15px;cursor:pointer}
+  .tabs button.on{background:var(--accent);color:#fff}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#101722}}
+  :root[data-theme="dark"] .tabs button.on{color:#101722}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="row"><button class="back" id="back">‹ Course</button><div class="timer" id="timer">0:00</div><div class="cnt" id="cnt"></div></div>
+  <div class="tnote" id="tnote">This timer is for reference only. This test is designed for 60 minutes.</div>
+</div>
+<main id="app"><p class="sub">Loading…</p></main>
+<script>
+/*__DATA__*/
+(function(){
+  const app=document.getElementById('app'), tEl=document.getElementById('timer'), cnt=document.getElementById('cnt'), back=document.getElementById('back');
+  const L='ABCD', LIMIT=60*60;
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const code=(new URLSearchParams(location.search).get('c')||'').replace(/[^A-Za-z0-9]/g,'');
+  let D=window.EXAM_DATA||null, picks=[], t0=null, tick=null, finished=false, used=0;
+  function basePrefix(){
+    var p=location.pathname;
+    if(location.hostname.endsWith('github.io')){
+      var m=p.match(/^\/[^/]+/);
+      return m?m[0]:'';
+    }
+    return '';
+  }
+  const BASE=basePrefix();
+  function pathFromCode(c){
+    var m=String(c||'').match(/^([A-Za-z]+)(\d+)$/);
+    return m?(m[1]+'-'+m[2]).toLowerCase():String(c||'').toLowerCase();
+  }
+  back.onclick=()=>{ if(code) location.href=BASE+'/'+pathFromCode(code); else history.back(); };
+
+  function loadS(){try{return JSON.parse(localStorage.getItem('aa_scores'))||{}}catch(e){return {}}}
+  function saveS(s){try{localStorage.setItem('aa_scores',JSON.stringify(s))}catch(e){}}
+  function fmt(s){s=Math.max(0,Math.floor(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+  function runTimer(){
+    t0=Date.now();
+    tick=setInterval(()=>{
+      tEl.textContent=fmt((Date.now()-t0)/1000);
+    },250);
+  }
+  function load(){
+    if(D) return start();
+    if(!code){app.innerHTML='<p class="sub">No course given.</p>';return;}
+    fetch(BASE+'/exams/'+code+'.json?'+Date.now()).then(r=>{if(!r.ok)throw 0;return r.json();})
+      .then(j=>{D=j;start();}).catch(()=>{app.innerHTML='<p class="sub">The interactive final exam for this course is not available yet.</p>';});
+  }
+  function count(){const n=picks.filter(p=>p!=null).length;cnt.textContent=n+' / '+D.questions.length;return n;}
+
+  function start(){
+    {const mins=D.questions.length>60?120:60;document.getElementById('tnote').textContent='This timer is for reference only. This test is designed for '+(mins===120?'2 hours':'60 minutes')+'.';}
+    picks=D.questions.map(()=>null); finished=false;
+    let h='<h1>'+esc(D.title||'Final Exam')+'</h1><p class="sub">Final Exam · '+D.questions.length+' questions. Choose one answer for each question; you can change an answer at any time. Your score and the explanations appear after you submit.</p>';
+    {const pe=code&&(loadS()[code]||{}).e; h+='<p class="sub">'+(pe?'Last time: '+pe.last+' / '+pe.of+' · best: '+pe.best+' / '+pe.of+'. ':'')+'Scores are saved on this device only.</p>';}
+    D.questions.forEach((x,i)=>{
+      h+='<div class="card" id="q'+i+'"><div class="qn">Question '+(i+1)+' of '+D.questions.length+'</div><p class="q">'+esc(x.q)+'</p>';
+      x.options.forEach((o,j)=>h+='<button class="opt" data-i="'+i+'" data-j="'+j+'"><b>'+L[j]+'.</b><span>'+esc(o)+'</span></button>');
+      h+='</div>';
+    });
+    h+='<button class="btn" id="submit">Submit exam</button><div id="confirm"></div>';
+    app.innerHTML=h;
+    app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      const i=+b.dataset.i, j=+b.dataset.j; picks[i]=j;
+      document.querySelectorAll('#q'+i+' .opt').forEach(o=>o.classList.toggle('on',+o.dataset.j===j));
+      count(); document.getElementById('confirm').innerHTML='';
+    });
+    document.getElementById('submit').onclick=trySubmit;
+    count(); clearInterval(tick); tEl.textContent='0:00'; runTimer(); window.scrollTo(0,0);
+  }
+  function trySubmit(){
+    const left=D.questions.length-count();
+    if(left===0) return submit();
+    const first=picks.findIndex(p=>p==null)+1;
+    document.getElementById('confirm').innerHTML='<div class="warn">You have '+left+' unanswered question'+(left>1?'s':'')+' (the first is question '+first+'). Unanswered questions count as wrong.<button class="btn" id="anyway">Submit anyway</button><button class="btn alt" id="goq">Go to question '+first+'</button></div>';
+    document.getElementById('anyway').onclick=submit;
+    document.getElementById('goq').onclick=()=>document.getElementById('q'+(first-1)).scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  function submit(){
+    finished=true; clearInterval(tick); used=(Date.now()-t0)/1000;
+    if(code){const n=D.questions.length,right=D.questions.filter((x,i)=>picks[i]===x.answer).length,s=loadS(),c=s[code]||(s[code]={}),p=c.e;
+      c.e={last:right,best:Math.max(right,p?p.best:0),of:n,time:Math.round(used),tries:(p?p.tries:0)+1,at:Date.now()};saveS(s);}
+    tEl.textContent=fmt(used)+' used';
+    results('all');
+  }
+  function results(mode){
+    const n=D.questions.length, right=D.questions.filter((x,i)=>picks[i]===x.answer).length;
+    let h='<div class="card"><div class="qn">'+esc(D.title||'Final Exam')+'</div><div class="score">'+right+' / '+n+'</div><p class="sub" style="text-align:center;margin:0">'+Math.round(100*right/n)+'% · time used '+fmt(used)+'</p>'+(code&&(loadS()[code]||{}).e?'<p class="sub" style="text-align:center;margin:4px 0 0">Your best on this exam: '+loadS()[code].e.best+' / '+n+' · attempts: '+loadS()[code].e.tries+'</p>':'')+'</div>';
+    h+='<div class="tabs"><button id="tAll" class="'+(mode==='all'?'on':'')+'">All questions</button><button id="tMiss" class="'+(mode==='miss'?'on':'')+'">Missed only ('+(n-right)+')</button></div>';
+    D.questions.forEach((x,i)=>{
+      const p=picks[i], ok=p===x.answer;
+      if(mode==='miss'&&ok) return;
+      h+='<div class="card"><div class="qn">Question '+(i+1)+'</div><p class="q">'+esc(x.q)+'</p>';
+      x.options.forEach((o,j)=>h+='<button class="opt '+(j===x.answer?'ok':(j===p?'bad':''))+'" disabled><b>'+L[j]+'.</b><span>'+esc(o)+'</span></button>');
+      h+='<div class="fb '+(ok?'ok':'bad')+'"><strong>'+(ok?'Correct.':(p==null?'Not answered. The answer is '+L[x.answer]+'.':'You chose '+L[p]+'. The answer is '+L[x.answer]+'.'))+'</strong>'+esc(x.explain)+'</div></div>';
+    });
+    h+='<button class="btn" id="again">Take the exam again</button>';
+    app.innerHTML=h;
+    document.getElementById('tAll').onclick=()=>results('all');
+    document.getElementById('tMiss').onclick=()=>results('miss');
+    document.getElementById('again').onclick=start;
+    window.scrollTo(0,0);
+  }
+  load();
+})();
+</script>
+</body>
+</html>

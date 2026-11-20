@@ -93,6 +93,19 @@ button.btn{font:inherit;font-weight:600;background:none;cursor:pointer;width:100
 <a class="btn read" id="dread" href="#" target="_top">Read the Course Book</a>
 </div>
 <div class="ahead">Assessments</div>
+<div class="arow" id="iarow" hidden>
+<a class="btn read" id="diquiz" href="#" target="_top">Interactive Quizzes</a>
+<a class="btn read" id="diexam" href="#" target="_top">Interactive Final Exam</a>
+<button type="button" class="btn read" id="dtripx">Tripos Exam</button>
+</div>
+<p class="note" id="dscore" hidden style="margin-top:10px"></p>
+<div id="tpanel" hidden>
+<p><b>1.</b> Download the course transcript: <a id="tdl" href="#" download>Download the transcript (PDF)</a></p>
+<p><b>2.</b> Give the following prompt to an AI of your choice, upload the downloaded transcript to it, and you'll have an experience similar to the Tripos exam.</p>
+<div id="tprompt">You are a Tripos-style examiner for this course. You will be given the course transcript. Ask me questions one at a time about the material, drawing on the transcript content and covering the main topics across the lectures in a fair spread. Wait for my answer before asking the next question. Probe and follow up on my answers where useful. After roughly 10 to 15 questions, end the exam and give me feedback: my strengths, the gaps in my knowledge, and what I should review. Do not give away answers before I respond.</div>
+<button type="button" class="btn read" id="tcopy">Copy the prompt</button>
+</div>
+<div class="phead">PDF versions</div>
 <div class="arow">
 <a class="btn read off" id="dquiz" aria-disabled="true">Quizzes</a>
 <a class="btn read off" id="dexam" aria-disabled="true">Final Exam</a>
@@ -126,6 +139,42 @@ function el(tag, cls, text){var e=document.createElement(tag); if(cls)e.classNam
 function SLUG(c){
   var t=String(c[1]).replace(/\s+B\s*$/i,'').trim();
   return t.replace(/\s+/g,'-').toLowerCase();
+}
+function ASK(c){
+  var t=String(c[1]).toUpperCase().replace(/[^A-Z0-9]/g,'');
+  return /\dB$/.test(t)?t.slice(0,-1):/\d[A-Z]$/.test(t)?t:'';
+}
+function tripPrompt(c){
+  var page=location.origin+(BASE||'')+'/'+SLUG(c);
+  var pdf=location.origin+(BASE||'')+'/'+c[4];
+  return 'You are a Tripos-style examiner for '+c[1]+', '+c[2]+'. The course page is '+page+' and the course transcript is the PDF you were given (also at '+pdf+'). Ask me questions one at a time about the material, drawing on the transcript content and covering the main topics across the lectures in a fair spread. Wait for my answer before asking the next question. Probe and follow up on my answers where useful. After roughly 10 to 15 questions, end the exam and give me feedback: my strengths, the gaps in my knowledge, and what I should review. Do not give away answers before I respond.';
+}
+function aaScoreLine(k){
+  var el=document.getElementById('dscore'),r=null;
+  try{r=(JSON.parse(localStorage.getItem('aa_scores'))||{})[k]}catch(e){}
+  var t=[];
+  if(r&&r.q){var ks=Object.keys(r.q),b=0,o=0;ks.forEach(function(n){b+=r.q[n].best;o+=r.q[n].of});if(ks.length)t.push('Quizzes taken: '+ks.length+(r.nq?' of '+r.nq:'')+' (best total '+b+' / '+o+')')}
+  if(r&&r.e)t.push('Final exam: last '+r.e.last+' / '+r.e.of+', best '+r.e.best+' / '+r.e.of);
+  if(!el)return;
+  el.hidden=!t.length;
+  el.textContent=t.length?'Your scores on this device — '+t.join(' · '):'';
+}
+function iq(c){
+  var k=ASK(c),a=document.getElementById('diquiz'),b=document.getElementById('diexam');
+  var qa=!!(QI&&k&&QI.indexOf(k)>=0),qb=!!(EI&&k&&EI.indexOf(k)>=0);
+  if(a){a.style.visibility=qa?'':'hidden'; if(qa) a.href=(BASE||'')+'/quiz.html?c='+k;}
+  if(b){b.style.visibility=qb?'':'hidden'; if(qb) b.href=(BASE||'')+'/exam.html?c='+k;}
+  var tx=document.getElementById('dtripx'),hb=!!c[4]&&/\.pdf$/.test(c[4]);
+  if(tx) tx.style.visibility=hb?'':'hidden';
+  if(hb){
+    var dl=document.getElementById('tdl');
+    if(dl){dl.href=(BASE||'')+'/'+c[4]; dl.setAttribute('download',c[1]+' - Course Transcript.pdf');}
+    var tp=document.getElementById('tprompt');
+    if(tp) tp.textContent=tripPrompt(c);
+  }
+  var pan=document.getElementById('tpanel'); if(pan) pan.hidden=true;
+  var row=document.getElementById('iarow'); if(row) row.hidden=!(qa||qb||hb);
+  aaScoreLine(k);
 }
 function norm(s){return String(s||'').toUpperCase().replace(/[^A-Z0-9]/g,'');}
 function vurl(id){return BASE+'/watch.html?vm='+id;}
@@ -201,7 +250,22 @@ function sendSetup(c){
   if(navigator.share) item('More...',function(){m.hidden=true; navigator.share({title:t, text:t, url:url}).catch(function(){});});
 }
 document.addEventListener('click',function(){var m=document.getElementById('dsendm'); if(m)m.hidden=true;});
-var LC=null;
+var LC=null,QI=null,EI=null;
+try{fetch((BASE||'')+'/quizzes/index.json?'+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(j){QI=j;if(LC)iq(LC)}).catch(function(){})}catch(e){}
+try{fetch((BASE||'')+'/exams/index.json?'+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(j){EI=j;if(LC)iq(LC)}).catch(function(){})}catch(e){}
+document.addEventListener('click',function(e){
+  var t=e.target.closest&&e.target.closest('#dtripx,#tcopy');
+  if(!t)return;
+  if(t.id==='dtripx'){
+    var p=document.getElementById('tpanel');
+    p.hidden=!p.hidden;
+    if(!p.hidden)p.scrollIntoView({behavior:'smooth',block:'nearest'});
+    return;
+  }
+  var txt=document.getElementById('tprompt').textContent;
+  function ok(){t.textContent='Copied';setTimeout(function(){t.textContent='Copy the prompt'},2000)}
+  try{navigator.clipboard.writeText(txt).then(ok,function(){})}catch(err){}
+});
 function route(){
   var path=location.pathname;
   if(BASE && path.indexOf(BASE)===0) path=path.slice(BASE.length)||'/';
@@ -225,6 +289,7 @@ function route(){
   var note=document.getElementById('dnote');
   if(note) note.hidden=!!(c[5]&&c[6]&&c[7]);
   sendSetup(c);
+  iq(c);
   var preview=c[9];
   var x=document.getElementById('dextra');
   x.replaceChildren();

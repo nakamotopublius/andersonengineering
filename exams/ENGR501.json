@@ -1,0 +1,555 @@
+{
+  "title": "ENGR 501 B - Calculus One",
+  "questions": [
+    {
+      "q": "What kind of course is Engineering 501 B, Calculus One?",
+      "options": [
+        "A full-semester replacement for MIT 18.01",
+        "A Brief course: an overview of about five minutes plus six lectures of about ten minutes, about an hour in all, and the first Foundations course in Anderson Engineering",
+        "The last course in the Engineering library",
+        "A laboratory course in experimental physics"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 0.1 states the course code, the Brief format, and its place as the first Foundations course. A is wrong: A Brief course is explicitly not a substitute for a semester. C is wrong: It is a Foundations course, not the last course. D is wrong: This course is calculus, not a physics laboratory."
+    },
+    {
+      "q": "What are the two central ideas of calculus, as the overview states them?",
+      "options": [
+        "Sine and cosine",
+        "The derivative, which measures how quickly a quantity is changing, and the integral, which measures accumulated change",
+        "Sequences and series only",
+        "Newton's method and L'Hôpital's rule"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 0.3: The overview names change and accumulation, with those two roles. A is wrong: Those are important functions, not the two central ideas. C is wrong: Those appear in lecture six, not as the two central ideas of the whole subject. D is wrong: Those are tools, not the two central ideas."
+    },
+    {
+      "q": "What do the prerequisites and conventions of the course include?",
+      "options": [
+        "A full year of university physics",
+        "Angles measured in degrees, as in high school",
+        "Prior completion of Engineering 503 B",
+        "High school algebra and trigonometry; prior calculus is helpful but not required; angles are measured in radians"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 0.7 states those prerequisites and the radian convention. A is wrong: Physics is not listed as a prerequisite. B is wrong: The overview insists on radians. C is wrong: 501 B is the mathematical companion, not a course that follows 503 B."
+    },
+    {
+      "q": "What is the backbone of this course?",
+      "options": [
+        "MIT OpenCourseWare 18.01SC, Single Variable Calculus, as taught in Fall 2010 by Professor David Jerison",
+        "MIT 8.01SC Classical Mechanics",
+        "A commercial textbook copied paragraph by paragraph",
+        "A set of uncredited lecture notes"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 0.9: The overview names that course, that term, and that lecturer, under a Creative Commons licence, with original wording here. B is wrong: That is the backbone of Physics One, not of Calculus One. C is wrong: The wording of this Brief course is original to the Academy. D is wrong: The source is named and credited."
+    },
+    {
+      "q": "Geometrically, what is the derivative?",
+      "options": [
+        "The slope of the tangent line to a curve",
+        "The area under a curve",
+        "The average of the left- and right-hand limits",
+        "The y-intercept of the curve"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.1: The lecture introduces the derivative as that slope, and as an instantaneous rate of change. B is wrong: That is the integral, not the derivative. C is wrong: Limits are used to define the derivative, but that average is not the geometric meaning. D is wrong: The intercept is not the derivative."
+    },
+    {
+      "q": "What is the average rate of change of f between x and x + h?",
+      "options": [
+        "[f(x + h) + f(x)] / h",
+        "[f(x + h) − f(x)] / h",
+        "f'(x + h) − f'(x)",
+        "f(x) / h"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.3: That difference quotient is the average rate of change on the interval. A is wrong: The change is a difference, not a sum. C is wrong: That would involve derivatives, which are not yet assumed. D is wrong: This omits the change in the output."
+    },
+    {
+      "q": "When can a limit fail to exist as x approaches a?",
+      "options": [
+        "Only when f is not defined at a",
+        "Only when f is a polynomial",
+        "Never, if the graph can be drawn",
+        "When the left-hand and right-hand limits differ, or when the values grow without bound"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.5: The lecture names a mismatch of one-sided limits as a standard failure, and also treats unbounded behaviour. A is wrong: A function can have a limit at a without being defined there. B is wrong: Polynomials have limits at every finite point. C is wrong: A jump discontinuity can still be drawn and still has no two-sided limit."
+    },
+    {
+      "q": "When is a function f continuous at a?",
+      "options": [
+        "The limit as x approaches a exists, f is defined at a, and those two values agree",
+        "f is defined at a, whether or not a limit exists",
+        "The left-hand limit exists, even if the right-hand limit does not",
+        "f is differentiable at a"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.6: Continuity requires existence of the limit, existence of f(a), and equality of the two. B is wrong: A function can be defined at a jump and still fail to be continuous. C is wrong: Both sides must agree for the two-sided limit. D is wrong: Differentiability is stronger than continuity, and is not the definition of continuity."
+    },
+    {
+      "q": "If s(t) is position along a line, what are s'(t) and the derivative of velocity?",
+      "options": [
+        "s'(t) is acceleration, and the next derivative is velocity",
+        "s'(t) is the integral of position",
+        "s'(t) is velocity, and the derivative of velocity is acceleration",
+        "Both are the same constant"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 1.9: The lecture states that dictionary in the language of motion. A is wrong: Those roles are reversed. B is wrong: The derivative of position is velocity, not an integral. D is wrong: Only in the special case of uniform motion is velocity constant, and acceleration is then zero."
+    },
+    {
+      "q": "From the definition, what is the derivative of f(x) = x²?",
+      "options": [
+        "x²",
+        "2",
+        "x",
+        "2x"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.10: The lecture computes this first example from the difference quotient and the limit as h approaches 0. A is wrong: That is the function, not its derivative. B is wrong: That would be the second derivative, which is constant. C is wrong: The factor of 2 is missing."
+    },
+    {
+      "q": "Which of these is Leibniz's notation for the derivative?",
+      "options": [
+        "dy/dx",
+        "f'(x)",
+        "A dotted letter only, in every context",
+        "∫ y dx"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.11: The lecture lists Lagrange's f'(x), Leibniz's dy/dx, and Newton's dot notation for time derivatives. B is wrong: That is Lagrange's notation. C is wrong: The dot is Newton's notation, used especially for time. D is wrong: That is integral notation."
+    },
+    {
+      "q": "Why is y = |x| a standard example in this lecture?",
+      "options": [
+        "It has no limit as x approaches 0",
+        "It is continuous at the origin but not differentiable there, because of a sharp corner",
+        "It fails to be defined at the origin",
+        "Its derivative is 1 at every point"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.12: The lecture uses the corner of the absolute-value graph to show that continuity does not imply differentiability. A is wrong: The limit is 0, and the function is continuous there. C is wrong: It is defined, and equals 0, at the origin. D is wrong: The derivative fails to exist at the origin."
+    },
+    {
+      "q": "What is the derivative of a constant function?",
+      "options": [
+        "The constant itself",
+        "One",
+        "Zero, because a horizontal line has slope zero",
+        "Undefined"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 2.2: The simplest rules come from the definition: a constant has derivative zero. A is wrong: The value is not the slope. B is wrong: That is the derivative of x, not of a constant. D is wrong: Constants are differentiable everywhere."
+    },
+    {
+      "q": "What is the product rule for the derivative of f times g?",
+      "options": [
+        "f' g'",
+        "f' + g'",
+        "(f' g − f g') / g²",
+        "f' g + f g'"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.3: The lecture states the product rule in that form. A is wrong: That product of derivatives is not the rule. B is wrong: That is the sum rule, not the product rule. C is wrong: That is part of the quotient rule."
+    },
+    {
+      "q": "What does the chain rule compute?",
+      "options": [
+        "The derivative of a composition: if y is a function of u and u is a function of x, then dy/dx = (dy/du)(du/dx)",
+        "The derivative of a product only",
+        "The second derivative of a sum",
+        "An antiderivative of f"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.5: The chain rule is described as the most important computational rule, and is stated in that Leibniz form. B is wrong: That is the product rule. C is wrong: The chain rule is about composition, not higher derivatives of sums. D is wrong: Antiderivatives belong to integration."
+    },
+    {
+      "q": "Why does the lecture insist on measuring angles in radians when differentiating sine and cosine?",
+      "options": [
+        "Degrees are undefined in calculus",
+        "Sine is not differentiable when x is a degree measure",
+        "Radians make the sine function discontinuous",
+        "If the argument were in degrees, the chain rule would insert a factor of π/180 into every such derivative"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.8: The lecture returns to radians for exactly this reason. A is wrong: Degrees are defined; they simply spoil the clean derivative formulas. B is wrong: It is differentiable, but the derivative is not simply cosine. C is wrong: Sine is continuous in either unit."
+    },
+    {
+      "q": "What property singles out the exponential function base e?",
+      "options": [
+        "It is the only exponential that is continuous",
+        "It is the unique exponential whose derivative is itself",
+        "Its graph is a straight line",
+        "It is the inverse of sine"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.9: The lecture states that property as the reason for writing e^x. A is wrong: Every exponential a^x is continuous. C is wrong: The graph is curved. D is wrong: The inverse of sine is arcsine; the inverse of e^x is the natural logarithm."
+    },
+    {
+      "q": "What is implicit differentiation used for?",
+      "options": [
+        "Only for functions that are not continuous",
+        "Only for second derivatives of exponential functions",
+        "To integrate a rational function",
+        "A relationship given by an equation mixing x and y, rather than by a formula y = f(x)"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.11: The lecture introduces implicit differentiation in those terms, and then treats the circle as an example. A is wrong: Implicit relations can define perfectly continuous curves. B is wrong: The method is general, and the first example is a circle. C is wrong: That is partial fractions."
+    },
+    {
+      "q": "What does the second derivative measure, in the lecture's description?",
+      "options": [
+        "How the first derivative itself is changing; concavity of the graph, and, in motion, acceleration if the first derivative is velocity",
+        "The area under the graph",
+        "The y-intercept of the tangent line",
+        "The limit of f as x grows"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.13: The lecture describes higher derivatives that way. B is wrong: That is an integral. C is wrong: That is not the second derivative. D is wrong: That is a different kind of limit."
+    },
+    {
+      "q": "What is the linear, or tangent-line, approximation of f near a point a?",
+      "options": [
+        "f(x) ≈ f(a) + f'(a)(x − a)",
+        "f(x) ≈ f'(a) + f(a)(x − a)",
+        "f(x) ≈ f''(a)(x − a)²",
+        "f(x) ≈ ∫ f from a to x"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 3.2: Near a, a differentiable function is close to its tangent line, written in that form. B is wrong: The roles of f(a) and f'(a) are reversed here. C is wrong: That is a quadratic term, not the tangent line. D is wrong: That is an accumulation, not a linear approximation."
+    },
+    {
+      "q": "How does Newton's method use a tangent line?",
+      "options": [
+        "It replaces f by its average value on an interval",
+        "It integrates f and sets the integral to zero",
+        "To solve f(x) = 0, it takes a guess, follows the tangent down to the axis, and uses that intercept as the next guess",
+        "It bisects the interval on which f changes sign"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.4: The lecture describes Newton's method in exactly those terms. A is wrong: That is not Newton's method. B is wrong: Newton's method is a derivative method, not an integral method. D is wrong: That is the bisection method."
+    },
+    {
+      "q": "In the 13-foot ladder example, what is the essential first step?",
+      "options": [
+        "Assume the ladder's length is increasing",
+        "Set the second derivative of y to zero",
+        "Differentiate the relation x² + y² = 13² with respect to time, then substitute the known values",
+        "Replace the ladder by its tangent-line approximation"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.6: The lecture treats the Pythagorean relation and its time derivative as the working method. A is wrong: The length is fixed at 13 feet. B is wrong: Related rates use first derivatives with respect to time. D is wrong: Linear approximation is a different application."
+    },
+    {
+      "q": "If f'' is positive on an interval, what can you say about the graph?",
+      "options": [
+        "It is concave down, like a frown",
+        "It is concave up, like a cup that holds water",
+        "It must have a root in the interval",
+        "It is a straight line"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 3.8: The lecture uses that description of concavity. A is wrong: That is the case of a negative second derivative. C is wrong: Concavity does not force a root. D is wrong: A straight line has second derivative zero."
+    },
+    {
+      "q": "In the open-box problem, what is being maximised?",
+      "options": [
+        "The surface area of the original sheet",
+        "The length of the cut",
+        "The volume of the box obtained by cutting equal squares of side x from a 12-inch square sheet and folding the sides",
+        "The perimeter of the base"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.11: The worked design problem is exactly that volume, as a function of x. A is wrong: The sheet's area is fixed at 144 square inches. B is wrong: The cut is a means, not the objective. D is wrong: The objective is volume."
+    },
+    {
+      "q": "What does the Mean Value Theorem guarantee, for f continuous on [a, b] and differentiable on (a, b)?",
+      "options": [
+        "f' is zero everywhere on [a, b]",
+        "f has a maximum at a or at b only",
+        "f is a linear function",
+        "There is at least one c in (a, b) with f'(c) = [f(b) − f(a)] / (b − a)"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 3.12: That is the statement given in the lecture. A is wrong: That would make f constant, which is a consequence in a special case, not the theorem itself. B is wrong: The extreme can occur at a critical point inside as well. C is wrong: The theorem applies to many nonlinear functions."
+    },
+    {
+      "q": "What caution does the lecture give engineers about critical points?",
+      "options": [
+        "Every critical point is a global maximum",
+        "A critical point is not automatically a maximum or a minimum, and an endpoint of a closed interval can be the extreme value",
+        "Critical points never occur in applications",
+        "The second derivative is always zero at a critical point"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 3.14: The lecture says engineers have particular reason to hear that caution. A is wrong: That is exactly the mistake being warned against. C is wrong: The design problems of the lecture are built on them. D is wrong: The first derivative is zero (or undefined) at a critical point; the second need not be."
+    },
+    {
+      "q": "If F is an antiderivative of f, which of the following is also an antiderivative?",
+      "options": [
+        "F times a constant, for any constant",
+        "F plus any constant",
+        "The derivative of F",
+        "1 / F"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.2: The lecture states that if F is an antiderivative, so is F plus any constant. A is wrong: A constant factor would scale the derivative as well, unless the constant is 1. C is wrong: The derivative of F is f, not an antiderivative of f. D is wrong: The reciprocal is not in general an antiderivative."
+    },
+    {
+      "q": "What is the definite integral of f from a to b, when the Riemann sums settle to a single number?",
+      "options": [
+        "The derivative of f at b",
+        "f(b) − f(a), even if f is not an antiderivative of itself",
+        "The maximum value of f on [a, b]",
+        "That limiting number, written as the integral from a to b of f(x) dx"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.4: The lecture defines the definite integral as the limit of Riemann sums under refinement. A is wrong: That is a rate, not an accumulated sum. B is wrong: f(b) − f(a) is used only when an antiderivative is being evaluated. C is wrong: The integral is an accumulation, not a maximum."
+    },
+    {
+      "q": "What does the first part of the Fundamental Theorem say about A(x) = the integral from a to x of f?",
+      "options": [
+        "A(x) is always zero",
+        "A'(x) = f'(x)",
+        "A(x) = f(x) − f(a)",
+        "If f is continuous, then A'(x) = f(x)"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.7: The accumulated area grows at a rate equal to the height of the graph. A is wrong: A(x) is zero only at x = a, in the usual convention. B is wrong: The derivative of the accumulation is f, not f'. C is wrong: That would require f to be an antiderivative of itself."
+    },
+    {
+      "q": "What does the second part of the Fundamental Theorem allow you to do?",
+      "options": [
+        "Evaluate the integral from a to b of f by computing F(b) − F(a), where F is any antiderivative of f",
+        "Replace f by its tangent line before integrating",
+        "Differentiate both limits of integration",
+        "Conclude that every continuous function is a polynomial"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 4.8: That is the computational form used constantly in the lecture. B is wrong: That is an approximation, not the theorem. C is wrong: The second part evaluates a definite integral; it does not differentiate the limits as a method of evaluation. D is wrong: The theorem makes no such claim."
+    },
+    {
+      "q": "How is the area between two curves y = f(x) and y = g(x), with f above g, written?",
+      "options": [
+        "The integral of f plus the integral of g",
+        "f'(b) − g'(a)",
+        "The product f(x) g(x), integrated or not",
+        "The integral from a to b of [f(x) − g(x)] dx"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.11: The lecture states that formula for the area between the curves. A is wrong: Adding would not subtract the lower curve. B is wrong: That is not an area. C is wrong: Area between curves is a difference of heights, not a product."
+    },
+    {
+      "q": "How does the disk method compute a volume of revolution about the x-axis?",
+      "options": [
+        "The integral of f(x) itself, with no π or square",
+        "The arc-length integral, multiplied by 2",
+        "The region under y = f(x) is sliced into disks whose volume is π [f(x)]² dx, then those volumes are integrated",
+        "A single cylinder of radius f(a)"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.12: The lecture describes volumes of revolution by that slicing. A is wrong: That would be an area, not a volume of revolution. B is wrong: Arc length is a different application. D is wrong: The radius generally varies with x."
+    },
+    {
+      "q": "What is the average value of a continuous function f on [a, b]?",
+      "options": [
+        "[f(a) + f(b)] / 2, in every case",
+        "1/(b − a) times the integral from a to b of f",
+        "f'(b) − f'(a)",
+        "The midpoint of the interval"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.13: The lecture defines the average value by that formula. A is wrong: That is the average of the endpoint values only, which need not be the average value of the function. C is wrong: That is not the average value. D is wrong: The midpoint is a point, not a value of f."
+    },
+    {
+      "q": "What is substitution, as a technique of integration?",
+      "options": [
+        "The product rule run backwards",
+        "Splitting a rational function into simpler fractions",
+        "The chain rule run backwards, used when an inside function u and its derivative appear in the integrand",
+        "Replacing a graph by trapezoids"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.2: The lecture says substitution is the chain rule run backwards and should be tried first. A is wrong: That is integration by parts. B is wrong: That is partial fractions. D is wrong: That is a numerical rule."
+    },
+    {
+      "q": "In the example ∫ 2x cos(x²) dx, what substitution is used?",
+      "options": [
+        "u = cos(x²)",
+        "u = 2x",
+        "u = x², so that du = 2x dx and the integral becomes ∫ cos u du",
+        "u = sin(x²)"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.3: The lecture works that example in those steps. A is wrong: That would not simplify the factor 2x dx in the way the lecture does. B is wrong: The inside function that pairs with 2x dx is x². D is wrong: That is close to the antiderivative, not the substitution itself."
+    },
+    {
+      "q": "What is the integration-by-parts formula?",
+      "options": [
+        "The integral of u v equals u' v + u v'",
+        "The integral of u dv equals u v minus the integral of v du",
+        "The integral of u(v(x)) v'(x) dx equals u(v(x)) + C",
+        "The integral of u / v equals ln|u/v|"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 5.4: The lecture states that formula, as the product rule run backwards. A is wrong: That is the product rule for derivatives. C is wrong: That confuses parts with a misstated substitution. D is wrong: That is not the parts formula."
+    },
+    {
+      "q": "When do partial fractions apply?",
+      "options": [
+        "Only when the integrand is a sine or cosine",
+        "Only for improper integrals",
+        "When the integrand is a product of two unrelated functions with no rational form",
+        "When the integrand is a rational function whose numerator has degree less than the denominator (after any long division)"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 5.7: The lecture states that setting, then a factorisation of the denominator into linear and irreducible quadratic pieces. A is wrong: Those belong to trigonometric integrals. B is wrong: Partial fractions are an algebraic technique for antiderivatives, proper or improper. C is wrong: Parts, not partial fractions, is the first thought for a product."
+    },
+    {
+      "q": "When does the lecture say cylindrical shells are often cleaner than washers?",
+      "options": [
+        "Only when the region is a circle",
+        "When the function is not integrable",
+        "Especially when rotation is about the y-axis and the region is described by y as a function of x",
+        "When the axis of rotation is a point rather than a line"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.9: That is the comparison given in the lecture. A is wrong: Shells are a general method, not a special fact about circles. B is wrong: If there is no integral, neither method applies. D is wrong: Volumes of revolution are taken about an axis."
+    },
+    {
+      "q": "What is the arc-length integral for a smooth graph y = f(x) from x = a to x = b?",
+      "options": [
+        "The integral of f(x) dx from a to b",
+        "The integral of f'(x) dx from a to b",
+        "The integral from a to b of sqrt(1 + [f'(x)]²) dx",
+        "2π times the integral of f(x) dx"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.10: The lecture gives that formula for the length of the graph. A is wrong: That is a signed area, not an arc length. B is wrong: That recovers f(b) − f(a), a net change in height. D is wrong: That is related to a surface or a disk volume, not to arc length."
+    },
+    {
+      "q": "How is work expressed, if a force F(x) acts along a line from x = a to x = b?",
+      "options": [
+        "F(b) − F(a), whether or not F is a force",
+        "The derivative of F at b",
+        "The integral from a to b of F(x) dx",
+        "The average of F(a) and F(b), times nothing"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.11: The lecture names work as an application, with that integral of force along a path. A is wrong: Work is an integral of force, not a net change of the force function unless that change happens to equal the integral. B is wrong: That would be a rate of change of force. D is wrong: An average would still need to be multiplied by the distance, and even then it is only a special case."
+    },
+    {
+      "q": "How do polar coordinates describe a point in the plane?",
+      "options": [
+        "By a distance r from the origin and an angle θ from the positive x-axis, with x = r cos θ and y = r sin θ",
+        "By a pair (t, f(t)) only",
+        "By the slope of the tangent line alone",
+        "By longitude and altitude on the Earth"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 5.13: The lecture gives that description and those conversion formulas. B is wrong: That is a parametric description, treated in the previous paragraph. C is wrong: A slope does not locate a point. D is wrong: The lecture is about the plane, not a globe."
+    },
+    {
+      "q": "What kind of limit does L'Hôpital's rule treat?",
+      "options": [
+        "A limit of a quotient that is an indeterminate form such as 0/0 or ∞/∞",
+        "Any limit of a continuous function",
+        "Only limits of geometric series",
+        "Limits in which the function is not defined on an interval about the point"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.2: The lecture introduces the rule for those indeterminate quotients, by differentiating numerator and denominator. B is wrong: Ordinary substitution already handles those. C is wrong: Series are a later topic in the lecture. D is wrong: The rule requires hypotheses on f and g near the point, including differentiability."
+    },
+    {
+      "q": "What is the limit as x approaches 0 of (sin x)/x, and why is L'Hôpital's rule applicable?",
+      "options": [
+        "The limit is 0, because sine is 0 at 0",
+        "The limit is 1, and the form is 0/0, so the rule applies once the hypotheses are met",
+        "The limit does not exist, because of a jump",
+        "The limit is π/180"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.3: The lecture uses that standard example of the 0/0 form. A is wrong: The quotient is indeterminate at 0; the limit is 1. C is wrong: The limit exists and is 1. D is wrong: That confusion belongs to degree measure, which the course avoids."
+    },
+    {
+      "q": "What is an improper integral of the first kind?",
+      "options": [
+        "An integral over an unbounded interval, defined as a limit of ordinary definite integrals",
+        "An integral whose integrand blows up at an interior point of a bounded interval",
+        "A Riemann sum that has not yet been taken to a limit",
+        "The integral of a Taylor polynomial"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.4: The lecture uses that name and that definition. B is wrong: That is an improper integral of the second kind. C is wrong: A Riemann sum is the starting point of a proper definite integral. D is wrong: That is an ordinary integral of a polynomial."
+    },
+    {
+      "q": "What is an improper integral of the second kind?",
+      "options": [
+        "An integral on a bounded interval whose integrand becomes unbounded at an endpoint or at an interior point, defined as a limit",
+        "An integral over an unbounded interval",
+        "A definite integral that has already been evaluated by the Fundamental Theorem",
+        "The remainder term in Taylor's theorem"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.5: The lecture uses that name and that definition. B is wrong: That is the first kind. C is wrong: A proper integral needs no extra limiting step. D is wrong: That is a different use of a limit."
+    },
+    {
+      "q": "For which r does the geometric series from n = 0 to infinity of r^n converge, and to what sum?",
+      "options": [
+        "It converges for all r, to 1/(1 − r)",
+        "It converges for |r| < 1, to 1/(1 − r)",
+        "It converges only for r = 0",
+        "It converges for r > 1, to r/(r − 1)"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.7: The lecture says this is the first series to know by heart, with that interval and that sum. A is wrong: The formula 1/(1 − r) is not valid for |r| ≥ 1, and the series diverges there. C is wrong: It converges on the whole open unit interval. D is wrong: For r > 1 the terms grow, so the series diverges."
+    },
+    {
+      "q": "Which of the following is a conclusive test that a series diverges?",
+      "options": [
+        "If the terms approach 0, the series diverges",
+        "If a comparison series converges, the original series diverges",
+        "If the ratio test gives a limit of 0, the series diverges",
+        "If the terms a_n do not approach 0, the series diverges"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 6.8: The lecture names that term test first, before comparison, ratio and root tests. A is wrong: Approaching 0 is necessary for convergence, not a test for divergence. B is wrong: A convergent comparison with larger terms would force convergence, not divergence. C is wrong: A ratio limit less than 1 is evidence of convergence."
+    },
+    {
+      "q": "What is a power series, as the lecture defines it?",
+      "options": [
+        "A finite Taylor polynomial only",
+        "Any sequence of numbers a_n",
+        "A series whose terms are coefficients times powers of (x − a), for a centre a; for each x it may converge or diverge, and the set of x where it converges is the interval of convergence",
+        "The derivative of a geometric series only"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 6.9: The lecture introduces power series in those terms. A is wrong: A power series may have infinitely many terms. B is wrong: A sequence is not yet a series of powers of (x − a). D is wrong: Geometric series are an important example, not the whole definition."
+    },
+    {
+      "q": "What does Taylor's theorem say you can do near a point a?",
+      "options": [
+        "Replace any function by its second derivative",
+        "Approximate a smooth function by a polynomial that matches the value and derivatives of the function, up to some order, at a",
+        "Sum a geometric series in every case",
+        "Conclude that every continuous function equals its tangent line"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.10: That is the statement given in the lecture. A is wrong: The second derivative appears in the quadratic term, but is not the whole approximation. C is wrong: Geometric series are one example; Taylor's theorem is more general. D is wrong: The tangent line is only the first-order case, and equality is usually approximate."
+    },
+    {
+      "q": "What do you obtain if you continue a Taylor polynomial to infinitely many terms?",
+      "options": [
+        "The Taylor series of f at a, which for many standard functions equals f on an interval",
+        "The Riemann sum of f",
+        "The mean value of f' on [0, 1]",
+        "L'Hôpital's rule"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.11: The lecture distinguishes the polynomial approximation from the infinite Taylor series. B is wrong: Riemann sums belong to integration. C is wrong: That is not a Taylor series. D is wrong: The rule is a method for limits, not an infinite series."
+    }
+  ]
+}
