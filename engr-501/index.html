@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8">
-<base href="../">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Anderson Engineering</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -220,6 +219,11 @@ function route(){
   document.getElementById('dtitle').textContent=c[2];
   wb(document.getElementById('dwatch'), c[3]);
   sb(document.getElementById('dread'), c[4], 'Read the Course Book');
+  sb(document.getElementById('dquiz'), c[5], 'Quizzes');
+  sb(document.getElementById('dexam'), c[6], 'Final Exam');
+  sb(document.getElementById('dtrip'), c[7], 'Tripos Paper');
+  var note=document.getElementById('dnote');
+  if(note) note.hidden=!!(c[5]&&c[6]&&c[7]);
   sendSetup(c);
   var preview=c[9];
   var x=document.getElementById('dextra');
