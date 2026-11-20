@@ -1,0 +1,371 @@
+{
+  "title": "ENGR 506 B - Introductory Biology",
+  "quizzes": [
+    {
+      "n": 1,
+      "title": "The Molecules of Life",
+      "questions": [
+        {
+          "q": "How do cells build polymers from monomers? [1.4]",
+          "options": [
+            "By dehydration reactions, which join monomers and release water",
+            "By hydrolysis",
+            "By ionic bonding alone",
+            "By melting the monomers together"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 1.4: Hydrolysis, adding water, breaks polymers back down.\nB is wrong: Hydrolysis breaks polymers apart.\nC is wrong: Monomers are joined by covalent bonds.\nD is wrong: Polymers are built enzymatically, not by melting."
+        },
+        {
+          "q": "About how much energy per gram do fats store compared with carbohydrates? [1.6]",
+          "options": [
+            "About half as much",
+            "About twice as much",
+            "About the same",
+            "About ten times as much"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 1.6: Fats are glycerol joined to three fatty-acid chains, a compact energy store.\nA is wrong: Fats store more, not less.\nC is wrong: Fats store roughly twice as much.\nD is wrong: The factor is about two."
+        },
+        {
+          "q": "What determines a protein's function, according to the lecture? [1.8]",
+          "options": [
+            "Its total mass alone",
+            "Only the number of amino acids",
+            "The sugar it contains",
+            "Its three-dimensional shape, which its amino-acid sequence determines"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 1.8: The sequence (primary structure) folds into a precise shape.\nA is wrong: Mass does not set function.\nB is wrong: The order matters, not just the count.\nC is wrong: Proteins are polymers of amino acids."
+        },
+        {
+          "q": "What causes sickle-cell disease? [1.10]",
+          "options": [
+            "A single amino-acid substitution in haemoglobin, valine for glutamic acid",
+            "The loss of an entire chromosome",
+            "A bacterial infection",
+            "A lack of dietary iron"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 1.10: A small sequence change alters shape and function.\nB is wrong: It is a single substitution.\nC is wrong: It is an inherited mutation.\nD is wrong: That causes a different anaemia."
+        },
+        {
+          "q": "Which bases pair in DNA? [1.13]",
+          "options": [
+            "A with G and C with T",
+            "A with T and G with C",
+            "A with U and G with C",
+            "Any base with any other"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 1.13: Complementary base pairing by hydrogen bonds is the key to copying.\nA is wrong: Pairs are A–T and G–C.\nC is wrong: U replaces T in RNA, not DNA.\nD is wrong: Pairing is specific."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Cells, Membranes, and Energy",
+      "questions": [
+        {
+          "q": "What distinguishes prokaryotic from eukaryotic cells? [2.2]",
+          "options": [
+            "Prokaryotes have more organelles",
+            "Prokaryotes have no DNA",
+            "Prokaryotes have no nucleus; their DNA lies in the cytoplasm",
+            "Prokaryotes are always larger"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 2.2: Bacteria and archaea are prokaryotes, usually with one circular chromosome.\nA is wrong: Eukaryotes have the membrane-bound organelles.\nB is wrong: They have DNA, without a nucleus.\nD is wrong: They are typically smaller."
+        },
+        {
+          "q": "What evidence supports the endosymbiotic theory of mitochondria? [2.4]",
+          "options": [
+            "They are found only in plants",
+            "They lack membranes",
+            "They make all the cell's proteins",
+            "They have their own small circular DNA and bacteria-like ribosomes"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 2.4: These organelles descend from bacteria engulfed long ago.\nA is wrong: Mitochondria are in nearly all eukaryotes.\nB is wrong: They have double membranes.\nC is wrong: Most proteins are made from nuclear genes."
+        },
+        {
+          "q": "What does the sodium-potassium pump do with one ATP? [2.7]",
+          "options": [
+            "Pumps three sodium ions out and two potassium ions in",
+            "Pumps two sodium out and three potassium in",
+            "Lets ions diffuse down their gradients",
+            "Makes ATP from the ion gradient"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 2.7: This active transport builds gradients that power nerve impulses.\nB is wrong: The numbers are reversed.\nC is wrong: That is passive transport.\nD is wrong: That is ATP synthase."
+        },
+        {
+          "q": "What is the net ATP gain from glycolysis per glucose? [2.11]",
+          "options": [
+            "About thirty",
+            "None",
+            "Thirty-six from glycolysis alone",
+            "Two ATP"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 2.11: Glycolysis splits glucose into two pyruvate in the cytoplasm, without oxygen.\nA is wrong: That is the total for full respiration.\nB is wrong: There is a small net gain.\nC is wrong: Most ATP comes later, from chemiosmosis."
+        },
+        {
+          "q": "How does the electron transport chain lead to ATP synthesis? [2.13]",
+          "options": [
+            "It makes ATP directly at each carrier",
+            "It pumps protons across the inner membrane; their flow back through ATP synthase makes ATP",
+            "It splits glucose in the cytoplasm",
+            "It releases oxygen"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 2.13: This chemiosmosis was proposed by Peter Mitchell in 1961.\nA is wrong: It does not make ATP directly.\nC is wrong: That is glycolysis.\nD is wrong: Oxygen is consumed, not released."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Genetics and Inheritance",
+      "questions": [
+        {
+          "q": "When Mendel self-fertilised the purple first generation, what ratio did he see? [3.2]",
+          "options": [
+            "About three purple to one white",
+            "All purple",
+            "One to one",
+            "Nine to three to three to one"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 3.2: The white trait had been hidden, not lost.\nB is wrong: That was the first generation.\nC is wrong: That results from a testcross.\nD is wrong: That is a two-trait cross."
+        },
+        {
+          "q": "What does a Pp × Pp cross give? [3.4]",
+          "options": [
+            "All Pp",
+            "Half PP and half pp",
+            "One PP, two Pp, one pp: three purple to one white",
+            "Two purple to two white"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.4: A Punnett square lists the gametes and their combinations.\nA is wrong: That comes from PP × pp.\nB is wrong: Heterozygotes appear too.\nD is wrong: Only pp is white."
+        },
+        {
+          "q": "What is codominance? [3.6]",
+          "options": [
+            "The heterozygote is intermediate, like pink snapdragons",
+            "One allele completely masks the other",
+            "Both alleles show fully in the heterozygote, as in the AB blood group",
+            "Neither allele is expressed"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.6: In incomplete dominance, by contrast, the heterozygote is intermediate.\nA is wrong: That is incomplete dominance.\nB is wrong: That is simple dominance.\nD is wrong: Both are expressed."
+        },
+        {
+          "q": "How many chromosomes does a human egg or sperm contain? [3.9]",
+          "options": [
+            "Forty-six",
+            "Ninety-two",
+            "Twenty-three, one from every pair",
+            "Twelve"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.9: Meiosis halves the chromosome number from forty-six.\nA is wrong: That is the number in body cells.\nB is wrong: That is double the body-cell number.\nD is wrong: Humans have twenty-three pairs."
+        },
+        {
+          "q": "Why does a recessive X-linked trait appear mostly in males? [3.12]",
+          "options": [
+            "Males have two X chromosomes",
+            "The gene is on the Y chromosome",
+            "Females cannot inherit it",
+            "Males have only one X, so a single recessive allele shows"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 3.12: Morgan's white-eyed fruit flies and human red-green colour blindness are examples.\nA is wrong: Males are XY.\nB is wrong: It is on the X.\nC is wrong: Females can, but need two copies to show it."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "DNA, Genes, and the Central Dogma",
+      "questions": [
+        {
+          "q": "What did the double helix immediately suggest about copying DNA? [4.2]",
+          "options": [
+            "DNA is copied from protein",
+            "Each strand serves as a template for a new partner, by base pairing",
+            "Both strands are destroyed and rebuilt at random",
+            "DNA cannot be copied"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 4.2: Because A pairs with T and G with C, each strand determines the other.\nA is wrong: Information flows from DNA.\nC is wrong: Copying is template-directed.\nD is wrong: Replication copies DNA before division."
+        },
+        {
+          "q": "Why is the lagging strand made in Okazaki fragments? [4.3]",
+          "options": [
+            "Because helicase cannot unwind it",
+            "Because it is made of RNA",
+            "Because it contains uracil",
+            "DNA polymerase adds nucleotides only to the 3′ end, so one strand must be built in short pieces"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 4.3: Pieces are later joined by DNA ligase.\nA is wrong: Helicase unwinds both strands.\nB is wrong: It is DNA, primed by short RNA.\nC is wrong: DNA contains thymine."
+        },
+        {
+          "q": "What is transcription? [4.6]",
+          "options": [
+            "Turning mRNA into a protein",
+            "Copying the whole genome before division",
+            "Removing mistakes from DNA",
+            "Copying a gene's information into messenger RNA, by RNA polymerase"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 4.6: RNA polymerase binds the promoter at the start of the gene.\nA is wrong: That is translation.\nB is wrong: That is replication.\nC is wrong: That is repair or proofreading."
+        },
+        {
+          "q": "Of the sixty-four codons, how many specify amino acids? [4.7]",
+          "options": [
+            "Sixty-one; the other three are stop signals",
+            "Twenty",
+            "Sixty-four",
+            "Sixteen"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 4.7: With twenty amino acids, the code is redundant.\nB is wrong: Many amino acids have several codons.\nC is wrong: Three are stop codons.\nD is wrong: With triplets there are 4³ = 64 codons."
+        },
+        {
+          "q": "What does the lac repressor do when lactose is absent? [4.13]",
+          "options": [
+            "It activates transcription",
+            "It binds the operator and blocks transcription of the lac genes",
+            "It digests lactose",
+            "It destroys the mRNA"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 4.13: When lactose is present, it releases the repressor and switches the genes on.\nA is wrong: It is a repressor.\nC is wrong: The operon's enzymes do that.\nD is wrong: It blocks transcription."
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Molecular Biology and Biotechnology",
+      "questions": [
+        {
+          "q": "What did Cohen and Boyer do in 1973? [5.2]",
+          "options": [
+            "Invented PCR",
+            "Sequenced the human genome",
+            "Inserted a foreign gene into a plasmid using matching sticky ends and DNA ligase",
+            "Discovered CRISPR-Cas9 editing"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.2: It launched recombinant DNA technology.\nA is wrong: That was Kary Mullis in 1983.\nB is wrong: That was completed in 2003.\nD is wrong: That came decades later."
+        },
+        {
+          "q": "In gel electrophoresis, why does DNA move toward the positive electrode? [5.4]",
+          "options": [
+            "It is positively charged",
+            "Its phosphate backbone is negatively charged",
+            "Large fragments move fastest",
+            "It is pulled by gravity"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 5.4: Smaller fragments move faster through the gel.\nA is wrong: DNA is negative.\nC is wrong: Small fragments move fastest.\nD is wrong: The driving force is electrical."
+        },
+        {
+          "q": "About how many copies can thirty PCR cycles give from a single molecule? [5.5]",
+          "options": [
+            "Thirty",
+            "About sixty",
+            "About a million",
+            "About a billion"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 5.5: Each cycle doubles the copies: 2³⁰ ≈ 1.07 × 10⁹.\nA is wrong: Copies double each cycle, not add.\nB is wrong: That is linear growth.\nC is wrong: That is about twenty cycles."
+        },
+        {
+          "q": "About how many protein-coding genes does the human genome contain? [5.8]",
+          "options": [
+            "About three billion",
+            "About two hundred",
+            "About twenty thousand",
+            "About one million"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.8: Coding sequences are only about 1 to 2 per cent of three billion base pairs.\nA is wrong: That is the number of base pairs.\nB is wrong: Far too few.\nD is wrong: Far more than the actual number."
+        },
+        {
+          "q": "In CRISPR-Cas9, what leads Cas9 to its target? [5.11]",
+          "options": [
+            "A restriction site like GAATTC",
+            "An antibody",
+            "A guide RNA about twenty bases long that matches the target sequence",
+            "Heat, as in PCR"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.11: Cas9 then cuts the DNA at that site.\nA is wrong: That is how restriction enzymes cut.\nB is wrong: Antibodies are immune proteins.\nD is wrong: Targeting is by base pairing."
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Signalling, Cancer, Immunity, and Evolution",
+      "questions": [
+        {
+          "q": "In which phase of the cell cycle is DNA synthesised? [6.4]",
+          "options": [
+            "S phase",
+            "G1",
+            "M",
+            "G2"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 6.4: The cycle is G1, S, G2, and M.\nB is wrong: G1 is growth before synthesis.\nC is wrong: M is mitosis.\nD is wrong: G2 follows synthesis."
+        },
+        {
+          "q": "How does the lecture describe an oncogene and a mutant tumour suppressor? [6.5]",
+          "options": [
+            "An accelerator stuck down and failed brakes",
+            "Two accelerators",
+            "Two working brakes",
+            "A thermostat and a fuse"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 6.5: Proto-oncogenes promote division; tumour suppressors restrain it.\nB is wrong: Tumour suppressors are brakes.\nC is wrong: Mutation inactivates the brake.\nD is wrong: The lecture uses accelerator and brake."
+        },
+        {
+          "q": "What do B cells make? [6.9]",
+          "options": [
+            "Insulin",
+            "Antibodies, Y-shaped proteins that bind particular antigens",
+            "Haemoglobin",
+            "Restriction enzymes"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 6.9: Adaptive immunity is specific and has memory.\nA is wrong: Insulin is made by the pancreas.\nC is wrong: Red blood cell precursors make that.\nD is wrong: Those are bacterial."
+        },
+        {
+          "q": "How does vaccination work? [6.11]",
+          "options": [
+            "It kills all bacteria in the body",
+            "It changes the person's DNA",
+            "It replaces innate immunity",
+            "It presents a pathogen's antigens without causing disease, creating immune memory"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 6.11: Later exposure then triggers a fast, strong response.\nA is wrong: That is not how vaccines act.\nB is wrong: Vaccines, including mRNA vaccines, do not edit DNA.\nC is wrong: It trains adaptive immunity."
+        },
+        {
+          "q": "Which observable facts does natural selection follow from? [6.13]",
+          "options": [
+            "Organisms change by will",
+            "Heritable variation, overproduction of offspring, and unequal survival and reproduction",
+            "Acquired traits are always inherited",
+            "All individuals are identical"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 6.13: Variants that leave more offspring become more common.\nA is wrong: Selection needs no intention.\nC is wrong: Darwin's mechanism does not rely on that.\nD is wrong: Variation is essential."
+        }
+      ]
+    }
+  ]
+}

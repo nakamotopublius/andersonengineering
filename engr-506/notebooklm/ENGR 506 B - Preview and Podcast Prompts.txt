@@ -1,0 +1,11 @@
+Anderson Academy · ENGR 506 B · Introductory Biology · Anderson Engineering
+NotebookLM preview and podcast prompts. Sources: 'ENGR 506 B - Course Text (NotebookLM source).txt' (or the matching PDF) and, once it exists, the Vimeo URL of the narrated course.
+NotebookLM generation rule: whenever the interface offers 'Generate now' or 'Generate later', click 'Generate later', then check back for the output.
+
+1. Cinematic video overview (preview): Studio > Video overview > Cinematic. Focus prompt:
+"A cinematic preview of Anderson Academy ENGR 506 B, Introductory Biology, a Brief Foundations course in Anderson Engineering built on MIT 7.016 and 7.012 from MIT OpenCourseWare. Cover what the course teaches (the molecules of life; cells, membranes and energy; genetics and inheritance; DNA and the central dogma; molecular biology and biotechnology; signalling, cancer, immunity and evolution), why engineers need it, and how the overview and six lectures fit together. Visual style: mathematical formulas, naturalistic drawings, and whiteboard style. Use only Anderson Academy branding. Do not mention prices or offers."
+Save as notebooklm/ENGR 506 B - Preview (original).mp4, then add the Anderson end slide as for ENGR 500 B.
+
+2. Audio overview (deep dive podcast): Deep Dive, same notebook. Focus prompt:
+"A deep dive on Anderson Academy ENGR 506 B, Introductory Biology, for general adults and older teens preparing for engineering: the molecules of life; cells, membranes and energy; genetics and inheritance; DNA and the central dogma; molecular biology and biotechnology; signalling, cancer, immunity and evolution. Explain the key ideas and worked examples in plain words, say where each comes from (MIT 7.016 and 7.012), and note that a Brief course is a first hour in the subject, not a substitute for a full semester. Anderson Academy branding only; no mention of prices or offers."
+Save as notebooklm/ENGR 506 B - Podcast (Deep Dive).m4a.
