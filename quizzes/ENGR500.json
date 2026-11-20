@@ -1,0 +1,371 @@
+{
+  "title": "ENGR 500 B - How to Use the Engineering Courses",
+  "quizzes": [
+    {
+      "n": 1,
+      "title": "What These Courses Are, and What They Are Not",
+      "questions": [
+        {
+          "q": "What does the lecture say the Engineering courses provide? [1.1]",
+          "options": [
+            "Engineering knowledge, not a qualification to practise",
+            "A professional engineering licence",
+            "Supervised work experience",
+            "An accredited engineering degree"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 1.1: They sit entirely on the knowledge side of the boundary.\nB is wrong: No licence comes from these courses.\nC is wrong: That can only happen on the job.\nD is wrong: The courses grant no degree."
+        },
+        {
+          "q": "Which kind of work does the lecture say belongs with qualified professionals? [1.3]",
+          "options": [
+            "Electrical work, gas lines, structural changes and pressure systems",
+            "Reading the Course Book",
+            "Taking the quizzes",
+            "Low-voltage hobby electronics"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 1.3: These are named as safety-critical work for professionals under local codes.\nB is wrong: Reading is exactly what the courses are for.\nC is wrong: Quizzes are part of the course.\nD is wrong: Lecture six treats these as reasonable projects."
+        },
+        {
+          "q": "Why can a correct textbook calculation still lead to a wrong design? [1.4]",
+          "options": [
+            "Codes forbid all calculations",
+            "Engineers never use mathematics",
+            "Real materials have flaws, loads are uncertain and codes add margins learned from failures",
+            "Textbook calculations are usually wrong"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 1.4: Knowing about a thing differs from doing it safely.\nA is wrong: Codes guide design; they do not forbid calculation.\nB is wrong: Mathematics is central to engineering.\nD is wrong: The lecture says the calculation can be correct."
+        },
+        {
+          "q": "What mental model does the lecture recommend for holding what you learn? [1.8]",
+          "options": [
+            "A licence to do your own wiring",
+            "A second opinion to overrule professionals",
+            "A complete engineering education",
+            "The knowledge behind a conversation with an engineer or tradesperson, not a replacement for them"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 1.8: Their years of applying knowledge under codes are what you rely on.\nA is wrong: The courses give no such right.\nB is wrong: The model is understanding, not overruling.\nC is wrong: Each course is only a careful first hour."
+        },
+        {
+          "q": "How does a Brief course compare with a real university course on the same subject? [1.9]",
+          "options": [
+            "It replaces the laboratory work",
+            "It covers the same material in full",
+            "It is a careful first hour, while the real course fills a semester of well over a hundred hours",
+            "It is longer and more detailed"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 1.9: Brief courses give main ideas, key vocabulary and a map onward.\nA is wrong: Laboratories cannot be replaced online.\nB is wrong: It covers only the main ideas.\nD is wrong: The real course is far longer."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Where the Courses Come From: MIT and OpenCourseWare",
+      "questions": [
+        {
+          "q": "What is MIT's motto, and what does it mean? [2.2]",
+          "options": [
+            "Veritas: truth",
+            "Scientia potentia est: knowledge is power",
+            "Mens et Manus: mind and hand",
+            "Lux et Veritas: light and truth"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 2.2: Theory and practice belong together.\nA is wrong: That is Harvard's motto.\nB is wrong: Not MIT's motto.\nD is wrong: That is Yale's motto."
+        },
+        {
+          "q": "Which MIT Course number is Electrical Engineering and Computer Science? [2.3]",
+          "options": [
+            "Course 6",
+            "Course 22",
+            "Course 2",
+            "Course 1"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 2.3: An MIT student might say, I am Course 6.\nB is wrong: That is Nuclear Science and Engineering.\nC is wrong: That is Mechanical Engineering.\nD is wrong: That is Civil and Environmental Engineering."
+        },
+        {
+          "q": "In the subject number 18.01, what does the 18 tell you? [2.4]",
+          "options": [
+            "The difficulty level",
+            "The year it was first taught",
+            "The department, Mathematics",
+            "The number of lectures"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 2.4: The number after the point identifies the subject.\nA is wrong: It names the department.\nB is wrong: The number is not a date.\nD is wrong: The number is not a count."
+        },
+        {
+          "q": "What is true of MIT's structure beyond the General Institute Requirements? [2.5]",
+          "options": [
+            "Students choose any subjects with no requirements",
+            "All engineers take the same ten core subjects",
+            "Only Course 6 has requirements",
+            "There is no single engineering core; each department sets its own required subjects"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 2.5: The GIRs are the only Institute-wide core.\nA is wrong: Each department has requirements.\nB is wrong: No such shared core exists.\nC is wrong: Every department sets its own."
+        },
+        {
+          "q": "How does the Academy use MIT's curriculum and OpenCourseWare? [2.7]",
+          "options": [
+            "As a map: titles and order follow MIT, but the lectures are written fresh",
+            "It is an official MIT partner",
+            "It ignores MIT once titles are chosen",
+            "It republishes MIT lecture notes"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 2.7: Nothing is copied, and there is no connection with MIT.\nB is wrong: The Academy has no connection with MIT.\nC is wrong: The open materials help decide what each course covers.\nD is wrong: OCW's licence forbids commercial reuse, and nothing is copied."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "How Engineers Are Trained",
+      "questions": [
+        {
+          "q": "What does ABET do? [3.2]",
+          "options": [
+            "Runs MIT OpenCourseWare",
+            "Accredits engineering degree programs",
+            "Sets the PE exam",
+            "Issues state licences"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 3.2: It checks that programs meet its standards.\nA is wrong: OCW is run by MIT.\nC is wrong: That is NCEES.\nD is wrong: State boards issue licences."
+        },
+        {
+          "q": "Why do the Foundations courses come first? [3.3]",
+          "options": [
+            "They are the easiest courses",
+            "They replace the department courses",
+            "They are required by law",
+            "The first two years of an engineering degree are built on mathematics and science"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 3.3: They match MIT's General Institute Requirements.\nA is wrong: Order follows the degree, not ease.\nB is wrong: They prepare for them.\nC is wrong: No law is involved."
+        },
+        {
+          "q": "What does passing the FE exam earn? [3.6]",
+          "options": [
+            "The title Engineer in Training, or Engineer Intern",
+            "An accredited degree",
+            "The right to seal drawings",
+            "A full licence"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 3.6: On the road to a licence, but not yet licensed.\nB is wrong: The degree comes from the program.\nC is wrong: Only licensed engineers can.\nD is wrong: That needs experience and the PE exam."
+        },
+        {
+          "q": "What does it mean for a licensed engineer to seal drawings? [3.8]",
+          "options": [
+            "They formally take legal responsibility for them",
+            "They hand responsibility to the contractor",
+            "They keep the drawings secret",
+            "They make the drawings waterproof"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 3.8: Sealing is a sign of accountability.\nB is wrong: The opposite is true.\nC is wrong: Not the meaning given.\nD is wrong: Not the meaning given."
+        },
+        {
+          "q": "Which engineers usually do not need a licence? [3.9]",
+          "options": [
+            "Many engineers inside companies and most software engineers",
+            "Engineers designing public bridges",
+            "Engineers designing water systems",
+            "No engineer ever needs one"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 3.9: State law usually does not require it for their work.\nB is wrong: Work offered to the public needs a licensed engineer.\nC is wrong: Same: public works need a licensed engineer.\nD is wrong: Licences are required for public work."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "A Tour of the Engineering Library",
+      "questions": [
+        {
+          "q": "What do the five hundreds in Engineering course numbers signal? [4.2]",
+          "options": [
+            "A separate library that comes after the undergraduate courses numbered 100 to 499",
+            "They were chosen at random",
+            "They are the hardest undergraduate courses",
+            "MIT uses five hundred numbers"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 4.2: Engineering 500 B is Course Zero.\nB is wrong: The numbering is deliberate.\nC is wrong: They form a separate library.\nD is wrong: MIT uses numbers like 18.01."
+        },
+        {
+          "q": "Which course is Engineering 501 B? [4.3]",
+          "options": [
+            "Calculus I, modelled on MIT 18.01",
+            "Physics I",
+            "Introductory Biology",
+            "Linear Algebra"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 4.3: The first Foundations course.\nB is wrong: That is Engineering 503 B.\nC is wrong: That is Engineering 506 B.\nD is wrong: That is Engineering 508 B."
+        },
+        {
+          "q": "Why does Engineering 506 B teach biology? [4.4]",
+          "options": [
+            "It is a medical course",
+            "It replaces chemistry",
+            "Only biological engineers need it",
+            "Every MIT student, engineer or not, studies biology"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 4.4: Biology is one of the six science GIRs.\nA is wrong: It is an Engineering Foundations course.\nB is wrong: Chemistry is a separate course, 505 B.\nC is wrong: Every MIT student takes it."
+        },
+        {
+          "q": "How does the Academy handle the humanities requirement? [4.5]",
+          "options": [
+            "Through the Academy's undergraduate library",
+            "Through the laboratory courses",
+            "It drops it as unnecessary",
+            "It adds humanities lectures to every course"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 4.5: You are encouraged to take courses there alongside engineering.\nB is wrong: Laboratories cannot be given online.\nC is wrong: It is already served elsewhere.\nD is wrong: Not described."
+        },
+        {
+          "q": "When will the department courses get their course numbers? [4.8]",
+          "options": [
+            "Never; they will not be built",
+            "They already have them all",
+            "Before the Foundations",
+            "Once the Foundations are built"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 4.8: Foundations first, then the departments.\nA is wrong: They are part of the plan.\nB is wrong: Numbers are assigned later.\nC is wrong: The plan is Foundations first."
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "How to Study Engineering the Way Engineers Do",
+      "questions": [
+        {
+          "q": "What is the first method for learning engineering? [5.2]",
+          "options": [
+            "Work problems by hand before looking at the answer",
+            "Read worked solutions until they feel familiar",
+            "Memorise final answers",
+            "Watch lectures at double speed"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 5.2: The struggle is where learning happens.\nB is wrong: Familiarity is not the same as understanding.\nC is wrong: Answers alone teach little.\nD is wrong: Not described."
+        },
+        {
+          "q": "In the standard problem routine, when do you put in the numbers? [5.3]",
+          "options": [
+            "After solving with symbols",
+            "Before drawing the sketch",
+            "Never; engineers avoid numbers",
+            "At the very start"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 5.3: Then check units, size and behaviour.\nB is wrong: The sketch comes early.\nC is wrong: Numbers come at the end.\nD is wrong: Symbols come first."
+        },
+        {
+          "q": "Why was the Mars Climate Orbiter lost in 1999? [5.4]",
+          "options": [
+            "It was hit by a meteor",
+            "A rocket engine exploded",
+            "One piece of software used pound-force seconds while another expected newton-seconds",
+            "Its solar panels failed"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.4: A unit mismatch sent it too close to Mars.\nA is wrong: Not the cause described.\nB is wrong: Not the cause described.\nD is wrong: Not the cause described."
+        },
+        {
+          "q": "What is a back-of-the-envelope estimate for? [5.5]",
+          "options": [
+            "A final answer for a design",
+            "A note to post to an engineer",
+            "A rough guess to the nearest power of ten that shows when a careful calculation has gone wrong",
+            "A way to avoid calculating at all"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.5: One of the most useful engineering skills.\nA is wrong: It is a check, not a design.\nB is wrong: Not the meaning given.\nD is wrong: It comes before the calculation."
+        },
+        {
+          "q": "What is the firm rule for using an AI tutor? [5.11]",
+          "options": [
+            "Never use AI at all",
+            "Trust it whenever it sounds confident",
+            "Use it to approve changes to your house",
+            "Use it to learn engineering, not to certify designs"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 5.11: Real decisions belong with a qualified engineer.\nA is wrong: AI is encouraged as a tutor.\nB is wrong: It can make confident errors.\nC is wrong: That is an engineering decision for a professional."
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Using What You Learn Wisely",
+      "questions": [
+        {
+          "q": "Which question does the lecture suggest asking a professional about a project? [6.3]",
+          "options": [
+            "What loads is this designed for?",
+            "Why do you need a licence?",
+            "Can I do the structural work myself?",
+            "Can you skip the code to save money?"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 6.3: One of several good questions listed.\nB is wrong: Not suggested.\nC is wrong: Lecture six advises against it.\nD is wrong: Not suggested."
+        },
+        {
+          "q": "Which principle exposes perpetual motion machines? [6.4]",
+          "options": [
+            "Testimonials prove performance",
+            "Machines always get faster over time",
+            "Friction can be eliminated completely",
+            "Energy is never created from nothing"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 6.4: Every real machine also loses energy to friction and heat.\nA is wrong: A claim needs independent measured data.\nB is wrong: Not true.\nC is wrong: Every real machine loses energy."
+        },
+        {
+          "q": "What caused the Hyatt Regency walkway collapse in 1981? [6.6]",
+          "options": [
+            "A fire",
+            "Too many people for a correct design",
+            "A change to how the walkways hung from their rods roughly doubled the load on a connection",
+            "An earthquake"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 6.6: The change was not properly checked; 114 people died.\nA is wrong: Not the cause described.\nB is wrong: The design change was the cause.\nD is wrong: Not the cause described."
+        },
+        {
+          "q": "What does the NSPE code of ethics ask engineers to hold paramount? [6.7]",
+          "options": [
+            "The safety, health and welfare of the public",
+            "Speed of construction",
+            "The profit of their employer",
+            "Their own reputation"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 6.7: Public safety comes above all.\nB is wrong: Not mentioned.\nC is wrong: Not the first duty.\nD is wrong: Not mentioned."
+        },
+        {
+          "q": "Which courses does the lecture suggest taking next? [6.9]",
+          "options": [
+            "Medicine 501 B",
+            "A department course first",
+            "Engineering 501 B, Calculus I, alongside Engineering 503 B, Physics I",
+            "None; the library is complete"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 6.9: Then follow the numbers through the Foundations.\nA is wrong: That begins the medical library.\nB is wrong: The Foundations come first.\nD is wrong: The library is a work in progress."
+        }
+      ]
+    }
+  ]
+}

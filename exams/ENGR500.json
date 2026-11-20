@@ -1,0 +1,555 @@
+{
+  "title": "ENGR 500 B - How to Use the Engineering Courses",
+  "questions": [
+    {
+      "q": "Which course is Course Zero for the Engineering courses?",
+      "options": [
+        "Philosophy 100 B",
+        "Medicine 500 B",
+        "Engineering 501 B",
+        "Engineering 500 B"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 0.1: Like Philosophy 100 B and Medicine 500 B for their libraries.\nA is wrong: That is Course Zero for the undergraduate library.\nB is wrong: That is Course Zero for medicine.\nC is wrong: That is Calculus I."
+    },
+    {
+      "q": "What does the letter B at the end of a course code stand for?",
+      "options": [
+        "Book",
+        "Bachelor",
+        "Basic",
+        "Brief"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 0.4: Each course is about an hour.\nA is wrong: Not the meaning.\nB is wrong: Not a degree.\nC is wrong: Not the meaning."
+    },
+    {
+      "q": "Why does the Engineering part of the Academy exist?",
+      "options": [
+        "To sell engineering services",
+        "To replace MIT",
+        "To train licensed engineers",
+        "Engineering shapes daily life, yet most people never learn how it works"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 0.6: Gary wanted that ordered knowledge within reach.\nA is wrong: Not mentioned.\nB is wrong: The Academy has no connection with MIT.\nC is wrong: The courses give no licence."
+    },
+    {
+      "q": "Which side of the boundary do the Engineering courses sit on?",
+      "options": [
+        "Engineering practice",
+        "Engineering knowledge",
+        "Both sides equally",
+        "Neither side"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.1: They teach knowledge, not practice.\nA is wrong: Practice needs supervision and a licence.\nC is wrong: They sit entirely on one side.\nD is wrong: They teach knowledge."
+    },
+    {
+      "q": "Which of these does a professional engineer have that the courses cannot give?",
+      "options": [
+        "An interest in machines",
+        "Years of supervised work experience",
+        "Curiosity",
+        "Access to the Course Book"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.2: Along with an accredited degree, exams and a licence.\nA is wrong: Anyone can have that.\nC is wrong: Anyone can have that.\nD is wrong: Anyone can read it."
+    },
+    {
+      "q": "What does the lecture say about a correct calculation?",
+      "options": [
+        "It is never possible",
+        "The design built on it can still be wrong",
+        "It guarantees a safe design",
+        "It replaces codes"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.4: Real materials, loads and codes intervene.\nA is wrong: Calculations can be correct.\nC is wrong: The lecture says otherwise.\nD is wrong: Codes carry lessons from failures."
+    },
+    {
+      "q": "In what order do the courses follow MIT's subjects?",
+      "options": [
+        "Departments first, then Foundations",
+        "Random order",
+        "Alphabetical order",
+        "Foundations first, then core mathematics, then department subjects"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.5: The same order as an MIT engineering student.\nA is wrong: Foundations come first.\nB is wrong: The order is deliberate.\nC is wrong: Not described."
+    },
+    {
+      "q": "What quieter benefit of engineering thinking does the lecture describe?",
+      "options": [
+        "Freedom from all mistakes",
+        "A guaranteed career",
+        "Faster typing",
+        "Better decisions and resistance to claims that break physical laws"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.7: Break problems down, estimate, test, weigh trade-offs.\nA is wrong: Not claimed.\nB is wrong: Not claimed.\nC is wrong: Not mentioned."
+    },
+    {
+      "q": "Which institution is the model for the Engineering courses?",
+      "options": [
+        "MIT, the Massachusetts Institute of Technology",
+        "Oxford University",
+        "Harvard Medical School",
+        "Peterson Academy"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.1: Chosen for numbered courses and open materials.\nB is wrong: Not mentioned.\nC is wrong: Model for part of medicine, not engineering.\nD is wrong: Not the model here."
+    },
+    {
+      "q": "When was MIT founded?",
+      "options": [
+        "2001",
+        "1932",
+        "1925",
+        "1861"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.2: It now stands in Cambridge, Massachusetts.\nA is wrong: That is when OpenCourseWare began.\nB is wrong: That is when ABET was founded.\nC is wrong: That is the first Iron Ring ceremony."
+    },
+    {
+      "q": "What is MIT Course 2?",
+      "options": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Materials Science and Engineering",
+        "Biological Engineering"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.3: Machines, forces, heat and fluids.\nB is wrong: That is Course 10.\nC is wrong: That is Course 3.\nD is wrong: That is Course 20."
+    },
+    {
+      "q": "What is MIT Course 16?",
+      "options": [
+        "Mathematics",
+        "Aeronautics and Astronautics",
+        "Civil and Environmental Engineering",
+        "Nuclear Science and Engineering"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.3: Aircraft and spacecraft.\nA is wrong: That is Course 18.\nC is wrong: That is Course 1.\nD is wrong: That is Course 22."
+    },
+    {
+      "q": "Which department teaches MIT subject 8.01?",
+      "options": [
+        "Biology",
+        "Mathematics",
+        "Physics, Course 8",
+        "Chemistry"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 2.4: It is Physics I.\nA is wrong: Not Course 8.\nB is wrong: That is Course 18.\nD is wrong: Not Course 8."
+    },
+    {
+      "q": "How many science subjects are in the GIRs?",
+      "options": [
+        "Four",
+        "Eight",
+        "Two",
+        "Six: two calculus, two physics, one chemistry, one biology"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.5: Plus other requirements.\nA is wrong: There are six.\nB is wrong: Eight is the number of HASS subjects.\nC is wrong: There are six."
+    },
+    {
+      "q": "What can MIT OpenCourseWare offer for many subjects?",
+      "options": [
+        "Professional licences",
+        "Syllabi, lecture notes, problem sets, exams with solutions and sometimes videos",
+        "Accredited degrees",
+        "Personal tutoring by MIT staff"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.6: A reliable guide to a real course.\nA is wrong: Not offered.\nC is wrong: OCW grants no degrees.\nD is wrong: Not offered."
+    },
+    {
+      "q": "What does the OpenCourseWare licence not allow?",
+      "options": [
+        "Viewing the materials",
+        "Linking to them",
+        "Commercial reuse",
+        "Studying from them"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 2.7: One more reason the Academy writes its own lectures.\nA is wrong: Viewing is allowed.\nB is wrong: Linking is allowed.\nD is wrong: Studying is allowed."
+    },
+    {
+      "q": "Which open source is named for filling gaps in the plan?",
+      "options": [
+        "A social media site",
+        "India's NPTEL program",
+        "A licensing board",
+        "A private tutoring firm"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.8: A large engineering course collection.\nA is wrong: Not named.\nC is wrong: Not a course source.\nD is wrong: Not named."
+    },
+    {
+      "q": "Why is a demanding model like MIT a good choice?",
+      "options": [
+        "It sets a high standard while the Academy stays honest about Brief courses",
+        "Because it has no problem sets",
+        "Because it is easy",
+        "Because MIT approved the Academy"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.9: Ambition balanced with honesty.\nB is wrong: MIT is famous for its problem sets.\nC is wrong: MIT is demanding.\nD is wrong: There is no connection."
+    },
+    {
+      "q": "What bonus does choosing MIT give learners?",
+      "options": [
+        "A discount on MIT tuition",
+        "Admission to MIT",
+        "An MIT certificate",
+        "Each course can point to the real MIT materials, often with problem set solutions"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.10: The Academy gives the first hour; MIT the next hundred.\nA is wrong: Not mentioned.\nB is wrong: Not offered.\nC is wrong: Not offered."
+    },
+    {
+      "q": "What are the broadly similar stages to becoming an engineer?",
+      "options": [
+        "A single exam",
+        "Membership of a club",
+        "A degree, supervised experience, examinations and a licence",
+        "An online course only"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.1: Different countries vary the details.\nA is wrong: There are several stages.\nB is wrong: Not a stage.\nD is wrong: Not enough."
+    },
+    {
+      "q": "When was ABET founded?",
+      "options": [
+        "1932",
+        "1861",
+        "1981",
+        "1999"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 3.2: It accredits engineering programs.\nB is wrong: That is MIT's founding.\nC is wrong: That is the Hyatt Regency collapse.\nD is wrong: That is the Mars Climate Orbiter loss."
+    },
+    {
+      "q": "Which subjects does a mechanical engineering student study in later years?",
+      "options": [
+        "Only humanities",
+        "Mechanics of solids, motion of machines, thermodynamics, heat transfer and fluid flow",
+        "Circuits and signals only",
+        "Only biology"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 3.4: The core of the discipline.\nA is wrong: Not the core.\nC is wrong: That is electrical engineering.\nD is wrong: Not the core."
+    },
+    {
+      "q": "What is a capstone design project?",
+      "options": [
+        "A building's roof",
+        "The first lecture of a degree",
+        "A final project taking a real problem from idea to working prototype",
+        "A licensing exam"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.5: Often in a team over a year.\nA is wrong: Not the meaning.\nB is wrong: It comes at the end.\nD is wrong: Not an exam."
+    },
+    {
+      "q": "Which body sets the FE exam?",
+      "options": [
+        "MIT",
+        "ABET",
+        "NCEES",
+        "NSPE"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.6: A national body.\nA is wrong: MIT sets its own courses.\nB is wrong: ABET accredits programs.\nD is wrong: NSPE writes a code of ethics."
+    },
+    {
+      "q": "About how long must an engineer in training usually work under a licensed engineer?",
+      "options": [
+        "About four weeks",
+        "About four years",
+        "No time at all",
+        "About forty years"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 3.7: Building practical judgement.\nA is wrong: Far longer.\nC is wrong: Experience is required.\nD is wrong: Far shorter."
+    },
+    {
+      "q": "What is the PE exam?",
+      "options": [
+        "A university entrance test",
+        "The Physical Education exam",
+        "The first exam, taken in year one",
+        "The Principles and Practice of Engineering exam, taken after experience"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 3.8: Passing it allows applying for a licence.\nA is wrong: Not the PE.\nB is wrong: Not this PE.\nC is wrong: That is not the PE."
+    },
+    {
+      "q": "What do most states require to keep a licence?",
+      "options": [
+        "Continuing education",
+        "Working for the state",
+        "Nothing more",
+        "Retaking the degree"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 3.8: Every year or two.\nB is wrong: Not required.\nC is wrong: Most require continuing education.\nD is wrong: Not required."
+    },
+    {
+      "q": "What image does the lecture use for the Academy beside the road to a licence?",
+      "options": [
+        "A map of a mountain versus the climb",
+        "A seed and a tree",
+        "A key and a lock",
+        "A ship and a harbour"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 3.11: Reading the map is not the climb.\nB is wrong: Not the image.\nC is wrong: Not the image.\nD is wrong: Not the image."
+    },
+    {
+      "q": "What is the simple plan for the Engineering library?",
+      "options": [
+        "All courses at once",
+        "Foundations first, and the departments only after the Foundations are complete",
+        "Only Foundations, never departments",
+        "Departments first"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.1: The order an engineering student meets them.\nA is wrong: They are built in order.\nC is wrong: Departments follow.\nD is wrong: Foundations come first."
+    },
+    {
+      "q": "Which course is modelled on MIT 18.03?",
+      "options": [
+        "Engineering 501 B",
+        "Engineering 508 B",
+        "Engineering 507 B, Differential Equations",
+        "Engineering 502 B"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.3: The language of anything that changes over time.\nA is wrong: That is 18.01.\nB is wrong: That is 18.06.\nD is wrong: That is 18.02."
+    },
+    {
+      "q": "What is Engineering 509 B?",
+      "options": [
+        "Physics II",
+        "Calculus II",
+        "Probability and Statistics",
+        "Chemistry"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.3: The mathematics of uncertainty and data.\nA is wrong: That is 504 B.\nB is wrong: That is 502 B.\nD is wrong: That is 505 B."
+    },
+    {
+      "q": "What does Engineering 504 B, Physics II, cover?",
+      "options": [
+        "Cells and genes",
+        "Electricity and magnetism",
+        "Chemical bonds",
+        "Motion, force and energy"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.4: Modelled on MIT 8.02.\nA is wrong: That is biology.\nC is wrong: That is chemistry.\nD is wrong: That is Physics I."
+    },
+    {
+      "q": "Which MIT subjects is Engineering 505 B modelled on?",
+      "options": [
+        "7.012 and 7.014",
+        "18.01 and 18.02",
+        "3.091 and 5.111",
+        "8.01 and 8.02"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.4: Two of MIT's choices for chemistry.\nA is wrong: Those are biology.\nB is wrong: Those are calculus.\nD is wrong: Those are physics."
+    },
+    {
+      "q": "Why does the Academy not offer the laboratory and physical education requirements?",
+      "options": [
+        "They are unimportant",
+        "MIT dropped them",
+        "They are covered by the quizzes",
+        "They cannot be given online"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.5: So the Academy does not try.\nA is wrong: Not the reason.\nB is wrong: Not true.\nC is wrong: Not covered."
+    },
+    {
+      "q": "Which is MIT's largest department?",
+      "options": [
+        "Electrical Engineering and Computer Science, Course 6",
+        "Chemical Engineering",
+        "Biological Engineering",
+        "Nuclear Science and Engineering"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 4.6: Circuits to AI.\nB is wrong: Not the largest.\nC is wrong: Not the largest.\nD is wrong: Not the largest."
+    },
+    {
+      "q": "What sequence is Aeronautics and Astronautics known for?",
+      "options": [
+        "Integrated Medicine",
+        "Unified Engineering",
+        "The Iron Ring",
+        "The General Institute Requirements"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.7: Structures, fluids, signals and propulsion together.\nA is wrong: Not engineering.\nC is wrong: A Canadian ceremony.\nD is wrong: Institute-wide, not Course 16."
+    },
+    {
+      "q": "Which gateway subject does the lecture name as part of the engineering core?",
+      "options": [
+        "Medical ethics",
+        "Accounting",
+        "Latin grammar",
+        "An introduction to programming in Python"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.8: Many MIT departments require it.\nA is wrong: Not named.\nB is wrong: Not named.\nC is wrong: Not named."
+    },
+    {
+      "q": "How does the lecture suggest pairing the first courses?",
+      "options": [
+        "Department courses before calculus",
+        "Biology with Linear Algebra",
+        "Calculus I with Physics I, then Calculus II with Physics II",
+        "Physics II before Calculus I"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.10: As MIT students usually do.\nA is wrong: Foundations first.\nB is wrong: Not suggested.\nD is wrong: Not suggested."
+    },
+    {
+      "q": "Where do engineering students build real understanding?",
+      "options": [
+        "Only in lectures",
+        "Only in exams",
+        "Watching documentaries",
+        "Working problem sets"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 5.1: Far more time than lectures.\nA is wrong: Problem sets matter most.\nB is wrong: Not described.\nC is wrong: Not described."
+    },
+    {
+      "q": "What is the final step of the standard problem routine?",
+      "options": [
+        "Choose the principles",
+        "Write down what is given",
+        "Draw a sketch",
+        "Check the units, the size of the answer and how it behaves"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 5.3: Engineers use this routine for careers.\nA is wrong: A middle step.\nB is wrong: That is the first step.\nC is wrong: An early step."
+    },
+    {
+      "q": "What does a free-body diagram show?",
+      "options": [
+        "A cut-through view",
+        "A process flow",
+        "Every force on an object",
+        "A circuit's wiring"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.6: Engineers think with pictures.\nA is wrong: That is a cross-section.\nB is wrong: That is a flow chart.\nD is wrong: That is a circuit diagram."
+    },
+    {
+      "q": "Why should you check a computer's answer?",
+      "options": [
+        "To slow yourself down",
+        "Computers cannot add",
+        "Computers are always wrong",
+        "It can give a precise answer to the wrong question"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 5.7: Compare with an estimate or a hand calculation.\nA is wrong: Not the reason.\nB is wrong: Not claimed.\nC is wrong: Not claimed."
+    },
+    {
+      "q": "Why study with other people?",
+      "options": [
+        "Because the quizzes require it",
+        "Explaining a solution tests whether you truly understand it",
+        "To copy their answers",
+        "To finish faster without thinking"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 5.9: Engineers usually work in teams.\nA is wrong: Not required.\nC is wrong: Not suggested.\nD is wrong: Not suggested."
+    },
+    {
+      "q": "What should you always ask an AI tutor to do?",
+      "options": [
+        "Cite the paragraph numbers it relies on, which you then check",
+        "Write your final exam",
+        "Avoid numbers",
+        "Approve your designs"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 5.10: AI can make confident errors.\nB is wrong: Not suggested.\nC is wrong: Not suggested.\nD is wrong: Not its role."
+    },
+    {
+      "q": "What is the natural next step after an Academy course?",
+      "options": [
+        "Nothing more",
+        "A licensing exam",
+        "The real MIT problem sets, often with solutions",
+        "Starting a building project"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.12: Working a few teaches more than reading.\nA is wrong: Sources are recommended.\nB is wrong: Far later on the road.\nD is wrong: Not suggested."
+    },
+    {
+      "q": "What is the first good use of engineering knowledge?",
+      "options": [
+        "Winning arguments",
+        "Replacing contractors",
+        "Designing public bridges",
+        "Understanding the world"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 6.2: The built world becomes readable.\nA is wrong: Not described.\nB is wrong: Not suggested.\nC is wrong: Needs a licence."
+    },
+    {
+      "q": "Which projects does the lecture suggest for making things safely?",
+      "options": [
+        "Mains electrical rewiring",
+        "Gas line work",
+        "Low-voltage electronics, software, models and simple woodwork",
+        "Structural changes"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 6.5: Choose projects where failure harms no one.\nA is wrong: Leave to professionals.\nB is wrong: Leave to professionals.\nD is wrong: Leave to professionals."
+    },
+    {
+      "q": "What is the lesson of the Hyatt Regency collapse?",
+      "options": [
+        "Small details carry large responsibilities",
+        "Accidents cannot be prevented",
+        "Calculations do not matter",
+        "Hotels should not have walkways"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.6: A design is only as safe as its least-checked connection.\nB is wrong: Not the lesson.\nC is wrong: The opposite.\nD is wrong: Not the lesson."
+    },
+    {
+      "q": "What does the Canadian iron ring remind engineers of?",
+      "options": [
+        "Their duty to the public",
+        "Their employer",
+        "Their salary",
+        "Their university's colours"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.7: Worn on the working hand.\nB is wrong: Not described.\nC is wrong: Not described.\nD is wrong: Not described."
+    },
+    {
+      "q": "Why do engineers build in margins of safety?",
+      "options": [
+        "To impress clients",
+        "Their calculations are never perfect and reality can surprise them",
+        "To use more material",
+        "Because codes are optional"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.8: Respect for uncertainty.\nA is wrong: Not the reason.\nC is wrong: Not the reason.\nD is wrong: Not true."
+    }
+  ]
+}
