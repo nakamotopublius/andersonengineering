@@ -1,0 +1,63 @@
+{
+  "code": "ENGR 501 B",
+  "title": "Calculus One",
+  "items": [
+    {
+      "type": "open",
+      "title": "MIT OpenCourseWare, 18.01SC Single Variable Calculus, Fall 2010, Prof. David Jerison",
+      "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/",
+      "note": "Creative Commons Attribution-NonCommercial-ShareAlike."
+    },
+    {
+      "type": "open",
+      "title": "MIT OpenCourseWare, 18.01SC syllabus",
+      "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/syllabus/"
+    },
+    {
+      "type": "open",
+      "title": "OpenStax, Calculus Volume 1",
+      "url": "https://openstax.org/details/books/calculus-volume-1",
+      "note": "Creative Commons Attribution."
+    },
+    {
+      "type": "open",
+      "title": "Gilbert Strang, Calculus (open textbook)",
+      "url": "https://ocw.mit.edu/courses/res-18-001-calculus-online-textbook-spring-2005/pages/textbook/",
+      "author": "Gilbert Strang"
+    },
+    {
+      "type": "book",
+      "title": "Calculus",
+      "author": "Michael Spivak",
+      "url": "https://www.amazon.com/s?k=Spivak+Calculus&tag=andersonaca0d-20"
+    },
+    {
+      "type": "book",
+      "title": "Calculus, Volume 1",
+      "author": "Tom M. Apostol",
+      "url": "https://www.amazon.com/s?k=Apostol+Calculus+Volume+1&tag=andersonaca0d-20"
+    },
+    {
+      "type": "book",
+      "title": "Thomas' Calculus",
+      "author": "George B. Thomas and others",
+      "url": "https://www.amazon.com/s?k=Thomas+Calculus&tag=andersonaca0d-20"
+    },
+    {
+      "type": "course",
+      "title": "ENGR 500 B \u2014 How to Use the Engineering Courses",
+      "note": "Course Zero for the Engineering library."
+    },
+    {
+      "type": "course",
+      "title": "ENGR 502 B \u2014 Calculus Two",
+      "note": "Follows this course, in the line of MIT 18.02."
+    },
+    {
+      "type": "course",
+      "title": "ENGR 503 B \u2014 Physics One",
+      "url": "https://andersonengineering.app/engr-503/",
+      "note": "The first physics Foundations course, in the line of MIT 8.01."
+    }
+  ]
+}

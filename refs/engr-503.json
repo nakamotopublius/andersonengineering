@@ -1,0 +1,63 @@
+{
+  "code": "ENGR 503 B",
+  "title": "Physics One",
+  "items": [
+    {
+      "type": "open",
+      "title": "MIT OpenCourseWare, 8.01SC Classical Mechanics, Fall 2016",
+      "url": "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/",
+      "note": "Creative Commons Attribution-NonCommercial-ShareAlike."
+    },
+    {
+      "type": "open",
+      "title": "MIT OpenCourseWare, 8.01SC syllabus",
+      "url": "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/pages/syllabus/"
+    },
+    {
+      "type": "open",
+      "title": "OpenStax, University Physics Volume 1",
+      "url": "https://openstax.org/details/books/university-physics-volume-1",
+      "note": "Creative Commons Attribution."
+    },
+    {
+      "type": "book",
+      "title": "University Physics",
+      "author": "Hugh D. Young and Roger A. Freedman",
+      "url": "https://www.amazon.com/s?k=Young+Freedman+University+Physics&tag=andersonaca0d-20"
+    },
+    {
+      "type": "book",
+      "title": "An Introduction to Mechanics",
+      "author": "Daniel Kleppner and Robert Kolenkow",
+      "url": "https://www.amazon.com/s?k=Kleppner+Kolenkow+Introduction+to+Mechanics&tag=andersonaca0d-20"
+    },
+    {
+      "type": "book",
+      "title": "Introduction to Classical Mechanics",
+      "author": "David Morin",
+      "url": "https://www.amazon.com/s?k=Morin+Introduction+to+Classical+Mechanics&tag=andersonaca0d-20"
+    },
+    {
+      "type": "book",
+      "title": "The Feynman Lectures on Physics, Volume I",
+      "author": "Richard P. Feynman, Robert B. Leighton and Matthew Sands",
+      "url": "https://www.amazon.com/s?k=Feynman+Lectures+on+Physics+Volume+1&tag=andersonaca0d-20"
+    },
+    {
+      "type": "course",
+      "title": "ENGR 500 B \u2014 How to Use the Engineering Courses",
+      "note": "Course Zero for the Engineering library."
+    },
+    {
+      "type": "course",
+      "title": "ENGR 501 B \u2014 Calculus One",
+      "url": "https://andersonengineering.app/engr-501/",
+      "note": "The mathematical companion to this course, in the line of MIT 18.01."
+    },
+    {
+      "type": "course",
+      "title": "ENGR 504 B \u2014 Physics Two",
+      "note": "Follows this course, in the line of MIT 8.02."
+    }
+  ]
+}
