@@ -1,0 +1,555 @@
+{
+  "title": "ENGR 504 B - Physics Two",
+  "questions": [
+    {
+      "q": "What kind of course is Engineering 504 B, Physics Two?",
+      "options": [
+        "A full-semester replacement for MIT 8.02",
+        "A Brief course: an overview of about five minutes and six lectures of about ten minutes, the second physics Foundations course in Anderson Engineering",
+        "An optional elective outside the Foundations",
+        "A course in mechanics"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 0.1: Paragraph 0.1 gives the format and its place in the Foundations.\nA is wrong: A Brief course is a first hour, not a substitute for a semester.\nC is wrong: It is a Foundations course in Anderson Engineering.\nD is wrong: Mechanics is Physics One; this course is electricity and magnetism."
+    },
+    {
+      "q": "Which course does the overview call the natural mathematical companion to Physics Two?",
+      "options": [
+        "Engineering 500 B",
+        "Engineering 502 B, Calculus Two",
+        "Engineering 503 B, Physics One",
+        "No mathematics is needed"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 0.7: The laws of this course are written with flux and line integrals and the theorems of Gauss and Stokes.\nA is wrong: That is Course Zero, not a mathematics course.\nC is wrong: Physics One is a prerequisite, not the mathematical companion.\nD is wrong: The overview names Calculus Two as the companion."
+    },
+    {
+      "q": "Which MIT OpenCourseWare subject is the backbone of this course?",
+      "options": [
+        "8.01, Classical Mechanics",
+        "18.02SC, Multivariable Calculus",
+        "6.002, Circuits and Electronics",
+        "8.02, Physics Two: Electricity and Magnetism, Spring 2019"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 0.9: The overview credits Dr Peter Dourmashkin and colleagues.\nA is wrong: That is a mechanics subject.\nB is wrong: That is a mathematics subject.\nC is wrong: That is a circuits subject."
+    },
+    {
+      "q": "About what is the elementary charge?",
+      "options": [
+        "1.6 × 10⁻¹⁹ coulombs",
+        "9 × 10⁹ coulombs",
+        "1 coulomb",
+        "6.6 × 10⁻³⁴ coulombs"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.2: Protons and electrons carry charge of this size, of opposite sign.\nB is wrong: That is the Coulomb constant k in N·m²/C².\nC is wrong: A coulomb is an enormous number of elementary charges.\nD is wrong: That number is Planck's constant in J·s."
+    },
+    {
+      "q": "Which two facts about electric charge does the lecture call fundamental?",
+      "options": [
+        "Charge is conserved, and charge is quantised in multiples of the elementary charge",
+        "Charge is always positive, and it is created by friction",
+        "Charge depends on speed, and it decays over time",
+        "Charge flows only in insulators"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.3: The total charge of an isolated system never changes, and observed charges on isolated particles are whole-number multiples of e.\nB is wrong: Charge comes in two kinds, and rubbing only moves charge from one body to another.\nC is wrong: Charge is conserved; it does not decay.\nD is wrong: Charge moves freely in conductors, not insulators."
+    },
+    {
+      "q": "If the distance between two point charges is doubled, what happens to the Coulomb force between them?",
+      "options": [
+        "It halves",
+        "It falls to one quarter",
+        "It doubles",
+        "It is unchanged"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.5: Coulomb's law is an inverse-square law: force is proportional to 1/r².\nA is wrong: That would be an inverse law, not an inverse-square law.\nC is wrong: The force decreases with distance.\nD is wrong: The force depends strongly on distance."
+    },
+    {
+      "q": "How does the electric repulsion between two protons compare with their gravitational attraction?",
+      "options": [
+        "They are about equal",
+        "Gravity is about 10³⁶ times larger",
+        "It is about 10³⁶ times larger",
+        "It is about ten times larger"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 1.6: Gravity dominates planetary motion only because large bodies are nearly neutral.\nA is wrong: Electric forces are enormously stronger.\nB is wrong: The ratio is the other way round.\nD is wrong: The ratio is about 10³⁶."
+    },
+    {
+      "q": "What is the principle of superposition for electric forces?",
+      "options": [
+        "Only the nearest charge matters",
+        "Forces add as numbers, ignoring direction",
+        "Charges cancel each other's fields completely",
+        "The force on a charge is the vector sum of the forces from each of the others"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.7: It is an experimental fact, and it lets every problem be built from pairs.\nA is wrong: All charges contribute.\nB is wrong: They add as vectors.\nC is wrong: Fields add; they cancel only in special places."
+    },
+    {
+      "q": "How is the electric field at a point defined?",
+      "options": [
+        "As the charge at that point divided by its mass",
+        "As the total charge in the universe divided by the distance",
+        "As the work done to bring the test charge from infinity",
+        "As the force on a small positive test charge there, divided by that charge"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.8: Its units are newtons per coulomb, or volts per metre.\nA is wrong: That does not define a field.\nB is wrong: The field is defined by the force on a test charge.\nC is wrong: That gives the potential energy, not the field."
+    },
+    {
+      "q": "Why do electric field lines never cross?",
+      "options": [
+        "Because the field has only one direction at each point",
+        "Because they always run parallel",
+        "Because they repel each other like charges",
+        "Because they exist only inside conductors"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.10: If two lines crossed, the field would have two directions at the crossing point.\nB is wrong: Field lines spread and bend; they are not always parallel.\nC is wrong: Field lines are a drawing device, not charged objects.\nD is wrong: Field lines fill space around charges."
+    },
+    {
+      "q": "Two +1 microcoulomb charges are 1 m apart. What is the field at a point 1 m beyond the right-hand charge?",
+      "options": [
+        "Zero",
+        "11,250 N/C, pointing to the right",
+        "18,000 N/C",
+        "6,750 N/C"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.11: The near charge gives 9,000 N/C and the far charge, 2 m away, gives one quarter of that, 2,250 N/C, both to the right.\nA is wrong: The field is zero at the midpoint, not beyond the charges.\nC is wrong: The far charge is twice as far, so it contributes a quarter, not the same amount.\nD is wrong: Both fields point the same way and add; they do not subtract."
+    },
+    {
+      "q": "What is the acceleration of a charge q of mass m in a uniform field E?",
+      "options": [
+        "q E / m",
+        "q / (m E)",
+        "m E / q",
+        "q E m"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.14: It accelerates like a mass in uniform gravity, as in a cathode ray tube or inkjet printer.\nB is wrong: The acceleration grows with E.\nC is wrong: This inverts the ratio.\nD is wrong: Force divided by mass gives acceleration."
+    },
+    {
+      "q": "For a flat surface in a uniform field, what is the electric flux?",
+      "options": [
+        "The field times the area, whatever the tilt",
+        "The field divided by the area",
+        "The field times the area times the cosine of the angle between the field and the surface normal",
+        "The field times the sine of the angle with the normal"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 2.2: Only the component of the field perpendicular to the surface contributes.\nA is wrong: Tilt matters; a surface parallel to the field has zero flux.\nB is wrong: Flux grows with area.\nD is wrong: The factor is the cosine of the angle with the normal."
+    },
+    {
+      "q": "What does Gauss's law state?",
+      "options": [
+        "The flux through a closed surface is always zero",
+        "The flux depends on the shape of the surface",
+        "The field is the same everywhere on any closed surface",
+        "The electric flux through any closed surface equals the enclosed charge divided by ε₀"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.4: Charges outside contribute no net flux, because every line that enters also leaves.\nA is wrong: That is Gauss's law for magnetism.\nB is wrong: For a given enclosed charge, the flux is the same for any closed surface.\nC is wrong: Only symmetry makes the field uniform on a well-chosen surface."
+    },
+    {
+      "q": "What does Gauss's law give for the field of a point charge Q?",
+      "options": [
+        "Q / (2π ε₀ r)",
+        "Q / ε₀, the same at all r",
+        "Zero outside the charge",
+        "Q / (4π ε₀ r²), recovering Coulomb's law"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.6: A spherical surface of radius r has flux E · 4πr² = Q/ε₀.\nA is wrong: That is the form for a line of charge.\nB is wrong: The flux is constant; the field falls as 1/r².\nC is wrong: Only inside a conductor is the field zero."
+    },
+    {
+      "q": "Using Gauss's law, how does the field of a long straight line of charge depend on distance r?",
+      "options": [
+        "It falls off as 1/r: E = λ/(2π ε₀ r)",
+        "It falls off as 1/r²",
+        "It does not depend on r",
+        "It grows in proportion to r"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.8: A cylindrical Gaussian surface of radius r and length L encloses λL and has flux E·2πrL.\nB is wrong: That is the point-charge result.\nC is wrong: That is the large-sheet result.\nD is wrong: That is the field inside a uniformly charged ball."
+    },
+    {
+      "q": "What is the field of a large flat sheet with charge density σ?",
+      "options": [
+        "σ/ε₀",
+        "σ/(4π ε₀ r²)",
+        "Zero",
+        "σ/(2ε₀), the same at every distance"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.9: A pillbox through the sheet has flux 2EA through its ends and encloses σA.\nA is wrong: That is the field between two oppositely charged plates.\nB is wrong: A sheet's field does not fall off with distance.\nC is wrong: Zero is the field outside a pair of opposite sheets."
+    },
+    {
+      "q": "Where does excess charge sit on a conductor in electrostatic equilibrium?",
+      "options": [
+        "On its outer surface, because the field inside the material is zero",
+        "Evenly through its volume",
+        "At its centre",
+        "Only at its sharpest corner"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.11: Any internal field would move the mobile charges until it vanished.\nB is wrong: That would make a field inside the conductor.\nC is wrong: Charges move apart to the surface.\nD is wrong: Charge crowds at sharp points but is spread over the whole outer surface."
+    },
+    {
+      "q": "Why does a car's metal body protect occupants from a lightning strike?",
+      "options": [
+        "Rubber tyres insulate the car from the ground",
+        "A hollow conductor shields its interior, as in a Faraday cage",
+        "Metal repels lightning",
+        "The field inside a conductor is at its strongest"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.12: With no charge in the cavity, the field inside a hollow conductor is zero whatever happens outside.\nA is wrong: The lecture credits the conducting shell, not the tyres.\nC is wrong: Metal conducts the charge around the outside; it does not repel it.\nD is wrong: The field inside a conductor in equilibrium is zero."
+    },
+    {
+      "q": "Why are lightning rods pointed?",
+      "options": [
+        "Points reduce the field to zero",
+        "Charge crowds where a conductor's surface is sharply curved, so the field is strongest near points",
+        "Points make the rod an insulator",
+        "Points make the rod lighter"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.13: For the same reason, high-voltage equipment is made with smooth, rounded surfaces.\nA is wrong: Points make the field stronger.\nC is wrong: Shape does not change the material.\nD is wrong: The reason is the field near curved surfaces."
+    },
+    {
+      "q": "What is a volt?",
+      "options": [
+        "A joule per coulomb, the unit of electric potential",
+        "A coulomb per second",
+        "A newton per coulomb",
+        "A joule per second"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 3.2: Potential is potential energy per unit charge.\nB is wrong: That is an ampere.\nC is wrong: That is a unit of electric field.\nD is wrong: That is a watt."
+    },
+    {
+      "q": "Why is it often easier to find the potential of several charges than their field?",
+      "options": [
+        "Potential does not depend on distance",
+        "Potential is a scalar, so contributions add as numbers",
+        "Potential is always zero",
+        "Potential has more components than the field"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 3.4: The potential of a point charge is kq/r, and the field then comes by differentiation.\nA is wrong: It falls as 1/r.\nC is wrong: Only special points have zero potential.\nD is wrong: It has none: it is a scalar."
+    },
+    {
+      "q": "How is the electric field related to the potential?",
+      "options": [
+        "The field equals the potential times the distance",
+        "The field is the integral of the potential",
+        "The field is minus the gradient of the potential",
+        "The field is parallel to equipotential surfaces"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.5: The field points where the potential falls fastest; between plates, V = E d.\nA is wrong: The potential difference equals field times distance in a uniform field, not the other way round.\nB is wrong: The field is a derivative of the potential.\nD is wrong: The field is perpendicular to equipotentials."
+    },
+    {
+      "q": "How is the electric field related to equipotential surfaces?",
+      "options": [
+        "It is tangent to them",
+        "It is zero on them",
+        "It has no fixed relation to them",
+        "It is always perpendicular to them"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 3.6: Moving along an equipotential takes no work, just as a gradient is perpendicular to level sets.\nA is wrong: Then moving along them would take work.\nB is wrong: The field need not vanish on an equipotential.\nC is wrong: The relation is fixed: perpendicular."
+    },
+    {
+      "q": "What is the capacitance of a parallel-plate capacitor with plate area A and separation d?",
+      "options": [
+        "ε₀ d / A",
+        "A d / ε₀",
+        "ε₀ A / d",
+        "Q V"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.9: The field is σ/ε₀, the voltage is that times d, and σ = Q/A, so C = Q/V = ε₀A/d.\nA is wrong: Capacitance grows with area and falls with separation.\nB is wrong: This inverts the dependence on ε₀.\nD is wrong: Capacitance is Q divided by V."
+    },
+    {
+      "q": "Two 10 cm square plates are 1 mm apart in air. About what is the capacitance?",
+      "options": [
+        "About 89 microfarads",
+        "About 0.89 picofarads",
+        "About 89 picofarads",
+        "About 8.9 farads"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.10: C = 8.85 × 10⁻¹² × 0.01 / 0.001 ≈ 8.9 × 10⁻¹¹ F.\nA is wrong: That is a million times too large.\nB is wrong: The ratio A/d is 10 m, not 0.1 m.\nD is wrong: A farad is very large; this plate pair is tiny."
+    },
+    {
+      "q": "Two 6 μF capacitors are connected in series. What is the combined capacitance?",
+      "options": [
+        "12 μF",
+        "6 μF",
+        "3 μF",
+        "36 μF"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.11: In series the reciprocals add: 1/6 + 1/6 = 1/3.\nA is wrong: That is the parallel combination.\nB is wrong: Series capacitance is less than either one.\nD is wrong: Capacitances do not multiply."
+    },
+    {
+      "q": "What does a dielectric do in a capacitor?",
+      "options": [
+        "It reduces the capacitance",
+        "It makes the capacitor conduct",
+        "It increases the capacitance by a factor κ and lets it withstand higher voltage",
+        "It has no effect"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.12: Polarisation of the material partly cancels the field inside.\nA is wrong: It increases it.\nB is wrong: A dielectric is an insulator.\nD is wrong: It raises both capacitance and breakdown voltage."
+    },
+    {
+      "q": "What energy is stored in a capacitor C charged to voltage V?",
+      "options": [
+        "C V²",
+        "C V",
+        "½ C V",
+        "½ C V²"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 3.13: Equivalently ½QV, stored in the field with energy density ½ ε₀ E².\nA is wrong: The factor one half is missing.\nB is wrong: That is the charge Q, not an energy.\nC is wrong: The voltage is squared."
+    },
+    {
+      "q": "Why does a lamp light at once although electrons drift slowly along the wire?",
+      "options": [
+        "Electrons travel at the speed of light in wires",
+        "The lamp stores charge in advance",
+        "The signal travels at nearly the speed of light because the field is set up along the wire almost at once",
+        "Current flows only at the battery"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.3: Drift speeds are often under a millimetre per second.\nA is wrong: They drift slowly.\nB is wrong: A lamp does not store charge.\nD is wrong: Current flows throughout the circuit."
+    },
+    {
+      "q": "What is the resistance of a wire of length L, area A, and resistivity ρ?",
+      "options": [
+        "ρ A / L",
+        "ρ L / A",
+        "L / (ρ A)",
+        "ρ L A"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.4: Long thin wires have more resistance than short thick ones.\nA is wrong: Resistance grows with length, not area.\nC is wrong: Resistance is proportional to resistivity.\nD is wrong: Resistance falls as the area grows."
+    },
+    {
+      "q": "About what current does a 2,000 W kettle draw from a 230 V supply?",
+      "options": [
+        "About 0.1 amperes",
+        "About 460 amperes",
+        "About 2 amperes",
+        "Nearly 9 amperes"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.6: I = P/V = 2000/230 ≈ 8.7 A.\nA is wrong: That inverts the ratio.\nB is wrong: That multiplies instead of dividing.\nC is wrong: That is far too small for a kettle of this power."
+    },
+    {
+      "q": "Why are household outlets wired in parallel?",
+      "options": [
+        "So each appliance sees the full supply voltage and can be switched independently",
+        "So appliances share the same current",
+        "So the total resistance is as large as possible",
+        "So one switch turns everything off"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 4.8: Parallel elements share the same voltage.\nB is wrong: That is series wiring.\nC is wrong: Parallel wiring lowers resistance.\nD is wrong: Parallel wiring lets appliances work independently."
+    },
+    {
+      "q": "What does Kirchhoff's junction rule express?",
+      "options": [
+        "Conservation of energy around a loop",
+        "Ohm's law for each resistor",
+        "That all currents in a circuit are equal",
+        "Conservation of charge: current in equals current out at a junction"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.9: The loop rule, by contrast, follows from the field being conservative.\nA is wrong: That is the loop rule.\nB is wrong: Ohm's law is a separate material property.\nC is wrong: Currents divide at junctions."
+    },
+    {
+      "q": "A 12 V battery drives a 2 Ω resistor in series with two 8 Ω resistors in parallel. What current flows from the battery?",
+      "options": [
+        "2 amperes",
+        "1 ampere",
+        "0.67 amperes",
+        "6 amperes"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 4.10: The parallel pair is 4 Ω, the total is 6 Ω, and 12/6 = 2 A.\nB is wrong: That is the current in each 8 Ω resistor.\nC is wrong: That treats all three resistors as in series, 18 Ω.\nD is wrong: That ignores the parallel pair."
+    },
+    {
+      "q": "What is the time constant of a 10 kΩ resistor with a 100 μF capacitor, and how charged is the capacitor after one time constant?",
+      "options": [
+        "1 second; fully charged",
+        "1 second; about 63 per cent of its final charge",
+        "0.1 second; about 50 per cent",
+        "100 seconds; about 37 per cent"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.12: τ = RC = 10⁴ × 10⁻⁴ = 1 s, and 1 − e⁻¹ ≈ 0.63.\nA is wrong: It takes about five time constants to be essentially full.\nC is wrong: RC is 1 s, and the fraction is 63 per cent.\nD is wrong: RC is 1 s; 37 per cent is what remains during discharge."
+    },
+    {
+      "q": "When a capacitor charges from a battery through a resistor, what fraction of the battery's energy is stored in the capacitor?",
+      "options": [
+        "All of it",
+        "Exactly one half, whatever the resistance",
+        "It depends on the resistance",
+        "About 63 per cent"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.13: The other half becomes heat in the resistor; resistance sets the speed, not the split.\nA is wrong: Half is lost as heat.\nC is wrong: The split is independent of R.\nD is wrong: That is the charge fraction after one time constant."
+    },
+    {
+      "q": "What happens when a bar magnet is cut in half?",
+      "options": [
+        "You get two smaller magnets, each with both poles",
+        "You get a separate north pole and south pole",
+        "Both halves lose their magnetism",
+        "Each half becomes a north pole"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 5.2: No isolated magnetic pole has been found; field lines form closed loops.\nB is wrong: Poles have never been isolated.\nC is wrong: Each half is still a magnet.\nD is wrong: Each half has both poles."
+    },
+    {
+      "q": "What is the magnetic force on a charge q moving with velocity v in a field B?",
+      "options": [
+        "q B, along the field",
+        "q v · B, a scalar",
+        "q v × B, perpendicular to both v and B",
+        "q E, along the field"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.3: Its size is qvB sin θ; a charge at rest or moving along the field feels none.\nA is wrong: The magnetic force depends on velocity and is perpendicular to B.\nB is wrong: Force is a vector given by a cross product.\nD is wrong: That is the electric force."
+    },
+    {
+      "q": "Why can a magnetic force not change a charged particle's speed?",
+      "options": [
+        "Because magnetic fields are always weak",
+        "It is always perpendicular to the velocity, so it does no work",
+        "Because it acts only on particles at rest",
+        "Because it is always parallel to the velocity"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 5.4: It only bends the path, giving circular motion in a uniform field.\nA is wrong: Even strong magnetic fields do no work on a free charge.\nC is wrong: A charge at rest feels no magnetic force.\nD is wrong: It is perpendicular, not parallel."
+    },
+    {
+      "q": "What does a current loop in a uniform magnetic field feel?",
+      "options": [
+        "A large net force and no torque",
+        "Neither force nor torque",
+        "A force pushing it along the field lines",
+        "No net force, but a torque turning its dipole moment toward the field"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 5.7: The torque is the magnetic moment (current times area) crossed with B; this drives a DC motor.\nA is wrong: In a uniform field the forces on opposite sides cancel.\nB is wrong: The loop does feel a torque.\nC is wrong: There is no net force in a uniform field."
+    },
+    {
+      "q": "How do two parallel wires carrying currents in the same direction interact?",
+      "options": [
+        "They repel each other",
+        "They do not interact",
+        "They attract each other",
+        "They twist about each other"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.9: Wires with opposite currents repel.\nA is wrong: That is for opposite currents.\nB is wrong: Each wire is in the other's magnetic field.\nD is wrong: The force is attraction along the line between them."
+    },
+    {
+      "q": "A long wire carries 10 A. What is the magnetic field 2 cm away?",
+      "options": [
+        "About 1 × 10⁻⁷ T",
+        "About 5 T",
+        "About 1 × 10⁻⁴ T, about twice the Earth's field",
+        "About 50 microteslas, the same as the Earth's field"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.10: B = μ₀I/(2πr) = (4π × 10⁻⁷ × 10)/(2π × 0.02) = 10⁻⁴ T.\nA is wrong: That is a thousand times too small.\nB is wrong: That is the scale of an MRI magnet.\nD is wrong: The result is 100 microteslas, about twice the Earth's field."
+    },
+    {
+      "q": "What is the field inside a long solenoid with n turns per unit length carrying current I?",
+      "options": [
+        "μ₀ I / (2π r)",
+        "Zero",
+        "μ₀ n I, nearly uniform along the axis",
+        "μ₀ n I / r²"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.12: Ampère's law applied to a rectangular loop gives this result; the field outside is nearly zero.\nA is wrong: That is the field of a straight wire.\nB is wrong: The field is nearly zero outside, not inside.\nD is wrong: The interior field does not depend on position."
+    },
+    {
+      "q": "What does Faraday's law state?",
+      "options": [
+        "The electromotive force around a loop equals minus the rate of change of magnetic flux through it",
+        "A steady magnetic field always produces a current",
+        "The magnetic flux through a closed surface is zero",
+        "Current produces a magnetic field circling the wire"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.3: The flux may change through the field, the loop's motion, or its shape.\nB is wrong: Only a changing flux induces an electromotive force.\nC is wrong: That is Gauss's law for magnetism.\nD is wrong: That is Oersted's discovery and Ampère's law."
+    },
+    {
+      "q": "What is Lenz's law?",
+      "options": [
+        "The induced current opposes the change in flux that produced it",
+        "The induced current always helps the change in flux",
+        "The induced current is always clockwise",
+        "Magnetic poles cannot be isolated"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.4: It is the minus sign in Faraday's law, and it expresses energy conservation.\nB is wrong: That would create energy from nothing.\nC is wrong: Its direction depends on the change in flux.\nD is wrong: That is Gauss's law for magnetism."
+    },
+    {
+      "q": "In a transformer, how are the voltages in the two coils related?",
+      "options": [
+        "They are always equal",
+        "Their ratio equals the ratio of the numbers of turns",
+        "Their ratio is the inverse of the turns ratio",
+        "Transformers work with steady direct current"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.7: That is why power is stepped up to high voltage and low current for long-distance transmission.\nA is wrong: Transformers exist to change the voltage.\nC is wrong: The currents, not the voltages, follow the inverse ratio.\nD is wrong: They need a changing flux, so alternating current."
+    },
+    {
+      "q": "A 2 H inductor and a 10 Ω resistor are connected to a battery. What is the time constant of the current's rise?",
+      "options": [
+        "20 seconds",
+        "5 seconds",
+        "The current rises instantly",
+        "One fifth of a second"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 6.9: τ = L/R = 2/10 = 0.2 s.\nA is wrong: That multiplies L by R.\nB is wrong: That inverts the ratio.\nC is wrong: An inductor opposes a sudden change in current."
+    },
+    {
+      "q": "Why did Maxwell add the displacement current to Ampère's law?",
+      "options": [
+        "The law failed for a charging capacitor, where a surface between the plates encloses no current",
+        "To account for magnetic monopoles",
+        "To explain the resistance of wires",
+        "To remove the speed of light from the theory"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.11: The new term, proportional to the rate of change of electric flux, makes a changing electric field produce a magnetic field.\nB is wrong: No monopoles are involved.\nC is wrong: Resistance is unrelated to this term.\nD is wrong: The term led to predicting the speed of light."
+    },
+    {
+      "q": "What speed do Maxwell's equations predict for electromagnetic waves in empty space?",
+      "options": [
+        "μ₀ ε₀, a tiny number",
+        "1/√(μ₀ ε₀), about 3 × 10⁸ m/s, the speed of light",
+        "The speed of sound",
+        "Infinite"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.13: Maxwell recognised that light is an electromagnetic wave.\nA is wrong: The speed is the reciprocal of the square root.\nC is wrong: Electromagnetic waves are far faster.\nD is wrong: The speed is finite and measured."
+    }
+  ]
+}

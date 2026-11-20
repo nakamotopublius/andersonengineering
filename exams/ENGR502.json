@@ -1,0 +1,555 @@
+{
+  "title": "ENGR 502 B - Calculus Two",
+  "questions": [
+    {
+      "q": "What kind of course is Engineering 502 B, Calculus Two?",
+      "options": [
+        "A full-semester replacement for MIT 18.02",
+        "A Brief course: an overview of about five minutes and six lectures of about ten minutes, the second mathematics Foundations course in Anderson Engineering",
+        "An optional elective outside the Foundations",
+        "A laboratory course in physics"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 0.1: Paragraph 0.1 gives the format and its place in the Foundations.\nA is wrong: A Brief course is a first hour, not a substitute for a semester.\nC is wrong: It is a Foundations course in Anderson Engineering.\nD is wrong: It is a mathematics course."
+    },
+    {
+      "q": "Which later course does the overview say depends on these ideas when it writes Gauss's law and Faraday's law?",
+      "options": [
+        "Engineering 501 B, Calculus One",
+        "Engineering 504 B, Physics Two",
+        "Engineering 503 B, Physics One",
+        "Engineering 500 B"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 0.4: The overview names Physics Two as the course that uses gradients, flux, divergence, and curl.\nA is wrong: Calculus One comes before this course.\nC is wrong: Physics One treats mechanics, before Physics Two.\nD is wrong: That is Course Zero, How to Use the Engineering Courses."
+    },
+    {
+      "q": "Which MIT OpenCourseWare subject is the backbone of this course?",
+      "options": [
+        "18.01SC Single Variable Calculus",
+        "8.02 Electricity and Magnetism",
+        "18.06 Linear Algebra",
+        "18.02SC Multivariable Calculus, Fall 2010, taught by Professor Denis Auroux"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 0.9: The overview credits 18.02SC and its supporting materials, published under a Creative Commons licence.\nA is wrong: That is the backbone of Calculus One.\nB is wrong: That is an MIT physics subject, not a mathematics subject.\nC is wrong: That is a different MIT subject."
+    },
+    {
+      "q": "What is the length of the vector A = a₁ i + a₂ j + a₃ k?",
+      "options": [
+        "√(a₁² + a₂² + a₃²)",
+        "a₁ + a₂ + a₃",
+        "a₁² + a₂² + a₃²",
+        "a₁ a₂ a₃"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.2: The length comes from the Pythagorean theorem used twice.\nB is wrong: Lengths come from squares, not a plain sum.\nC is wrong: This omits the square root.\nD is wrong: A product of components is not a length."
+    },
+    {
+      "q": "Two nonzero vectors are perpendicular exactly when what is true?",
+      "options": [
+        "Their dot product is zero",
+        "Their cross product is zero",
+        "Their lengths are equal",
+        "Their dot product equals one"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.4: The dot product equals |A||B| cos θ, and cos 90° = 0.\nB is wrong: A zero cross product means the vectors are parallel.\nC is wrong: Length says nothing about angle.\nD is wrong: That depends on their lengths; perpendicular needs zero."
+    },
+    {
+      "q": "A constant force F acts along a displacement d. What work does it do?",
+      "options": [
+        "F × d, the cross product",
+        "F · d, the dot product of force and displacement",
+        "|F| times |d| always, whatever the angle",
+        "The determinant of F and d"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.5: Only the component of force along the motion does work, which the dot product picks out.\nA is wrong: That is a vector, and it is the form used for torque, not work.\nC is wrong: The cosine of the angle matters; a sideways force does no work.\nD is wrong: A determinant gives an area, not work."
+    },
+    {
+      "q": "What is the determinant of the 2 × 2 array with rows (a, b) and (c, d)?",
+      "options": [
+        "a b − c d",
+        "a c − b d",
+        "a d − b c",
+        "a d + b c"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 1.6: Its absolute value is the area of the parallelogram spanned by the rows.\nA is wrong: The products pair the diagonals, a with d and b with c.\nB is wrong: This pairs the wrong entries.\nD is wrong: The second product is subtracted."
+    },
+    {
+      "q": "What is the length of the cross product A × B?",
+      "options": [
+        "|A||B| cos θ",
+        "|A| + |B|",
+        "Always zero",
+        "|A||B| sin θ, the area of the parallelogram A and B span"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.7: The cross product's length is the parallelogram's area, and its direction is perpendicular to both vectors.\nA is wrong: That is the dot product.\nB is wrong: Lengths do not simply add in a product.\nC is wrong: It is zero only for parallel vectors."
+    },
+    {
+      "q": "What is B × A in terms of A × B?",
+      "options": [
+        "A × B, the same vector",
+        "A · B",
+        "Zero",
+        "−(A × B): reversing the order reverses the sign"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 1.8: The cross product is anti-commutative, so order matters.\nA is wrong: That would make the cross product commutative, which it is not.\nB is wrong: That is the dot product, a scalar.\nC is wrong: Only parallel vectors give zero."
+    },
+    {
+      "q": "For A = (1, 2, 0) and B = (3, 1, 0), what is A × B?",
+      "options": [
+        "(0, 0, −5), pointing straight down the z axis",
+        "(0, 0, 5)",
+        "5, a scalar",
+        "(3, 2, 0)"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.9: The k component is 1·1 − 2·3 = −5; the i and j components are zero because both vectors lie in the xy plane.\nB is wrong: The sign is wrong: 1·1 − 2·3 is −5.\nC is wrong: 5 is the dot product; the cross product is a vector.\nD is wrong: That is the componentwise product, which is not the cross product."
+    },
+    {
+      "q": "When does a square matrix A have an inverse?",
+      "options": [
+        "Exactly when its determinant is not zero",
+        "Whenever all its entries are positive",
+        "Only when it is the identity matrix",
+        "Exactly when its determinant is zero"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 1.11: Then A x = b has the single solution x = A⁻¹b.\nB is wrong: Positive entries do not guarantee a non-zero determinant.\nC is wrong: Many matrices have inverses.\nD is wrong: Zero determinant means no inverse."
+    },
+    {
+      "q": "If a 3 × 3 matrix A has determinant zero, what can be said about A x = b?",
+      "options": [
+        "It always has exactly one solution",
+        "It has either no solution or infinitely many",
+        "It has exactly two solutions",
+        "The solution is x = A⁻¹b"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 1.12: Zero determinant means the rows lie in one plane, so the system is degenerate.\nA is wrong: That is the case when the determinant is not zero.\nC is wrong: Linear systems never have exactly two solutions.\nD is wrong: A has no inverse when its determinant is zero."
+    },
+    {
+      "q": "What determines a plane in space, in the lecture's description?",
+      "options": [
+        "Two points on the plane",
+        "A single direction vector lying in the plane",
+        "One point on the plane and a normal vector perpendicular to it",
+        "Its distance from the origin alone"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 2.2: A point P lies on the plane exactly when the vector from P₀ to P is perpendicular to N.\nA is wrong: Two points fix only a line.\nB is wrong: Infinitely many planes contain a given direction.\nD is wrong: Many planes share the same distance from the origin."
+    },
+    {
+      "q": "How do you find a normal vector to the plane through three given points?",
+      "options": [
+        "Add the three position vectors",
+        "Take the dot product of two of the points",
+        "Average the three points",
+        "Form two vectors from one point to the other two and take their cross product"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.3: The cross product is perpendicular to both vectors, and so to the plane.\nA is wrong: The sum is not perpendicular to the plane in general.\nB is wrong: A dot product is a number, not a vector.\nC is wrong: That gives a point, not a normal direction."
+    },
+    {
+      "q": "How is a line in space written parametrically?",
+      "options": [
+        "a x + b y + c z = d",
+        "x² + y² = r²",
+        "N · (P − P₀) = 0",
+        "P₀ + t v, a point plus a multiple of a direction vector"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.4: As t runs through the real numbers, the point moves along the line.\nA is wrong: That single equation describes a plane.\nB is wrong: That is a circle or cylinder.\nC is wrong: That is the plane equation from a normal vector."
+    },
+    {
+      "q": "What is the speed of a moving point along a curve r(t)?",
+      "options": [
+        "The length of the velocity vector dr/dt",
+        "The length of the position vector",
+        "The length of the acceleration vector",
+        "The arc length divided by the radius"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.7: Velocity is the derivative of position; its length is the speed ds/dt.\nB is wrong: That is the distance from the origin.\nC is wrong: Acceleration measures change of velocity.\nD is wrong: That has no general meaning as speed."
+    },
+    {
+      "q": "For uniform motion on a circle of radius a with angular speed ω, what is the acceleration?",
+      "options": [
+        "Zero, because the speed is constant",
+        "It points along the velocity with size a ω",
+        "It points away from the centre with size ω",
+        "It points toward the centre with size a ω², the speed squared over the radius"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 2.9: Differentiating twice gives −ω² times the position vector.\nA is wrong: The direction of the velocity is turning, so acceleration is not zero.\nB is wrong: a ω is the speed, and the acceleration is perpendicular to the velocity.\nC is wrong: It points inward, and its size is a ω²."
+    },
+    {
+      "q": "If a vector function has constant length, how is its derivative related to it?",
+      "options": [
+        "The derivative is perpendicular to the vector",
+        "The derivative is parallel to the vector",
+        "The derivative is always zero",
+        "The derivative has the same length"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 2.10: Differentiating r · r = constant with the product rule gives 2 r · r′ = 0.\nB is wrong: Parallel change would alter the length.\nC is wrong: The vector can turn while keeping its length.\nD is wrong: Nothing forces equal lengths."
+    },
+    {
+      "q": "What does Kepler's second law follow from, in the lecture's vector account?",
+      "options": [
+        "The dot product of position and velocity is zero",
+        "The cross product of position and velocity is constant under a force directed toward the Sun",
+        "The speed of the planet is constant",
+        "The acceleration is zero"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 2.11: Half its length is the rate of sweeping out area, so equal areas are swept in equal times.\nA is wrong: That would mean a circular orbit only.\nC is wrong: Planets move faster when nearer the Sun.\nD is wrong: Gravity accelerates the planet toward the Sun."
+    },
+    {
+      "q": "What does a topographic map of a mountain draw?",
+      "options": [
+        "The gradient at each point",
+        "Level curves, where the height takes a constant value",
+        "Vertical cross-sections of the mountain",
+        "Paths of steepest descent"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 3.2: Level curves are often more useful than the graph surface itself.\nA is wrong: Gradients are perpendicular to the contours, not the contours themselves.\nC is wrong: Those are slices, not level curves.\nD is wrong: Those cross the level curves at right angles."
+    },
+    {
+      "q": "What is the partial derivative ∂f/∂x?",
+      "options": [
+        "The ordinary derivative of f in x while the other variables are held constant",
+        "The derivative of f along the steepest direction",
+        "The total change in f over a region",
+        "The derivative with all variables changing at once"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 3.3: Geometrically it is the slope of the surface as you walk in the x direction.\nB is wrong: That is the length of the gradient.\nC is wrong: That is an integral, not a derivative.\nD is wrong: A partial derivative changes one variable at a time."
+    },
+    {
+      "q": "A plate measured as 2 m by 3 m has a 1 cm error in each side. About how much does the area estimate change?",
+      "options": [
+        "About 0.0001 square metres",
+        "About 0.06 square metres",
+        "About 0.05 square metres",
+        "About 0.5 square metres"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.5: ΔA ≈ y Δx + x Δy = 3(0.01) + 2(0.01) = 0.05 m².\nA is wrong: That is only the product of the two small errors, which the linear estimate ignores.\nB is wrong: The partials are 3 and 2, not 3 and 3.\nD is wrong: The decimal place is off by a factor of ten."
+    },
+    {
+      "q": "For functions with continuous second partials, what is true of the mixed partials f_xy and f_yx?",
+      "options": [
+        "They are always zero",
+        "They are equal, so the order of differentiation does not matter",
+        "They always have opposite signs",
+        "They never exist"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 3.6: The lecture names this Clairaut's or Schwarz's theorem.\nA is wrong: They are often non-zero.\nC is wrong: They are equal, not opposite.\nD is wrong: They exist for the smooth functions met in practice."
+    },
+    {
+      "q": "What is z = x² − y² an example of at the origin?",
+      "options": [
+        "A local minimum",
+        "A local maximum",
+        "A saddle: a critical point that is neither a maximum nor a minimum",
+        "A point where the partials are not zero"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.7: Both partials are zero there, but the surface rises in one direction and falls in another.\nA is wrong: It decreases along the y direction.\nB is wrong: It increases along the x direction.\nD is wrong: Both partials vanish at the origin."
+    },
+    {
+      "q": "In the second derivative test, what does A C − B² < 0 mean at a critical point?",
+      "options": [
+        "A local minimum",
+        "A local maximum",
+        "The point is a saddle",
+        "The test gives no answer"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 3.8: A negative value of A C − B² means a saddle; a positive value means a maximum or minimum, decided by the sign of A.\nA is wrong: That needs A C − B² > 0 and A > 0.\nB is wrong: That needs A C − B² > 0 and A < 0.\nD is wrong: That is the case when A C − B² = 0."
+    },
+    {
+      "q": "For an open-topped box of fixed volume using the least material, what shape does the lecture find?",
+      "options": [
+        "A cube",
+        "A square base with height equal to twice the side",
+        "A very flat box with tiny height",
+        "A square base with height half the side of the base"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 3.10: Setting both partial derivatives of the area to zero gives that proportion.\nA is wrong: A cube is best for a closed box, not an open-topped one.\nB is wrong: The height is half the side, not twice it.\nC is wrong: That uses too much material in the base."
+    },
+    {
+      "q": "How does 18.02 present the method of least squares?",
+      "options": [
+        "As a Lagrange multiplier problem with a circle constraint",
+        "As a double integral over the data",
+        "As finding where the data cross zero",
+        "As a minimum problem: choose slope and intercept to minimise the sum of squared vertical errors"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 3.11: Setting the two partial derivatives of that sum to zero gives the best-fit line.\nA is wrong: No constraint is involved.\nB is wrong: Least squares minimises a sum, not an integral.\nC is wrong: It fits a line, not roots."
+    },
+    {
+      "q": "What is the gradient of f(x, y) = x² + y² at the point (x, y)?",
+      "options": [
+        "(x², y²)",
+        "(2x, 2y), pointing straight away from the origin",
+        "2x + 2y, a number",
+        "(2y, 2x)"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.2: The gradient's components are the partial derivatives f_x and f_y.\nA is wrong: Those are the terms, not their derivatives.\nC is wrong: The gradient is a vector, not a sum.\nD is wrong: The components are swapped."
+    },
+    {
+      "q": "In vector form, what is the rate of change of f along a moving point?",
+      "options": [
+        "The gradient crossed with the velocity",
+        "The sum of the partial derivatives",
+        "The gradient of f dotted with the velocity vector",
+        "The length of the velocity alone"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.3: That is the multivariable chain rule: df/dt = ∇f · dr/dt.\nA is wrong: The chain rule uses a dot product.\nB is wrong: The partials must be weighted by the rates dx/dt, dy/dt, dz/dt.\nD is wrong: That is the speed, not the rate of change of f."
+    },
+    {
+      "q": "How is the gradient related to the level curves and level surfaces of f?",
+      "options": [
+        "It is tangent to them",
+        "It is parallel to the z axis",
+        "It has no fixed relation to them",
+        "It is perpendicular to them"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.4: Along a level set f does not change, so the gradient dotted with any tangent velocity is zero.\nA is wrong: Moving along a level set gives zero rate of change, so the gradient cannot point that way.\nB is wrong: The gradient lies in the domain, not along the height axis.\nC is wrong: The chain rule gives a definite relation."
+    },
+    {
+      "q": "In which direction is the directional derivative of f largest?",
+      "options": [
+        "Tangent to the level curve",
+        "Opposite to the gradient",
+        "Along the x axis always",
+        "Along the gradient, where it equals the length of the gradient"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 4.5: The directional derivative is |∇f| cos of the angle, largest when the angle is zero.\nA is wrong: There the directional derivative is zero.\nB is wrong: That is the direction of fastest decrease.\nC is wrong: The best direction depends on the function and the point."
+    },
+    {
+      "q": "What condition does the method of Lagrange multipliers impose to find extremes of f subject to g = constant?",
+      "options": [
+        "∇f = λ ∇g, together with the constraint",
+        "∇f = 0 alone",
+        "∇f · ∇g = 0",
+        "f = g"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 4.8: At a constrained extreme, the gradient of f is a multiple of the gradient of g.\nB is wrong: That ignores the constraint and finds unconstrained critical points.\nC is wrong: The gradients are parallel, not perpendicular.\nD is wrong: The method compares gradients, not function values."
+    },
+    {
+      "q": "What point on the line x + y = 1 is closest to the origin?",
+      "options": [
+        "(1, 0)",
+        "(1/2, 1/2), at distance 1/√2",
+        "(0, 0)",
+        "(1, 1)"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 4.10: Lagrange's condition gives x = y, and the constraint then gives x = y = 1/2.\nA is wrong: That point is on the line but at distance 1.\nC is wrong: The origin is not on the line.\nD is wrong: That point is not on the line."
+    },
+    {
+      "q": "What does the Lagrange multiplier λ measure?",
+      "options": [
+        "The distance to the constraint curve",
+        "The number of critical points",
+        "How fast the optimal value of f changes as the constraint constant changes",
+        "The curl of the gradient"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 4.11: In economics it is a shadow price; in engineering, the rate of improvement as a budget is relaxed.\nA is wrong: λ is a rate of change, not a distance.\nB is wrong: λ is not a count.\nD is wrong: The curl of a gradient is always zero."
+    },
+    {
+      "q": "What is the volume under z = x + y over the unit square 0 ≤ x, y ≤ 1?",
+      "options": [
+        "1/2",
+        "2",
+        "1 cubic unit",
+        "1/4"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.4: The inner integral gives x + 1/2, and integrating that from 0 to 1 gives 1/2 + 1/2 = 1.\nA is wrong: That is only half the answer: it forgets one of the two equal contributions.\nB is wrong: The integrand averages to 1 over the square, so the volume is 1.\nD is wrong: That is not the value of the iterated integral."
+    },
+    {
+      "q": "What is the small area element in polar coordinates?",
+      "options": [
+        "dr dθ",
+        "r dr dθ",
+        "r² dr dθ",
+        "dx dy / r"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 5.5: A small polar box has sides dr and r dθ.\nA is wrong: This omits the factor r, the most common error.\nC is wrong: The extra factor is r, not r².\nD is wrong: The conversion multiplies by r; it does not divide."
+    },
+    {
+      "q": "In a general change of variables, how does the area element dx dy transform?",
+      "options": [
+        "It stays dx dy",
+        "It becomes du + dv",
+        "It becomes the absolute value of the Jacobian determinant times du dv",
+        "It becomes the gradient times du dv"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.6: The Jacobian is the determinant of the partial derivatives of x and y with respect to u and v; for polar coordinates it gives r.\nA is wrong: Areas stretch under a change of variables.\nB is wrong: Area elements multiply, not add.\nD is wrong: The factor is a determinant, not a gradient."
+    },
+    {
+      "q": "How is the work done by a force field along a curve computed?",
+      "options": [
+        "As the line integral of F · dr along the curve",
+        "As the double integral of F over the region",
+        "As the length of the curve times |F|",
+        "As the divergence of F at the endpoint"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 5.9: Cut the curve into small steps, dot the force with each displacement, and add.\nB is wrong: Work is a line integral along a path.\nC is wrong: Only the component of force along the path counts.\nD is wrong: Divergence measures spreading, not work."
+    },
+    {
+      "q": "When is a vector field conservative, or path independent?",
+      "options": [
+        "Whenever its divergence is zero",
+        "Whenever its magnitude is constant",
+        "Only when it is zero everywhere",
+        "Exactly when it is the gradient of a potential function"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 5.10: Then the work along any path is the difference of the potential between the endpoints.\nA is wrong: Zero divergence is about sources and sinks, not path independence.\nB is wrong: Constant magnitude does not make work path independent.\nC is wrong: Many non-zero fields, such as gravity, are conservative."
+    },
+    {
+      "q": "In a simply connected region, what test shows that M i + N j is a gradient field?",
+      "options": [
+        "∂M/∂x = ∂N/∂y",
+        "M = N",
+        "∂N/∂x = ∂M/∂y, so the curl is zero",
+        "∂M/∂x + ∂N/∂y = 0"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.11: The difference of those partials is the curl in the plane; zero curl in a region with no holes means conservative.\nA is wrong: That compares the wrong partials.\nB is wrong: Equal components do not make a field conservative.\nD is wrong: That is zero divergence, not zero curl."
+    },
+    {
+      "q": "Using Green's theorem, what is the circulation of −y i + x j around the unit circle?",
+      "options": [
+        "π",
+        "0",
+        "2π, because the curl is 2 and the disc's area is π",
+        "4π"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 5.12: The double integral of the curl, 2, over the unit disc equals 2π, matching the direct line integral.\nA is wrong: This forgets that the curl is 2, not 1.\nB is wrong: The field circulates, so the circulation is not zero.\nD is wrong: The area of the unit disc is π, not 2π."
+    },
+    {
+      "q": "In the flux form of Green's theorem, what is integrated over the region?",
+      "options": [
+        "The curl, ∂N/∂x − ∂M/∂y",
+        "The divergence, ∂M/∂x + ∂N/∂y",
+        "The gradient of M",
+        "The area alone"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 5.13: The outward flux across a closed curve equals the double integral of the divergence inside.\nA is wrong: That is the circulation form.\nC is wrong: Green's theorem integrates a scalar quantity.\nD is wrong: Area appears only when the divergence is constant."
+    },
+    {
+      "q": "What volume element do cylindrical coordinates use?",
+      "options": [
+        "r dr dθ dz",
+        "dr dθ dz",
+        "ρ² sin φ dρ dφ dθ",
+        "r² dr dθ dz"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.3: Cylindrical coordinates combine polar r and θ with height z.\nB is wrong: This omits the factor r.\nC is wrong: That is the spherical element.\nD is wrong: The factor is r, not r²."
+    },
+    {
+      "q": "What is the volume element in spherical coordinates?",
+      "options": [
+        "ρ² sin φ dρ dφ dθ",
+        "ρ dρ dφ dθ",
+        "dρ dφ dθ",
+        "ρ² cos φ dρ dφ dθ"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.4: Spherical coordinates use ρ, φ from the positive z axis, and θ; the element carries ρ² sin φ.\nB is wrong: That resembles the cylindrical factor r, not the spherical one.\nC is wrong: This omits the Jacobian factor.\nD is wrong: With φ measured from the z axis, the factor is sin φ."
+    },
+    {
+      "q": "What is the outward flux of F = x i + y j + z k through the sphere of radius a?",
+      "options": [
+        "4π a³",
+        "4π a²",
+        "(4/3)π a³",
+        "0"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.6: On the sphere F · n = a, and multiplying by the surface area 4π a² gives 4π a³.\nB is wrong: That is the surface area alone; F · n equals a, not 1.\nC is wrong: That is the volume of the ball, not the flux.\nD is wrong: The field points outward everywhere, so the flux is positive."
+    },
+    {
+      "q": "What does the divergence of a field measure at a point?",
+      "options": [
+        "The local rotation of the field",
+        "The net outflow per unit volume, how much the point acts as a source or sink",
+        "The work done around a closed loop",
+        "The steepest direction of increase"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.7: Divergence is ∂P/∂x + ∂Q/∂y + ∂R/∂z, the local rate of spreading out.\nA is wrong: That is the curl.\nC is wrong: That is circulation, a line integral.\nD is wrong: That is the gradient of a scalar function."
+    },
+    {
+      "q": "What does the divergence theorem state?",
+      "options": [
+        "The circulation around a curve equals the flux of the curl",
+        "The work along a path equals the potential difference",
+        "The divergence of a curl is always one",
+        "The outward flux through a closed surface equals the triple integral of the divergence over the solid inside"
+      ],
+      "answer": 3,
+      "explain": "Paragraph 6.8: It is also called Gauss's theorem, and it underlies Gauss's law in Physics Two.\nA is wrong: That is Stokes' theorem.\nB is wrong: That is the gradient theorem for line integrals.\nC is wrong: The divergence of a curl is always zero."
+    },
+    {
+      "q": "What does Stokes' theorem relate?",
+      "options": [
+        "The flux through a closed surface and the divergence inside",
+        "The circulation around a closed curve and the flux of the curl through any surface bounded by it",
+        "A function on an interval and its endpoint values only",
+        "The gradient and the level surfaces"
+      ],
+      "answer": 1,
+      "explain": "Paragraph 6.10: Orientations match by the right-hand rule, and in the plane it reduces to Green's theorem.\nA is wrong: That is the divergence theorem.\nC is wrong: That is the one-variable Fundamental Theorem.\nD is wrong: That is a property of gradients, not Stokes' theorem."
+    },
+    {
+      "q": "What single story do the integral theorems of the course tell?",
+      "options": [
+        "Every vector field is conservative",
+        "Boundaries never matter in integration",
+        "Integrating a derivative over a region equals integrating the original quantity over the boundary",
+        "Derivatives and integrals are unrelated"
+      ],
+      "answer": 2,
+      "explain": "Paragraph 6.11: The Fundamental Theorem, the gradient theorem, Green's, Stokes', and the divergence theorem all share this form.\nA is wrong: Many fields have non-zero curl.\nB is wrong: The theorems are precisely about boundaries.\nD is wrong: They are inverse processes, linked by these theorems."
+    },
+    {
+      "q": "Which two identities follow from the equality of mixed partial derivatives?",
+      "options": [
+        "The curl of a gradient is zero, and the divergence of a curl is zero",
+        "The gradient of a curl is zero, and the curl of a divergence is zero",
+        "The divergence of a gradient is always zero",
+        "The curl of any field is zero"
+      ],
+      "answer": 0,
+      "explain": "Paragraph 6.12: These identities are used repeatedly in electricity and magnetism.\nB is wrong: Those expressions are not the standard identities.\nC is wrong: That is the Laplacian, which is generally non-zero.\nD is wrong: Only gradient fields have zero curl."
+    }
+  ]
+}
