@@ -1,0 +1,111 @@
+{
+  "code": "ENGR 500 B",
+  "title": "How to Use the Engineering Courses",
+  "items": [
+    {
+      "type": "open",
+      "title": "MIT Catalog, General Institute Requirements",
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/general-institute-requirements/"
+    },
+    {
+      "type": "open",
+      "title": "MIT Catalog, undergraduate degree charts",
+      "url": "https://catalog.mit.edu/degree-charts/"
+    },
+    {
+      "type": "open",
+      "title": "MIT School of Engineering",
+      "url": "https://engineering.mit.edu/"
+    },
+    {
+      "type": "open",
+      "title": "ABET, engineering program accreditation",
+      "url": "https://www.abet.org/"
+    },
+    {
+      "type": "open",
+      "title": "NCEES, the FE and PE examinations",
+      "url": "https://ncees.org/"
+    },
+    {
+      "type": "open",
+      "title": "National Society of Professional Engineers, Code of Ethics",
+      "url": "https://www.nspe.org/resources/ethics/code-ethics"
+    },
+    {
+      "type": "open",
+      "title": "The Iron Ring, The Ritual of the Calling of an Engineer",
+      "url": "https://ironring.ca/"
+    },
+    {
+      "type": "open",
+      "title": "MIT OpenCourseWare",
+      "url": "https://ocw.mit.edu/"
+    },
+    {
+      "type": "open",
+      "title": "MIT OpenCourseWare, Introductory Science and Math collection",
+      "url": "https://ocw.mit.edu/collections/introductory-science-and-math/"
+    },
+    {
+      "type": "open",
+      "title": "MIT Open Learning Library, 18.06SC Linear Algebra",
+      "url": "https://openlearninglibrary.mit.edu/courses/course-v1:OCW+18.06SC+2T2019/about"
+    },
+    {
+      "type": "open",
+      "title": "NPTEL, National Programme on Technology Enhanced Learning (India)",
+      "url": "https://nptel.ac.in/"
+    },
+    {
+      "type": "open",
+      "title": "Grokipedia, Mars Climate Orbiter",
+      "url": "https://grokipedia.com/page/Mars_Climate_Orbiter"
+    },
+    {
+      "type": "open",
+      "title": "Grokipedia, Hyatt Regency walkway collapse",
+      "url": "https://grokipedia.com/page/Hyatt_Regency_walkway_collapse"
+    },
+    {
+      "type": "open",
+      "title": "Grokipedia, Engineering education",
+      "url": "https://grokipedia.com/page/Engineering_education"
+    },
+    {
+      "type": "open",
+      "title": "Grokipedia, Back-of-the-envelope calculation",
+      "url": "https://grokipedia.com/page/Back-of-the-envelope_calculation"
+    },
+    {
+      "type": "book",
+      "title": "To Engineer Is Human: The Role of Failure in Successful Design",
+      "author": "Henry Petroski",
+      "url": "https://www.amazon.com/s?k=To+Engineer+Is+Human+Petroski&tag=andersonaca0d-20"
+    },
+    {
+      "type": "book",
+      "title": "Make It Stick: The Science of Successful Learning",
+      "author": "Peter C. Brown, Henry L. Roediger III and Mark A. McDaniel",
+      "url": "https://www.amazon.com/s?k=Make+It+Stick+Brown+Roediger&tag=andersonaca0d-20"
+    },
+    {
+      "type": "course",
+      "title": "PHIL 100 B — How to Use Anderson Academy",
+      "url": "https://andersonacademy.app/PHIL100",
+      "note": "Related Anderson Academy course."
+    },
+    {
+      "type": "course",
+      "title": "ENGR 501 B — Calculus One",
+      "url": "https://andersonengineering.app/engr-501/",
+      "note": "The first calculus Foundations course."
+    },
+    {
+      "type": "course",
+      "title": "ENGR 503 B — Physics One",
+      "url": "https://andersonengineering.app/engr-503/",
+      "note": "The first physics Foundations course."
+    }
+  ]
+}

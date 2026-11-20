@@ -45,17 +45,18 @@
     },
     {
       "type": "course",
-      "title": "ENGR 500 B \u2014 How to Use the Engineering Courses",
-      "note": "Course Zero for the Engineering library."
+      "title": "ENGR 500 B — How to Use the Engineering Courses",
+      "note": "Course Zero for the Engineering library.",
+      "url": "https://andersonengineering.app/engr-500/"
     },
     {
       "type": "course",
-      "title": "ENGR 502 B \u2014 Calculus Two",
+      "title": "ENGR 502 B — Calculus Two",
       "note": "Follows this course, in the line of MIT 18.02."
     },
     {
       "type": "course",
-      "title": "ENGR 503 B \u2014 Physics One",
+      "title": "ENGR 503 B — Physics One",
       "url": "https://andersonengineering.app/engr-503/",
       "note": "The first physics Foundations course, in the line of MIT 8.01."
     }
