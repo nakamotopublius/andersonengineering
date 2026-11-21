@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Anderson Engineering</title>
+<link rel="canonical" id="canon" href="https://andersonengineering.app/">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Anderson Engineering">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#1f3a5f">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.bdg{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:700;letter-spacing:.03em;vertical-align:middle;white-space:nowrap}.bdg.miss{background:#e0a100;color:#222;white-space:normal;margin-left:0;margin-top:4px}
+
+:root{--bg:#f7f5f0;--panel:#ffffff;--fg:#1b2230;--muted:#586075;--line:#ddd8cb;--accent:#1f3a5f;--on-accent:#ffffff;--serif:Georgia,"Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141922;--panel:#1c2330;--fg:#e9ecf2;--muted:#a3abbd;--line:#2c3547;--accent:#8fb4e8;--on-accent:#101722;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141922;--panel:#1c2330;--fg:#e9ecf2;--muted:#a3abbd;--line:#2c3547;--accent:#8fb4e8;--on-accent:#101722;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.5 var(--sans);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:640px;margin:0 auto}
+.crest{display:block;width:160px;height:160px;margin:0 auto 12px;border-radius:24px}
+#list>h1,#list>.sub{text-align:center}
+h1{font:400 30px/1.15 var(--serif);margin:0 0 4px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px}
+input{width:100%;font:inherit;padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--fg);margin-bottom:16px}
+.pg{font-size:20px;font-weight:700;color:#d98c5f;margin:34px 0 0;border-top:1px solid var(--line);padding-top:18px}
+.sem{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:22px 0 8px}
+ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.row{display:flex;flex-direction:column;align-items:flex-start;width:100%;text-align:left;font:inherit;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-height:56px;cursor:pointer}
+.row b{font-weight:600}
+.row span{color:var(--muted);font-size:15px}
+.row .lu{font-size:12px}
+.row .rsc{display:block;margin-top:4px;font-size:13px;font-weight:600;color:var(--accent)}
+.dtop{display:flex;justify-content:space-between;align-items:center;position:relative}.sendb{font:inherit;color:var(--accent);background:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;min-height:36px;display:inline-flex;gap:6px;align-items:center}.sendb svg{width:18px;height:18px}.sendm{position:absolute;right:0;top:100%;z-index:20;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.18);padding:6px;min-width:190px}.sendm a,.sendm button{display:block;width:100%;text-align:left;font:inherit;color:var(--fg);background:none;border:0;padding:10px 12px;border-radius:8px;cursor:pointer;text-decoration:none}.sendm a:hover,.sendm button:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.back{font:inherit;color:var(--accent);background:none;border:0;padding:12px 0;cursor:pointer;min-height:44px}
+.code{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.btns{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.ahead{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:24px}
+.arow{display:flex;gap:10px;margin-top:10px}
+.arow .btn{flex:1;padding:14px 6px;font-size:15px}
+.arow .btn[hidden]{display:none}
+#iarow[hidden]{display:none}
+button.btn{font:inherit;font-weight:600;background:none;cursor:pointer;width:100%}
+.phead{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:18px}
+#tpanel{margin-top:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--panel);font-size:16px;line-height:1.45}
+#tpanel[hidden]{display:none}
+#tpanel p{margin:0 0 10px}
+#tpanel a{color:var(--accent);font-weight:600}
+#tprompt{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:15px;margin-bottom:10px;user-select:all;-webkit-user-select:all}
+#tcopy{min-height:48px;padding:12px}
+.wrow{display:flex;flex-direction:column;gap:12px}
+.btn.off,.xb.off{opacity:.35;filter:grayscale(1);pointer-events:none;cursor:default}.pending{display:block;font-size:11px;font-weight:600;letter-spacing:.02em;margin-top:1px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px}
+.btn .ico{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round}
+.arow .btn{flex-direction:column;gap:6px}
+.btn[hidden]{display:none}
+.btn{display:block;text-align:center;text-decoration:none;font-weight:600;padding:18px;border-radius:12px;min-height:56px}
+.watch{background:var(--accent);color:var(--on-accent)}
+.read{border:2px solid var(--accent);color:var(--accent)}
+.xrow{display:flex;gap:22px;margin-top:18px}
+.xb{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;color:var(--fg);font:inherit;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none}
+.xb .c{width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--line);background:var(--panel)}
+.xb.on .c{border-color:var(--accent)}
+.xb[hidden]{display:none}
+.xb svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+#dpod{margin-top:14px}#dpod audio{width:100%}
+#dinfo{margin-top:16px}#dinfo img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);display:block}
+.note{color:var(--muted);font-size:14px;margin-top:16px}
+.count{font-weight:600;margin:12px 0 4px}
+.cols{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.cols button{font:inherit;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:inherit;cursor:pointer;opacity:.55}.cols button[aria-pressed=true]{opacity:1;background:color-mix(in srgb,#1f5faf 18%,var(--panel));border-color:#1f5faf}
+#wn{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0 16px}#wn h2{font:400 22px/1.2 var(--serif);margin:0 0 4px}#wn h3{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}#wn ol{margin:0;padding-left:22px;display:block}#wn li{margin:0 0 10px}#wn .wt{display:block;color:var(--muted);font-size:13px}#wn a{color:var(--accent)}
+
+#list>h1,#list>.sub{text-align:center}
+</style>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/icon-120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/icons/icon-167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="manifest" href="/manifest.webmanifest">
+</head>
+<body>
+<div class="wrap">
+<div id="list">
+<img class="crest" src="/crest-engineering.png?v=1" alt="Anderson Engineering crest: Scientia et Ingenium" width="160" height="160">
+<h1>Anderson Engineering</h1>
+<p class="sub">University-level engineering courses based on the MIT curriculum, with <a href="https://ocw.mit.edu" target="_blank" rel="noopener">MIT OpenCourseWare</a> as the backbone, each short enough to finish in about an hour.</p>
+<div class="cols" id="cols" role="group" aria-label="Collections"><button data-c="foundations" aria-pressed="true">Foundations</button></div>
+<p class="count" id="count"></p>
+<input id="q" type="search" placeholder="Search courses" aria-label="Search courses" autocomplete="off">
+<div id="rows"></div>
+</div>
+<div id="detail" hidden>
+<div class="dtop"><button class="back" id="back">&#8592; All courses</button><button class="sendb" id="dsend" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v13"/><path d="m7 8 5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>Share</button><div class="sendm" id="dsendm" hidden></div></div>
+<div class="code" id="dcode"></div>
+<h1 id="dtitle"></h1>
+<div class="xrow" id="dextra" hidden></div><p id="dbook" hidden style="margin:8px 0 0;font-size:14px;color:var(--muted);overflow-wrap:anywhere"></p>
+<div id="dpod" hidden><audio controls preload="none"></audio></div>
+<div id="dinfo" hidden><a target="_blank" rel="noopener"><img alt="Course infographic"></a></div>
+<div class="btns">
+<div id="dwatch" class="wrow"></div>
+<a class="btn read" id="dread" href="#" target="_top">Read the Course Book</a>
+</div>
+<div class="ahead">Assessments</div>
+<div class="arow" id="iarow" hidden>
+<a class="btn read" id="diquiz" href="#" target="_top">Interactive Quizzes</a>
+<a class="btn read" id="diexam" href="#" target="_top">Interactive Final Exam</a>
+<button type="button" class="btn read" id="dtripx">Tripos Exam</button>
+</div>
+<p class="note" id="dscore" hidden style="margin-top:10px"></p>
+<div id="tpanel" hidden>
+<p><b>1.</b> Download the course transcript: <a id="tdl" href="#" download>Download the transcript (PDF)</a></p>
+<p><b>2.</b> Give the following prompt to an AI of your choice, upload the downloaded transcript to it, and you'll have an experience similar to the Tripos exam.</p>
+<div id="tprompt">You are a Tripos-style examiner for this course. You will be given the course transcript. Ask me questions one at a time about the material, drawing on the transcript content and covering the main topics across the lectures in a fair spread. Wait for my answer before asking the next question. Probe and follow up on my answers where useful. After roughly 10 to 15 questions, end the exam and give me feedback: my strengths, the gaps in my knowledge, and what I should review. Do not give away answers before I respond.</div>
+<button type="button" class="btn read" id="tcopy">Copy the prompt</button>
+</div>
+<div class="phead">PDF versions</div>
+<div class="arow">
+<a class="btn read off" id="dquiz" aria-disabled="true">Quizzes</a>
+<a class="btn read off" id="dexam" aria-disabled="true">Final Exam</a>
+<a class="btn read off" id="dtrip" aria-disabled="true">Tripos Paper</a>
+</div>
+<p class="note" id="dnote">Quizzes, final exams and Tripos papers are coming later.</p>
+</div>
+</div>
+<script>
+var ICO={video:'<path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h10A1.5 1.5 0 0 1 16 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 3 17.5z"/><path d="M16 10l5-3v10l-5-3z"/>',
+doc:'<path d="M6 2.5h8l4 4v15H6z"/><path d="M14 2.5v4h4M9 11h6M9 14.5h6M9 18h4"/>',
+pdf:'<path d="M6 2.5h8l4 4v15H6z"/><path d="M14 2.5v4h4"/><text x="12" y="17.5" text-anchor="middle" font-size="5.5" font-weight="700" stroke="none" fill="currentColor" font-family="system-ui,sans-serif">PDF</text>',
+youtube:'<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/>',
+folder:'<path d="M3 6.5h6l2 2h10v10.5H3z"/>',
+vimeo:'<path d="M3 8.5c1.5-1.2 2.6-2.2 3.6-2.3 1.6-.2 2 1.1 2.3 3.6.4 2.6.8 4.4 1.3 4.4.6 0 1.9-2 2.9-4 .9-1.8-.2-2.6-1.5-1.9.5-3.2 4.6-4.3 6.2-2.7 1.3 1.3.6 4.5-2.4 8.5-2.6 3.5-4.7 5.3-6.2 5.3-1.4 0-2.3-1.6-3-4.4L5.3 9.7c-.4-1.3-.8-1.6-1.6-1z"/>',
+x:'<path d="M4 4l16 16M20 4L4 20" stroke-width="2.4"/>'};
+var XI={slides:'<rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M12 17v3M8 21h8M7 9h6M7 12.5h10"/>',book:'<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H20v15H5.5A1.5 1.5 0 0 0 4 19.5z"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H20v-3"/>',info:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 16v-3M11 16V9M15 16v-5M19 16V7"/>',preview:'<circle cx="12" cy="12" r="9"/><path d="M10 8.3l5.6 3.7-5.6 3.7z"/>',refs:'<path d="M6 3h12v18l-6-4-6 4z"/><path d="M9 8h6M9 11.5h6"/>',podcast:'<circle cx="6" cy="11.5" r="2.6"/><path d="M1.6 21c0-3 2-4.9 4.4-4.9s4.4 1.9 4.4 4.9"/><circle cx="18" cy="11.5" r="2.6"/><path d="M13.6 21c0-3 2-4.9 4.4-4.9s4.4 1.9 4.4 4.9"/><path d="M9.3 2.5h5.4a1.3 1.3 0 0 1 1.3 1.3v2.6a1.3 1.3 0 0 1-1.3 1.3h-1.6L12 9.3l-1.1-1.6H9.3A1.3 1.3 0 0 1 8 6.4V3.8a1.3 1.3 0 0 1 1.3-1.3z"/>'};
+var EX={'ENGR 500 B':{preview:'1248517199',podcast:'media/ENGR-500-B-podcast.m4a',slides:7},'ENGR 501 B':{preview:'1248864180',podcast:'media/ENGR-501-B-podcast.m4a',slides:7},'ENGR 502 B':{preview:'1248864225',podcast:'media/ENGR-502-B-podcast.m4a',slides:7},'ENGR 503 B':{preview:'1248864320',podcast:'media/ENGR-503-B-podcast.m4a',slides:7},'ENGR 504 B':{preview:'1248864368',podcast:'media/ENGR-504-B-podcast.m4a',slides:7}};
+var ICO = ICO || {};
+var VS={vimeo:['vimeo','Watch lectures']};
+var CURH='';
+function basePrefix(){
+  var host=location.hostname.toLowerCase();
+  if(host==='andersonengineering.app'||host==='www.andersonengineering.app'||host.endsWith('.andersonengineering.app')) return '';
+  if(host.endsWith('github.io')){
+    var m=location.pathname.match(/^\/andersonengineering(?=\/|$)/);
+    return m?'/andersonengineering':'';
+  }
+  return '';
+}
+var BASE=basePrefix();
+var SITE='https://andersonengineering.app';
+(function(){var crest=document.querySelector('img.crest'); if(crest) crest.src=(BASE||'')+'/crest-engineering.png?v=1';})();
+function el(tag, cls, text){var e=document.createElement(tag); if(cls)e.className=cls; if(text)e.textContent=text; return e;}
+function SLUG(c){
+  var t=String(c[1]).replace(/\s+B\s*$/i,'').trim();
+  return t.replace(/\s+/g,'-').toLowerCase();
+}
+function ASK(c){
+  var t=String(c[1]).toUpperCase().replace(/[^A-Z0-9]/g,'');
+  return /\dB$/.test(t)?t.slice(0,-1):/\d[A-Z]$/.test(t)?t:'';
+}
+function tripPrompt(c){
+  var page=SITE+'/'+SLUG(c)+'/';
+  var pdf=SITE+'/'+c[4];
+  return 'You are a Tripos-style examiner for '+c[1]+', '+c[2]+'. The course page is '+page+' and the course transcript is the PDF you were given (also at '+pdf+'). Ask me questions one at a time about the material, drawing on the transcript content and covering the main topics across the lectures in a fair spread. Wait for my answer before asking the next question. Probe and follow up on my answers where useful. After roughly 10 to 15 questions, end the exam and give me feedback: my strengths, the gaps in my knowledge, and what I should review. Do not give away answers before I respond.';
+}
+function aaScoreLine(k){
+  var el=document.getElementById('dscore'),r=null;
+  try{r=(JSON.parse(localStorage.getItem('aa_scores'))||{})[k]}catch(e){}
+  var t=[];
+  if(r&&r.q){var ks=Object.keys(r.q),b=0,o=0;ks.forEach(function(n){b+=r.q[n].best;o+=r.q[n].of});if(ks.length)t.push('Quizzes taken: '+ks.length+(r.nq?' of '+r.nq:'')+' (best total '+b+' / '+o+')')}
+  if(r&&r.e)t.push('Final exam: last '+r.e.last+' / '+r.e.of+', best '+r.e.best+' / '+r.e.of);
+  if(!el)return;
+  el.hidden=!t.length;
+  el.textContent=t.length?'Your scores on this device — '+t.join(' · '):'';
+}
+function setPending(e, on, label){
+  if(!e)return;
+  e.hidden=false; e.style.visibility='';
+  if(on){
+    e.classList.add('off'); e.removeAttribute('href'); e.removeAttribute('target');
+    e.onclick=null; e.setAttribute('aria-disabled','true'); e.setAttribute('title','Pending');
+    e.innerHTML=label+'<small class="pending">pending</small>';
+  }else{
+    e.classList.remove('off'); e.removeAttribute('aria-disabled'); e.removeAttribute('title');
+  }
+}
+function iq(c){
+  var k=ASK(c),a=document.getElementById('diquiz'),b=document.getElementById('diexam');
+  var qa=!!(QI&&k&&QI.indexOf(k)>=0),qb=!!(EI&&k&&EI.indexOf(k)>=0);
+  if(a){
+    if(qa){setPending(a,false); a.textContent='Interactive Quizzes'; a.href=(BASE||'')+'/quiz.html?c='+k; a.target='_top';}
+    else setPending(a,true,'Interactive Quizzes');
+  }
+  if(b){
+    if(qb){setPending(b,false); b.textContent='Interactive Final Exam'; b.href=(BASE||'')+'/exam.html?c='+k; b.target='_top';}
+    else setPending(b,true,'Interactive Final Exam');
+  }
+  var tx=document.getElementById('dtripx'),hb=!!c[4]&&/\.pdf$/.test(c[4]);
+  if(tx){
+    if(hb){setPending(tx,false); tx.textContent='Tripos Exam';}
+    else setPending(tx,true,'Tripos Exam');
+  }
+  if(hb){
+    var dl=document.getElementById('tdl');
+    if(dl){dl.href=(BASE||'')+'/'+c[4]; dl.setAttribute('download',c[1]+' - Course Transcript.pdf');}
+    var tp=document.getElementById('tprompt');
+    if(tp) tp.textContent=tripPrompt(c);
+  }
+  var pan=document.getElementById('tpanel'); if(pan) pan.hidden=true;
+  var row=document.getElementById('iarow'); if(row) row.hidden=false;
+  aaScoreLine(k);
+}
+function norm(s){return String(s||'').toUpperCase().replace(/[^A-Z0-9]/g,'');}
+function vurl(id){return BASE+'/watch.html?vm='+id;}
+function wb(box,v){
+  box.replaceChildren();
+  var m=/vimeo:(\d+)/.exec(String(v||''));
+  if(m){
+    var a=el('a','btn watch'); a.target='_top'; a.href=vurl(m[1]);
+    a.onclick=function(){this.href=vurl(m[1])+'&b='+encodeURIComponent((location.pathname.replace(BASE,'')||'/').replace(/^\//,'')||SLUG(LC));};
+    a.innerHTML='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+ICO.vimeo+'</svg><span></span>';
+    a.lastChild.textContent='Watch lectures';
+    box.appendChild(a);
+  } else {
+    var g=el('span','btn watch off'); g.setAttribute('aria-disabled','true'); g.setAttribute('title','Pending');
+    g.innerHTML='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+ICO.video+'</svg><span></span><small class="pending">pending</small>';
+    g.querySelector('span').textContent='Watch lectures';
+    box.appendChild(g);
+  }
+}
+function sb(e,v,label){
+  e.hidden=false;
+  if(!v){e.removeAttribute('href'); e.removeAttribute('target'); e.onclick=null;
+    e.classList.add('off'); e.setAttribute('aria-disabled','true'); e.setAttribute('title','Pending');
+    e.innerHTML='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+(ICO.doc)+'</svg><span></span><small class="pending">pending</small>';
+    e.querySelector('span').textContent=label; return;}
+  e.classList.remove('off'); e.removeAttribute('aria-disabled'); e.removeAttribute('title');
+  var id=v;
+  e.href=BASE+'/view.html?f='+encodeURIComponent(id);
+  e.onclick=function(){this.href=BASE+'/view.html?f='+encodeURIComponent(id)+'&b='+encodeURIComponent((location.pathname.replace(BASE,'')||'/').replace(/^\//,''));};
+  e.target='_top';
+  e.innerHTML='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+ICO.pdf+'</svg><span></span>';
+  e.querySelector('span').textContent=label;
+}
+function groupOf(c){return c[8]||'Foundations';}
+function draw(){
+  var q=(document.getElementById('q').value||'').toLowerCase();
+  var rows=document.getElementById('rows'); rows.replaceChildren();
+  var list=D.filter(function(c){
+    if(!q)return true;
+    return (c[1]+' '+c[2]).toLowerCase().indexOf(q)>=0;
+  });
+  var by={};
+  list.forEach(function(c){var g=groupOf(c); (by[g]=by[g]||[]).push(c);});
+  Object.keys(by).forEach(function(g){
+    var h=el('div','sem',g); rows.appendChild(h);
+    var ul=el('ul');
+    by[g].forEach(function(c){
+      var li=el('li');
+      var a=el('a','row'); a.href=BASE+'/'+SLUG(c);
+      a.onclick=function(e){if(e.metaKey||e.ctrlKey||e.shiftKey)return; e.preventDefault(); history.pushState(null,'',BASE+'/'+SLUG(c)); route(); window.scrollTo(0,0);};
+      var b=el('b',null,c[1]+' — '+c[2]);
+      a.appendChild(b);
+      li.appendChild(a); ul.appendChild(li);
+    });
+    rows.appendChild(ul);
+  });
+  document.getElementById('count').textContent=list.length? (list.length===1? '1 course':' '+list.length+' courses').replace(/^ /,'') : 'No courses match';
+  if(list.length) document.getElementById('count').textContent = list.length+' course'+(list.length===1?'':'s');
+}
+function sendSetup(c){
+  var b=document.getElementById('dsend'), m=document.getElementById('dsendm');
+  m.hidden=true; b.hidden=false;
+  var url=SITE+'/'+SLUG(c)+'/';
+  var t=c[1]+': '+c[2];
+  var body=t+'\n'+url+'\nAnderson Academy, Anderson Engineering.';
+  b.onclick=function(e){e.stopPropagation(); m.hidden=!m.hidden;};
+  m.replaceChildren();
+  function item(l,f,h){var x=el(h?'a':'button',null,l); if(h){x.href=h; x.target='_top';} x.onclick=function(e){e.stopPropagation(); if(f)f(x); else m.hidden=true;}; m.appendChild(x);}
+  item('Email',null,'mailto:?subject='+encodeURIComponent(t)+'&body='+encodeURIComponent(body));
+  item('Message',null,'sms:?&body='+encodeURIComponent(body));
+  item('Copy link',function(x){var done=function(){x.textContent='Copied!'; setTimeout(function(){x.textContent='Copy link'; m.hidden=true;},1200);}; if(navigator.clipboard)navigator.clipboard.writeText(url).then(done,function(){prompt('Copy this link:',url);}); else prompt('Copy this link:',url);});
+  if(navigator.share) item('More...',function(){m.hidden=true; navigator.share({title:t, text:t, url:url}).catch(function(){});});
+}
+document.addEventListener('click',function(){var m=document.getElementById('dsendm'); if(m)m.hidden=true;});
+var LC=null,QI=null,EI=null,RI=null;
+try{fetch((BASE||'')+'/quizzes/index.json?'+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(j){QI=j;if(LC)iq(LC)}).catch(function(){})}catch(e){}
+try{fetch((BASE||'')+'/exams/index.json?'+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(j){EI=j;if(LC)iq(LC)}).catch(function(){})}catch(e){}
+try{fetch((BASE||'')+'/refs/index.json?'+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(j){RI=j;if(LC)rf(LC)}).catch(function(){})}catch(e){}
+document.addEventListener('click',function(e){
+  var t=e.target.closest&&e.target.closest('#dtripx,#tcopy');
+  if(!t)return;
+  if(t.id==='dtripx'){
+    var p=document.getElementById('tpanel');
+    p.hidden=!p.hidden;
+    if(!p.hidden)p.scrollIntoView({behavior:'smooth',block:'nearest'});
+    return;
+  }
+  var txt=document.getElementById('tprompt').textContent;
+  function ok(){t.textContent='Copied';setTimeout(function(){t.textContent='Copy the prompt'},2000)}
+  try{navigator.clipboard.writeText(txt).then(ok,function(){})}catch(err){}
+});
+
+function ex(c){var e=EX[c[1]]||{},x=document.getElementById('dextra'),p=document.getElementById('dpod'),a=p.querySelector('audio'),f=document.getElementById('dinfo');
+x.replaceChildren();var db=document.getElementById('dbook');db.hidden=!e.book;if(e.book){db.textContent='Referral link: ';var dl=document.createElement('a');dl.href=e.book;dl.target='_blank';dl.rel='noopener';dl.textContent=e.book;db.appendChild(dl)}p.hidden=true;a.pause();a.removeAttribute('src');
+if(e.preview){var b=document.createElement('a');b.className='xb';b.target='_top';b.href=(BASE||'')+'/watch.html?vm='+e.preview;b.onclick=function(){this.href=(BASE||'')+'/watch.html?vm='+e.preview+'&b='+encodeURIComponent((location.pathname.replace(BASE,'')||'/').replace(/^\//,'')||CURH||SLUG(c))};b.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.preview+'</svg></span>Preview';x.appendChild(b)}
+else{var b=document.createElement('span');b.className='xb off';b.setAttribute('aria-disabled','true');b.setAttribute('title','Pending');b.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.preview+'</svg></span>Preview<small class="pending">pending</small>';x.appendChild(b)}
+if(e.podcast){var q=document.createElement('button');q.className='xb';q.type='button';q.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.podcast+'</svg></span>Podcast';q.onclick=function(){if(p.hidden){if(!a.getAttribute('src'))a.src=(BASE||'')+'/'+e.podcast;p.hidden=false;q.classList.add('on');a.play().catch(function(){})}else{a.pause();p.hidden=true;q.classList.remove('on')}};x.appendChild(q)}
+else{var q=document.createElement('span');q.className='xb off';q.setAttribute('aria-disabled','true');q.setAttribute('title','Pending');q.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.podcast+'</svg></span>Podcast<small class="pending">pending</small>';x.appendChild(q)}
+if(e.slides){var sb=document.createElement('a');sb.className='xb';sb.target='_top';var su=[];for(var li=0;li<e.slides;li++)su.push('docs/'+c[1].replace(/ /g,'-')+'-L'+li+'-slides.pdf');su=su.join('|');sb.href=(BASE||'')+'/view.html?f='+encodeURIComponent(su);sb.onclick=function(){this.href=(BASE||'')+'/view.html?f='+encodeURIComponent(su)+'&b='+encodeURIComponent((location.pathname.replace(BASE,'')||'/').replace(/^\//,'')||CURH||SLUG(c))};sb.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.slides+'</svg></span>Slides';x.appendChild(sb)}
+else{var sb=document.createElement('span');sb.className='xb off';sb.setAttribute('aria-disabled','true');sb.setAttribute('title','Pending');sb.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.slides+'</svg></span>Slides<small class="pending">pending</small>';x.appendChild(sb)}
+if(e.lv){var dv=document.createElement('details');var sm=document.createElement('summary');var ks=Object.keys(e.lv).map(Number).sort(function(a,b){return a-b});sm.textContent='Lecture videos ('+ks.length+(e.nl?' of '+e.nl:'')+')';dv.appendChild(sm);ks.forEach(function(n){var la=document.createElement('a');la.target='_top';la.href=vurl(e.lv[n]);la.textContent='Lecture '+n;la.style.cssText='display:inline-block;margin:4px 10px 4px 0';dv.appendChild(la)});dv.style.cssText='width:100%;margin:6px 0';x.appendChild(dv)}
+if(e.book){var k=document.createElement('a');k.className='xb';k.target='_blank';k.rel='noopener';k.href=e.book;k.title='Referral link: buying through it supports Anderson Engineering';k.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.book+'</svg></span>Get the Book<small style="font-weight:400;color:var(--muted);font-size:11px;margin-top:-4px">referral link</small>';x.appendChild(k)}
+var rb=document.getElementById('drefs');if(!rb){rb=document.createElement('a');rb.id='drefs';rb.className='xb';rb.target='_top';rb.href='#';rb.hidden=true;rb.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.refs+'</svg></span>References'}x.appendChild(rb);
+f.hidden=true;
+if(e.info){var g=document.createElement('button');g.className='xb';g.type='button';g.innerHTML='<span class="c"><svg viewBox="0 0 24 24" aria-hidden="true">'+XI.info+'</svg></span>Infographic';g.onclick=function(){var i=f.querySelector('img');if(f.hidden){if(!i.getAttribute('src')){i.src=e.info;f.querySelector('a').href=e.info}f.hidden=false;g.classList.add('on')}else{f.hidden=true;g.classList.remove('on')}};x.appendChild(g)}
+rf(c);}
+function xh(){var x=document.getElementById('dextra');x.hidden=![].some.call(x.children,function(n){return !n.hidden})}
+function rf(c){var k=SLUG(c),b=document.getElementById('drefs'),ok=!!(RI&&k&&RI.indexOf(k)>=0);if(!b)return;b.hidden=!ok;if(ok)b.href=(BASE||'')+'/refs.html?c='+k;xh()}
+function route(){
+  var path=location.pathname;
+  if(BASE && path.indexOf(BASE)===0) path=path.slice(BASE.length)||'/';
+  var slug=path.replace(/^\//,'').replace(/\/$/,'');
+  var c=null;
+  if(slug){
+    c=D.filter(function(x){return SLUG(x)===slug.toLowerCase() || norm(SLUG(x))===norm(slug);})[0];
+  }
+  document.getElementById('list').hidden=!!c;
+  document.getElementById('detail').hidden=!c;
+  if(!c){ document.title='Anderson Engineering'; var canon=document.getElementById('canon'); if(canon) canon.href=SITE+'/'; window.scrollTo(0,0); return; }
+  LC=c;
+  document.title=c[1]+' — '+c[2]+' · Anderson Engineering';
+  var canon=document.getElementById('canon'); if(canon) canon.href=SITE+'/'+SLUG(c)+'/';
+  document.getElementById('dcode').textContent=c[1];
+  document.getElementById('dtitle').textContent=c[2];
+  wb(document.getElementById('dwatch'), c[3]);
+  sb(document.getElementById('dread'), c[4], 'Read the Course Book');
+  sb(document.getElementById('dquiz'), c[5], 'Quizzes');
+  sb(document.getElementById('dexam'), c[6], 'Final Exam');
+  sb(document.getElementById('dtrip'), c[7], 'Tripos Paper');
+  var note=document.getElementById('dnote');
+  if(note) note.hidden=true;
+  sendSetup(c);
+  iq(c);
+  ex(c);
+  window.scrollTo(0,0);
+}
+var D=[];
+function boot(data){
+  D=data;
+  document.getElementById('q').oninput=draw;
+  document.getElementById('back').onclick=function(){history.pushState(null,'',BASE+'/' || BASE || '/'); route();};
+  window.onpopstate=route;
+  draw(); route();
+}
+fetch((BASE||'')+'/courses.json?'+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(boot);
+</script>
+</body></html>

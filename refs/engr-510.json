@@ -1,0 +1,108 @@
+{
+  "code": "ENGR 510 B",
+  "title": "Finite Element Analysis for Practicing Engineers",
+  "items": [
+    {
+      "type": "open",
+      "title": "MIT OpenCourseWare, 2.092/2.093 Finite Element Analysis of Solids and Fluids I, Fall 2009, Prof. Klaus-Jürgen Bathe",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/",
+      "note": "Creative Commons Attribution-NonCommercial-ShareAlike. Lecture notes by Seounghyun Ham. Cited in the text as Bathe 2009."
+    },
+    {
+      "type": "open",
+      "title": "MIT OpenCourseWare, 2.092/2.093 lecture notes (virtual work, the finite element formulation, the solution process, Gauss elimination, dynamics, eigenvalue problems)",
+      "url": "https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/pages/lecture-notes/"
+    },
+    {
+      "type": "open",
+      "title": "MIT OpenCourseWare, RES.2-002 Finite Element Procedures for Solids and Structures, Spring 2010, Prof. Klaus-Jürgen Bathe (video lectures)",
+      "url": "https://ocw.mit.edu/courses/res-2-002-finite-element-procedures-for-solids-and-structures-spring-2010/",
+      "note": "Creative Commons Attribution-NonCommercial-ShareAlike."
+    },
+    {
+      "type": "open",
+      "title": "MIT OpenCourseWare, 2.094 Finite Element Analysis of Solids and Fluids II, Spring 2011, Prof. Klaus-Jürgen Bathe",
+      "url": "https://ocw.mit.edu/courses/2-094-finite-element-analysis-of-solids-and-fluids-ii-spring-2011/",
+      "note": "Nonlinear analysis; the next step after this course."
+    },
+    {
+      "type": "open",
+      "title": "NASA-STD-7009, Standard for Models and Simulations, NASA Office of the Chief Engineer",
+      "url": "https://standards.nasa.gov/standard/NASA/NASA-STD-7009",
+      "note": "Model credibility, verification, validation, and uncertainty (Lecture 6)."
+    },
+    {
+      "type": "open",
+      "title": "ASME V&V 10, Standard for Verification and Validation in Computational Solid Mechanics, American Society of Mechanical Engineers",
+      "url": "https://www.asme.org/codes-standards/find-codes-standards/v-v-10-standard-verification-validation-computational-solid-mechanics",
+      "note": "Referred to in Lecture 6; not quoted."
+    },
+    {
+      "type": "book",
+      "title": "Finite Element Procedures, 2nd edition (2014)",
+      "author": "Klaus-Jürgen Bathe",
+      "url": "https://www.amazon.com/s?k=Bathe+Finite+Element+Procedures&tag=andersonaca0d-20",
+      "note": "Cited in the text as Bathe 2014; the textbook behind MIT 2.092/2.093."
+    },
+    {
+      "type": "book",
+      "title": "Concepts and Applications of Finite Element Analysis, 4th edition",
+      "author": "Robert D. Cook, David S. Malkus, Michael E. Plesha and Robert J. Witt",
+      "url": "https://www.amazon.com/s?k=Cook+Malkus+Plesha+Witt+Concepts+and+Applications+of+Finite+Element+Analysis&tag=andersonaca0d-20"
+    },
+    {
+      "type": "book",
+      "title": "The Finite Element Method: Linear Static and Dynamic Finite Element Analysis",
+      "author": "Thomas J. R. Hughes",
+      "url": "https://www.amazon.com/s?k=Hughes+The+Finite+Element+Method+Linear+Static+and+Dynamic+Finite+Element+Analysis&tag=andersonaca0d-20"
+    },
+    {
+      "type": "book",
+      "title": "The Finite Element Method: Its Basis and Fundamentals",
+      "author": "O. C. Zienkiewicz, R. L. Taylor and J. Z. Zhu",
+      "url": "https://www.amazon.com/s?k=Zienkiewicz+Taylor+Zhu+The+Finite+Element+Method+Its+Basis+and+Fundamentals&tag=andersonaca0d-20"
+    },
+    {
+      "type": "book",
+      "title": "A First Course in the Finite Element Method",
+      "author": "Daryl L. Logan",
+      "url": "https://www.amazon.com/s?k=Logan+A+First+Course+in+the+Finite+Element+Method&tag=andersonaca0d-20"
+    },
+    {
+      "type": "book",
+      "title": "Building Better Products with Finite Element Analysis",
+      "author": "Vince Adams and Abraham Askenazi",
+      "url": "https://www.amazon.com/s?k=Adams+Askenazi+Building+Better+Products+with+Finite+Element+Analysis&tag=andersonaca0d-20"
+    },
+    {
+      "type": "book",
+      "title": "Verification and Validation in Scientific Computing",
+      "author": "William L. Oberkampf and Christopher J. Roy",
+      "url": "https://www.amazon.com/s?k=Oberkampf+Roy+Verification+and+Validation+in+Scientific+Computing&tag=andersonaca0d-20"
+    },
+    {
+      "type": "book",
+      "title": "Verification and Validation in Computational Science and Engineering",
+      "author": "Patrick J. Roache",
+      "url": "https://www.amazon.com/s?k=Roache+Verification+and+Validation+in+Computational+Science+and+Engineering&tag=andersonaca0d-20"
+    },
+    {
+      "type": "course",
+      "title": "ENGR 501 B — Calculus One",
+      "url": "https://andersonengineering.app/engr-501/",
+      "note": "Background: derivatives and integrals."
+    },
+    {
+      "type": "course",
+      "title": "ENGR 503 B — Physics One",
+      "url": "https://andersonengineering.app/engr-503/",
+      "note": "Background: forces, equilibrium, and energy."
+    },
+    {
+      "type": "course",
+      "title": "ENGR 508 B — Linear Algebra",
+      "url": "https://andersonengineering.app/engr-508/",
+      "note": "Background: matrices and solving K u = f."
+    }
+  ]
+}

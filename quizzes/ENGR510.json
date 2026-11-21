@@ -1,0 +1,371 @@
+{
+  "title": "ENGR 510 B - Finite Element Analysis for Practicing Engineers",
+  "quizzes": [
+    {
+      "n": 1,
+      "title": "Why Finite Elements, and the Direct Stiffness Method",
+      "questions": [
+        {
+          "q": "What is the axial stiffness of a bar of length L, area A, and Young's modulus E? [1.5]",
+          "options": [
+            "EA/L",
+            "EL/A",
+            "E/(AL)",
+            "AL/E"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 1.5: A steel bar with E = 200 GPa, A = 100 mm², L = 1 m has stiffness 20 kN/mm.\nB is wrong: Stiffness grows with area, not length.\nC is wrong: Area increases stiffness.\nD is wrong: That has the wrong units for stiffness."
+        },
+        {
+          "q": "When two springs share a node, what happens to their stiffness terms in the global matrix? [1.6]",
+          "options": [
+            "They multiply",
+            "They add on that node's diagonal entry, giving k1 + k2",
+            "The larger one replaces the smaller",
+            "They cancel to zero"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 1.6: Each element adds its matrix at the positions of its own nodes; this is assembly.\nA is wrong: Assembly adds element contributions.\nC is wrong: Both contribute.\nD is wrong: Only off-diagonal terms are negative."
+        },
+        {
+          "q": "Why is the stiffness matrix of an unsupported structure singular? [1.8]",
+          "options": [
+            "Because the elements are too small",
+            "Because the loads are too large",
+            "Because the material is linear",
+            "Because rigid-body motions produce no force, so the displacements are not determined"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 1.8: A body in a plane has three rigid-body motions; in space it has six.\nA is wrong: Element size does not cause singularity.\nB is wrong: Load size does not matter.\nC is wrong: Linear materials give perfectly solvable systems once supported."
+        },
+        {
+          "q": "Two springs k1 and k2 in series are fixed at node one with force F at node three. What is the displacement of node three? [1.9]",
+          "options": [
+            "F/k1 + F/k2",
+            "F/(k1 + k2)",
+            "F(k1 + k2)",
+            "F/k2 only"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 1.9: Springs in series add their flexibilities.\nB is wrong: That is for springs in parallel.\nC is wrong: Displacement is force divided by stiffness.\nD is wrong: Spring k1 also stretches."
+        },
+        {
+          "q": "Which check should be made on every model after solution? [1.10]",
+          "options": [
+            "The stiffness matrix has no zero entries",
+            "The sum of the reactions balances the sum of the applied loads",
+            "The maximum stress is below one megapascal",
+            "The number of elements is even"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 1.10: If they do not balance, something is wrong with the loads or supports.\nA is wrong: Most entries are zero in a sparse matrix.\nC is wrong: That is not a general check.\nD is wrong: Element count is irrelevant."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "From Physics to Elements: Virtual Work and Element Formulation",
+      "questions": [
+        {
+          "q": "What is the weak form of the bar equation obtained by? [2.3]",
+          "options": [
+            "Differentiating the equation twice",
+            "Setting the load to zero",
+            "Multiplying by a test function, integrating over the length, and integrating by parts",
+            "Replacing E by a constant of one"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 2.3: The result must hold for every admissible test function.\nA is wrong: It lowers, not raises, the derivatives.\nB is wrong: The load remains.\nD is wrong: Material properties remain."
+        },
+        {
+          "q": "What does the principle of virtual work state? [2.4]",
+          "options": [
+            "Real work always equals zero",
+            "Stress equals strain",
+            "Energy is created by the loads",
+            "For any admissible virtual displacement, internal virtual work equals external virtual work"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 2.4: Professor Bathe's course builds the finite element method on this principle.\nA is wrong: It concerns virtual displacements.\nB is wrong: That is not a work statement.\nC is wrong: It is a balance of virtual work."
+        },
+        {
+          "q": "What is the general formula for an element stiffness matrix? [2.7]",
+          "options": [
+            "The integral over the element of Bᵀ D B",
+            "The integral of Nᵀ q",
+            "E times A",
+            "The sum of the nodal forces"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 2.7: B relates nodal displacements to strains; D relates strains to stresses.\nB is wrong: That is the element load vector.\nC is wrong: That is only part of a bar's stiffness.\nD is wrong: Stiffness relates forces to displacements."
+        },
+        {
+          "q": "What are the consistent nodal loads for a two-node bar under a uniform load q over length L? [2.8]",
+          "options": [
+            "qL at each node",
+            "qL at one node only",
+            "q/L at each node",
+            "qL/2 at each node"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 2.8: They come from integrating the shape functions times the load.\nA is wrong: That doubles the total.\nB is wrong: The load is shared.\nC is wrong: The units are wrong."
+        },
+        {
+          "q": "What tip deflection does one Euler-Bernoulli beam element give for a cantilever with tip load P? [2.10]",
+          "options": [
+            "PL²/2EI",
+            "PL³/3EI, the exact textbook result",
+            "PL/EA",
+            "PL³/48EI"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 2.10: A useful first test of any beam model.\nA is wrong: That is the tip slope.\nC is wrong: That is axial stretch.\nD is wrong: That is a simply supported beam with a central load."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Shape Functions, Isoparametric Elements, and Numerical Integration",
+      "questions": [
+        {
+          "q": "What value does a node's shape function take at that node and at the other nodes? [3.2]",
+          "options": [
+            "One at its own node and zero at every other node",
+            "Zero at its own node and one elsewhere",
+            "One half everywhere",
+            "Equal to the nodal displacement"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 3.2: Displacement is then the sum of nodal values times shape functions.\nB is wrong: That is reversed.\nC is wrong: Shape functions vary.\nD is wrong: It multiplies the nodal displacement."
+        },
+        {
+          "q": "Why must shape functions sum to one everywhere? [3.4]",
+          "options": [
+            "So that the stiffness matrix is diagonal",
+            "So that Gauss quadrature is exact",
+            "So that a rigid-body motion produces no strain",
+            "So that loads are halved"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.4: This is one of the three convergence requirements.\nA is wrong: It is not diagonal.\nB is wrong: That is a separate matter.\nD is wrong: Unrelated to loads."
+        },
+        {
+          "q": "What does a negative Jacobian determinant in an element indicate? [3.7]",
+          "options": [
+            "The element is perfectly shaped",
+            "The material is incompressible",
+            "The mapping from the parent element folds over, so the element is invalid",
+            "The load is negative"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.7: It often comes from a node dragged across its neighbours.\nA is wrong: A perfect element has a positive Jacobian.\nB is wrong: That causes volumetric locking.\nD is wrong: Loads do not affect the Jacobian."
+        },
+        {
+          "q": "With n Gauss points along a line, polynomials up to what degree are integrated exactly? [3.9]",
+          "options": [
+            "n",
+            "n − 1",
+            "2n − 1",
+            "2n + 1"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 3.9: A four-node quadrilateral normally uses two by two points.\nA is wrong: Gauss quadrature does better than that.\nB is wrong: Too low.\nD is wrong: One degree too high."
+        },
+        {
+          "q": "What problem does reduced integration introduce? [3.14]",
+          "options": [
+            "Shear locking",
+            "A negative Jacobian",
+            "Singular stresses at corners",
+            "Hourglass modes that produce no strain at the integration point"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 3.14: Codes add hourglass control, whose energy should be small.\nA is wrong: Reduced integration is a remedy for locking.\nB is wrong: That comes from distortion.\nC is wrong: Those come from the geometry."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Meshing and Convergence",
+      "questions": [
+        {
+          "q": "What does mesh refinement reduce? [4.2]",
+          "options": [
+            "Modelling error",
+            "Discretisation error, but not modelling error",
+            "Both errors equally",
+            "Neither"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 4.2: Wrong loads, supports, or materials are untouched by refinement.\nA is wrong: Refinement cannot fix the model's equations.\nC is wrong: Only discretisation error.\nD is wrong: It reduces discretisation error."
+        },
+        {
+          "q": "For elements of polynomial order p, how do stresses typically converge? [4.4]",
+          "options": [
+            "Faster than displacements",
+            "Not at all for any problem",
+            "Exactly with one element",
+            "In proportion to h to the power p, one order slower than displacements"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 4.4: Stresses come from derivatives of displacement.\nA is wrong: They are slower.\nB is wrong: Well-behaved problems converge.\nC is wrong: Rarely so."
+        },
+        {
+          "q": "How do compatible displacement-based models behave? [4.6]",
+          "options": [
+            "They are too flexible",
+            "They are exact on any mesh",
+            "They always overestimate deflection",
+            "They are too stiff, so strain energy converges from below and deflections tend to be underestimated"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 4.6: A deflection larger than a careful hand calculation is a warning sign.\nA is wrong: The opposite is true.\nB is wrong: Not in general.\nC is wrong: They tend to underestimate it."
+        },
+        {
+          "q": "What is the minimum number of meshes recommended for a convergence study? [4.7]",
+          "options": [
+            "Three",
+            "One",
+            "Two",
+            "Ten"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 4.7: Refined by a roughly constant factor, often two.\nB is wrong: One mesh shows nothing about convergence.\nC is wrong: Three are needed to see the trend and support extrapolation.\nD is wrong: Three is the minimum, not ten."
+        },
+        {
+          "q": "What happens to the peak stress at a sharp re-entrant corner as the mesh is refined? [4.10]",
+          "options": [
+            "It converges to three times the remote stress",
+            "It keeps rising, because linear elasticity predicts an infinite stress there",
+            "It falls to zero",
+            "It converges after two refinements"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 4.10: Such singularities are artefacts of the idealisation.\nA is wrong: That is a circular hole.\nC is wrong: It rises.\nD is wrong: It never converges."
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Boundary Conditions, Loads, and Idealisation",
+      "questions": [
+        {
+          "q": "Why can a fully fixed support give misleading results? [5.3]",
+          "options": [
+            "It allows rigid-body motion",
+            "It removes the loads",
+            "It is infinitely stiff, unlike any real support",
+            "It makes the mesh coarser"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.3: It stiffens the model and creates artificial edge stresses.\nA is wrong: That is underconstraint.\nB is wrong: Loads are unaffected.\nD is wrong: The mesh is unaffected."
+        },
+        {
+          "q": "A beam fixed at both ends is heated. Why might the model show large stresses? [5.4]",
+          "options": [
+            "Heat makes steel brittle",
+            "The supports prevent thermal expansion, an overconstraint",
+            "The mesh is too fine",
+            "Temperature has no effect"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 5.4: Real structures often have sliding supports.\nA is wrong: Not the reason given.\nC is wrong: Mesh size is not the cause.\nD is wrong: It causes expansion."
+        },
+        {
+          "q": "Why should a force not be applied at a single node of a solid mesh? [5.6]",
+          "options": [
+            "Nodes cannot carry forces",
+            "It makes the stiffness singular",
+            "It doubles the force",
+            "It is a point load that produces a singular stress growing with refinement"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 5.6: Apply real forces as pressures over the true contact area.\nA is wrong: They can.\nB is wrong: Supports, not loads, control that.\nC is wrong: The force is unchanged."
+        },
+        {
+          "q": "Why can a half model with symmetry conditions be wrong for buckling or vibration? [5.9]",
+          "options": [
+            "Symmetry doubles the mass",
+            "Buckling has no modes",
+            "It misses antisymmetric modes",
+            "Symmetry is never allowed"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.9: Use the full model, or run symmetric and antisymmetric conditions.\nA is wrong: It does not.\nB is wrong: Buckling has mode shapes.\nD is wrong: It is allowed for static problems with symmetric loads."
+        },
+        {
+          "q": "In the millimetre, newton, megapascal, tonne system, what is the density of steel? [5.10]",
+          "options": [
+            "7850",
+            "7.85",
+            "About 7.85 × 10⁻⁹ tonnes per cubic millimetre",
+            "7.85 × 10⁻⁶"
+          ],
+          "answer": 2,
+          "explain": "Paragraph 5.10: Mixing kilograms into this system gives masses a thousand times too large.\nA is wrong: That is kilograms per cubic metre.\nB is wrong: That is grams per cubic centimetre.\nD is wrong: That is kilograms per cubic millimetre."
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Verification, Validation, Pitfalls, and a Practical Workflow",
+      "questions": [
+        {
+          "q": "What is the difference between verification and validation? [6.2]",
+          "options": [
+            "Verification checks the equations are solved correctly; validation checks the right equations are solved",
+            "They are the same",
+            "Validation is done before meshing",
+            "Verification uses test data"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 6.2: Verification is about mathematics, validation about physics.\nB is wrong: They answer different questions.\nC is wrong: It compares predictions with tests.\nD is wrong: That is validation."
+        },
+        {
+          "q": "Whose job is solution verification, such as a mesh convergence study? [6.3]",
+          "options": [
+            "Always the analyst's",
+            "Only the software vendor's",
+            "The test laboratory's",
+            "Nobody's"
+          ],
+          "answer": 0,
+          "explain": "Paragraph 6.3: Code verification is mainly the developer's.\nB is wrong: The vendor verifies the code.\nC is wrong: That is validation.\nD is wrong: It is required."
+        },
+        {
+          "q": "What does NASA-STD-7009 ask analysts to document? [6.7]",
+          "options": [
+            "Only the mesh size",
+            "The credibility of a simulation, including verification, validation, input pedigree, and uncertainty",
+            "The software price",
+            "Only the colour scale"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 6.7: ASME V&V 10 covers verification and validation in computational solid mechanics.\nA is wrong: It covers far more.\nC is wrong: Not part of the standard.\nD is wrong: It is about credibility."
+        },
+        {
+          "q": "What is the first pitfall named in the course? [6.8]",
+          "options": [
+            "Using too many elements",
+            "Using hand calculations",
+            "Writing a report",
+            "Believing the colour plot, whose highlighted maximum may be a singularity"
+          ],
+          "answer": 3,
+          "explain": "Paragraph 6.8: Ask where the peak is, why, and whether it converges.\nA is wrong: Not named first.\nB is wrong: Hand calculations are recommended.\nC is wrong: Documentation is recommended."
+        },
+        {
+          "q": "For which material behaviour is von Mises stress the usual measure? [6.10]",
+          "options": [
+            "Brittle fracture of glass",
+            "Yielding of ductile metals",
+            "Fatigue in every case",
+            "Rubber incompressibility"
+          ],
+          "answer": 1,
+          "explain": "Paragraph 6.10: Brittle materials and fatigue usually call for principal stresses or stress ranges.\nA is wrong: Principal stresses suit brittle materials.\nC is wrong: Fatigue uses stress ranges with a design code.\nD is wrong: Not the measure discussed."
+        }
+      ]
+    }
+  ]
+}
